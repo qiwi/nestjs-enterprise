@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "target/es5"
+  },
+  "references": [
+    { "path": "../common/tsconfig.es5.json" },
+    { "path": "../plugin/tsconfig.es5.json" }
+  ],
+  "include": [
+    "src/main/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

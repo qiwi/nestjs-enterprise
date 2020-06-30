@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": "./packages",
+    "paths": {
+      "blank-ts-monorepo-common": ["./common/src/main/ts"],
+      "blank-ts-monorepo-facade": ["./facade/src/main/ts"],
+      "blank-ts-monorepo-plugin": ["./plugin/src/main/ts"]
+    }
+  }
+}

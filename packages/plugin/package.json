@@ -1,0 +1,76 @@
+{
+  "name": "blank-ts-monorepo-plugin",
+  "version": "0.0.0",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Plugin",
+  "keywords": [],
+  "main": "target/es5/index.js",
+  "source": "target/ts/index.ts",
+  "types": "target/es5/index.d.ts",
+  "typescript": {
+    "definition": "target/es5/index.d.ts"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "target",
+    "typings",
+    "flow-typed"
+  ],
+  "scripts": {
+    "test": "yarn lint && yarn test:spec",
+    "jest": "jest -w=1 --config=jest.config.json",
+    "lint": "tslint -p tsconfig.test.json src/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "clean": "rimraf target typings flow-typed buildcache",
+    "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
+    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
+    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
+    "build:ts": "cp -r src/main/ts/ target/ts/",
+    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix blank-ts-monorepo-plugin/target/es5 --name blank-ts-monorepo-plugin --main blank-ts-monorepo-plugin/target/es5/index && libdeffix --dts=./typings/index.d.ts --prefix=blank-ts-monorepo-plugin/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.es5.json src/main --ignoreCompilerErrors || exit 0",
+    "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
+    "postupdate": "yarn && yarn build && yarn test"
+  },
+  "dependencies": {
+    "@qiwi/substrate": "^1.18.33",
+    "tslib": "^2.0.0",
+    "blank-ts-monorepo-common": "*"
+  },
+  "devDependencies": {
+    "@qiwi/libdefkit": "^1.0.2",
+    "@qiwi/semantic-release-gh-pages-plugin": "^3.0.0",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@types/jest": "^26.0.3",
+    "eslint-plugin-typescript": "^0.14.0",
+    "jest": "^26.1.0",
+    "terser": "^4.8.0",
+    "ts-jest": "^26.1.1",
+    "tslint": "^6.1.2",
+    "tslint-config-qiwi": "^1.5.0",
+    "typedoc": "^0.17.8",
+    "typedoc-plugin-external-module-name": "^4.0.3",
+    "typescript": "^3.9.5",
+    "typescript-eslint-parser": "^22.0.0",
+    "rimraf": "^3.0.2",
+    "@swissquote/crafty-preset-jest": "^1.11.1"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antongolub/blank-ts-monorepo.git"
+  },
+  "author": "Anton Golub <mailbox@antongolub.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antongolub/blank-ts-monorepo/issues"
+  },
+  "homepage": "https://github.com/antongolub/blank-ts-monorepo/#readme"
+}

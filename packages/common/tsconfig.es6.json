@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "es6",
+    "outDir": "target/es6"
+  },
+  "include": [
+    "src/main/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
