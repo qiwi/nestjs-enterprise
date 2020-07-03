@@ -3,7 +3,7 @@ Set of utility tools for nestjs
 
 ## Install
 ```shell script
-yarn add @qiwi/nestjs-enterprise-core-nestjs
+yarn add @qiwi/nestjs-enterprise-core
 ```
 ## API
 ### Decorator @Port
@@ -11,7 +11,7 @@ yarn add @qiwi/nestjs-enterprise-core-nestjs
 
 ```typescript
 import { Controller, Get} from '@nestjs/common'
-import { Port } from '@qiwi/nestjs-enterprise-core-nestjs'
+import { Port } from '@qiwi/nestjs-enterprise-core'
 
 @Controller()
 export class CardInfoController {
@@ -30,7 +30,7 @@ export class CardInfoController {
 ### Decorator @RequestSize
 ```typescript
 import { Controller, Post,} from '@nestjs/common'
-import { RequestSize } from '@qiwi/nestjs-enterprise-core-nestjs'
+import { RequestSize } from '@qiwi/nestjs-enterprise-core'
 
 // Class decorator
 @Controller()
