@@ -1,14 +1,12 @@
 # @qiwi/nestjs-enterprise-core
-Set of utility tools for nestjs
+Core assets.
 
 ## Install
 ```shell script
 yarn add @qiwi/nestjs-enterprise-core
 ```
-## API
-### Decorator @Port
-
-
+## Decorators
+### @Port
 ```typescript
 import { Controller, Get} from '@nestjs/common'
 import { Port } from '@qiwi/nestjs-enterprise-core'
@@ -25,9 +23,9 @@ export class CardInfoController {
 ```
 
 - When used as a method decorator or class decorator, works like [guard](https://docs.nestjs.com/guards), letting only the specified port.
-- When used as a parameter decorator, get port form request.  
+- When used as a parameter decorator, extracts port value from request.socket data.  
 
-### Decorator @RequestSize
+### @RequestSize
 ```typescript
 import { Controller, Post,} from '@nestjs/common'
 import { RequestSize } from '@qiwi/nestjs-enterprise-core'

@@ -1,6 +1,6 @@
 {
-  "name": "blank-ts-monorepo-common",
-  "mode": "file",
+  "name": "@qiwi/nestjs-enterprise-core",
+  "mode": "modules",
   "out": "./docs",
   "target": "ES6",
   "exclude": ["test", "node_modules", "paralleljs"],

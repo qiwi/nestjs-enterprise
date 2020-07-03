@@ -1,11 +1,11 @@
 {
-  "name": "blank-ts-monorepo-facade",
+  "name": "@qiwi/nestjs-enterprise",
+  "description": "Nestjs enterprise facade",
   "version": "0.0.0",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "description": "Facade",
   "keywords": [],
   "main": "target/es5/index.js",
   "source": "target/ts/index.ts",
@@ -38,8 +38,7 @@
   "dependencies": {
     "@qiwi/substrate": "^1.18.33",
     "tslib": "^2.0.0",
-    "blank-ts-monorepo-common": "*",
-    "blank-ts-monorepo-plugin": "*"
+    "@qiwi/nestjs-enterprise-common": "*"
   },
   "devDependencies": {
     "@qiwi/libdefkit": "^1.0.2",

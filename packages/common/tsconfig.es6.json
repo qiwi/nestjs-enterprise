@@ -4,6 +4,7 @@
     "target": "es6",
     "outDir": "target/es6"
   },
+  "references": [],
   "include": [
     "src/main/**/*"
   ],

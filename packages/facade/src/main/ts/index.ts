@@ -1,1 +1,1 @@
-export {foo} from 'blank-ts-monorepo-common'
+export const foo = 'bar'
