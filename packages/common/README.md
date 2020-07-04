@@ -1,15 +1,15 @@
-# @qiwi/nestjs-enterprise-core
-Core assets.
+# @qiwi/nestjs-enterprise-common
+Common assets
 
 ## Install
 ```shell script
-yarn add @qiwi/nestjs-enterprise-core
+yarn add @qiwi/nestjs-enterprise-common
 ```
 ## Decorators
 ### @Port
 ```typescript
 import { Controller, Get} from '@nestjs/common'
-import { Port } from '@qiwi/nestjs-enterprise-core'
+import { Port } from '@qiwi/nestjs-enterprise-common'
 
 @Controller()
 export class CardInfoController {
@@ -28,7 +28,7 @@ export class CardInfoController {
 ### @RequestSize
 ```typescript
 import { Controller, Post,} from '@nestjs/common'
-import { RequestSize } from '@qiwi/nestjs-enterprise-core'
+import { RequestSize } from '@qiwi/nestjs-enterprise-common'
 
 // Class decorator
 @Controller()
