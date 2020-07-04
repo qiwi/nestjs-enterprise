@@ -1,8 +1,7 @@
 {
-  "name": "blank-ts-monorepo",
+  "name": "@qiwi/nestjs-enterprise-monorepo",
   "version": "0.0.0",
-  "description": "Blank TS monorepo",
-  "main": "target/es5/index.ts",
+  "description": "QIWI Nestjs Enterprise",
   "workspaces": [
     "packages/*"
   ],
@@ -38,6 +37,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qiwi/masker.git"
+    "url": "git+https://github.com/qiwi/nestjs-enterprise.git"
   }
 }
