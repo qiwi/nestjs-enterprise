@@ -63,14 +63,14 @@
   },
   "peerDependencies": {},
   "optionalDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antongolub/blank-ts-monorepo.git"
-  },
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/antongolub/blank-ts-monorepo/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/nestjs-enterprise.git"
   },
-  "homepage": "https://github.com/antongolub/blank-ts-monorepo/#readme"
+  "bugs": {
+    "url": "https://github.com/qiwi/nestjs-enterprise/issues"
+  },
+  "homepage": "https://github.com/qiwi/nestjs-enterprise/#readme"
 }
