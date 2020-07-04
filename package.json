@@ -32,7 +32,7 @@
     "find-git-root": "^1.0.4",
     "jest": "^26.1.0",
     "lerna": "^3.22.1",
-    "@qiwi/multi-semantic-release": "^3.0.3",
+    "@qiwi/multi-semantic-release": "^3.0.4-beta",
     "snazzy": "^8.0.0"
   },
   "repository": {
