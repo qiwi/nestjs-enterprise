@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise",
-  "description": "Nestjs enterprise facade",
+  "description": "QIWI Nestjs enterprise facade",
   "version": "0.0.0",
   "private": false,
   "publishConfig": {
