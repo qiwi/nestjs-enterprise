@@ -19,20 +19,20 @@
     "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls || echo 'coveralls push failed :(' && exit 0",
     "docs": "typedoc packages/**/src/main --ignoreCompilerErrors || exit 0",
-    "postupdate": "yarn && yarn bootstrap && yarn build && yarn test",
+    "postupdate": "yarn && yarn bootstrap && npx yarn-audit-fix && yarn build && yarn test",
     "release": "multi-semantic-release",
     "lint": "lerna run lint",
     "format": "lerna run format"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.3",
-    "@types/node": "^14.0.14",
+    "@types/jest": "^26.0.4",
+    "@types/node": "^14.0.23",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.1.0",
     "find-git-root": "^1.0.4",
     "jest": "^26.1.0",
     "lerna": "^3.22.1",
-    "@qiwi/multi-semantic-release": "^3.0.4-beta",
+    "@qiwi/multi-semantic-release": "^3.1.0",
     "snazzy": "^8.0.0"
   },
   "repository": {
