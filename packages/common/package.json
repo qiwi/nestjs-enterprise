@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-common",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "QIWI Nestjs enterprise common assets",
   "private": false,
   "publishConfig": {
