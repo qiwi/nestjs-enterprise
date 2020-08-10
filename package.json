@@ -25,6 +25,7 @@
     "format": "lerna run format"
   },
   "devDependencies": {
+    "@qiwi/multi-semantic-release": "^3.1.0",
     "@types/jest": "^26.0.4",
     "@types/node": "^14.0.23",
     "codeclimate-test-reporter": "^0.5.1",
@@ -32,8 +33,10 @@
     "find-git-root": "^1.0.4",
     "jest": "^26.1.0",
     "lerna": "^3.22.1",
-    "@qiwi/multi-semantic-release": "^3.1.0",
-    "snazzy": "^8.0.0"
+    "snazzy": "^8.0.0",
+    "terser": "^5.0.0",
+    "typedoc": "^0.18.0",
+    "typescript": "^3.9.7"
   },
   "repository": {
     "type": "git",
