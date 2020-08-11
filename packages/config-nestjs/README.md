@@ -18,7 +18,7 @@ import { Module } from '@nestjs/common'
 
 export class AppModule {}
 ```
-Dynamic import
+Import as dynamic module
 ```typescript
 @Module({
   imports: [
