@@ -1,11 +1,11 @@
 # @qiwi/nestjs-enterprise-config
-Nestjs модуль для процессинга [uniconfig](https://github.com/qiwi/uniconfig) - based конфигов.
-## Установка
+Nestjs module for processing [uniconfig-based](https://github.com/qiwi/uniconfig) configs.
+## Installation
 ```shell script
 yarn add @qiwi/nestjs-enterprise-config
 ```
-## Конфигурация
-Импорт как статический модуль
+## Configuration
+Static import
 ```typescript
 import { Module } from '@nestjs/common'
 
@@ -18,7 +18,7 @@ import { Module } from '@nestjs/common'
 
 export class AppModule {}
 ```
-Импорт как динамический модуль
+Dynamic import
 ```typescript
 @Module({
   imports: [
@@ -31,7 +31,7 @@ export class AppModule {}
 
 export class AppModule {}
 ```
-## Использование
+## Usage
 ```typescript
 @Injectable()
 export class MyService {
@@ -44,7 +44,7 @@ export class MyService {
 ````
 ## API
 ### Class ConfigModule
-Экспортирует `ConfigService` по токену `IConfigService`
+Exports `ConfigService` with token `IConfigService`
 ##### static register (opts: { path: string }): DynamicModule
 
 ### Function resolveConfigPath
