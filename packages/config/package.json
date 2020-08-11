@@ -1,7 +1,7 @@
 {
   "name": "@qiwi/nestjs-enterprise-config",
   "version": "0.0.0",
-  "description": "JS-platform config module for nestjs",
+  "description": "Config module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
   },
