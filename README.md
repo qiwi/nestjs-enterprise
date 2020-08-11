@@ -5,6 +5,7 @@ Components to build Nestjs-based applications for enterprise
 
 ### Roadmap
 Make some parts of `qiwi-js-platform` public
+* [x] Config
 * [ ] Logger 
 * [ ] Consul
 * [ ] Healthcheck
