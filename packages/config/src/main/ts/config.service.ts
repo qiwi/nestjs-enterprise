@@ -1,4 +1,8 @@
-import { Config as Uniconfig, SYNC } from '@qiwi/uniconfig'
+import {
+  Config as Uniconfig,
+  IConfig as IConfigService,
+  SYNC
+} from '@qiwi/uniconfig'
 
 export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'
 export const DEFAULT_KUBE_CONFIG_PATH = '<root>/config/kube.json'
@@ -34,7 +38,9 @@ export function createOpts(path?: string) {
   }
 }
 
-export class ConfigService extends Uniconfig {
+export { IConfigService }
+
+export class ConfigService extends Uniconfig implements IConfigService {
   constructor(opts: string) {
     super(createOpts(opts))
   }

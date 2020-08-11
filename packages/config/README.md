@@ -35,7 +35,7 @@ export class AppModule {}
 ```typescript
 @Injectable()
 export class MyService {
-  constructor(@Inject('IConfigService') config: any) {}
+  constructor(@Inject('IConfigService') config: IConfigService) {}
 
   myMethod() {
     return this.config.get('name')
