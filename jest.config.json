@@ -3,6 +3,6 @@
   "projects": [
     "<rootDir>/packages/facade/jest.config.json",
     "<rootDir>/packages/common/jest.config.json",
-    "<rootDir>/packages/config-nestjs/jest.config.json"
+    "<rootDir>/packages/config/jest.config.json"
   ]
 }
