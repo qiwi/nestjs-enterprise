@@ -4,7 +4,8 @@
     "baseUrl": "./packages",
     "paths": {
       "@qiwi/nestjs-enterprise": ["./facade/src/main/ts"],
-      "@qiwi/nestjs-enterprise-common": ["./common/src/main/ts"]
+      "@qiwi/nestjs-enterprise-common": ["./common/src/main/ts"],
+      "@qiwi/nestjs-enterprise-mdc": ["./mdc/src/main/ts"]
     }
   }
 }
