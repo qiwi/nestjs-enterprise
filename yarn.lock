@@ -2277,10 +2277,64 @@
     stream-buffers "^3.0.2"
     tempy "^0.6.0"
 
-"@qiwi/mware-context@^1.10.0":
+"@qiwi/mware-context@*", "@qiwi/mware-context@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-context/-/mware-context-1.10.0.tgz#7fd4590c33c8aa35c3212daf91ae2692cb5b6458"
   integrity sha512-FVOOu1enKy38Fqs1ohOjYWYe18GtqJKfaMzC1y+s2mTl0eSQzfBjfpyDkKVcNds8kGrs+OiWsREwlhLuCKwmsQ==
+
+"@qiwi/mware-core@^1.8.1":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-core/-/mware-core-1.10.0.tgz#ce50b32f4f7839ffcd734b075512f70d7e5c2500"
+  integrity sha512-yEh4+A8gVzjv5AUUFnFfF7UX9E5vZqGsmknvocvnalGCfuTLnd6qVBUXgRVu5m/52wiwK0njcnZ2qb0rkV8ceA==
+
+"@qiwi/mware-cors@^1.8.1":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-cors/-/mware-cors-1.10.0.tgz#e5ac80c492aefafa6e160eeee966ed737baf6b94"
+  integrity sha512-At2h06aKPXq9uTnQAH5GRSyrk29hxjKACMw4pCfIsTeWCTtS36rSPnv/iHsvGgPoVzXeGZKJe3BpTAqy/Kk9CQ==
+  dependencies:
+    lodash "^4.17.15"
+
+"@qiwi/mware-crumbs@^1.8.1":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-crumbs/-/mware-crumbs-1.10.0.tgz#65f20bd1737ee9bad9561d60fe0eafb8b28c132a"
+  integrity sha512-oZtPyMwjkp/L2fKqB0dv8TT39lZ25E9bwtuJ8lOlyr6IXCCKKgwIIy1DyFsj014tY1bRB7w5YAuzVvJdfEV7GA==
+  dependencies:
+    ip "^1.1.5"
+
+"@qiwi/mware-logger@^1.8.1":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-logger/-/mware-logger-1.10.0.tgz#174ec181ab437af77e14e0078b5202d8f6f096cf"
+  integrity sha512-9OssbrZ+WMlVV3YAu3xRPQjFWq8DKhPBOdBQ7EvwD2WW+OLjAYrXzClvEterLikT7qfRPeU0N5JFEEisyyPhTg==
+  dependencies:
+    http-status-codes "^1.4.0"
+
+"@qiwi/mware-mdc@^1.9.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-mdc/-/mware-mdc-1.10.0.tgz#f9ec6f0d40a45bb6724dd768f041d1e937c5a2ad"
+  integrity sha512-EC0bGpKT66v7yptIif4Qf+/wDXzOCbYWSnPqTUOyzZAJ8w95Rlr7y8kXNm87ISyD9uVcteR6G6uN72y/vDwP/w==
+  dependencies:
+    "@qiwi/mware-context" "*"
+    cls-hooked "^4.2.2"
+
+"@qiwi/mware-validator@^1.8.1":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-validator/-/mware-validator-1.10.0.tgz#3dd17af97f70ad10ed43ad0948ce1349c8d29f66"
+  integrity sha512-B6caaYyjNOlGwvMNyk+z5TMJhK7HBrwnx5PbjvCzix/98xMQIUJHSaT7wb5q1p5MUXbxQLMaH/R36B6PU26hrA==
+  dependencies:
+    ajv "^6.12.0"
+    http-status-codes "^1.4.0"
+
+"@qiwi/mware@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware/-/mware-1.10.0.tgz#4b50aad07dbc623410b34250aafe64dd91730dd0"
+  integrity sha512-Z3vvu1yBso29UETAlMTNMvsZRMcF0hNaolv1sJmgU8ebDWSPMgamXwCA0N7Dw0FRL3GfHuekp5X32Qy8wO+4LQ==
+  dependencies:
+    "@qiwi/mware-core" "^1.8.1"
+    "@qiwi/mware-cors" "^1.8.1"
+    "@qiwi/mware-crumbs" "^1.8.1"
+    "@qiwi/mware-logger" "^1.8.1"
+    "@qiwi/mware-mdc" "^1.9.0"
+    "@qiwi/mware-validator" "^1.8.1"
 
 "@qiwi/semantic-release-gh-pages-plugin@^4.0.0":
   version "4.0.3"
@@ -3211,7 +3265,7 @@ aggregate-error@^3.0.0, aggregate-error@^3.0.1:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3:
+ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.0, ajv@^6.12.3:
   version "6.12.3"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.3.tgz#18c5af38a111ddeb4f2697bd78d68abc1cabd706"
   integrity sha512-4K0cK3L1hsqk9xIb2z9vs/XU+PGJZ9PNpJRDS9YLzmNdX6jmVPfamLvTJr0aDAusnHyCHO6MjzlkAsgtqp9teA==
@@ -5266,10 +5320,15 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
-duplexer@0.1.1, duplexer@^0.1.1:
+duplexer@0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
   integrity sha1-rOb/gIwc5mtX0ev5eXessCM0z8E=
+
+duplexer@^0.1.1:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.2.tgz#3abe43aef3835f8ae077d136ddce0f276b0400e6"
+  integrity sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg==
 
 duplexify@^3.4.2, duplexify@^3.6.0:
   version "3.7.1"
@@ -5305,9 +5364,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.523:
-  version "1.3.529"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.529.tgz#a7eed559bc848a7c8d95026be7d8929e3f9af169"
-  integrity sha512-n3sriLldqNyjBlosbnPftjCY+m1dVOY307I1Y0HaHAqDGe3hRvK7ksJwWd+qs599ybR4jobCo1+7zXM9GyNMSA==
+  version "1.3.530"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.530.tgz#9b1033f5221cece94eeb3ec98db27227177fd196"
+  integrity sha512-jnKBqvkXyxo6Tr245YyghzSMjmrA+uzQn+rwLjd3n+Y3sad0eWPzAXfa2lDwSikQu0I5reYacZjmQjCRH9VQdg==
 
 email-addresses@^3.0.1:
   version "3.1.0"
@@ -6735,9 +6794,9 @@ globrex@^0.1.1:
   integrity sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==
 
 google-libphonenumber@^3.2.8:
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.10.tgz#021a314652747d736a39e2e60dc670f0431425ad"
-  integrity sha512-TsckE9O8QgqaIeaOXPjcJa4/kX3BzFdO1oCbMfmUpRZckml4xJhjJVxaT9Mdt/VrZZkT9lX44eHAEWfJK1tHtw==
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.11.tgz#c5704513366b18f468a9505ea13e53f6fbcc9eec"
+  integrity sha512-LmndkcaQGxYC1j5XEugxCcYKs5Foxc2sILzAKVfTJjFxonnLlYZLptbqu4a2z036kw9OBSQFdnyQCcMacHBIXQ==
 
 got@^6.7.1:
   version "6.7.1"
@@ -7009,6 +7068,11 @@ http-signature@~1.2.0:
     assert-plus "^1.0.0"
     jsprim "^1.2.2"
     sshpk "^1.7.0"
+
+http-status-codes@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/http-status-codes/-/http-status-codes-1.4.0.tgz#6e4c15d16ff3a9e2df03b89f3a55e1aae05fb477"
+  integrity sha512-JrT3ua+WgH8zBD3HEJYbeEgnuQaAnUeRRko/YojPAJjGmIfGD3KPU/asLdsLwKjfxOmQe5nXMQ0pt/7MyapVbQ==
 
 https-proxy-agent@^2.2.3:
   version "2.2.4"

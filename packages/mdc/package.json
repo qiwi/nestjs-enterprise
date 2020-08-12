@@ -1,0 +1,90 @@
+{
+  "name": "@qiwi/nestjs-enterprise-mdc",
+  "version": "1.0.0",
+  "description": "MDC module for nestjs enterprise",
+  "publishConfig": {
+    "access": "public"
+  },
+  "private": false,
+  "main": "target/es5/index.js",
+  "source": "target/ts/index.ts",
+  "types": "target/es5/index.d.ts",
+  "typescript": {
+    "definition": "target/es5/index.d.ts"
+  },
+  "files": [
+    "README.md",
+    "CHANGELOG.md",
+    "target",
+    "typings",
+    "flow-typed"
+  ],
+  "scripts": {
+    "test": "yarn lint && yarn test:spec",
+    "test:gen": "yarn jest --updateSnapshot",
+    "test:spec": "yarn jest",
+    "jest": "jest -w=1 --config=jest.config.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "yarn lint --fix",
+    "clean": "rimraf target typings buildcache",
+    "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
+    "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
+    "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
+    "build:ts": "cp -r src/main/ts/ target/ts/",
+    "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
+    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/nestjs-enterprise-mdc/target/es5 --name @qiwi/nestjs-enterprise-mdc --main @qiwi/nestjs-enterprise-mdc/target/es5/index --moduleResolution node && libdeffix --dts=./typings/index.d.ts --prefix=@qiwi/nestjs-enterprise-mdc/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
+    "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
+    "postupdate": "yarn && yarn build && yarn test"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.4.2",
+    "@nestjs/core": "^7.4.2",
+    "@qiwi/mware": "^1.10.0",
+    "@qiwi/mware-context": "^1.10.0",
+    "@qiwi/substrate": "^1.18.37",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^7.4.2",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/github": "^7.0.7",
+    "@semantic-release/npm": "^7.0.5",
+    "@swissquote/crafty-preset-jest": "^1.12.0",
+    "@types/jest": "^26.0.9",
+    "@types/jest-json-schema": "^2.1.2",
+    "coveralls": "^3.1.0",
+    "eslint": "^7.6.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-qiwi": "^1.7.0",
+    "esm": "^3.2.25",
+    "@qiwi/libdefkit": "^1.0.2",
+    "jest": "^26.2.2",
+    "microbundle": "^0.12.3",
+    "prettier": "^2.0.5",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "semantic-release": "17.1.1",
+    "terser": "^5.0.0",
+    "ts-jest": "^26.1.4",
+    "typedoc": "^0.17.8",
+    "typedoc-plugin-external-module-name": "^4.0.3",
+    "typescript": "^3.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/nestjs-enterprise.git"
+  },
+  "keywords": [
+    "js platform",
+    "config"
+  ],
+  "bugs": {
+    "url": "https://github.com/qiwi/nestjs-enterprise/issues"
+  },
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
+  "peerDependencies": {},
+  "optionalDependencies": {}
+}

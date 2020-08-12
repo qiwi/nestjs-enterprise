@@ -11,6 +11,6 @@ Make some parts of `qiwi-js-platform` public
 * [ ] Healthcheck
 * [ ] Svc-info
 * [ ] Metrics
-* [ ] MDC
+* [x] MDC
 * [ ] Swagger
 * [ ] Thrift
