@@ -2,8 +2,8 @@
 Nestjs module for logging based on [winston](https://github.com/winstonjs/winston)
 ## Installation
 Following packages should be installed before
-- [@qiwi-private/js-platform-config-nestjs](https://github.qiwi.com/common/js-platform/tree/master/packages/config-nestjs)
-- [@qiwi-private/js-platform-mdc-nestjs](https://github.qiwi.com/common/js-platform/tree/master/packages/mdc-nestjs)
+- [@qiwi/nestjs-enterprise-config](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/config)
+- [@qiwi/nestjs-enterprise-mdc](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/mdc)
 ```shell script
 yarn add @qiwi/nestjs-enterprise-logger
 ```
