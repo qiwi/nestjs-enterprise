@@ -52,6 +52,7 @@ typings
 # Temp
 temp
 *.tmp
+build-info.json
 
 # Typescript
 *.tsbuildinfo
