@@ -5,6 +5,8 @@
     "paths": {
       "@qiwi/nestjs-enterprise": ["./facade/src/main/ts"],
       "@qiwi/nestjs-enterprise-common": ["./common/src/main/ts"],
+      "@qiwi/nestjs-enterprise-config": ["./config/src/main/ts"],
+      "@qiwi/nestjs-enterprise-logger": ["./logger/src/main/ts"],
       "@qiwi/nestjs-enterprise-mdc": ["./mdc/src/main/ts"]
     }
   }
