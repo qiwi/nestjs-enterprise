@@ -5,6 +5,7 @@
     "<rootDir>/packages/common/jest.config.json",
     "<rootDir>/packages/mdc/jest.config.json",
     "<rootDir>/packages/config/jest.config.json",
-    "<rootDir>/packages/logger/jest.config.json"
+    "<rootDir>/packages/logger/jest.config.json",
+    "<rootDir>/packages/svc-info/jest.config.json"
   ]
 }

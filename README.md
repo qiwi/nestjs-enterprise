@@ -9,7 +9,7 @@ Make some parts of `qiwi-js-platform` public
 * [x] Logger 
 * [ ] Consul
 * [ ] Healthcheck
-* [ ] Svc-info
+* [x] Svc-info
 * [ ] Metrics
 * [x] MDC
 * [ ] Swagger
