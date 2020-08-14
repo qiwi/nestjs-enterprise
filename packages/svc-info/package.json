@@ -39,7 +39,7 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "bin": {
-    "build-info": "./bin/cli.js"
+    "build-info": "target/es5/bin/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.4.2",

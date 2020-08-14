@@ -1,5 +1,5 @@
-const meow = require('meow') // eslint-disable-line @typescript-eslint/no-var-requires
-const { createBuildInfo } = require('.') // eslint-disable-line @typescript-eslint/no-var-requires
+import meow from 'meow'
+import { createBuildInfo } from './build-info'
 
 const cli = meow(`
     Options

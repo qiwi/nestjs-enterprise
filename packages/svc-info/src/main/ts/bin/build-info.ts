@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const fs = require('fs') // eslint-disable-line @typescript-eslint/no-var-requires
-const findGitRoot = require('find-git-root') // eslint-disable-line @typescript-eslint/no-var-requires
+import fs from 'fs'
+import findGitRoot from 'find-git-root'
 
 const gitFolder = findGitRoot(process.cwd())
 
@@ -30,8 +30,13 @@ const getGitInfo = () => {
   }
 }
 
-const createBuildInfo = (cliArgs, env = process.env) => {
-  const generateBuildInfo = cliArgs.ci || env.CI
+type TCliArguments = {
+  ci?: boolean
+  out?: string
+}
+
+export const createBuildInfo = (cliArgs: TCliArguments, env = process.env) => {
+  const generateBuildInfo = cliArgs.ci ?? (env.CI || env.TEAMCITY_VERSION)
   const outputFile = cliArgs.out || env.BUILD_INFO_FILE_PATH || `${process.cwd()}/build-info.json`
   try {
     if (generateBuildInfo) {
@@ -49,8 +54,4 @@ const createBuildInfo = (cliArgs, env = process.env) => {
   } catch (e) {
     console.log(e)
   }
-}
-
-module.exports = {
-  createBuildInfo
 }
