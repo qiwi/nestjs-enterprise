@@ -10,14 +10,12 @@ Set up `build-info.json` forwarding into container in your `Dockerfile`
 COPY build-info.json $APP_DIR/build-info.json
 ``` 
 
-Add path variables `BUILD_INFO` and `IMAGE_TAG` to `makefile` and forward them into the building image
+Add path variable `IMAGE_TAG` to `makefile` and forward it into the building image
 ```makefile
-BUILD_INFO=true
-
 VERSION=$(shell $(GET_APP_VERSION_EXEC))$(VERSION_SUFFIX)
 IMAGE_TAG=$(DOCKER_REGISTRY)/$(APP_NAME):$(VERSION)
 
-NODE_BUILD_TOOL=sudo docker run --rm -u $(shell id -u):$(shell id -g) -v $(HOME):/home -v $(PWD):/app -e "IMAGE_TAG=$(IMAGE_TAG)" -e "VERSION=$(VERSION)" -e "IMAGE_TAG_LATEST=$(IMAGE_TAG_LATEST)" -e "BUILD_INFO=$(BUILD_INFO)" <your building image name>
+NODE_BUILD_TOOL=sudo docker run --rm -u $(shell id -u):$(shell id -g) -v $(HOME):/home -v $(PWD):/app -e "IMAGE_TAG=$(IMAGE_TAG)" -e "VERSION=$(VERSION)" -e "IMAGE_TAG_LATEST=$(IMAGE_TAG_LATEST)" <your building image name>
 
 ```
 Add to `"scripts"` in `package.json`

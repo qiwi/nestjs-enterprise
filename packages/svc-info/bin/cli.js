@@ -1,9 +1,23 @@
-const { argv } = require('yargs')
-const { createBuildInfo } = require('./index')
+const meow = require('meow') // eslint-disable-line @typescript-eslint/no-var-requires
+const { createBuildInfo } = require('.') // eslint-disable-line @typescript-eslint/no-var-requires
+
+const cli = meow(`
+    Options
+      --ci, generates file with build info, if true
+      --out, path to generated file with build info
+`, {
+  flags: {
+    out: {
+      type: 'string',
+    },
+    ci: {
+      type: 'boolean'
+    }
+  }
+});
 
 const run = () => {
-  const { ci, out } = argv
-  createBuildInfo(ci, out)
+  createBuildInfo(cli.flags)
 }
 
 run()

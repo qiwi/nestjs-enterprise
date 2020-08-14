@@ -110,7 +110,7 @@ describe('SvcModule', () => {
     it('returns build-info', () => {
       // eslint-disable-next-line @typescript-eslint/no-var-requires
       const { createBuildInfo } = require('../../../bin')
-      createBuildInfo(true)
+      createBuildInfo({ ci: true })
 
       return request(app.getHttpServer())
         .get('/svc-info/build-info')

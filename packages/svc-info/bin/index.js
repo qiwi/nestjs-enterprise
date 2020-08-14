@@ -1,22 +1,24 @@
 #!/usr/bin/env node
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs')
+const fs = require('fs') // eslint-disable-line @typescript-eslint/no-var-requires
+const findGitRoot = require('find-git-root') // eslint-disable-line @typescript-eslint/no-var-requires
+
+const gitFolder = findGitRoot(process.cwd())
 
 const getGitInfo = () => {
   const rev = fs
-    .readFileSync(`${process.cwd()}/.git/HEAD`)
+    .readFileSync(`${gitFolder}/HEAD`)
     .toString()
     .trim()
 
   const commitId = !rev.includes(':')
     ? rev
     : fs
-      .readFileSync(`${process.cwd()}/.git/` + rev.substring(5))
+      .readFileSync(`${gitFolder}/` + rev.substring(5))
       .toString()
       .trim()
 
   const repoName = fs
-    .readFileSync(`${process.cwd()}/.git/config`)
+    .readFileSync(`${gitFolder}/config`)
     .toString()
     .split('\n')
     .filter((line) => /\turl =/.exec(line))
@@ -28,7 +30,9 @@ const getGitInfo = () => {
   }
 }
 
-const createBuildInfo = (generateBuildInfo, outputFile = `${process.cwd()}/build-info.json`) => {
+const createBuildInfo = (cliArgs, env = process.env) => {
+  const generateBuildInfo = cliArgs.ci || env.CI
+  const outputFile = cliArgs.out || env.BUILD_INFO_FILE_PATH || `${process.cwd()}/build-info.json`
   try {
     if (generateBuildInfo) {
       fs.writeFileSync(
