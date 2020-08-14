@@ -39,13 +39,14 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "bin": {
-    "build-info": "./bin/index.js"
+    "build-info": "./bin/cli.js"
   },
   "dependencies": {
     "@nestjs/common": "^7.4.2",
     "@nestjs/core": "^7.4.2",
     "resolve-cwd": "^3.0.0",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.0",
+    "yargs": "^15.4.1"
   },
   "devDependencies": {
     "@nestjs/swagger": "^4.5.12",

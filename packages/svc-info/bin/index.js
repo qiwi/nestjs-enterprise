@@ -28,13 +28,11 @@ const getGitInfo = () => {
   }
 }
 
-const createBuildInfo = () => {
+const createBuildInfo = (generateBuildInfo, outputFile = `${process.cwd()}/build-info.json`) => {
   try {
-    const generateBuildInfo = process.BUILD_INFO || process.env.CI || process.env.TEAMCITY_VERSION
-
     if (generateBuildInfo) {
       fs.writeFileSync(
-        `${process.cwd()}/build-info.json`,
+        outputFile,
         JSON.stringify({
           imageTag: process.env.IMAGE_TAG,
           timestamp: new Date().toISOString(),
@@ -49,4 +47,6 @@ const createBuildInfo = () => {
   }
 }
 
-createBuildInfo()
+module.exports = {
+  createBuildInfo
+}
