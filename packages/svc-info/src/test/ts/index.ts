@@ -86,7 +86,7 @@ describe('SvcModule', () => {
   })
 
   describe('/version', () => {
-    it('returns version and name of service from package.json', async () => {
+    it('returns version and name of service from package.json', async (done) => {
       app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
@@ -97,21 +97,24 @@ describe('SvcModule', () => {
             version: expect.any(String),
             name: expect.any(String),
           })
+          done()
         })
     })
   })
 
   describe('/uptime', () => {
-    it('returns human readable uptime', async () => {
+    it('returns human readable uptime', async (done) => {
       app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
-        .expect((data) =>
-          expect(data.text).toMatch(
-            /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
-          ),
+        .expect((data) => {
+            expect(data.text).toMatch(
+              /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
+            )
+            done()
+          }
         )
     })
   })
@@ -119,37 +122,40 @@ describe('SvcModule', () => {
   describe('/buildstamp', () => {
     const buildstampEndpoint = '/svc-info/buildstamp'
 
-    it('returns buildstamp by default path', async () => {
+    it('returns buildstamp by default path', async (done) => {
       app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
-        .expect((data) =>
-          expect(data.body).toEqual(buildstamp),
-        )
+        .expect((data) => {
+          expect(data.body).toEqual(buildstamp)
+          done()
+        })
     })
 
-    it('returns buildstamp by custom path', async () => {
+    it('returns buildstamp by custom path', async (done) => {
       app = await createApp(SvcInfoModule.register({ path: tempCustomBuldstampPath }))
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
-        .expect((data) =>
-          expect(data.body).toEqual(buildstamp),
-        )
+        .expect((data) => {
+          expect(data.body).toEqual(buildstamp)
+          done()
+        })
     })
 
-    it('returns error message, when builstamp does not exist', async () => {
+    it('returns error message, when builstamp does not exist', async (done) => {
       app = await createApp(SvcInfoModule.register({ path: 'foo/bar/baz.json' }))
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
-        .expect((data) =>
+        .expect((data) => {
           expect(data.text).toEqual('required buildstamp on path foo/bar/baz.json is malformed or unreachable')
-        )
+          done()
+        })
     })
   })
 })
