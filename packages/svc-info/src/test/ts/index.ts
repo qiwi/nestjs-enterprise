@@ -64,7 +64,6 @@ const createApp = async (svcInfoModule: any) => {
     .compile()
   const app = module.createNestApplication()
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
-  await app.init()
   return app
 }
 
@@ -83,6 +82,7 @@ describe('SvcModule', () => {
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
       const app = await createApp(SvcInfoModule)
+      await app.init()
       return request(app.getHttpServer())
         .get('/svc-info/version')
         .expect(HttpStatus.OK)
@@ -98,6 +98,7 @@ describe('SvcModule', () => {
   describe('/uptime', () => {
     it('returns human readable uptime', async () => {
       const app = await createApp(SvcInfoModule)
+      await app.init()
       return request(app.getHttpServer())
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
@@ -114,6 +115,7 @@ describe('SvcModule', () => {
 
     it('returns buildstamp by default path', async () => {
       const app = await createApp(SvcInfoModule)
+      await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
@@ -124,6 +126,7 @@ describe('SvcModule', () => {
 
     it('returns buildstamp by custom path', async () => {
       const app = await createApp(SvcInfoModule.register({ path: tempCustomBuldstampPath }))
+      await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
@@ -134,6 +137,7 @@ describe('SvcModule', () => {
 
     it('returns error message, when builstamp does not exist', async () => {
       const app = await createApp(SvcInfoModule.register({ path: 'foo/bar/baz.json' }))
+      await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
