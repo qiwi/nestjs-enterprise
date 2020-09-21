@@ -18,8 +18,7 @@ export const createBuildInfo = (cliArgs: TCliArguments, env = process.env) => {
         out: {
           path: outputFile
         }
-      },
-      {}
+      }
     )
   }
 }
