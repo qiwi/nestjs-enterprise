@@ -1,5 +1,5 @@
 import { Test } from '@nestjs/testing'
-import { HttpStatus, ValidationPipe } from '@nestjs/common'
+import { HttpStatus, INestApplication, ValidationPipe } from '@nestjs/common'
 import { SvcInfoModule } from '../../main/ts'
 import {
   createMetaPipe,
@@ -68,6 +68,8 @@ const createApp = async (svcInfoModule: any) => {
 }
 
 describe('SvcModule', () => {
+  let app: INestApplication
+
   beforeAll(async () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
@@ -79,9 +81,13 @@ describe('SvcModule', () => {
     rimraf.sync(tempFolderPath)
   })
 
+  afterEach(() => {
+    app.close()
+  })
+
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
-      const app = await createApp(SvcInfoModule)
+      app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
         .get('/svc-info/version')
@@ -97,7 +103,7 @@ describe('SvcModule', () => {
 
   describe('/uptime', () => {
     it('returns human readable uptime', async () => {
-      const app = await createApp(SvcInfoModule)
+      app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
         .get('/svc-info/uptime')
@@ -114,7 +120,7 @@ describe('SvcModule', () => {
     const buildstampEndpoint = '/svc-info/buildstamp'
 
     it('returns buildstamp by default path', async () => {
-      const app = await createApp(SvcInfoModule)
+      app = await createApp(SvcInfoModule)
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
@@ -125,7 +131,7 @@ describe('SvcModule', () => {
     })
 
     it('returns buildstamp by custom path', async () => {
-      const app = await createApp(SvcInfoModule.register({ path: tempCustomBuldstampPath }))
+      app = await createApp(SvcInfoModule.register({ path: tempCustomBuldstampPath }))
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
@@ -136,7 +142,7 @@ describe('SvcModule', () => {
     })
 
     it('returns error message, when builstamp does not exist', async () => {
-      const app = await createApp(SvcInfoModule.register({ path: 'foo/bar/baz.json' }))
+      app = await createApp(SvcInfoModule.register({ path: 'foo/bar/baz.json' }))
       await app.init()
       return request(app.getHttpServer())
         .get(buildstampEndpoint)
