@@ -1,29 +1,24 @@
 # @qiwi/nestjs-enterprise-svc-info
-Returns uptime by `/svc-info/uptime` and application name with version by `/svc-info/version`
+Returns uptime by `/svc-info/uptime`, application name with version by `/svc-info/version` and build info by `/svc-info/buildstamp`
 ## Installation
 ```shell script
 yarn add @qiwi/nestjs-enterprise-svc-info
 ```
 ## Before using
-Set up `build-info.json` forwarding into container in your `Dockerfile`
+Buildstamp is a file with build info, whose contents the module exposes by `/svc-info/buildstamp`.
+
+Set up buidstamp forwarding into a container in your `Dockerfile`:
 ```dockerfile
-COPY build-info.json $APP_DIR/build-info.json
+COPY buildstamp.json $APP_DIR/buildstamp.json
 ``` 
-
-Add path variable `IMAGE_TAG` to `makefile` and forward it into the building image
-```makefile
-VERSION=$(shell $(GET_APP_VERSION_EXEC))$(VERSION_SUFFIX)
-IMAGE_TAG=$(DOCKER_REGISTRY)/$(APP_NAME):$(VERSION)
-
-NODE_BUILD_TOOL=sudo docker run --rm -u $(shell id -u):$(shell id -g) -v $(HOME):/home -v $(PWD):/app -e "IMAGE_TAG=$(IMAGE_TAG)" -e "VERSION=$(VERSION)" -e "IMAGE_TAG_LATEST=$(IMAGE_TAG_LATEST)" <your building image name>
-
-```
-Add to `"scripts"` in `package.json`
+Add to `"scripts"` in `package.json`:
 ```json
-"prebuild": "build-info",
+"prebuild": "<your script for generating buildstamp>",
 ```
-##Usage
-Usage as module
+We suggest using [buildstamp](https://github.com/qiwi/buildstamp).
+
+## Usage
+### Usage as module:
 ```typescript
 import { SvcInfoModule } from '@qiwi/nestjs-enterprise-svc-info'
 // ...
@@ -39,7 +34,7 @@ import { SvcInfoModule } from '@qiwi/nestjs-enterprise-svc-info'
 export class AppModule {}
 ```
 
-Usage as controller (if you need routes order)
+### Usage as controller (if you need routes order):
 
 ```typescript
 import { SvcInfoController } from '@qiwi/nestjs-enterprise-svc-info'
@@ -50,6 +45,46 @@ import { SvcInfoController } from '@qiwi/nestjs-enterprise-svc-info'
   imports: [],
   controllers: [SvcInfoController],
   providers: [ ],
+})
+export class AppModule {}
+```
+
+### Setting a custom path to buildstamp file
+
+If you want to give a custom path to your buildstamp file, import module via `register`, which accepts `ISvcInfoModuleOpts`:
+```typescript
+import { SvcInfoModule, ISvcInfoModuleOpts } from '@qiwi/nestjs-enterprise-svc-info'
+// ...
+const opts: ISvcInfoModuleOpts = {
+  path: 'some/path/buildstamp.json'
+}
+
+@Module({
+  imports: [
+    SvcInfoModule.register(opts)
+    // and so on
+  ],
+  controllers: [ ],
+  providers: [ ],
+})
+export class AppModule {}
+```
+In case of using the module as controller: 
+
+```typescript
+import { SvcInfoController, ISvcInfoModuleOpts } from '@qiwi/nestjs-enterprise-svc-info'
+// ...
+const opts: ISvcInfoModuleOpts = {
+  path: 'some/path/buildstamp.json'
+}
+
+
+@Module({
+  imports: [],
+  controllers: [SvcInfoController],
+  providers: [
+    { provide: 'ISvcInfoModuleOpts', useValue: opts }
+  ],
 })
 export class AppModule {}
 ```

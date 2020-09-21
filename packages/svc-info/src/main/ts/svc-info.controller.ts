@@ -1,11 +1,16 @@
-import { Controller, Get, Inject } from '@nestjs/common'
+import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
 import resolveCwd from 'resolve-cwd'
 import { ILogger } from '@qiwi/substrate'
+import { ISvcInfoModuleOpts } from './interfaces'
 
 @Controller('/svc-info')
 export class SvcInfoController {
-  constructor(@Inject('ILogger') private logger: ILogger) {}
+  constructor(
+    @Inject('ILogger') private logger: ILogger,
+    @Optional()
+    @Inject('ISvcInfoModuleOpts') private opts: ISvcInfoModuleOpts = {}
+  ) {}
 
   @Get('uptime')
   @ApiExcludeEndpoint()
@@ -34,18 +39,20 @@ export class SvcInfoController {
     return { version, name }
   }
 
-  @Get('build-info')
+  @Get('buildstamp')
   @ApiExcludeEndpoint()
   buildInfo() {
+    const path = this.opts.path || './buildstamp.json'
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     try {
-      return require(resolveCwd('./build-info.json'))
+      return require(resolveCwd(path))
     } catch (e) {
+      const message = `required buildstamp on path ${path} is malformed or unreachable`
       this.logger.warn(
-        'required build-info.json is malformed or unreachable',
+        message,
         e,
       )
-      return 'required build-info.json is malformed or unreachable'
+      return message
     }
   }
 }

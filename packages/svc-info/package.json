@@ -38,15 +38,10 @@
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
   },
-  "bin": {
-    "build-info": "target/es5/bin/cli.js"
-  },
   "dependencies": {
     "@nestjs/common": "^7.4.2",
     "@nestjs/core": "^7.4.2",
-    "buildstamp": "^1.0.2",
-    "find-git-root": "^1.0.4",
-    "meow": "^7.1.0",
+    "@types/rimraf": "^3.0.0",
     "resolve-cwd": "^3.0.0",
     "tslib": "^2.0.0"
   },
