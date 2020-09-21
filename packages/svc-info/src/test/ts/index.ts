@@ -117,12 +117,15 @@ describe('SvcModule', () => {
         .expect(HttpStatus.OK)
         .expect((data) =>
           expect(data.body).toMatchObject({
-            timestamp: expect.any(String),
-            gitInfo: {
+            date: expect.any(String),
+            git: {
               commitId: expect.any(String),
+              repoUrl: expect.any(String),
               repoName: expect.any(String),
             },
-            imageTag: 'test_image_tag',
+            docker: {
+              imageTag: 'test_image_tag',
+            },
           }),
         )
     })

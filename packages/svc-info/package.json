@@ -44,6 +44,7 @@
   "dependencies": {
     "@nestjs/common": "^7.4.2",
     "@nestjs/core": "^7.4.2",
+    "buildstamp": "^1.0.2",
     "find-git-root": "^1.0.4",
     "meow": "^7.1.0",
     "resolve-cwd": "^3.0.0",
