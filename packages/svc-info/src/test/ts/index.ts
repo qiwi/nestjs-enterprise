@@ -69,6 +69,7 @@ describe('SvcModule', () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
     fs.writeFileSync(tempCustomBuldstampPath, JSON.stringify(buildstamp))
+    jest.setTimeout(10000)
   })
 
   afterAll(() => {
