@@ -1,6 +1,6 @@
 import { Test } from '@nestjs/testing'
-import { HttpStatus, INestApplication, ValidationPipe } from '@nestjs/common'
-import { SvcInfoModule } from '../../main/ts'
+import { HttpStatus, ValidationPipe } from '@nestjs/common'
+import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 import {
   createMetaPipe,
   LoggerModule,
@@ -51,25 +51,20 @@ const fakeConfig = {
   },
 }
 
-const createApp = async (svcInfoModule: any) => {
-  const module = await Test.createTestingModule({
+const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
+  return Test.createTestingModule({
     imports: [
       ConfigModule,
       LoggerModule.register(createMetaPipe(), maskerLoggerPipeFactory()),
-      svcInfoModule,
+      opts ? SvcInfoModule.register(opts) : SvcInfoModule,
     ],
   })
     .overrideProvider('IConfigService')
     .useValue(fakeConfig)
     .compile()
-  const app = module.createNestApplication()
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
-  return app
 }
 
 describe('SvcModule', () => {
-  let app: INestApplication
-
   beforeAll(async () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
@@ -81,15 +76,13 @@ describe('SvcModule', () => {
     rimraf.sync(tempFolderPath)
   })
 
-  afterEach(() => {
-    app.close()
-  })
-
   describe('/version', () => {
-    it('returns version and name of service from package.json', async (done) => {
-      app = await createApp(SvcInfoModule)
+    it('returns version and name of service from package.json', async () => {
+      const module = await moduleFactory()
+      const app = module.createNestApplication()
       await app.init()
-      return request(app.getHttpServer())
+      app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
+      await request(app.getHttpServer())
         .get('/svc-info/version')
         .expect(HttpStatus.OK)
         .expect((data) => {
@@ -97,65 +90,69 @@ describe('SvcModule', () => {
             version: expect.any(String),
             name: expect.any(String),
           })
-          done()
         })
+      return app.close()
     })
   })
 
   describe('/uptime', () => {
-    it('returns human readable uptime', async (done) => {
-      app = await createApp(SvcInfoModule)
+    it('returns human readable uptime', async () => {
+      const module = await moduleFactory()
+      const app = module.createNestApplication()
       await app.init()
-      return request(app.getHttpServer())
+      await request(app.getHttpServer())
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
         .expect((data) => {
             expect(data.text).toMatch(
               /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
             )
-            done()
           }
         )
+      return app.close()
     })
   })
 
   describe('/buildstamp', () => {
     const buildstampEndpoint = '/svc-info/buildstamp'
 
-    it('returns buildstamp by default path', async (done) => {
-      app = await createApp(SvcInfoModule)
+    it('returns buildstamp by default path', async () => {
+      const module = await moduleFactory()
+      const app = module.createNestApplication()
       await app.init()
-      return request(app.getHttpServer())
+      await request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
           expect(data.body).toEqual(buildstamp)
-          done()
         })
+      return app.close()
     })
 
-    it('returns buildstamp by custom path', async (done) => {
-      app = await createApp(SvcInfoModule.register({ path: tempCustomBuldstampPath }))
+    it('returns buildstamp by custom path', async () => {
+      const module = await moduleFactory({ path: tempCustomBuldstampPath })
+      const app = module.createNestApplication()
       await app.init()
-      return request(app.getHttpServer())
+      await request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
           expect(data.body).toEqual(buildstamp)
-          done()
         })
+      return app.close()
     })
 
-    it('returns error message, when builstamp does not exist', async (done) => {
-      app = await createApp(SvcInfoModule.register({ path: 'foo/bar/baz.json' }))
+    it('returns error message, when builstamp does not exist', async () => {
+      const module = await moduleFactory({ path: 'foo/bar/baz.json' })
+      const app = module.createNestApplication()
       await app.init()
-      return request(app.getHttpServer())
+      await request(app.getHttpServer())
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
           expect(data.text).toEqual('required buildstamp on path foo/bar/baz.json is malformed or unreachable')
-          done()
         })
+      return app.close()
     })
   })
 })
