@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-svc-info",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Service-info controller for nestjs enterprise",
   "publishConfig": {
     "access": "public"
