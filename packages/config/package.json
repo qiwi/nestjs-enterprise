@@ -33,7 +33,7 @@
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts target/ts/",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
-    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/nestjs-enterprise-config/target/es5 --name @qiwi/nestjs-enterprise-config --main @qiwi/nestjs-enterprise-config/target/es5/index --moduleResolution node && libdeffix --dts=./typings/index.d.ts --prefix=@qiwi/nestjs-enterprise-config/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
@@ -53,7 +53,7 @@
     "@swissquote/crafty-preset-jest": "^1.12.0",
     "@types/jest": "^26.0.9",
     "@types/jest-json-schema": "^2.1.2",
-    "@qiwi/libdefkit": "^1.0.2",
+    "@qiwi/libdefkit": "^2.1.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "coveralls": "^3.1.0",
