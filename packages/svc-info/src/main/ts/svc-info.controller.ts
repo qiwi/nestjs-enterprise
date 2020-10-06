@@ -1,7 +1,8 @@
 import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
-import resolveCwd from 'resolve-cwd'
 import { ILogger } from '@qiwi/substrate'
+import resolveCwd from 'resolve-cwd'
+
 import { ISvcInfoModuleOpts } from './interfaces'
 
 @Controller('/svc-info')

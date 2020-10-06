@@ -1,16 +1,17 @@
-import { Test } from '@nestjs/testing'
 import { HttpStatus, ValidationPipe } from '@nestjs/common'
-import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
+import { Test } from '@nestjs/testing'
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import {
   createMetaPipe,
   LoggerModule,
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
-import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
-import request from 'supertest'
-import path from 'path'
 import fs from 'fs'
+import path from 'path'
 import rimraf from 'rimraf'
+import request from 'supertest'
+
+import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 
 const buildstamp = {
   date: 1600692101204,
