@@ -33,7 +33,7 @@
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts/ target/ts/",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
-    "build:libdef": "dts-generator --project ./ --out typings/index.d.ts --prefix @qiwi/nestjs-enterprise-logger/target/es5 --name @qiwi/nestjs-enterprise-logger --main @qiwi/nestjs-enterprise-logger/target/es5/index --moduleResolution node && libdeffix --dts=./typings/index.d.ts --prefix=@qiwi/nestjs-enterprise-logger/target/es5 && flowgen typings/index.d.ts --output-file flow-typed/index.flow.js",
+    "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
@@ -50,6 +50,7 @@
     "@types/winston": "^2.4.4"
   },
   "devDependencies": {
+    "@qiwi/libdefkit": "^2.1.0",
     "@nestjs/testing": "^7.4.2",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
@@ -66,7 +67,6 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-qiwi": "^1.7.0",
     "esm": "^3.2.25",
-    "@qiwi/libdefkit": "^1.0.2",
     "jest": "^26.2.2",
     "microbundle": "^0.12.3",
     "prettier": "^2.0.5",
