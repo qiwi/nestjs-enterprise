@@ -1,5 +1,5 @@
-import * as path from 'path'
 import * as fs from 'fs'
+import * as path from 'path'
 import * as winston from 'winston'
 
 const {
@@ -8,27 +8,31 @@ const {
   format: { combine, printf, timestamp },
 }: any = winston
 
-const formatJson = printf(
-  ({
-    level,
-    timestamp,
-    meta,
-    message,
-  }: {
-    level: string
-    timestamp: unknown
-    meta: Record<string, any>
-    message: unknown
-  }) => {
-    const data = {
-      '@timestamp': timestamp,
-      level: level.toUpperCase(),
-      message,
-      ...meta.publicMeta,
-    }
+export type TWinstonEntry = {
+  level: string
+  timestamp: unknown
+  meta: Record<string, any>
+  message: unknown
+}
 
-    return JSON.stringify(data)
-  },
+const isTimestampValid = (timestamp: any) => typeof(timestamp) === 'number' || Date.parse(timestamp)
+
+export const formatKibanaEntry = (entry: TWinstonEntry) => {
+  const { level, timestamp, meta, message } = entry
+  const { timestamp: metaTimestamp } = meta
+  const formattedTimestamp = new Date(
+    isTimestampValid(metaTimestamp) && metaTimestamp || timestamp
+  ).toISOString()
+  return {
+    '@timestamp': formattedTimestamp,
+    level: level.toUpperCase(),
+    message,
+    ...meta.publicMeta,
+  }
+}
+
+const formatJson = printf((entry: TWinstonEntry) =>
+  JSON.stringify(formatKibanaEntry(entry)),
 )
 
 type TWinstonFactoryOpts = {

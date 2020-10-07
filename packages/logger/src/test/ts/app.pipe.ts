@@ -1,4 +1,5 @@
 import { ILogEntry } from '@qiwi/logwrap'
+
 import { createAppPipe } from '../../main/ts/app.pipe'
 
 describe('createAppPipe', () => {
