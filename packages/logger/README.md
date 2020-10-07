@@ -58,12 +58,22 @@ async function bootstrap() {
  //...
  logger.info()
 ```
+## Customization
+You can inject functions of type `TLoggerPipe` as your own pipes when create `LoggerService` or register `LoggerModule`.
+Your pipes will be inserted in the following order:
+- `mdc` pipe from `@qiwi/logwrap`;
+- `app` pipe (adds app name, app version and os info to log entry);
+- your own pipe;
+- ...
+- your own pipe;
+- `logger` pipe (prints log entry).
 ## API
-### Class LoggerModule
+### Class LoggerModule 
 Exports `LoggerService` with token `ILogger`
-#### static register (...pipes: any[]): DynamicModule
+#### register (...pipes: TLoggerPipe[]): DynamicModule
 
 ### Class LoggerService
+#### constructor(pipeline: TLoggerPipe[], config: IConfig)
 #### push(entry: ILogEntry): void
 | field | type  | description |
 | --- | --- | --- |

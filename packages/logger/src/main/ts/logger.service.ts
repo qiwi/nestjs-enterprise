@@ -10,6 +10,7 @@ import { IConfig, ILogger, LogLevel } from '@qiwi/substrate'
 import * as os from 'os'
 
 import { createAppPipe } from './app.pipe';
+import { TLoggerPipe } from './interfaces'
 import { createLoggerPipe } from './logger.pipe';
 import createWinstonLogger from './winston'
 
@@ -18,7 +19,7 @@ export class LoggerService extends Logwrap
   implements ILogger, LoggerServiceNest {
   // @ts-ignore
   constructor(
-    @Inject('ILoggerPipeline') pipeline: any[],
+    @Inject('ILoggerPipeline') pipeline: TLoggerPipe[],
     @Inject('IConfigService') config: IConfig,
   ) {
     const loggerConfig = config.get('logger')
