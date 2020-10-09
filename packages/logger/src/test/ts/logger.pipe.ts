@@ -1,7 +1,8 @@
 import { ILogEntry } from '@qiwi/logwrap'
+import { ILogger } from '@qiwi/substrate'
+
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import createWinstonLogger from '../../main/ts/winston'
-import { ILogger } from '@qiwi/substrate'
 
 const loggerConfig = {
   dir: 'somepath',
@@ -15,18 +16,18 @@ const loggerConfig = {
   zippedArchive: true,
 }
 
+const dummy = () => { /* noop */ }
+
 describe('createAppPipe', () => {
   it('is defined', () => expect(createLoggerPipe).toBeDefined())
 
   it('creates pipe', () => {
-
     const pipe = createLoggerPipe(createWinstonLogger(loggerConfig))
     expect(typeof pipe).toBe('function')
   })
 
   test('pipe calls log and ', () => {
     const log = jest.fn()
-    const dummy = () => undefined
     const loggerMock: ILogger = {
       log,
       trace: dummy,

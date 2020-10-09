@@ -1,12 +1,11 @@
 import { ILogEntry } from '@qiwi/logwrap'
 import { pick } from 'lodash'
 
-// eslint-disable-next-line unicorn/consistent-function-scoping
 export const createMetaPipe = () => ({
   meta,
   input,
   level,
-}: ILogEntry): ILogEntry => {
+}: ILogEntry): ILogEntry => { // eslint-disable-line unicorn/consistent-function-scoping
   const { trace_id, span_id, parent_span_id } = meta.trace || {}
   const auth = pick(meta.auth || {}, 'value.principal', 'type')
   const { name, version, host } = meta

@@ -1,4 +1,6 @@
-import { Global, Module, DynamicModule } from '@nestjs/common'
+import { DynamicModule, Global, Module } from '@nestjs/common'
+
+import { TLoggerPipe } from './interfaces'
 import { LoggerService } from './logger.service'
 
 @Global()
@@ -11,7 +13,7 @@ import { LoggerService } from './logger.service'
   exports: ['ILogger'],
 })
 export class LoggerModule {
-  static register(...pipes: any[]): DynamicModule {
+  static register(...pipes: TLoggerPipe[]): DynamicModule {
     return {
       module: LoggerModule,
       exports: ['ILogger'],

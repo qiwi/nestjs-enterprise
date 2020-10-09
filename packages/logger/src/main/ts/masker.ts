@@ -1,5 +1,5 @@
-import luhn from 'fast-luhn'
 import { ILogEntry } from '@qiwi/logwrap'
+import luhn from 'fast-luhn'
 
 export const masker = (input: string | number): string => {
   return (input + '').replace(/\s*(\d\s*){13,19}/g, (v) =>

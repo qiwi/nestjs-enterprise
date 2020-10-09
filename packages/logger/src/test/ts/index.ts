@@ -1,18 +1,18 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ILogger, LogLevel } from '@qiwi/substrate-types'
 import fs from 'fs'
 import path from 'path'
 
 import {
-  LoggerModule,
-  masker,
   createMetaPipe,
+  LoggerModule,
   LoggerService,
+  masker,
   maskerLoggerPipeFactory,
 } from '../../main/ts'
 import { createTransports } from '../../main/ts/winston'
-import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 
 const testLogPath = path.resolve(__dirname, './log/application-json.log')
 const testConfigPath = path.resolve(__dirname, './config/test.json')
