@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-logger [1.1.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.0...@qiwi/nestjs-enterprise-logger@1.1.1) (2020-10-21)
+
+
+### Performance Improvements
+
+* migrate to fast-safe-stringify ([#13](https://github.com/qiwi/nestjs-enterprise/issues/13)) ([de5a1f3](https://github.com/qiwi/nestjs-enterprise/commit/de5a1f3340f13af313e3f342b788a285ba264c31)), closes [#11](https://github.com/qiwi/nestjs-enterprise/issues/11)
+
 # @qiwi/nestjs-enterprise-logger [1.1.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.0.0...@qiwi/nestjs-enterprise-logger@1.1.0) (2020-10-09)
 
 
