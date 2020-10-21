@@ -44,14 +44,15 @@
     "@qiwi/logwrap": "^1.5.1",
     "@qiwi/mware-context": "^1.10.0",
     "@qiwi/substrate": "^1.18.37",
+    "@types/winston": "^2.4.4",
     "fast-luhn": "^1.1.1",
+    "fast-safe-stringify": "^2.0.7",
     "tslib": "^2.0.0",
-    "winston": "^3.3.3",
-    "@types/winston": "^2.4.4"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@qiwi/libdefkit": "^2.1.0",
     "@nestjs/testing": "^7.4.2",
+    "@qiwi/libdefkit": "^2.1.0",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/github": "^7.0.7",
@@ -90,7 +91,5 @@
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
   },
-  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
-  "peerDependencies": {},
-  "optionalDependencies": {}
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme"
 }

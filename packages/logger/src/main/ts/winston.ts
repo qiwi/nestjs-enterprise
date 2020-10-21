@@ -1,3 +1,4 @@
+import safeJsonStrinify from 'fast-safe-stringify'
 import * as fs from 'fs'
 import * as path from 'path'
 import * as winston from 'winston'
@@ -32,7 +33,7 @@ export const formatKibanaEntry = (entry: TWinstonEntry) => {
 }
 
 const formatJson = printf((entry: TWinstonEntry) =>
-  JSON.stringify(formatKibanaEntry(entry)),
+  safeJsonStrinify(formatKibanaEntry(entry)),
 )
 
 type TWinstonFactoryOpts = {
