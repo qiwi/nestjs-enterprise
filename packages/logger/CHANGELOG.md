@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-logger [1.1.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.1...@qiwi/nestjs-enterprise-logger@1.1.2) (2020-10-23)
+
+
+### Performance Improvements
+
+* updated deps versions, applied new lint rules ([#14](https://github.com/qiwi/nestjs-enterprise/issues/14)) ([66b8368](https://github.com/qiwi/nestjs-enterprise/commit/66b83683a8da0949ff5507037e8d8955b852c151))
+
 ## @qiwi/nestjs-enterprise-logger [1.1.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.0...@qiwi/nestjs-enterprise-logger@1.1.1) (2020-10-21)
 
 
