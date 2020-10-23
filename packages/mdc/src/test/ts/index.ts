@@ -1,9 +1,10 @@
 import { Test } from '@nestjs/testing'
-import { MdcModule } from '../../main/ts'
 // @ts-ignore
 import { getContext, setContextValue } from '@qiwi/mware-context'
 // @ts-ignore
 import { TRACE_KEY } from '@qiwi/mware-mdc'
+
+import { MdcModule } from '../../main/ts'
 
 describe('mdc', () => {
   it('test', async () => {

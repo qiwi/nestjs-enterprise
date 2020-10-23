@@ -1,13 +1,13 @@
 import {
-  Injectable,
   CanActivate,
-  ExecutionContext,
-  UseGuards,
-  SetMetadata,
   createParamDecorator,
+  ExecutionContext,
+  Injectable,
+  SetMetadata,
+  UseGuards,
 } from '@nestjs/common'
-import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
 import { Reflector } from '@nestjs/core'
+import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
 
 const getRequestSize = (ctx: ExecutionContext) =>
   ctx.switchToHttp().getRequest().socket.bytesRead

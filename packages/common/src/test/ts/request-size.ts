@@ -1,8 +1,9 @@
+import { Controller, HttpCode, Patch,Post } from '@nestjs/common'
 import { NestApplication } from '@nestjs/core'
-import { Controller, HttpCode, Post, Patch } from '@nestjs/common'
-import { RequestSize } from '../../main/ts/request-size'
 import { Test, TestingModule } from '@nestjs/testing'
 import request from 'supertest'
+
+import { RequestSize } from '../../main/ts/request-size'
 
 type Cases = Array<
   [string, string, 'post' | 'patch', string, { data: string; status: number }]
