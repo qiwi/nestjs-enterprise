@@ -1,10 +1,11 @@
-import express from 'express'
-import axios from 'axios'
-import http from 'http'
+import { Controller, Get,Module, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { ExpressAdapter } from '@nestjs/platform-express'
-import { Module, ValidationPipe, Controller, Get } from '@nestjs/common'
+import axios from 'axios'
+import express from 'express'
+import http from 'http'
 import { factory as iop } from 'inside-out-promise'
+
 import { Port } from '../../main/ts/port'
 
 const multiport = (server: any) => {
@@ -42,9 +43,9 @@ const multiport = (server: any) => {
         instances.map((instance) => {
           const promise = iop()
           if (instance.listening) {
-            instance.close(() => promise.resolve(undefined))
+            instance.close(() => promise.resolve())
           } else {
-            promise.resolve(undefined)
+            promise.resolve()
           }
           return promise
         }),
@@ -79,7 +80,7 @@ describe('port decorators', () => {
 
   const host = '127.0.0.1'
   beforeAll(async (done) => {
-    async function bootstrap() {
+    async function bootstrap() {  // eslint-disable-line unicorn/consistent-function-scoping
       const server = express()
       const app = await NestFactory.create(
         AppModule,
@@ -122,13 +123,13 @@ describe('port decorators', () => {
     [
       '8081 > 8080 = 403',
       `http://${host}:8081/only8080`,
-      null,
+      null, // eslint-disable-line unicorn/no-null
       { response: { status: 403 } },
     ],
     [
       '8080 > 8081 = 403',
       `http://${host}:8080/only8081`,
-      null,
+      null, // eslint-disable-line unicorn/no-null
       { response: { status: 403 } },
     ],
   ]

@@ -1,11 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { resolve } from 'path'
+
 import {
   ConfigModule,
-  resolveConfigPath,
-  DEFAULT_LOCAL_CONFIG_PATH,
   DEFAULT_KUBE_CONFIG_PATH,
+  DEFAULT_LOCAL_CONFIG_PATH,
+  resolveConfigPath,
 } from '../../main/ts'
 
 const testCfgPath = resolve(__dirname, './config/test.json')
