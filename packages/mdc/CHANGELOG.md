@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-mdc [1.0.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.0.1...@qiwi/nestjs-enterprise-mdc@1.0.2) (2020-11-17)
+
+
+### Performance Improvements
+
+* up deps, separate infra package ([80ea151](https://github.com/qiwi/nestjs-enterprise/commit/80ea151c96d65e761b2506a0c046a550e616196b))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.0.0
+
 ## @qiwi/nestjs-enterprise-mdc [1.0.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.0.0...@qiwi/nestjs-enterprise-mdc@1.0.1) (2020-10-23)
 
 

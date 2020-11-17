@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-mdc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "MDC module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
@@ -47,7 +47,7 @@
     "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "*",
+    "@qiwi/nestjs-enterprise-infra": "1.0.0",
     "esm": "^3.2.25",
     "reflect-metadata": "^0.1.13"
   },
