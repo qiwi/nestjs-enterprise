@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-svc-info",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Service-info controller for nestjs enterprise",
   "publishConfig": {
     "access": "public"
@@ -46,7 +46,7 @@
     "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "*",
+    "@qiwi/nestjs-enterprise-infra": "1.0.0",
     "@nestjs/swagger": "^4.7.5",
     "@types/bluebird": "^3.5.33",
     "class-transformer": "^0.3.1",
