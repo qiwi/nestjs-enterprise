@@ -1,7 +1,7 @@
 {
   "name": "@qiwi/nestjs-enterprise",
   "description": "QIWI Nestjs enterprise facade",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -38,10 +38,10 @@
   "dependencies": {
     "@qiwi/substrate": "^1.19.4",
     "tslib": "^2.0.3",
-    "@qiwi/nestjs-enterprise-common": "1.0.2"
+    "@qiwi/nestjs-enterprise-common": "1.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "*"
+    "@qiwi/nestjs-enterprise-infra": "1.0.0"
   },
   "peerDependencies": {},
   "optionalDependencies": {},
