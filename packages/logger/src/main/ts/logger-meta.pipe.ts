@@ -6,16 +6,17 @@ export const createMetaPipe = () => ({
   input,
   level,
 }: ILogEntry): ILogEntry => { // eslint-disable-line unicorn/consistent-function-scoping
+  const { name, version, host, event, origin } = meta
   const { trace_id, span_id, parent_span_id } = meta.trace || {}
   const auth = pick(meta.auth || {}, 'value.principal', 'type')
-  const { name, version, host } = meta
   const publicMeta = {
     mdc: {
       traceId: trace_id || undefined,
       spanId: span_id || undefined,
       parentSpanId: parent_span_id || undefined,
     },
-    event: meta.event,
+    event,
+    origin,
     auth,
     app_version: version,
     serviceName: name,
