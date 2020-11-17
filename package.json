@@ -12,7 +12,7 @@
     "build": "yarn clean && yarn prebuild && lerna run build --stream --concurrency 2",
     "bootstrap": "lerna bootstrap",
     "jest": "jest",
-    "test": "yarn jest",
+    "test": "yarn jest --forceExit",
     "test:report": "yarn test && yarn coveralls:push",
     "test:concurrent": "lerna run test --concurrency 1 --stream --no-prefix && yarn coverage:merge",
     "coverage:merge": "node scripts/js/coverage-merge.js",
