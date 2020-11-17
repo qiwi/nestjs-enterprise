@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-infra",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "QIWI Nestjs enterprise infra toolkit",
   "publishConfig": {
     "access": "public"
