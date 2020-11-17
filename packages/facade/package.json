@@ -36,7 +36,7 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.19.1",
+    "@qiwi/substrate": "^1.19.4",
     "tslib": "^2.0.3",
     "@qiwi/nestjs-enterprise-common": "1.0.2"
   },

@@ -28,4 +28,4 @@ deploy:
   provider: script
   skip_cleanup: true
   script:
-    - yarn run release
+    - npx -p @qiwi/semrel-toolkit multi-semrel
