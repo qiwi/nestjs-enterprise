@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-logger [1.2.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.2.0...@qiwi/nestjs-enterprise-logger@1.2.1) (2020-11-17)
+
+
+### Performance Improvements
+
+* up deps, separate infra package ([80ea151](https://github.com/qiwi/nestjs-enterprise/commit/80ea151c96d65e761b2506a0c046a550e616196b))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.0.0
+
 # @qiwi/nestjs-enterprise-logger [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.2...@qiwi/nestjs-enterprise-logger@1.2.0) (2020-11-17)
 
 
