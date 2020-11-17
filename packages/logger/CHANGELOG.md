@@ -1,3 +1,10 @@
+# @qiwi/nestjs-enterprise-logger [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.2...@qiwi/nestjs-enterprise-logger@1.2.0) (2020-11-17)
+
+
+### Features
+
+* **logger.pipe:** append origin to public meta ([cc1a561](https://github.com/qiwi/nestjs-enterprise/commit/cc1a561dbb7433c008b39c72570b76badde54fdb))
+
 ## @qiwi/nestjs-enterprise-logger [1.1.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.1.1...@qiwi/nestjs-enterprise-logger@1.1.2) (2020-10-23)
 
 
