@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-config [1.0.3](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-config@1.0.2...@qiwi/nestjs-enterprise-config@1.0.3) (2020-11-24)
+
+
+### Performance Improvements
+
+* up deps ([856eb47](https://github.com/qiwi/nestjs-enterprise/commit/856eb47915d387d594d1605462f53fa22149990b))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.0.1
+
 ## @qiwi/nestjs-enterprise-config [1.0.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-config@1.0.1...@qiwi/nestjs-enterprise-config@1.0.2) (2020-11-17)
 
 
