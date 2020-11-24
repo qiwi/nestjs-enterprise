@@ -39,8 +39,8 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.5.3",
-    "@nestjs/core": "^7.5.3",
+    "@nestjs/common": "^7.5.5",
+    "@nestjs/core": "^7.5.5",
     "@types/rimraf": "^3.0.0",
     "resolve-cwd": "^3.0.0",
     "tslib": "^2.0.3"

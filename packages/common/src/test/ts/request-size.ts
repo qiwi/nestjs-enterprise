@@ -79,7 +79,7 @@ describe('RequestSize decorators', () => {
         '/req-limit-512-class',
         'post',
         testData,
-        { data: '223', status: 200 },
+        { data: '188', status: 200 },
       ],
       [
         '403 if request size > 512',
@@ -99,7 +99,7 @@ describe('RequestSize decorators', () => {
         '/req-limit-512-method',
         'patch',
         testData,
-        { data: '225', status: 200 },
+        { data: '190', status: 200 },
       ],
       [
         '403 if request size > 512',
@@ -120,7 +120,7 @@ describe('RequestSize decorators', () => {
         '/return-req-size',
         'post',
         testData,
-        { data: '219', status: 200 },
+        { data: '184', status: 200 },
       ],
     ]
 
