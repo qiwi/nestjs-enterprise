@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-logger",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Logger module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
@@ -51,7 +51,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.0.0",
+    "@qiwi/nestjs-enterprise-infra": "1.0.1",
     "@types/bluebird": "^3.5.33",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
