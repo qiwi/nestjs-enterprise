@@ -39,15 +39,15 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.5.3",
-    "@nestjs/core": "^7.5.3",
+    "@nestjs/common": "^7.5.5",
+    "@nestjs/core": "^7.5.5",
     "@qiwi/decorator-utils": "^3.2.2",
     "reflect-metadata": "^0.1.13",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.0.0",
-    "@nestjs/platform-express": "^7.5.3",
+    "@nestjs/platform-express": "^7.5.5",
     "@types/express": "^4.17.9",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
