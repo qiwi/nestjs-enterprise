@@ -34,7 +34,7 @@
     "build:ts": "cp -r src/main/ts/ target/ts/",
     "build:bundle": "microbundle build src/main/ts/index.ts -o target/bundle",
     "build:libdef": "libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
-    "docs": "typedoc --readme README.md --tsconfig tsconfig.json src/main --ignoreCompilerErrors || exit 0",
+    "docs": "typedoc --options ./typedoc.json ./src/main/ts",
     "uglify": "for f in $(find target -name '*.js'); do short=${f%.js}; terser -c -m -o $short.js -- $f; done",
     "postupdate": "yarn && yarn build && yarn test"
   },
