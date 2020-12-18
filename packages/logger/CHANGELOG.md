@@ -1,3 +1,18 @@
+# @qiwi/nestjs-enterprise-logger [1.3.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.2.2...@qiwi/nestjs-enterprise-logger@1.3.0) (2020-12-18)
+
+
+### Features
+
+* **consul:** new package ([#21](https://github.com/qiwi/nestjs-enterprise/issues/21)) ([4037669](https://github.com/qiwi/nestjs-enterprise/commit/40376697a61ff39a9db08bc10b9f242c2b4fe7bf))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.1.0
+
 ## @qiwi/nestjs-enterprise-logger [1.2.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-logger@1.2.1...@qiwi/nestjs-enterprise-logger@1.2.2) (2020-11-24)
 
 
