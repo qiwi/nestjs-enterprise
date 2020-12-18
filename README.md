@@ -1,12 +1,12 @@
 # QIWI Nestjs enterprise
 Components to build Nestjs-based applications for enterprise
 
-* [@qiwi/nestjs-enterprise-common](./packages/common/README.md)
-* [@qiwi/nestjs-enterprise-consul](./packages/consul/README.md)
-* [@qiwi/nestjs-enterprise-config](./packages/config/README.md)
-* [@qiwi/nestjs-enterprise-logger](./packages/logger/README.md)
-* [@qiwi/nestjs-enterprise-mdc](./packages/mdc/README.md)
-* [@qiwi/nestjs-enterprise-svc-info](./packages/svc-info/README.md)
+* [@qiwi/nestjs-enterprise-common](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/common#readme)
+* [@qiwi/nestjs-enterprise-consul](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/consul#readme)
+* [@qiwi/nestjs-enterprise-config](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/config#readme)
+* [@qiwi/nestjs-enterprise-logger](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/logger#readme)
+* [@qiwi/nestjs-enterprise-mdc](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/mdc#readme)
+* [@qiwi/nestjs-enterprise-svc-info](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/svc-info#readme)
 
 ### Roadmap
 Make some parts of `qiwi-js-platform` public
