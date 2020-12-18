@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-config",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "Config module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
@@ -45,7 +45,7 @@
     "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.0.1",
+    "@qiwi/nestjs-enterprise-infra": "1.1.0",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "lodash": "^4.17.20",
