@@ -4,7 +4,7 @@ import {
   IConsulKvSetOptions,
   INormalizedConsulKvValue,
 } from '@qiwi/consul-service-discovery'
-import { IConfig, ILogger, IPromise } from '@qiwi/substrate-types'
+import { IConfig, ILogger, IPromise } from '@qiwi/substrate'
 
 export type IConnectionParams = {
   host: string
@@ -37,6 +37,7 @@ export class ConsulService implements IConsulService {
     const consulUrl = `http://${consulHost}:${consulPort}/v1/agent/service/register`
     const port: number = this.config.get('server.port')
     const ip: string = this.config.get('server.host')
+    const consulCheckRegInterval = this.config.get('consul.checkRegInterval') || CONSUL_CHECK_REG_INTERVAL
 
     this.log.info('consul registration attempt', consulUrl)
 
@@ -55,7 +56,7 @@ export class ConsulService implements IConsulService {
             deregistercriticalserviceafter: '10m',
           },
         },
-        CONSUL_CHECK_REG_INTERVAL,
+        consulCheckRegInterval,
       )
       .then(() => this.log.info('registered in consul OK'))
   }
