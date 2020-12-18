@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-consul",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Nestjs module for working with Consul",
   "private": false,
   "publishConfig": {
@@ -46,7 +46,7 @@
     "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "^1.0.1",
+    "@qiwi/nestjs-enterprise-infra": "1.1.0",
     "@types/bluebird": "^3.5.33",
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2"
