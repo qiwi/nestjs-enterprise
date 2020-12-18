@@ -2,10 +2,10 @@
   "name": "@qiwi/nestjs-enterprise-consul",
   "version": "0.0.0",
   "description": "Nestjs module for working with Consul",
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "private": false,
   "main": "target/es5/index.js",
   "source": "target/ts/index.ts",
   "types": "target/es5/index.d.ts",
