@@ -1,0 +1,45 @@
+{
+  "data": {
+    "name": "test-name-app",
+    "local": "$env:LOCAL",
+    "version": "$pkg:version",
+
+    "consul": {
+      "host": "consul-test.qiwi.com",
+      "port": "80",
+      "tags": ["b2b-published", "published"],
+      "enabled": false
+    },
+
+    "logger": {
+      "level": "debug",
+      "dir": "$logDir:",
+      "maxsize": 157286400,
+      "datePattern": "YYYY-MM-DD",
+      "appJsonFilename": "application-json.log",
+      "appFilename": "testlog.log",
+      "maxFiles": 10,
+      "tailable": true,
+      "zippedArchive": true
+    }
+  },
+  "sources": {
+    "logDir": {
+      "data": [
+        "src/test/ts",
+        "log"
+      ],
+      "pipeline": "path"
+    },
+    "env": {
+      "pipeline": "env"
+    },
+    "host": {
+      "pipeline": "ip"
+    },
+    "pkg": {
+      "pipeline": "pkg"
+    }
+  }
+}
+

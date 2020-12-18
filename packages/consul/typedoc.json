@@ -1,5 +1,5 @@
 {
-  "name": "@qiwi/nestjs-enterprise-logger",
+  "name": "@qiwi/nestjs-enterprise-consul",
   "out": "./docs",
   "exclude": ["src/test", "**/node_modules/**", "paralleljs"],
   "externalPattern": ["**/node_modules/**"],

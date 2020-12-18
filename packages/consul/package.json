@@ -1,11 +1,11 @@
 {
-  "name": "@qiwi/nestjs-enterprise-mdc",
-  "version": "1.0.3",
-  "description": "MDC module for nestjs enterprise",
+  "name": "@qiwi/nestjs-enterprise-consul",
+  "version": "0.0.0",
+  "description": "Nestjs module for working with Consul",
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "private": false,
   "main": "target/es5/index.js",
   "source": "target/ts/index.ts",
   "types": "target/es5/index.d.ts",
@@ -27,7 +27,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
-    "clean": "rimraf target typings buildcache docs coverage flow-typed",
+    "clean": "rimraf target typings buildcache docs flow-typed",
     "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
@@ -39,30 +39,28 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.5.5",
-    "@nestjs/core": "^7.5.5",
-    "@qiwi/mware": "^1.10.0",
-    "@qiwi/mware-context": "^1.10.0",
-    "@qiwi/substrate": "^1.19.5",
+    "@nestjs/common": "^7.6.3",
+    "@nestjs/core": "^7.6.3",
+    "@qiwi/consul-service-discovery": "^1.9.3",
+    "@qiwi/substrate": "^1.19.6",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.0.1",
-    "esm": "^3.2.25",
-    "reflect-metadata": "^0.1.13"
+    "@qiwi/nestjs-enterprise-infra": "^1.0.1",
+    "@types/bluebird": "^3.5.33",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qiwi/nestjs-enterprise.git"
+    "url": "https://github.com/qiwi/nestjs-enterprise.git"
   },
   "keywords": [
     "js platform",
-    "config"
+    "consul"
   ],
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
   },
-  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
-  "peerDependencies": {},
-  "optionalDependencies": {}
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme"
 }
