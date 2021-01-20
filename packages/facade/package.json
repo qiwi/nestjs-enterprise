@@ -18,14 +18,16 @@
     "CHANGELOG.md",
     "target",
     "typings",
-    "flow-typed"
+    "flow-typed",
+    "buildstamp.json"
   ],
   "scripts": {
     "test": "yarn lint && yarn test:spec",
     "jest": "jest -w=1 --config=jest.config.json",
     "lint": "tslint -p tsconfig.test.json src/**/*.ts",
     "lint:fix": "yarn lint --fix",
-    "clean": "rimraf target typings buildcache flow-typed docs",
+    "clean": "rimraf target typings buildcache flow-typed docs buildstamp.json",
+    "prebuild": "buildstamp --git --out.path buildstamp.json",
     "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",

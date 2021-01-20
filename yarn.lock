@@ -3727,6 +3727,15 @@ buffer-from@1.x, buffer-from@^1.0.0:
   resolved "https://registry.yarnpkg.com/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
   integrity sha512-MQcXEUbCKtEo7bhqEs6560Hyd4XaovZlO/k9V3hjVUF/zwW7KBVdSK4gIt/bzwS9MbR5qob+F5jusZsb0YQK2A==
 
+buildstamp@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/buildstamp/-/buildstamp-1.4.1.tgz#7a2f2feac9992681162db51b0cc9028fb9a09476"
+  integrity sha512-6ebBoYJWqhCYVYCIHRdJ64wEfbPqPqc87Q6+LvLCL+FHBN9YiBk4olD339wfeEGH9WvHknnLzW7aKJpqf4aMEg==
+  dependencies:
+    find-git-root "^1.0.4"
+    meow "^8.0.0"
+    tslib "^2.0.3"
+
 builtin-modules@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/builtin-modules/-/builtin-modules-3.1.0.tgz#aad97c15131eb76b65b50ef208e7584cd76a7484"
