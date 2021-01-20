@@ -1,3 +1,18 @@
+# @qiwi/nestjs-enterprise-common [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-common@1.1.0...@qiwi/nestjs-enterprise-common@1.2.0) (2021-01-20)
+
+
+### Features
+
+* add buildstamp, update deps ([#22](https://github.com/qiwi/nestjs-enterprise/issues/22)) ([50559d1](https://github.com/qiwi/nestjs-enterprise/commit/50559d13f269f19106e16d447f5813ebc5f3455c))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.0
+
 # @qiwi/nestjs-enterprise-common [1.1.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-common@1.0.4...@qiwi/nestjs-enterprise-common@1.1.0) (2020-12-18)
 
 
