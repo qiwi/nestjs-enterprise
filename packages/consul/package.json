@@ -41,17 +41,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.6.3",
-    "@nestjs/core": "^7.6.3",
+    "@nestjs/common": "^7.6.5",
+    "@nestjs/core": "^7.6.5",
     "@qiwi/consul-service-discovery": "^1.9.3",
-    "@qiwi/substrate": "^1.19.6",
-    "tslib": "^2.0.3"
+    "@qiwi/substrate": "^1.19.7",
+    "tslib": "^2.1.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.1.0",
     "@types/bluebird": "^3.5.33",
-    "class-transformer": "^0.3.1",
-    "class-validator": "^0.12.2"
+    "class-transformer": "^0.3.2",
+    "class-validator": "^0.13.1"
   },
   "repository": {
     "type": "git",
