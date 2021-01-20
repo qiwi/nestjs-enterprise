@@ -17,7 +17,8 @@
     "CHANGELOG.md",
     "target",
     "typings",
-    "flow-typed"
+    "flow-typed",
+    "buildstamp.json"
   ],
   "scripts": {
     "test": "yarn lint && yarn test:spec",
@@ -27,7 +28,8 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
-    "clean": "rimraf target typings buildcache docs flow-typed",
+    "clean": "rimraf target typings buildcache docs flow-typed buildstamp.json",
+    "prebuild": "buildstamp --git --out.path buildstamp.json",
     "build": "yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
     "build:es5": "mkdir -p target/es5 && tsc -p tsconfig.es5.json",
     "build:es6": "mkdir -p target/es6 && tsc -p tsconfig.es6.json",
@@ -39,17 +41,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.6.3",
-    "@nestjs/core": "^7.6.3",
+    "@nestjs/common": "^7.6.5",
+    "@nestjs/core": "^7.6.5",
     "@qiwi/consul-service-discovery": "^1.9.3",
-    "@qiwi/substrate": "^1.19.6",
-    "tslib": "^2.0.3"
+    "@qiwi/substrate": "^1.19.7",
+    "tslib": "^2.1.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.1.0",
     "@types/bluebird": "^3.5.33",
-    "class-transformer": "^0.3.1",
-    "class-validator": "^0.12.2"
+    "class-transformer": "^0.3.2",
+    "class-validator": "^0.13.1"
   },
   "repository": {
     "type": "git",
