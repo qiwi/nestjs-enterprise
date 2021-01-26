@@ -83,30 +83,7 @@ describe('thrift', () => {
       }
     }
 
-    it('work correctly', async () => {
-      const module = await Test.createTestingModule({
-        imports: [
-          ConfigModule.register({ path: testConfigPath }),
-          ConnectionProviderModule,
-          ThriftModule,
-          LoggerModule,
-          GlobalModule,
-        ],
-        providers: [TestService],
-      })
-        .overrideProvider('IDiscoveryService')
-        .useFactory({ factory: () => new FakeConsulDiscovery9090() })
-        .overrideProvider('ILogger')
-        .useValue(console)
-        .compile()
-
-      const thriftClient = module.get(TestService).getClient()
-
-      expect(thriftClient.calculate).toBeInstanceOf(Function)
-      expect(thriftClient.add).toBeInstanceOf(Function)
-    })
-
-    it('', async () => {
+    it('exposes thrift api', async () => {
       const module = await Test.createTestingModule({
         imports: [
           ConfigModule.register({ path: testConfigPath }),

@@ -25,7 +25,7 @@ import ttypes from './mock/gen-nodejs/tutorial_types'
 
 const testConfigPath = path.resolve(__dirname, './config/test.json')
 
-describe('thrift', () => {
+describe('thrift-server', () => {
   @Global()
   @Module({
     providers: [
@@ -66,7 +66,7 @@ describe('thrift', () => {
     }
   }
 
-  it('thrift server works correctly', async () => {
+  it('works correctly', async () => {
     const clientModule = await Test.createTestingModule({
       imports: [
         ConfigModule.register({ path: testConfigPath }),
