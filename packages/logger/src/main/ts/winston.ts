@@ -16,13 +16,14 @@ export type TWinstonEntry = {
   message: unknown
 }
 
-const isTimestampValid = (timestamp: any) => typeof(timestamp) === 'number' || Date.parse(timestamp)
+const isTimestampValid = (timestamp: any) =>
+  typeof timestamp === 'number' || Date.parse(timestamp)
 
 export const formatKibanaEntry = (entry: TWinstonEntry) => {
   const { level, timestamp, meta, message } = entry
   const { timestamp: metaTimestamp } = meta
   const formattedTimestamp = new Date(
-    isTimestampValid(metaTimestamp) && metaTimestamp || timestamp
+    (isTimestampValid(metaTimestamp) && metaTimestamp) || timestamp,
   ).toISOString()
   return {
     '@timestamp': formattedTimestamp,

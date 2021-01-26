@@ -1,7 +1,7 @@
 import {
   Config as Uniconfig,
   IConfig as IConfigService,
-  SYNC
+  SYNC,
 } from '@qiwi/uniconfig'
 
 export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'

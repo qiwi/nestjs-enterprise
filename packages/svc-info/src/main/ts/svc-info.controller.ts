@@ -10,7 +10,8 @@ export class SvcInfoController {
   constructor(
     @Inject('ILogger') private logger: ILogger,
     @Optional()
-    @Inject('ISvcInfoModuleOpts') private opts: ISvcInfoModuleOpts = {}
+    @Inject('ISvcInfoModuleOpts')
+    private opts: ISvcInfoModuleOpts = {},
   ) {}
 
   @Get('uptime')
@@ -49,10 +50,7 @@ export class SvcInfoController {
       return require(resolveCwd(path))
     } catch (e) {
       const message = `required buildstamp on path ${path} is malformed or unreachable`
-      this.logger.warn(
-        message,
-        e,
-      )
+      this.logger.warn(message, e)
       return message
     }
   }

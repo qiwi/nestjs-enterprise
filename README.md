@@ -7,6 +7,8 @@ Components to build Nestjs-based applications for enterprise
 * [@qiwi/nestjs-enterprise-logger](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/logger#readme)
 * [@qiwi/nestjs-enterprise-mdc](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/mdc#readme)
 * [@qiwi/nestjs-enterprise-svc-info](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/svc-info#readme)
+* [@qiwi/nestjs-enterprise-thrift](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/thrift#readme)
+* [@qiwi/nestjs-enterprise-connection-provider](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/connection-provider#readme)
 
 ### Roadmap
 Make some parts of `qiwi-js-platform` public
@@ -18,4 +20,5 @@ Make some parts of `qiwi-js-platform` public
 * [ ] Metrics
 * [x] MDC
 * [ ] Swagger
-* [ ] Thrift
+* [x] Thrift
+* [x] Connection provider

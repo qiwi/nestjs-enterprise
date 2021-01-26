@@ -9,7 +9,9 @@
       "@qiwi/nestjs-enterprise-logger": ["./logger/src/main/ts"],
       "@qiwi/nestjs-enterprise-mdc": ["./mdc/src/main/ts"],
       "@qiwi/nestjs-enterprise-svc-info": ["./svc-info/src/main/ts"],
-      "@qiwi/nestjs-enterprise-consul": ["./consul/src/main/ts"]
+      "@qiwi/nestjs-enterprise-consul": ["./consul/src/main/ts"],
+      "@qiwi/nestjs-enterprise-connection-provider": ["./connection-provider/src/main/ts"],
+      "@qiwi/nestjs-enterprise-thrift": ["./thrift/src/main/ts"]
     }
   }
 }

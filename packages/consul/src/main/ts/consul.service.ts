@@ -37,7 +37,8 @@ export class ConsulService implements IConsulService {
     const consulUrl = `http://${consulHost}:${consulPort}/v1/agent/service/register`
     const port: number = this.config.get('server.port')
     const ip: string = this.config.get('server.host')
-    const consulCheckRegInterval = this.config.get('consul.checkRegInterval') || CONSUL_CHECK_REG_INTERVAL
+    const consulCheckRegInterval =
+      this.config.get('consul.checkRegInterval') || CONSUL_CHECK_REG_INTERVAL
 
     this.log.info('consul registration attempt', consulUrl)
 
