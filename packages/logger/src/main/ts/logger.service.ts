@@ -9,13 +9,14 @@ import { DEFAULT_NS } from '@qiwi/mware-context'
 import { IConfig, ILogger, LogLevel } from '@qiwi/substrate'
 import * as os from 'os'
 
-import { createAppPipe } from './app.pipe';
+import { createAppPipe } from './app.pipe'
 import { TLoggerPipe } from './interfaces'
-import { createLoggerPipe } from './logger.pipe';
+import { createLoggerPipe } from './logger.pipe'
 import createWinstonLogger from './winston'
 
 @Injectable()
-export class LoggerService extends Logwrap
+export class LoggerService
+  extends Logwrap
   implements ILogger, LoggerServiceNest {
   // @ts-ignore
   constructor(
@@ -29,7 +30,7 @@ export class LoggerService extends Logwrap
         mdc({ ns: DEFAULT_NS }),
         createAppPipe(config.get('name'), config.get('version'), os.hostname()),
         ...pipeline,
-        createLoggerPipe(createWinstonLogger(loggerConfig))
+        createLoggerPipe(createWinstonLogger(loggerConfig)),
       ],
     })
   }

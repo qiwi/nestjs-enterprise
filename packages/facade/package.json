@@ -24,7 +24,7 @@
   "scripts": {
     "test": "yarn lint && yarn test:spec",
     "jest": "jest -w=1 --config=jest.config.json",
-    "lint": "tslint -p tsconfig.test.json src/**/*.ts",
+    "lint": "eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "clean": "rimraf target typings buildcache flow-typed docs buildstamp.json",
     "prebuild": "buildstamp --git --out.path buildstamp.json",

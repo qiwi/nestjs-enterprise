@@ -1,7 +1,7 @@
 import { ILogEntry } from '@qiwi/logwrap'
 
 export const createAppPipe = (name: string, version: string, host: string) => (
-  entry: ILogEntry
+  entry: ILogEntry,
 ): ILogEntry => {
   Object.assign(entry.meta, {
     name,

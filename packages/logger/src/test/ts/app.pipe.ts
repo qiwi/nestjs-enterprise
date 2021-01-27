@@ -18,7 +18,7 @@ describe('createAppPipe', () => {
     const input: ILogEntry = {
       level: 'info',
       input: [],
-      meta: {}
+      meta: {},
     }
     expect(pipe(input)).toEqual({ ...input, meta: { name, version, host } })
   })

@@ -7,6 +7,8 @@
     "<rootDir>/packages/config/jest.config.json",
     "<rootDir>/packages/logger/jest.config.json",
     "<rootDir>/packages/svc-info/jest.config.json",
-    "<rootDir>/packages/consul/jest.config.json"
+    "<rootDir>/packages/consul/jest.config.json",
+    "<rootDir>/packages/thrift/jest.config.json",
+    "<rootDir>/packages/connection-provider/jest.config.json"
   ]
 }

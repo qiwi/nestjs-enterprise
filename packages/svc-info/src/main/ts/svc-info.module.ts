@@ -1,4 +1,4 @@
-import { DynamicModule,Global, Module } from '@nestjs/common'
+import { DynamicModule, Global, Module } from '@nestjs/common'
 
 import { ISvcInfoModuleOpts } from './interfaces'
 import { SvcInfoController } from './svc-info.controller'
@@ -15,9 +15,9 @@ export class SvcInfoModule {
       providers: [
         {
           provide: 'ISvcInfoModuleOpts',
-          useValue: opts
+          useValue: opts,
         },
-      ]
+      ],
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "data": {
+    "name": "test-name-app",
+    "local": "$env:LOCAL",
+    "version": "$pkg:version",
+
+    "services": {
+      "common-auth": {
+        "type": "thrift",
+        "thriftServiceName": "serice",
+        "discovery": {
+          "type": "consul",
+          "serviceName": "serviceName"
+        },
+        "creds": {
+          "type": "username-and-password",
+          "username": "myusername",
+          "password": "mypass"
+        }
+      }
+    },
+
+    "logger": {
+      "level": "debug",
+      "dir": "$logDir:",
+      "maxsize": 157286400,
+      "datePattern": "YYYY-MM-DD",
+      "appJsonFilename": "application-json.log",
+      "appFilename": "testlog.log",
+      "maxFiles": 10,
+      "tailable": true,
+      "zippedArchive": true
+    }
+  },
+  "sources": {
+    "logDir": {
+      "data": [
+        "src/test/ts",
+        "log"
+      ],
+      "pipeline": "path"
+    },
+    "env": {
+      "pipeline": "env"
+    },
+    "host": {
+      "pipeline": "ip"
+    },
+    "pkg": {
+      "pipeline": "pkg"
+    }
+  }
+}
+

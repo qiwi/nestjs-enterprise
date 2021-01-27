@@ -16,7 +16,9 @@ const loggerConfig = {
   zippedArchive: true,
 }
 
-const dummy = () => { /* noop */ }
+const dummy = () => {
+  /* noop */
+}
 
 describe('createAppPipe', () => {
   it('is defined', () => expect(createLoggerPipe).toBeDefined())
@@ -34,20 +36,20 @@ describe('createAppPipe', () => {
       debug: dummy,
       info: dummy,
       warn: dummy,
-      error: dummy
+      error: dummy,
     }
     const pipe = createLoggerPipe(loggerMock)
     const input = ['foo', 'bar', 'baz']
     const inputEntry: ILogEntry = {
       level: 'info',
       input,
-      meta: {}
+      meta: {},
     }
     expect(pipe(inputEntry)).toEqual(inputEntry)
     expect(log).toHaveBeenCalledWith({
       level: inputEntry.level,
       message: input.join(' '),
-      meta: inputEntry.meta
+      meta: inputEntry.meta,
     })
   })
 })

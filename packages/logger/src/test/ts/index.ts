@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
-import { ILogger, LogLevel } from '@qiwi/substrate-types'
+import { ILogger, LogLevel } from '@qiwi/substrate'
 import fs from 'fs'
 import path from 'path'
 

@@ -106,11 +106,10 @@ describe('SvcModule', () => {
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
         .expect((data) => {
-            expect(data.text).toMatch(
-              /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
-            )
-          }
-        )
+          expect(data.text).toMatch(
+            /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
+          )
+        })
       return app.close()
     })
   })
@@ -152,7 +151,9 @@ describe('SvcModule', () => {
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.text).toEqual('required buildstamp on path foo/bar/baz.json is malformed or unreachable')
+          expect(data.text).toEqual(
+            'required buildstamp on path foo/bar/baz.json is malformed or unreachable',
+          )
         })
       return app.close()
     })

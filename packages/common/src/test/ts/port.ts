@@ -1,4 +1,4 @@
-import { Controller, Get,Module, ValidationPipe } from '@nestjs/common'
+import { Controller, Get, Module, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import axios from 'axios'
@@ -80,7 +80,8 @@ describe('port decorators', () => {
 
   const host = '127.0.0.1'
   beforeAll(async (done) => {
-    async function bootstrap() {  // eslint-disable-line unicorn/consistent-function-scoping
+    async function bootstrap() {
+      // eslint-disable-line unicorn/consistent-function-scoping
       const server = express()
       const app = await NestFactory.create(
         AppModule,
