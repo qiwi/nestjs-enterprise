@@ -1,3 +1,10 @@
+# @qiwi/nestjs-enterprise-config [1.3.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-config@1.2.0...@qiwi/nestjs-enterprise-config@1.3.0) (2021-02-26)
+
+
+### Features
+
+* add thrift and connection-provider modules ([656761d](https://github.com/qiwi/nestjs-enterprise/commit/656761d137aa5d1d93ae364ce489e2061e23e8bf))
+
 # @qiwi/nestjs-enterprise-config [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-config@1.1.0...@qiwi/nestjs-enterprise-config@1.2.0) (2021-01-20)
 
 
