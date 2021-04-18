@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-svc-info [1.3.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-svc-info@1.3.0...@qiwi/nestjs-enterprise-svc-info@1.3.1) (2021-04-18)
+
+
+### Performance Improvements
+
+* update deps ([#25](https://github.com/qiwi/nestjs-enterprise/issues/25)) ([0f4609d](https://github.com/qiwi/nestjs-enterprise/commit/0f4609d372deb4e5af1943c8505d03cb174356ae))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.1
+
 # @qiwi/nestjs-enterprise-svc-info [1.3.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-svc-info@1.2.0...@qiwi/nestjs-enterprise-svc-info@1.3.0) (2021-02-26)
 
 
