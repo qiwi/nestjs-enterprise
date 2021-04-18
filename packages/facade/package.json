@@ -38,8 +38,8 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/substrate": "^1.19.7",
-    "tslib": "^2.1.0",
+    "@qiwi/substrate": "^1.20.6",
+    "tslib": "^2.2.0",
     "@qiwi/nestjs-enterprise-common": "1.3.0"
   },
   "devDependencies": {
