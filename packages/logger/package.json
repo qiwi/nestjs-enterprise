@@ -41,11 +41,11 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^7.6.15",
-    "@nestjs/core": "^7.6.15",
+    "@nestjs/common": "^7.6.17",
+    "@nestjs/core": "^7.6.17",
     "@qiwi/logwrap": "^1.5.1",
     "@qiwi/mware-context": "^1.10.0",
-    "@qiwi/substrate": "^1.20.6",
+    "@qiwi/substrate": "^1.20.9",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.0",
     "fast-safe-stringify": "^2.0.7",
@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.2.1",
-    "@types/bluebird": "^3.5.33",
+    "@types/bluebird": "^3.5.35",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
     "esm": "^3.2.25",
