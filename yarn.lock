@@ -2414,33 +2414,33 @@
   resolved "https://registry.yarnpkg.com/@qiwi/mware-context/-/mware-context-1.10.0.tgz#7fd4590c33c8aa35c3212daf91ae2692cb5b6458"
   integrity sha512-FVOOu1enKy38Fqs1ohOjYWYe18GtqJKfaMzC1y+s2mTl0eSQzfBjfpyDkKVcNds8kGrs+OiWsREwlhLuCKwmsQ==
 
-"@qiwi/mware-core@^1.8.1":
+"@qiwi/mware-core@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-core/-/mware-core-1.10.0.tgz#ce50b32f4f7839ffcd734b075512f70d7e5c2500"
   integrity sha512-yEh4+A8gVzjv5AUUFnFfF7UX9E5vZqGsmknvocvnalGCfuTLnd6qVBUXgRVu5m/52wiwK0njcnZ2qb0rkV8ceA==
 
-"@qiwi/mware-cors@^1.8.1":
+"@qiwi/mware-cors@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-cors/-/mware-cors-1.10.0.tgz#e5ac80c492aefafa6e160eeee966ed737baf6b94"
   integrity sha512-At2h06aKPXq9uTnQAH5GRSyrk29hxjKACMw4pCfIsTeWCTtS36rSPnv/iHsvGgPoVzXeGZKJe3BpTAqy/Kk9CQ==
   dependencies:
     lodash "^4.17.15"
 
-"@qiwi/mware-crumbs@^1.8.1":
+"@qiwi/mware-crumbs@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-crumbs/-/mware-crumbs-1.10.0.tgz#65f20bd1737ee9bad9561d60fe0eafb8b28c132a"
   integrity sha512-oZtPyMwjkp/L2fKqB0dv8TT39lZ25E9bwtuJ8lOlyr6IXCCKKgwIIy1DyFsj014tY1bRB7w5YAuzVvJdfEV7GA==
   dependencies:
     ip "^1.1.5"
 
-"@qiwi/mware-logger@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-logger/-/mware-logger-1.10.0.tgz#174ec181ab437af77e14e0078b5202d8f6f096cf"
-  integrity sha512-9OssbrZ+WMlVV3YAu3xRPQjFWq8DKhPBOdBQ7EvwD2WW+OLjAYrXzClvEterLikT7qfRPeU0N5JFEEisyyPhTg==
+"@qiwi/mware-logger@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-logger/-/mware-logger-1.11.0.tgz#5741f8759de947fac4582a5ec270a5a97439a43b"
+  integrity sha512-iEQaRSb9OdomiRYKcPOQOpv5flSNtFv7ciZX9Zwi2ETp5YJam054mZwMc+XJbxGqnFYGQGUt2ojwORY0vUoQ1A==
   dependencies:
     http-status-codes "^1.4.0"
 
-"@qiwi/mware-mdc@^1.9.0":
+"@qiwi/mware-mdc@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-mdc/-/mware-mdc-1.10.0.tgz#f9ec6f0d40a45bb6724dd768f041d1e937c5a2ad"
   integrity sha512-EC0bGpKT66v7yptIif4Qf+/wDXzOCbYWSnPqTUOyzZAJ8w95Rlr7y8kXNm87ISyD9uVcteR6G6uN72y/vDwP/w==
@@ -2448,7 +2448,7 @@
     "@qiwi/mware-context" "*"
     cls-hooked "^4.2.2"
 
-"@qiwi/mware-validator@^1.8.1":
+"@qiwi/mware-validator@^1.10.0":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-validator/-/mware-validator-1.10.0.tgz#3dd17af97f70ad10ed43ad0948ce1349c8d29f66"
   integrity sha512-B6caaYyjNOlGwvMNyk+z5TMJhK7HBrwnx5PbjvCzix/98xMQIUJHSaT7wb5q1p5MUXbxQLMaH/R36B6PU26hrA==
@@ -2456,17 +2456,17 @@
     ajv "^6.12.0"
     http-status-codes "^1.4.0"
 
-"@qiwi/mware@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware/-/mware-1.10.0.tgz#4b50aad07dbc623410b34250aafe64dd91730dd0"
-  integrity sha512-Z3vvu1yBso29UETAlMTNMvsZRMcF0hNaolv1sJmgU8ebDWSPMgamXwCA0N7Dw0FRL3GfHuekp5X32Qy8wO+4LQ==
+"@qiwi/mware@^1.11.1":
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware/-/mware-1.11.1.tgz#9bd086201e16939adf59381ef32adb8bce7ccc19"
+  integrity sha512-xyaE711s9T58QLo5BIorS0l7Y5pTSwzBzPapJEIl8ePOx5pcZ7DimfZgFXC3vZyxF5xxvXpBhljffPJAYYwFMg==
   dependencies:
-    "@qiwi/mware-core" "^1.8.1"
-    "@qiwi/mware-cors" "^1.8.1"
-    "@qiwi/mware-crumbs" "^1.8.1"
-    "@qiwi/mware-logger" "^1.8.1"
-    "@qiwi/mware-mdc" "^1.9.0"
-    "@qiwi/mware-validator" "^1.8.1"
+    "@qiwi/mware-core" "^1.10.0"
+    "@qiwi/mware-cors" "^1.10.0"
+    "@qiwi/mware-crumbs" "^1.10.0"
+    "@qiwi/mware-logger" "^1.11.0"
+    "@qiwi/mware-mdc" "^1.10.0"
+    "@qiwi/mware-validator" "^1.10.0"
 
 "@qiwi/substrate-abstract@1.20.1":
   version "1.20.1"
@@ -4557,10 +4557,10 @@ cosmiconfig@^7.0.0:
     path-type "^4.0.0"
     yaml "^1.10.0"
 
-coveralls@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.1.0.tgz#13c754d5e7a2dd8b44fe5269e21ca394fb4d615b"
-  integrity sha512-sHxOu2ELzW8/NC1UP5XVLbZDzO4S3VxfFye3XYCznopHy02YjNkHcj5bKaVw2O7hVaBdBjEdQGpie4II1mWhuQ==
+coveralls@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/coveralls/-/coveralls-3.1.1.tgz#f5d4431d8b5ae69c5079c8f8ca00d64ac77cf081"
+  integrity sha512-+dxnG2NHncSD1NrqbSM3dn/lE57O6Qf/koe9+I7c+wzkqRmEvcp0kgJdxKInzYzkICKkFMZsX3Vct3++tsF9ww==
   dependencies:
     js-yaml "^3.13.1"
     lcov-parse "^1.0.0"
@@ -6375,9 +6375,9 @@ hex-color-regex@^1.1.0:
   integrity sha512-l9sfDFsuqtOqKDsQdqrMRk0U85RZc0RtOR9yPI7mRVOa4FsR/BVnZ0shmQRM96Ji99kYZP/7hn1cedc1+ApsTQ==
 
 hosted-git-info@^2.1.4:
-  version "2.8.8"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.8.tgz#7539bd4bc1e0e0a895815a2e0262420b12858488"
-  integrity sha512-f/wzC2QaWBs7t9IYqB4T3sR1xviIViXJRJTWBlx2Gf3g0Xi5vI7Yy4koXQ1c9OYDGHN9sBy1DQ2AB8fqZBWhUg==
+  version "2.8.9"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.8.9.tgz#dffc0bf9a21c02209090f2aa69429e1414daf3f9"
+  integrity sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==
 
 hosted-git-info@^3.0.6:
   version "3.0.7"
