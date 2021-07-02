@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-logger",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Logger module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
