@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-mdc [1.3.3](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.3.2...@qiwi/nestjs-enterprise-mdc@1.3.3) (2021-07-02)
+
+
+### Bug Fixes
+
+* up mware deps ([9fa6fc4](https://github.com/qiwi/nestjs-enterprise/commit/9fa6fc41af13e6f4ccb7f7bfeb3c5c9730102a61))
+
 ## @qiwi/nestjs-enterprise-mdc [1.3.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.3.1...@qiwi/nestjs-enterprise-mdc@1.3.2) (2021-06-30)
 
 
