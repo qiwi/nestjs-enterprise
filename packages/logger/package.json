@@ -44,7 +44,7 @@
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
     "@qiwi/logwrap": "^1.5.1",
-    "@qiwi/mware-context": "^1.10.0",
+    "@qiwi/mware-context": "^1.11.3",
     "@qiwi/substrate": "^1.20.6",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.0",

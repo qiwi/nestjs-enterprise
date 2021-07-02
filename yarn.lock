@@ -2409,64 +2409,69 @@
     "@qiwi/logwrap-mdc" "^1.4.0"
     "@qiwi/substrate" "^1.18.14"
 
-"@qiwi/mware-context@*", "@qiwi/mware-context@^1.10.0":
+"@qiwi/mware-context@*":
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/@qiwi/mware-context/-/mware-context-1.10.0.tgz#7fd4590c33c8aa35c3212daf91ae2692cb5b6458"
   integrity sha512-FVOOu1enKy38Fqs1ohOjYWYe18GtqJKfaMzC1y+s2mTl0eSQzfBjfpyDkKVcNds8kGrs+OiWsREwlhLuCKwmsQ==
 
-"@qiwi/mware-core@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-core/-/mware-core-1.10.0.tgz#ce50b32f4f7839ffcd734b075512f70d7e5c2500"
-  integrity sha512-yEh4+A8gVzjv5AUUFnFfF7UX9E5vZqGsmknvocvnalGCfuTLnd6qVBUXgRVu5m/52wiwK0njcnZ2qb0rkV8ceA==
+"@qiwi/mware-context@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-context/-/mware-context-1.11.3.tgz#5b8409082d879eec1cb0098d9baabdd95270963b"
+  integrity sha512-fGK0Lp+zAMipjaIMMt+i3W2HU8HUU/0QG/b89tXJcUQ32EvGhlRjiXFA8XVwoKr6p2iz31qahnXv2aQpDjODxQ==
 
-"@qiwi/mware-cors@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-cors/-/mware-cors-1.10.0.tgz#e5ac80c492aefafa6e160eeee966ed737baf6b94"
-  integrity sha512-At2h06aKPXq9uTnQAH5GRSyrk29hxjKACMw4pCfIsTeWCTtS36rSPnv/iHsvGgPoVzXeGZKJe3BpTAqy/Kk9CQ==
+"@qiwi/mware-core@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-core/-/mware-core-1.11.3.tgz#aea5eb7c7d4648969cf5faeddebd1186be6096c3"
+  integrity sha512-asrk9Ik13TS43VL+K3SENmBAVjMib6X7zcc+30XjdO4lwziKy4Igmp5U/IUfhtz136XFKQfKcQPXbGjun8DAQA==
+
+"@qiwi/mware-cors@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-cors/-/mware-cors-1.11.3.tgz#67aa36a5de934de8ba9b8f2e7d83b19d3c115bec"
+  integrity sha512-f2pZjqZNDGCkCBBH0wXCm0OfUXhfqOjFn8PtXqF9MBE7uDFW6fZLuTE9Nc4kCyzWqR0Q3CNZFxvG3P0sS3mviA==
   dependencies:
-    lodash "^4.17.15"
+    lodash "^4.17.21"
 
-"@qiwi/mware-crumbs@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-crumbs/-/mware-crumbs-1.10.0.tgz#65f20bd1737ee9bad9561d60fe0eafb8b28c132a"
-  integrity sha512-oZtPyMwjkp/L2fKqB0dv8TT39lZ25E9bwtuJ8lOlyr6IXCCKKgwIIy1DyFsj014tY1bRB7w5YAuzVvJdfEV7GA==
+"@qiwi/mware-crumbs@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-crumbs/-/mware-crumbs-1.11.3.tgz#75bbc61f39e3f3fd632d485e52c225cec8f4c8ab"
+  integrity sha512-fMZS1llz3N+hcUGoz0BjBfYh4fLl7xk7wEJhzlh8LfF9KFObD6VE90fBVW7HOKEeNtgVLYJKliS1g0YBRym4cA==
   dependencies:
     ip "^1.1.5"
 
-"@qiwi/mware-logger@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-logger/-/mware-logger-1.10.0.tgz#174ec181ab437af77e14e0078b5202d8f6f096cf"
-  integrity sha512-9OssbrZ+WMlVV3YAu3xRPQjFWq8DKhPBOdBQ7EvwD2WW+OLjAYrXzClvEterLikT7qfRPeU0N5JFEEisyyPhTg==
+"@qiwi/mware-logger@^1.11.4":
+  version "1.11.4"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-logger/-/mware-logger-1.11.4.tgz#9e38d8de95aa36cec079631143ee71e4be6a9e76"
+  integrity sha512-4n0kg8glYBbGFnsnPW2RRAlxPsVRmA2grkamXz+NQyXNY+i5Gri7c9ZN3EBroPeK4TDt4Zo3kmAk+sDJfqxQ9g==
   dependencies:
-    http-status-codes "^1.4.0"
+    http-status-codes "^2.1.4"
 
-"@qiwi/mware-mdc@^1.9.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-mdc/-/mware-mdc-1.10.0.tgz#f9ec6f0d40a45bb6724dd768f041d1e937c5a2ad"
-  integrity sha512-EC0bGpKT66v7yptIif4Qf+/wDXzOCbYWSnPqTUOyzZAJ8w95Rlr7y8kXNm87ISyD9uVcteR6G6uN72y/vDwP/w==
+"@qiwi/mware-mdc@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-mdc/-/mware-mdc-1.11.3.tgz#bb80472dfe839858afc97097cee43ddbee20f8cf"
+  integrity sha512-9EWFY+FUOvyVMAVqpkhtaFhveBb9BOcF4kCrEvIXOmZukeF7Wsb15FXK5/4wGWPw5MxF4dp84f84ue40aKwNGg==
   dependencies:
     "@qiwi/mware-context" "*"
     cls-hooked "^4.2.2"
 
-"@qiwi/mware-validator@^1.8.1":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware-validator/-/mware-validator-1.10.0.tgz#3dd17af97f70ad10ed43ad0948ce1349c8d29f66"
-  integrity sha512-B6caaYyjNOlGwvMNyk+z5TMJhK7HBrwnx5PbjvCzix/98xMQIUJHSaT7wb5q1p5MUXbxQLMaH/R36B6PU26hrA==
+"@qiwi/mware-validator@^1.11.3":
+  version "1.11.3"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware-validator/-/mware-validator-1.11.3.tgz#51282861e188fbdaa9077546a48482ed539c217b"
+  integrity sha512-oTQ46gefSVwxGQRIol/2qqFvn9DdCUCfruuzfB+31K0SKdY83SuRMWZBbob8anp78l2Czga7/0GMrX5qHsV45w==
   dependencies:
-    ajv "^6.12.0"
-    http-status-codes "^1.4.0"
+    ajv "^8.6.0"
+    http-status-codes "^2.1.4"
 
-"@qiwi/mware@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@qiwi/mware/-/mware-1.10.0.tgz#4b50aad07dbc623410b34250aafe64dd91730dd0"
-  integrity sha512-Z3vvu1yBso29UETAlMTNMvsZRMcF0hNaolv1sJmgU8ebDWSPMgamXwCA0N7Dw0FRL3GfHuekp5X32Qy8wO+4LQ==
+"@qiwi/mware@^1.11.5":
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/@qiwi/mware/-/mware-1.11.5.tgz#b855bf1e4dec4d2ab369670ed35c250e108fa42b"
+  integrity sha512-jqti+o7XQyvCJcgl3aX3rSZbw5uZgRi4sn8epZwoPOKE3CjSQYWIKNp4h0XdbIAwG++u1qYUYyx7b8372Rro8A==
   dependencies:
-    "@qiwi/mware-core" "^1.8.1"
-    "@qiwi/mware-cors" "^1.8.1"
-    "@qiwi/mware-crumbs" "^1.8.1"
-    "@qiwi/mware-logger" "^1.8.1"
-    "@qiwi/mware-mdc" "^1.9.0"
-    "@qiwi/mware-validator" "^1.8.1"
+    "@qiwi/mware-core" "^1.11.3"
+    "@qiwi/mware-cors" "^1.11.3"
+    "@qiwi/mware-crumbs" "^1.11.3"
+    "@qiwi/mware-logger" "^1.11.4"
+    "@qiwi/mware-mdc" "^1.11.3"
+    "@qiwi/mware-validator" "^1.11.3"
 
 "@qiwi/substrate-abstract@1.20.1":
   version "1.20.1"
@@ -3266,7 +3271,7 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.0, ajv@^6.12.3, ajv@^6.12.4:
+ajv@^6.10.0, ajv@^6.10.2, ajv@^6.12.3, ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.12.6.tgz#baf5a62e802b07d977034586f8c3baf5adf26df4"
   integrity sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==
@@ -3280,6 +3285,16 @@ ajv@^8.0.1:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.1.0.tgz#45d5d3d36c7cdd808930cc3e603cf6200dbeb736"
   integrity "sha1-RdXT02x83YCJMMw+YDz2IA2+tzY= sha512-B/Sk2Ix7A36fs/ZkuGLIR86EdjbgR6fsAcbx9lOP/QBSXujDNbVmIS/U4Itz5k8fPFDeVZl/zQ/gJW4Jrq6XjQ=="
+  dependencies:
+    fast-deep-equal "^3.1.1"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.2.2"
+
+ajv@^8.6.0:
+  version "8.6.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.6.0.tgz#60cc45d9c46a477d80d92c48076d972c342e5720"
+  integrity sha512-cnUG4NSBiM4YFBxgZIj/In3/6KX+rQ2l2YPRVcvAMQGWEPKuXoPIhxzwqh31jA3IPbI4qEOp/5ILI4ynioXsGQ==
   dependencies:
     fast-deep-equal "^3.1.1"
     json-schema-traverse "^1.0.0"
@@ -6477,10 +6492,10 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
-http-status-codes@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/http-status-codes/-/http-status-codes-1.4.0.tgz#6e4c15d16ff3a9e2df03b89f3a55e1aae05fb477"
-  integrity sha512-JrT3ua+WgH8zBD3HEJYbeEgnuQaAnUeRRko/YojPAJjGmIfGD3KPU/asLdsLwKjfxOmQe5nXMQ0pt/7MyapVbQ==
+http-status-codes@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/http-status-codes/-/http-status-codes-2.1.4.tgz#453d99b4bd9424254c4f6a9a3a03715923052798"
+  integrity sha512-MZVIsLKGVOVE1KEnldppe6Ij+vmemMuApDfjhVSLzyYP+td0bREEYyAoIw9yFePoBXManCuBqmiNP5FqJS5Xkg==
 
 https-proxy-agent@^5.0.0:
   version "5.0.0"
