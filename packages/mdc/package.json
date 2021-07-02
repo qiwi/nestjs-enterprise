@@ -43,8 +43,8 @@
   "dependencies": {
     "@nestjs/common": "^7.6.15",
     "@nestjs/core": "^7.6.15",
-    "@qiwi/mware": "^1.11.1",
-    "@qiwi/mware-context": "^1.10.0",
+    "@qiwi/mware": "^1.11.5",
+    "@qiwi/mware-context": "^1.11.3",
     "@qiwi/substrate": "^1.20.6",
     "tslib": "^2.2.0"
   },
