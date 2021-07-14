@@ -51,6 +51,7 @@ const fakeConfig = {
     return configData[field]
   },
 }
+jest.setTimeout(10000);
 
 const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
   return Test.createTestingModule({
