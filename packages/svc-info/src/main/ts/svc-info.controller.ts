@@ -37,7 +37,7 @@ export class SvcInfoController {
   @ApiExcludeEndpoint()
   version() {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { version, name } = require(resolveCwd('./package.json'))
+    const { version, name } = require(resolveCwd(this.opts.packagePath || './package.json'))
     return { version, name }
   }
 
