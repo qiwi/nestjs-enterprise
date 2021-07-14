@@ -1,0 +1,39 @@
+{
+  "name": "@qiwi/nestjs-enterprise-monorepo",
+  "version": "0.0.0",
+  "description": "QIWI Nestjs Enterprise",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "scripts": {
+    "clean": "lerna clean --yes && lerna run clean",
+    "prebuild": "tsc -b packages/facade/tsconfig.es5.json",
+    "build": "yarn clean && yarn prebuild && lerna run build --stream --concurrency 2",
+    "bootstrap": "lerna bootstrap",
+    "jest": "jest --runInBand --forceExit --detectOpenHandles",
+    "test": "yarn jest",
+    "test:report": "yarn test && yarn coveralls:push",
+    "test:concurrent": "lerna run test --concurrency 1 --stream --no-prefix && yarn coverage:merge",
+    "coverage:merge": "node scripts/js/coverage-merge.js",
+    "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
+    "coveralls:push": "cat ./coverage/lcov.info | coveralls || echo 'coveralls push failed :(' && exit 0",
+    "docs": "typedoc packages/**/src/main",
+    "postupdate": "yarn && yarn bootstrap && npx yarn-audit-fix && yarn build && yarn test",
+    "lint": "lerna run lint",
+    "lint:fix": "lerna run lint:fix",
+    "format": "lerna run format"
+  },
+  "devDependencies": {
+    "codeclimate-test-reporter": "^0.5.1",
+    "coveralls": "^3.1.1",
+    "find-git-root": "^1.0.4",
+    "jest": "^27.0.6",
+    "lerna": "^4.0.0",
+    "snazzy": "^9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qiwi/nestjs-enterprise.git"
+  }
+}
