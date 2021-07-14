@@ -79,7 +79,7 @@ describe('port decorators', () => {
   let multiServer: ReturnType<typeof multiport>
 
   const host = '127.0.0.1'
-  beforeAll(async (done) => {
+  beforeAll(async () => {
     async function bootstrap() {
       // eslint-disable-line unicorn/consistent-function-scoping
       const server = express()
@@ -103,7 +103,6 @@ describe('port decorators', () => {
     }
 
     await bootstrap()
-    done()
   })
 
   afterAll(() => {
