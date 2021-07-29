@@ -1,3 +1,22 @@
+## @qiwi/nestjs-enterprise-thrift [1.0.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.0.3...@qiwi/nestjs-enterprise-thrift@1.0.4) (2021-07-29)
+
+
+### Bug Fixes
+
+* **pkg:** update deps, fix some vuls ([49c1bff](https://github.com/qiwi/nestjs-enterprise/commit/49c1bff99d37e3b95569e85e4210f164884b2ca2))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.3
+* **@qiwi/nestjs-enterprise-consul:** upgraded to 1.2.3
+* **@qiwi/nestjs-enterprise-connection-provider:** upgraded to 1.0.3
+* **@qiwi/nestjs-enterprise-logger:** upgraded to 1.5.4
+* **@qiwi/nestjs-enterprise-config:** upgraded to 1.3.3
+
 ## @qiwi/nestjs-enterprise-thrift [1.0.3](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.0.2...@qiwi/nestjs-enterprise-thrift@1.0.3) (2021-07-14)
 
 
