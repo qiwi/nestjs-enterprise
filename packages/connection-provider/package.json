@@ -41,8 +41,8 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.2",
-    "@nestjs/core": "^8.0.2",
+    "@nestjs/common": "^8.0.5",
+    "@nestjs/core": "^8.0.5",
     "@qiwi/substrate": "^1.20.9",
     "lodash": "^4.17.21",
     "tslib": "^2.3.0"
