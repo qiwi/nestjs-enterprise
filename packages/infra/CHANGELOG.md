@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-infra [1.2.3](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-infra@1.2.2...@qiwi/nestjs-enterprise-infra@1.2.3) (2021-07-29)
+
+
+### Bug Fixes
+
+* **pkg:** update deps, fix some vuls ([49c1bff](https://github.com/qiwi/nestjs-enterprise/commit/49c1bff99d37e3b95569e85e4210f164884b2ca2))
+
 ## @qiwi/nestjs-enterprise-infra [1.2.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-infra@1.2.1...@qiwi/nestjs-enterprise-infra@1.2.2) (2021-07-14)
 
 
