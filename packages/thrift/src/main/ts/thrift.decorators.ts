@@ -8,6 +8,7 @@ import {
 
 // TODO reflect.metadata?
 const factoryArgs: IThriftFactoryArgs[] = []
+const cache = new WeakMap()
 
 type IThriftFactoryArgs = [any, any, IThriftServiceProfile | string, IThriftConnectionOpts | undefined]
 
@@ -23,9 +24,15 @@ export const InjectThriftService = <C>(Client: thrift.TClientConstructor<C>, ser
 }
 
 export const fooFactory = (thriftClientService: IThriftClientService) => {
-  // console.log('(thriftClientService=', thriftClientService)
   const [_Parent, Client, serviceProfile, connOpts] = factoryArgs.pop() as IThriftFactoryArgs
-  // console.log(Parent, Client, serviceProfile, connOpts)
+  const cached = cache.get(Client) // TODO use composite key
 
-  return thriftClientService.getClient(serviceProfile, Client, connOpts)
+  if (cached) {
+    return cached
+  }
+
+  const thriftService = thriftClientService.getClient(serviceProfile, Client, connOpts)
+  cache.set(Client, thriftService)
+
+  return thriftService
 }
