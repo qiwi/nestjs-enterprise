@@ -14,7 +14,7 @@ const multiport = (server: any) => {
   const multiServer = {
     listen(port: number | number[], host: string): Promise<any> {
       // @ts-ignore
-      const ports = [].concat(port)
+      const ports = Array.isArray(port) ? port : [port]
       return Promise.all(
         ports.map((port: number) => {
           const promise = iop()

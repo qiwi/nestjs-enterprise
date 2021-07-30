@@ -1,16 +1,17 @@
 import {Inject} from '@nestjs/common'
 import * as thrift from 'thrift'
+
 import {
   IThriftClientProvider,
   IThriftConnectionOpts,
   IThriftServiceProfile
 } from './interfaces';
 
+type IThriftFactoryArgs = [any, any, IThriftServiceProfile | string, IThriftConnectionOpts | undefined]
+
 // TODO reflect.metadata?
 const factoryArgs: IThriftFactoryArgs[] = []
 const cache = new WeakMap()
-
-type IThriftFactoryArgs = [any, any, IThriftServiceProfile | string, IThriftConnectionOpts | undefined]
 
 export const DECORATOR_TOKEN = Symbol('InjectThriftService')
 
