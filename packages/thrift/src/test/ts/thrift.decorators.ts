@@ -59,6 +59,7 @@ describe('thrift', () => {
     class TestService {
       constructor(
         @InjectThriftService(Client, 'services.common-auth', connOpts) public foo: Client,
+        @InjectThriftService(Client, 'services.common-auth', connOpts) public bar: Client,
       ) {}
     }
 
@@ -81,8 +82,9 @@ describe('thrift', () => {
 
       const testService = module.get(TestService)
 
+      expect(testService.foo).toBe(testService.bar)
       expect(await testService.foo.add(1, 2)).toBe(3)
-      expect(await testService.foo.add(10, -10)).toBe(0)
+      expect(await testService.bar.add(10, -10)).toBe(0)
     })
   })
 })

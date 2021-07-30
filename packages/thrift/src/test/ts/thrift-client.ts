@@ -97,9 +97,8 @@ describe('thrift', () => {
         .compile()
 
       const thriftClient = module.get(TestService).getClient()
-// console.log('thriftClient=', thriftClient)
       expect(await thriftClient.add(1, 2)).toBe(3)
-      // expect(await thriftClient.add(10, -10)).toBe(0)
+      expect(await thriftClient.add(10, -10)).toBe(0)
     })
   })
 })
