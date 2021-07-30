@@ -96,4 +96,4 @@ export class ThriftClientProvider implements IThriftClientProvider {
 
 // Legacy
 export const ThriftClientService = ThriftClientProvider
-export interface IThriftClientService extends IThriftClientProvider {}
+export interface IThriftClientService extends IThriftClientProvider {} // eslint-disable-line

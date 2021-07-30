@@ -3,14 +3,13 @@ import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
-
 import path from 'path'
 // @ts-ignore
 import * as thrift from 'thrift'
 
 import {
-  ThriftModule,
   InjectThriftService,
+  ThriftModule,
 } from '../../main/ts'
 // @ts-ignore
 import { FakeConsulDiscovery9090 } from './mock/fakeConsulDiscovery9090'
