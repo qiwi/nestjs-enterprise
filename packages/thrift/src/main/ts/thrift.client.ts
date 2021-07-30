@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import {IConfig, ILogger} from '@qiwi/substrate'
+import { IConfig, ILogger } from '@qiwi/substrate'
 import { factory as promiseFactory } from 'inside-out-promise'
 import * as thrift from 'thrift'
 
@@ -17,13 +17,19 @@ export class ThriftClientProvider implements IThriftClientProvider {
     @Inject('ILogger') private log: ILogger,
     @Inject('IConnectionProvider')
     private connectionProvider: IConnectionProvider,
-    @Inject('IConfigService') private config: IConfig
+    @Inject('IConfigService') private config: IConfig,
   ) {}
 
   async getConnectionParams(
     serviceProfile: IServiceDeclaration,
   ): Promise<IConnectionParams> {
     return this.connectionProvider.getConnectionParams(serviceProfile)
+  }
+
+  getServiceProfile(ref: IThriftServiceProfile | string) {
+    return typeof ref === 'string'
+      ? (this.config.get(ref) as IThriftServiceProfile)
+      : ref
   }
 
   getClient<TClient>(
@@ -36,9 +42,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
   ): TClient {
     const getConnectionParams = this.getConnectionParams.bind(this)
     const { multiplexer, connectionOpts } = opts || { multiplexer: true }
-    const profile = typeof serviceProfile === 'string'
-      ? this.config.get(serviceProfile) as IThriftServiceProfile
-      : serviceProfile
+    const profile = this.getServiceProfile(serviceProfile)
     const info = this.log.info.bind(this.log)
     const proxy: any = new Proxy(
       {},
