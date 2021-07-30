@@ -1,3 +1,11 @@
+# @qiwi/nestjs-enterprise-thrift [1.1.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.0.4...@qiwi/nestjs-enterprise-thrift@1.1.0) (2021-07-30)
+
+
+### Features
+
+* **thrift:** add thrift service caching ([22ab170](https://github.com/qiwi/nestjs-enterprise/commit/22ab170d18197574bfb75310b28ae435b0bfc453))
+* **thrift:** add thrift service injector ([bf84366](https://github.com/qiwi/nestjs-enterprise/commit/bf84366d83136cf9f5f8cc9cab150dc5df558b25))
+
 ## @qiwi/nestjs-enterprise-thrift [1.0.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.0.3...@qiwi/nestjs-enterprise-thrift@1.0.4) (2021-07-29)
 
 
