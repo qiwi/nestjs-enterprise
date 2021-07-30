@@ -9,9 +9,9 @@ import path from 'path'
 import * as thrift from 'thrift'
 
 import {
-  IThriftClientService,
+  IThriftClientProvider,
   IThriftServiceProfile,
-  ThriftClientService,
+  ThriftClientProvider,
   ThriftModule,
 } from '../../main/ts'
 // @ts-ignore
@@ -34,7 +34,7 @@ describe('thrift', () => {
   describe('index', () => {
     it('properly exposes its inners', () => {
       expect(ThriftModule).toBeDefined()
-      expect(ThriftClientService).toBeDefined()
+      expect(ThriftClientProvider).toBeDefined()
     })
   })
 
@@ -61,7 +61,7 @@ describe('thrift', () => {
       constructor(
         @Inject('IConfigService') private config: IConfig,
         @Inject('IThriftClientService')
-        private thrift: IThriftClientService,
+        private thrift: IThriftClientProvider,
       ) {}
 
       getClient() {
