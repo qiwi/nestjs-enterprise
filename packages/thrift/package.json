@@ -44,6 +44,7 @@
     "@nestjs/common": "^8.0.5",
     "@nestjs/core": "^8.0.5",
     "@qiwi/substrate": "^1.20.9",
+    "@types/thrift": "^0.10.11",
     "inside-out-promise": "^2.1.3",
     "lodash": "^4.17.21",
     "thrift": "0.14.2",

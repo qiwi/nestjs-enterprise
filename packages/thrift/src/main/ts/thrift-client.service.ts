@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { ILogger } from '@qiwi/substrate'
+import {IConfig, ILogger} from '@qiwi/substrate'
 import { factory as promiseFactory } from 'inside-out-promise'
-// @ts-ignore
 import * as thrift from 'thrift'
 
 import {
@@ -9,6 +8,7 @@ import {
   IConnectionProvider,
   IServiceDeclaration,
   IThriftClientService,
+  IThriftServiceProfile,
 } from './interfaces'
 
 @Injectable()
@@ -17,6 +17,7 @@ export class ThriftClientService implements IThriftClientService {
     @Inject('ILogger') private log: ILogger,
     @Inject('IConnectionProvider')
     private connectionProvider: IConnectionProvider,
+    @Inject('IConfigService') private config: IConfig
   ) {}
 
   async getConnectionParams(
@@ -26,7 +27,7 @@ export class ThriftClientService implements IThriftClientService {
   }
 
   getClient<TClient>(
-    serviceProfile: IServiceDeclaration,
+    serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
     opts?: {
       multiplexer: boolean
@@ -35,16 +36,23 @@ export class ThriftClientService implements IThriftClientService {
   ): TClient {
     const getConnectionParams = this.getConnectionParams.bind(this)
     const { multiplexer, connectionOpts } = opts || { multiplexer: true }
+    const profile = typeof serviceProfile === 'string'
+      ? this.config.get(serviceProfile) as IThriftServiceProfile
+      : serviceProfile
     const info = this.log.info.bind(this.log)
-    return new Proxy(
+    const proxy: any = new Proxy(
       {},
       {
         get(_target, propKey) {
+          if (propKey === 'then') {
+            return proxy
+          }
           return async (...args: any[]) => {
-            const { host, port } = await getConnectionParams(serviceProfile)
-
+            const { host, port } = await getConnectionParams(profile)
+            console.log(host, port)
+            console.log(propKey, ...args)
             info(
-              `Service: ${serviceProfile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+              `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
             )
             const { promise, resolve, reject } = promiseFactory()
             const connection = thrift
@@ -63,7 +71,7 @@ export class ThriftClientService implements IThriftClientService {
             const client = !multiplexer
               ? thrift.createClient(clientConstructor, connection)
               : new thrift.Multiplexer().createClient(
-                  serviceProfile.thriftServiceName,
+                  profile.thriftServiceName,
                   clientConstructor,
                   connection,
                 )
@@ -81,6 +89,7 @@ export class ThriftClientService implements IThriftClientService {
           }
         },
       },
-    ) as TClient
+    )
+    return proxy as TClient
   }
 }

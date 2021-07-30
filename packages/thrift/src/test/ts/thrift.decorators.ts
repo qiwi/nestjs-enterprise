@@ -1,18 +1,16 @@
-import { Global, Inject, Injectable, Module } from '@nestjs/common'
+import { Global, Injectable, Module } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
-import { IConfig } from '@qiwi/substrate'
+
 import path from 'path'
 // @ts-ignore
 import * as thrift from 'thrift'
 
 import {
-  IThriftClientService,
-  IThriftServiceProfile,
-  ThriftClientService,
   ThriftModule,
+  InjectThriftService,
 } from '../../main/ts'
 // @ts-ignore
 import { FakeConsulDiscovery9090 } from './mock/fakeConsulDiscovery9090'
@@ -23,6 +21,7 @@ import server from './mock/server'
 
 const testConfigPath = path.resolve(__dirname, './config/test.json')
 
+
 describe('thrift', () => {
   beforeAll(() => {
     server.listen(9090)
@@ -31,14 +30,8 @@ describe('thrift', () => {
   afterAll(() => {
     server.close()
   })
-  describe('index', () => {
-    it('properly exposes its inners', () => {
-      expect(ThriftModule).toBeDefined()
-      expect(ThriftClientService).toBeDefined()
-    })
-  })
 
-  describe('thrift module', () => {
+  describe('thrift.decorators', () => {
     @Global()
     @Module({
       providers: [
@@ -54,32 +47,22 @@ describe('thrift', () => {
     })
     class GlobalModule {}
 
-    @Injectable()
-    class TestService {
-      client?: Client
-
-      constructor(
-        @Inject('IConfigService') private config: IConfig,
-        @Inject('IThriftClientService')
-        private thrift: IThriftClientService,
-      ) {}
-
-      getClient() {
-        const serviceProfile: IThriftServiceProfile = this.config.get(
-          'services.common-auth',
-        )
-        this.client = this.thrift.getClient(serviceProfile, Client, {
-          multiplexer: false,
-          connectionOpts: {
-            transport: thrift.TBufferedTransport,
-            protocol: thrift.TBinaryProtocol,
-          },
-        })
-        return this.client
-      }
+    const connOpts = {
+      multiplexer: false,
+      connectionOpts: {
+        transport: thrift.TBufferedTransport,
+        protocol: thrift.TBinaryProtocol,
+      },
     }
 
-    it('exposes thrift api', async () => {
+    @Injectable()
+    class TestService {
+      constructor(
+        @InjectThriftService(Client, 'services.common-auth', connOpts) public foo: Client,
+      ) {}
+    }
+
+    it('thrift service is injectable', async () => {
       const module = await Test.createTestingModule({
         imports: [
           ConfigModule.register({ path: testConfigPath }),
@@ -96,10 +79,10 @@ describe('thrift', () => {
         .useValue(console)
         .compile()
 
-      const thriftClient = module.get(TestService).getClient()
-// console.log('thriftClient=', thriftClient)
-      expect(await thriftClient.add(1, 2)).toBe(3)
-      // expect(await thriftClient.add(10, -10)).toBe(0)
+      const testService = module.get(TestService)
+
+      expect(await testService.foo.add(1, 2)).toBe(3)
+      expect(await testService.foo.add(10, -10)).toBe(0)
     })
   })
 })
