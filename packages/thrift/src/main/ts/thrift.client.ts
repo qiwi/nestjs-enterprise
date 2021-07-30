@@ -7,12 +7,12 @@ import {
   IConnectionParams,
   IConnectionProvider,
   IServiceDeclaration,
-  IThriftClientService,
+  IThriftClientProvider,
   IThriftServiceProfile,
 } from './interfaces'
 
 @Injectable()
-export class ThriftClientService implements IThriftClientService {
+export class ThriftClientProvider implements IThriftClientProvider {
   constructor(
     @Inject('ILogger') private log: ILogger,
     @Inject('IConnectionProvider')
@@ -93,3 +93,7 @@ export class ThriftClientService implements IThriftClientService {
     return proxy as TClient
   }
 }
+
+// Legacy
+export const ThriftClientService = ThriftClientProvider
+export interface IThriftClientService extends IThriftClientProvider {}

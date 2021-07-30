@@ -77,7 +77,7 @@ export interface IThriftConnectionOpts {
   connectionOpts?: { transport: any; protocol: any }
 }
 
-export interface IThriftClientService {
+export interface IThriftClientProvider {
   getClient<TClient>(
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,

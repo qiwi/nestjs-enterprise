@@ -5,12 +5,11 @@ import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-pro
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
 import path from 'path'
-// @ts-ignore
 import * as thrift from 'thrift'
 
 import {
-  IServiceDeclaration,
-  IThriftClientService,
+  IThriftClientProvider,
+  IThriftServiceProfile,
   ThriftModule,
   ThriftServer,
 } from '../../main/ts'
@@ -48,11 +47,11 @@ describe('thrift-server', () => {
     constructor(
       @Inject('IConfigService') private config: IConfig,
       @Inject('IThriftClientService')
-      private thrift: IThriftClientService,
+      private thrift: IThriftClientProvider,
     ) {}
 
     getClient() {
-      const serviceProfile: IServiceDeclaration = this.config.get(
+      const serviceProfile: IThriftServiceProfile = this.config.get(
         'services.common-auth',
       )
       this.client = this.thrift.getClient(serviceProfile, Calculator, {

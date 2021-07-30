@@ -1,7 +1,7 @@
 import {Inject} from '@nestjs/common'
 import * as thrift from 'thrift'
 import {
-  IThriftClientService,
+  IThriftClientProvider,
   IThriftConnectionOpts,
   IThriftServiceProfile
 } from './interfaces';
@@ -12,9 +12,11 @@ const cache = new WeakMap()
 
 type IThriftFactoryArgs = [any, any, IThriftServiceProfile | string, IThriftConnectionOpts | undefined]
 
+export const DECORATOR_TOKEN = Symbol('InjectThriftService')
+
 export const InjectThriftService = <C>(Client: thrift.TClientConstructor<C>, serviceProfile: IThriftServiceProfile | string, connOpts?: IThriftConnectionOpts) => {
 
-  const inject = Inject('Foo')
+  const inject = Inject(DECORATOR_TOKEN)
 
   return (...args: Parameters<typeof inject>) => {
     factoryArgs.push([args[0], Client, serviceProfile, connOpts])
@@ -23,8 +25,13 @@ export const InjectThriftService = <C>(Client: thrift.TClientConstructor<C>, ser
   }
 }
 
-export const fooFactory = (thriftClientService: IThriftClientService) => {
-  const [_Parent, Client, serviceProfile, connOpts] = factoryArgs.pop() as IThriftFactoryArgs
+export const thriftServiceFactory = (thriftClientService: IThriftClientProvider) => {
+  const args = factoryArgs.pop()
+  if (!args) {
+    return
+  }
+
+  const [_Parent, Client, serviceProfile, connOpts] = args as IThriftFactoryArgs
   const cached = cache.get(Client) // TODO use composite key
 
   if (cached) {
