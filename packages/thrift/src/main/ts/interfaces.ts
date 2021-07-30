@@ -72,13 +72,16 @@ export interface IDbServiceProfile extends IServiceProfile {
 
 export type IServiceDeclaration = IThriftServiceProfile | IDbServiceProfile
 
+export interface IThriftConnectionOpts {
+  multiplexer?: boolean
+  connectionOpts?: { transport: any; protocol: any }
+}
+
 export interface IThriftClientService {
   getClient<TClient>(
-    serviceProfile: IServiceDeclaration,
+    serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
-    opts?: {
-      multiplexer: boolean
-      connectionOpts?: { transport: any; protocol: any }
-    },
+    opts?: IThriftConnectionOpts,
   ): TClient
 }
+
