@@ -7,10 +7,7 @@ import path from 'path'
 // @ts-ignore
 import * as thrift from 'thrift'
 
-import {
-  InjectThriftService,
-  ThriftModule,
-} from '../../main/ts'
+import { InjectThriftService, ThriftModule } from '../../main/ts'
 // @ts-ignore
 import { FakeConsulDiscovery9090 } from './mock/fakeConsulDiscovery9090'
 // @ts-ignore
@@ -19,7 +16,6 @@ import Client from './mock/gen-nodejs/Calculator'
 import server from './mock/server'
 
 const testConfigPath = path.resolve(__dirname, './config/test.json')
-
 
 describe('thrift', () => {
   beforeAll(() => {
@@ -57,8 +53,10 @@ describe('thrift', () => {
     @Injectable()
     class TestService {
       constructor(
-        @InjectThriftService(Client, 'services.common-auth', connOpts) public foo: Client,
-        @InjectThriftService(Client, 'services.common-auth', connOpts) public bar: Client,
+        @InjectThriftService(Client, 'services.common-auth', connOpts)
+        public foo: Client,
+        @InjectThriftService(Client, 'services.common-auth', connOpts)
+        public bar: Client,
       ) {}
     }
 

@@ -1,13 +1,18 @@
-import {Inject} from '@nestjs/common'
+import { Inject } from '@nestjs/common'
 import * as thrift from 'thrift'
 
 import {
   IThriftClientProvider,
   IThriftConnectionOpts,
-  IThriftServiceProfile
-} from './interfaces';
+  IThriftServiceProfile,
+} from './interfaces'
 
-type IThriftFactoryArgs = [any, any, IThriftServiceProfile | string, IThriftConnectionOpts | undefined]
+type IThriftFactoryArgs = [
+  any,
+  any,
+  IThriftServiceProfile | string,
+  IThriftConnectionOpts | undefined,
+]
 
 // TODO reflect.metadata?
 const factoryArgs: IThriftFactoryArgs[] = []
@@ -15,8 +20,11 @@ const cache = new WeakMap()
 
 export const DECORATOR_TOKEN = Symbol('InjectThriftService')
 
-export const InjectThriftService = <C>(Client: thrift.TClientConstructor<C>, serviceProfile: IThriftServiceProfile | string, connOpts?: IThriftConnectionOpts) => {
-
+export const InjectThriftService = <C>(
+  Client: thrift.TClientConstructor<C>,
+  serviceProfile: IThriftServiceProfile | string,
+  connOpts?: IThriftConnectionOpts,
+) => {
   const inject = Inject(DECORATOR_TOKEN)
 
   return (...args: Parameters<typeof inject>) => {
@@ -26,7 +34,9 @@ export const InjectThriftService = <C>(Client: thrift.TClientConstructor<C>, ser
   }
 }
 
-export const thriftServiceFactory = (thriftClientService: IThriftClientProvider) => {
+export const thriftServiceFactory = (
+  thriftClientService: IThriftClientProvider,
+) => {
   const args = factoryArgs.pop()
   if (!args) {
     return
@@ -39,7 +49,11 @@ export const thriftServiceFactory = (thriftClientService: IThriftClientProvider)
     return cached
   }
 
-  const thriftService = thriftClientService.getClient(serviceProfile, Client, connOpts)
+  const thriftService = thriftClientService.getClient(
+    serviceProfile,
+    Client,
+    connOpts,
+  )
   cache.set(Client, thriftService)
 
   return thriftService

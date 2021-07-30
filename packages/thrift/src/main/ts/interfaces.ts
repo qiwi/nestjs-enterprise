@@ -84,4 +84,3 @@ export interface IThriftClientProvider {
     opts?: IThriftConnectionOpts,
   ): TClient
 }
-
