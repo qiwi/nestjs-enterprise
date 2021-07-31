@@ -1,14 +1,4 @@
-// @ts-ignore
 import * as thrift from 'thrift'
-// eslint-disable-next-line @typescript-eslint/ban-types
-export interface ClassType<InstanceType extends Function> extends Function {
-  new (...args: any[]): InstanceType
-  prototype: InstanceType
-}
-
-export type Extender = <BaseClass extends ClassType<any>>(
-  base: BaseClass,
-) => BaseClass
 
 export const ThriftServer = (processor: any, port: number): ClassDecorator => {
   // eslint-disable-next-line @typescript-eslint/ban-types

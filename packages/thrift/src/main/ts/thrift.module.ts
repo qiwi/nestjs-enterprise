@@ -1,7 +1,7 @@
 import { Global, Module } from '@nestjs/common'
 
 import { ThriftClientProvider } from './thrift.client'
-import { DECORATOR_TOKEN, thriftServiceFactory } from './thrift.decorators'
+import { INJECT_THRIFT_SERVICE, thriftServiceFactory } from './thrift.decorators'
 
 @Global()
 @Module({
@@ -9,11 +9,11 @@ import { DECORATOR_TOKEN, thriftServiceFactory } from './thrift.decorators'
     { provide: 'IThriftClientProvider', useClass: ThriftClientProvider },
     { provide: 'IThriftClientService', useExisting: 'IThriftClientProvider' }, // Legacy
     {
-      provide: DECORATOR_TOKEN,
+      provide: INJECT_THRIFT_SERVICE,
       useFactory: thriftServiceFactory,
       inject: ['IThriftClientProvider'],
     },
   ],
-  exports: ['IThriftClientService', 'IThriftClientProvider', DECORATOR_TOKEN],
+  exports: ['IThriftClientService', 'IThriftClientProvider', INJECT_THRIFT_SERVICE],
 })
 export class ThriftModule {}

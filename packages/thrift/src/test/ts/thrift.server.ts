@@ -54,13 +54,14 @@ describe('thrift-server', () => {
       const serviceProfile: IThriftServiceProfile = this.config.get(
         'services.common-auth',
       )
-      this.client = this.thrift.getClient(serviceProfile, Calculator, {
+      const connOpts = {
         multiplexer: false,
         connectionOpts: {
           transport: thrift.TBufferedTransport,
           protocol: thrift.TBinaryProtocol,
         },
-      })
+      }
+      this.client = this.thrift.getClient(serviceProfile, Calculator, connOpts)
       return this.client
     }
   }

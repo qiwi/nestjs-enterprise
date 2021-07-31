@@ -18,14 +18,14 @@ type IThriftFactoryArgs = [
 const factoryArgs: IThriftFactoryArgs[] = []
 const cache = new WeakMap()
 
-export const DECORATOR_TOKEN = Symbol('InjectThriftService')
+export const INJECT_THRIFT_SERVICE = Symbol('InjectThriftService')
 
 export const InjectThriftService = <C>(
   Client: thrift.TClientConstructor<C>,
   serviceProfile: IThriftServiceProfile | string,
   connOpts?: IThriftConnectionOpts,
 ) => {
-  const inject = Inject(DECORATOR_TOKEN)
+  const inject = Inject(INJECT_THRIFT_SERVICE)
 
   return (...args: Parameters<typeof inject>) => {
     factoryArgs.push([args[0], Client, serviceProfile, connOpts])

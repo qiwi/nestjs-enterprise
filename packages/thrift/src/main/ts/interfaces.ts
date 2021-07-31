@@ -84,3 +84,13 @@ export interface IThriftClientProvider {
     opts?: IThriftConnectionOpts,
   ): TClient
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export interface ClassType<InstanceType> extends Function {
+  new (...args: any[]): InstanceType
+  prototype: InstanceType
+}
+
+export type Extender = <BaseClass extends ClassType<any>>(
+  base: BaseClass,
+) => BaseClass
