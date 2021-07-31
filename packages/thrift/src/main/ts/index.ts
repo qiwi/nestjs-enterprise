@@ -1,5 +1,5 @@
-export { ThriftModule } from './thrift.module'
-export { ThriftClientProvider } from './thrift.client'
-export { ThriftServer } from './thrift.server'
+export * from './thrift.module'
+export * from './thrift.client'
+export * from './thrift.server'
 export * from './thrift.decorators'
 export * from './interfaces'
