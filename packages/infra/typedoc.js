@@ -1,0 +1,11 @@
+module.exports = {
+  out: './docs',
+  entryPoints: ['src/main/ts'],
+  exclude: ['src/test', '**/node_modules/**', 'paralleljs'],
+  externalPattern: ['**/node_modules/**'],
+  excludePrivate: false,
+  hideGenerator: true,
+  readme: 'README.md',
+  theme: 'minimal',
+  tsconfig: './tsconfig.es5.json',
+}
