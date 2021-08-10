@@ -19,7 +19,7 @@
     "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls || echo 'coveralls push failed :(' && exit 0",
     "docs": "typedoc packages/**/src/main",
-    "postupdate": "yarn && yarn bootstrap && npx yarn-audit-fix && yarn build && yarn test",
+    "postupdate": "yarn && yarn bootstrap && npm_config_yes=true npx yarn-audit-fix && yarn build && yarn test",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "format": "lerna run format"

@@ -6,11 +6,5 @@
   },
   "references": [
     { "path": "../common/tsconfig.es6.json" }
-  ],
-  "include": [
-    "src/main/**/*"
-  ],
-  "exclude": [
-    "node_modules"
   ]
 }
