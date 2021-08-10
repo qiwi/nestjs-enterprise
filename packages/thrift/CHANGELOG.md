@@ -1,3 +1,10 @@
+# @qiwi/nestjs-enterprise-thrift [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.1.0...@qiwi/nestjs-enterprise-thrift@1.2.0) (2021-08-10)
+
+
+### Features
+
+* **thrift:** expose INJECT_THRIFT_SERVICE token for testing/mocking ([80c4da9](https://github.com/qiwi/nestjs-enterprise/commit/80c4da9f78cfef6b212674973ff75eef8c26d831))
+
 # @qiwi/nestjs-enterprise-thrift [1.1.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.0.4...@qiwi/nestjs-enterprise-thrift@1.1.0) (2021-07-30)
 
 
