@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-connection-provider",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Nestjs connection-provider module",
   "private": false,
   "publishConfig": {
@@ -48,7 +48,7 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.2.3"
+    "@qiwi/nestjs-enterprise-infra": "1.2.4"
   },
   "repository": {
     "type": "git",
