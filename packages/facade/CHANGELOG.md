@@ -1,3 +1,19 @@
+## @qiwi/nestjs-enterprise [1.3.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise@1.3.3...@qiwi/nestjs-enterprise@1.3.4) (2021-09-22)
+
+
+### Bug Fixes
+
+* **consul:** fix consul service discovery ([7b635a9](https://github.com/qiwi/nestjs-enterprise/commit/7b635a9925358fe60de3af070e3b6f358595910c))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-common:** upgraded to 1.3.4
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.4
+
 ## @qiwi/nestjs-enterprise [1.3.3](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise@1.3.2...@qiwi/nestjs-enterprise@1.3.3) (2021-07-29)
 
 
