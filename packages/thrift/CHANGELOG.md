@@ -1,3 +1,22 @@
+## @qiwi/nestjs-enterprise-thrift [1.2.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.2.0...@qiwi/nestjs-enterprise-thrift@1.2.1) (2021-09-22)
+
+
+### Bug Fixes
+
+* **consul:** fix consul service discovery ([7b635a9](https://github.com/qiwi/nestjs-enterprise/commit/7b635a9925358fe60de3af070e3b6f358595910c))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.4
+* **@qiwi/nestjs-enterprise-consul:** upgraded to 1.2.4
+* **@qiwi/nestjs-enterprise-connection-provider:** upgraded to 1.0.4
+* **@qiwi/nestjs-enterprise-logger:** upgraded to 1.5.5
+* **@qiwi/nestjs-enterprise-config:** upgraded to 1.3.4
+
 # @qiwi/nestjs-enterprise-thrift [1.2.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.1.0...@qiwi/nestjs-enterprise-thrift@1.2.0) (2021-08-10)
 
 
