@@ -43,9 +43,9 @@
   "dependencies": {
     "@nestjs/common": "^8.0.6",
     "@nestjs/core": "^8.0.6",
-    "@types/rimraf": "^3.0.1",
+    "@types/rimraf": "^3.0.2",
     "resolve-cwd": "^3.0.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.2.3",

@@ -6,6 +6,6 @@ module.exports = {
   excludePrivate: false,
   hideGenerator: true,
   readme: 'README.md',
-  theme: 'minimal',
+  theme: 'default',
   tsconfig: './tsconfig.es5.json',
 }
