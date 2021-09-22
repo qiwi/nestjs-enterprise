@@ -43,9 +43,9 @@
   "dependencies": {
     "@nestjs/common": "^8.0.6",
     "@nestjs/core": "^8.0.6",
-    "@qiwi/consul-service-discovery": "^1.9.4",
-    "@qiwi/substrate": "^1.20.9",
-    "tslib": "^2.3.0"
+    "@qiwi/consul-service-discovery": "^1.9.5",
+    "@qiwi/substrate": "^1.20.10",
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.2.3",

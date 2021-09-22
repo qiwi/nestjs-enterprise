@@ -43,9 +43,9 @@
   "dependencies": {
     "@nestjs/common": "^8.0.6",
     "@nestjs/core": "^8.0.6",
-    "@qiwi/substrate": "^1.20.9",
+    "@qiwi/substrate": "^1.20.10",
     "lodash": "^4.17.21",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "1.2.3"
