@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-consul [1.2.5](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-consul@1.2.4...@qiwi/nestjs-enterprise-consul@1.2.5) (2021-09-23)
+
+
+### Bug Fixes
+
+* **consul:** fix by fix ([0c5406a](https://github.com/qiwi/nestjs-enterprise/commit/0c5406ada928f7834b517d3cfb79b4b439ccad0e))
+
 ## @qiwi/nestjs-enterprise-consul [1.2.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-consul@1.2.3...@qiwi/nestjs-enterprise-consul@1.2.4) (2021-09-22)
 
 

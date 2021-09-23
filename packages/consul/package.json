@@ -1,6 +1,6 @@
 {
   "name": "@qiwi/nestjs-enterprise-consul",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Nestjs module for working with Consul",
   "private": false,
   "publishConfig": {
