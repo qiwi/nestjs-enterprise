@@ -1,3 +1,13 @@
+## @qiwi/nestjs-enterprise-thrift [1.2.2](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.2.1...@qiwi/nestjs-enterprise-thrift@1.2.2) (2021-09-23)
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-consul:** upgraded to 1.2.5
+
 ## @qiwi/nestjs-enterprise-thrift [1.2.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.2.0...@qiwi/nestjs-enterprise-thrift@1.2.1) (2021-09-22)
 
 
