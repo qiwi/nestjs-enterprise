@@ -2226,10 +2226,10 @@
   dependencies:
     "@octokit/openapi-types" "^10.3.0"
 
-"@qiwi/consul-service-discovery@^1.9.5":
-  version "1.9.5"
-  resolved "https://registry.yarnpkg.com/@qiwi/consul-service-discovery/-/consul-service-discovery-1.9.5.tgz#a3885bd9aa70bce306ef9b4fe57cc26458b859b0"
-  integrity sha512-tBNZTVt8M1cBnoFu1Kb9E3G7DhdOuxw7PaXDmJuI5O4ikOBJaKjz+u62JVe2dUcuBDCg6y0FXq+JHMbNgvznvQ==
+"@qiwi/consul-service-discovery@^1.9.6":
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/@qiwi/consul-service-discovery/-/consul-service-discovery-1.9.6.tgz#7be9fe60ac4e8edc4b08204e23c5f46f7361a9b5"
+  integrity sha512-71oIlUMt71cEHFLJ+JOrXg/bOiXByLCJsMmFfI2LJGk7H1Oe2Oa7p6oPiO3+6eUT6WmL4RG9eEHVOBQblr0aVA==
   dependencies:
     "@qiwi/substrate" "^1.20.10"
     "@types/consul" "^0.23.35"
