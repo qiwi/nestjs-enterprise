@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-connection-provider [1.0.5](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-connection-provider@1.0.4...@qiwi/nestjs-enterprise-connection-provider@1.0.5) (2021-10-01)
+
+
+### Bug Fixes
+
+* **package:** update nestjs-* deps, update consul ([0f811d3](https://github.com/qiwi/nestjs-enterprise/commit/0f811d3e0a52dfb4726774aaf94dc7ba914b296d))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.5
+
 ## @qiwi/nestjs-enterprise-connection-provider [1.0.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-connection-provider@1.0.3...@qiwi/nestjs-enterprise-connection-provider@1.0.4) (2021-09-22)
 
 
