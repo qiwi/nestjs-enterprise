@@ -1,3 +1,10 @@
+## @qiwi/nestjs-enterprise-infra [1.2.5](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-infra@1.2.4...@qiwi/nestjs-enterprise-infra@1.2.5) (2021-10-01)
+
+
+### Bug Fixes
+
+* **package:** update nestjs-* deps, update consul ([0f811d3](https://github.com/qiwi/nestjs-enterprise/commit/0f811d3e0a52dfb4726774aaf94dc7ba914b296d))
+
 ## @qiwi/nestjs-enterprise-infra [1.2.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-infra@1.2.3...@qiwi/nestjs-enterprise-infra@1.2.4) (2021-09-22)
 
 
