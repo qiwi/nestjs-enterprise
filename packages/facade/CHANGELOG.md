@@ -1,3 +1,14 @@
+## @qiwi/nestjs-enterprise [1.3.5](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise@1.3.4...@qiwi/nestjs-enterprise@1.3.5) (2021-10-01)
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-common:** upgraded to 1.3.5
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.2.5
+
 ## @qiwi/nestjs-enterprise [1.3.4](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise@1.3.3...@qiwi/nestjs-enterprise@1.3.4) (2021-09-22)
 
 
