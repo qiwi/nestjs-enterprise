@@ -41,8 +41,8 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^8.0.6",
-    "@nestjs/core": "^8.0.6",
+    "@nestjs/common": "^8.0.9",
+    "@nestjs/core": "^8.0.9",
     "@qiwi/mware": "^1.12.1",
     "@qiwi/mware-context": "^1.12.1",
     "@qiwi/substrate": "^1.20.10",

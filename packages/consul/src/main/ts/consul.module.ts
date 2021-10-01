@@ -10,12 +10,18 @@ import { ConsulService } from './consul.service'
     {
       provide: 'IDiscoveryService',
       useFactory: (config: IConfig, logger: ILogger) => {
-        const consulPort = config.get('consul.port')
-        const consulHost = config.get('consul.host')
+        const port = config.get('consul.port')
+        const host = config.get('consul.host')
+        const secure = config.get('consul.secure')
+        const ca = config.get('consul.ca')
+        const defaults = config.get('consul.defaults')
         return new ConsulDiscoveryService(
           {
-            host: consulHost,
-            port: consulPort,
+            host,
+            port,
+            secure,
+            defaults,
+            ca,
           },
           { logger },
         )
