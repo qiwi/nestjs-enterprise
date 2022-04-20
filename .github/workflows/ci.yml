@@ -123,13 +123,22 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: artifact-${{ github.run_id }}
+
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install deps
         run: |
           sudo apt-get install moreutils
           yarn
+
+      - name: bootstrap
+        run: yarn bootstrap
+
+      - name: bootstrap
+        run: yarn build
+
       - name: Unit test only
         if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
         run: yarn test
