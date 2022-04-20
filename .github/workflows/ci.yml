@@ -15,94 +15,59 @@ jobs:
       - id: ci-skip-step
         uses: mstachniuk/ci-skip@v1
 
-
-  install_deps:
-    name: install_deps
+  test:
+    name: test
     needs: init
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install deps
+
+      - name: Fetch deps
         run: yarn
-      - name: Save target (artifact)
-        uses: actions/upload-artifact@v3
-        with:
-          name: target
-          retention-days: 1
-          # If a wildcard pattern is used, the path hierarchy will be preserved after the first wildcard pattern.
-          # https://github.com/actions/upload-artifact#upload-using-multiple-paths-and-exclusions
-          path: |
-            !packages/*/node_modules
-            !packages/*/src
-            packages
-            renovate.json
 
-
-  lint:
-    name: lint
-    needs: install_deps
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Restore target
-        uses: actions/download-artifact@v3
-        with:
-          name: target
-
-      - name: Lint
+      - name: lint
         run: yarn run lint
-
-  test:
-    name: test
-    needs: lint
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Restore target
-        uses: actions/download-artifact@v3
-        with:
-          name: target
 
       - name: test
         run: yarn run test:report
 
   build:
     name: build
-    needs: test
+    needs: init
     if: ${{ needs.init.outputs.skip == 'false' }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install deps
+
+      - name: Fetch deps
         run: yarn
 
-      - name: Build
+      - name: Build target
         run: yarn build
 
-      - name: Save target (artifact)
+      - name: Save artifact
         uses: actions/upload-artifact@v3
         with:
-          name: target
+          name: artifact-${{ github.run_id }}
           retention-days: 1
-          # If a wildcard pattern is used, the path hierarchy will be preserved after the first wildcard pattern.
-          # https://github.com/actions/upload-artifact#upload-using-multiple-paths-and-exclusions
           path: |
-            !packages/*/node_modules
-            !packages/*/src
-            packages
-            renovate.json
+            docs
+            target
+            flow-typed
+            typings
+            buildstamp.json
 
   test_push:
     needs: build
