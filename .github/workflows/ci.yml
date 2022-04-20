@@ -31,6 +31,9 @@ jobs:
       - name: Fetch deps
         run: yarn
 
+      - name: bootstrap
+        run: yarn bootstrap
+
       - name: lint
         run: yarn run lint
 
@@ -51,23 +54,23 @@ jobs:
         with:
           node-version: 16
 
-      - name: Fetch deps
+      - name: Install deps
         run: yarn
 
-      - name: Build target
+      - name: Build
         run: yarn build
 
-      - name: Save artifact
+      - name: Save target (artifact)
         uses: actions/upload-artifact@v3
         with:
           name: artifact-${{ github.run_id }}
           retention-days: 1
           path: |
-            docs
-            target
-            flow-typed
-            typings
-            buildstamp.json
+            !packages/*/node_modules
+            !packages/*/src
+            packages
+            package.json
+
 
   test_push:
     needs: build
