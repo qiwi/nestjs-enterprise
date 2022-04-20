@@ -34,6 +34,9 @@ jobs:
       - name: bootstrap
         run: yarn bootstrap
 
+      - name: bootstrap
+        run: yarn build
+
       - name: lint
         run: yarn run lint
 
