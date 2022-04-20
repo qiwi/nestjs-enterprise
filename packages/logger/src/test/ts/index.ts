@@ -12,8 +12,6 @@ import {
   masker,
   maskerLoggerPipeFactory,
 } from '../../main/ts'
-import { createLoggerPipe } from '../../main/ts/logger.pipe'
-import { resolveLogIndex } from '../../main/ts/resolve-log-index.pipe'
 import { createTransports } from '../../main/ts/winston'
 
 const testLogPath = path.resolve(__dirname, './log/application-json.log')
@@ -120,14 +118,18 @@ describe('logger', () => {
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
         testlog() {
-          this.logger.error('4111 1111 1111 1111')
+          this.logger.push({
+            meta: { event: 'metaevent', extra: {ttl: '25'} },
+            input: ['4111 1111 1111 1111'],
+            level: LogLevel.INFO,
+          })
         }
       }
 
       const module = await Test.createTestingModule({
         imports: [
           ConfigModule.register({ path: testConfigPath }),
-          LoggerModule.register(resolveLogIndex(), maskerLoggerPipeFactory(), createMetaPipe()),
+          LoggerModule.register(maskerLoggerPipeFactory(), createMetaPipe()),
         ],
         providers: [TestService],
       })
@@ -144,59 +146,9 @@ describe('logger', () => {
       expect(res.toString()).toMatch('host')
       expect(res.toString()).toMatch('serviceName')
       expect(res.toString()).toMatch('service')
+      expect(res.toString()).toMatch('metaevent')
+      expect(res.toString()).toMatch('ttl')
     })
-
-    it('work with resolve-log-index-pipe', async () => {
-      @Injectable()
-      class TestService {
-        constructor(@Inject('ILogger') private logger: ILogger) {}
-        testlog() {
-          this.logger.push({
-            meta: { event: 'metaevent', ttl: 25 },
-            input: ['4111 1111 1111 1111'],
-            level: LogLevel.INFO,
-          })
-        }
-      }
-      const log = jest.fn()
-
-      const dummy = () => {
-        /* noop */
-      }
-      const loggerMock: ILogger = {
-        log,
-        trace: dummy,
-        debug: dummy,
-        info: dummy,
-        warn: dummy,
-        error: dummy,
-      }
-      const module = await Test.createTestingModule({
-        imports: [
-          ConfigModule.register({ path: testConfigPath }),
-          LoggerModule.register(resolveLogIndex(), maskerLoggerPipeFactory(), createLoggerPipe(loggerMock)),
-        ],
-        providers: [TestService],
-      })
-        .overrideProvider('IConfigService')
-        .useValue(fakeConfig)
-        .compile()
-
-      module.get(TestService).testlog()
-      expect(log).toHaveBeenCalledWith({
-        level:  LogLevel.INFO,
-        message: '4111 **** **** 1111',
-        meta: {
-          ttl: 25,
-          service: 'flp-1m',
-          event: 'metaevent',
-          name: 'test-name-app2',
-          host: expect.any(String),
-          version: '1',
-        }
-      })
-    })
-
 
     it('push works correctly', async () => {
       @Injectable()
