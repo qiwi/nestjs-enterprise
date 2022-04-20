@@ -95,6 +95,12 @@ jobs:
           sudo apt-get install moreutils
           yarn
 
+      - name: bootstrap
+        run: yarn bootstrap
+
+      - name: bootstrap
+        run: yarn build
+
       - name: Unit test only
         run: yarn test
 
