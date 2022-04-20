@@ -17,7 +17,7 @@ jobs:
 
 
   install_deps:
-    name: deps
+    name: install_deps
     needs: init
     runs-on: ubuntu-20.04
     steps:
@@ -43,7 +43,7 @@ jobs:
 
   lint:
     name: lint
-    needs: deps
+    needs: install_deps
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
