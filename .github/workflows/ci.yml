@@ -34,7 +34,7 @@ jobs:
       - name: bootstrap
         run: yarn bootstrap
 
-      - name: bootstrap
+      - name: build
         run: yarn build
 
       - name: lint
@@ -98,7 +98,7 @@ jobs:
       - name: bootstrap
         run: yarn bootstrap
 
-      - name: bootstrap
+      - name: build
         run: yarn build
 
       - name: Unit test only
@@ -142,7 +142,7 @@ jobs:
       - name: bootstrap
         run: yarn bootstrap
 
-      - name: bootstrap
+      - name: build
         run: yarn build
 
       - name: Unit test only
