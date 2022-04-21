@@ -12,6 +12,7 @@ import {
   masker,
   maskerLoggerPipeFactory,
 } from '../../main/ts'
+import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import { createTransports } from '../../main/ts/winston'
 
 const testLogPath = path.resolve(__dirname, './log/application-json.log')
@@ -25,6 +26,7 @@ describe('logger', () => {
   const fakeConfig = {
     get: (field: 'name' | 'logger' | 'version' | 'local') => {
       const configData = {
+        // eslint-disable-next-line sonarjs/no-duplicate-string
         name: 'test-name-app2',
         local: '',
         version: '1',
@@ -66,6 +68,7 @@ describe('logger', () => {
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
+
         async testlog() {
           this.logger.error('testinfo-foo-static')
         }
@@ -91,6 +94,7 @@ describe('logger', () => {
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
+
         testlog() {
           this.logger.error('testinfo-foo-dynamic')
         }
@@ -117,15 +121,38 @@ describe('logger', () => {
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
+
         testlog() {
-          this.logger.error('4111 1111 1111 1111')
+          this.logger.push({
+            meta: { event: 'metaevent', extra: { ttl: '25' } },
+            input: ['4111 1111 1111 1111'],
+            level: LogLevel.INFO,
+          })
         }
+      }
+
+      const log = jest.fn()
+
+      const dummy = () => {
+        /* noop */
+      }
+      const loggerMock: ILogger = {
+        log,
+        trace: dummy,
+        debug: dummy,
+        info: dummy,
+        warn: dummy,
+        error: dummy,
       }
 
       const module = await Test.createTestingModule({
         imports: [
           ConfigModule.register({ path: testConfigPath }),
-          LoggerModule.register(maskerLoggerPipeFactory(), createMetaPipe()),
+          LoggerModule.register(
+            maskerLoggerPipeFactory(),
+            createMetaPipe(),
+            createLoggerPipe(loggerMock),
+          ),
         ],
         providers: [TestService],
       })
@@ -134,19 +161,40 @@ describe('logger', () => {
         .compile()
 
       module.get(TestService).testlog()
-      await delay(100)
-      const res = fs.readFileSync(path.resolve(testLogPath))
-      expect(res.toString()).toMatch('4111 **** **** 1111')
-      expect(res.toString()).toMatch('test-name-app')
-      expect(res.toString()).toMatch('app_version')
-      expect(res.toString()).toMatch('host')
-      expect(res.toString()).toMatch('serviceName')
+      expect(log).toHaveBeenCalledWith({
+        level: LogLevel.INFO,
+        message: '4111 **** **** 1111',
+        meta: {
+          event: 'metaevent',
+          extra: {
+            ttl: '25',
+          },
+          host: expect.any(String),
+          name: 'test-name-app2',
+          version: '1',
+          publicMeta: {
+            app_version: '1',
+            auth: {},
+            event: 'metaevent',
+            host: expect.any(String),
+            mdc: {
+              parentSpanId: undefined,
+              spanId: undefined,
+              traceId: undefined,
+            },
+            origin: undefined,
+            serviceName: 'test-name-app2',
+            ttl: '25',
+          },
+        },
+      })
     })
 
     it('push works correctly', async () => {
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
+
         testlog() {
           this.logger.push({
             meta: { event: 'metaevent' },

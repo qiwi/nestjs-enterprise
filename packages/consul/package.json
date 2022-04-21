@@ -44,7 +44,7 @@
     "@nestjs/common": "^8.0.9",
     "@nestjs/core": "^8.0.9",
     "@qiwi/consul-service-discovery": "^1.10.0",
-    "@qiwi/substrate": "^1.20.10",
+    "@qiwi/substrate": "^1.20.12",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
