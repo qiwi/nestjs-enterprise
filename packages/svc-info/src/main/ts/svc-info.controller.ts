@@ -38,7 +38,7 @@ export class SvcInfoController {
   @ApiExcludeEndpoint()
   async version() {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { version, name } = JSON.parse(await promises.readFile(resolveCwd(this.opts.packagePath || './package.json'), 'utf-8'))
+    const { version, name } = this.opts.package || JSON.parse(await promises.readFile(resolveCwd(this.opts.packagePath || './package.json'), 'utf-8'))
     return { version, name }
   }
 

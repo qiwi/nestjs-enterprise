@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "lib": ["esnext"],
+    "lib": ["esnext", "dom"],
     "noImplicitAny": true,
     "noEmitHelpers": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "resolveJsonModule": true,
     "strictNullChecks": true,
     "experimentalDecorators": true,

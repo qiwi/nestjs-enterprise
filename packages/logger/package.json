@@ -45,7 +45,7 @@
     "@nestjs/core": "^8.0.6",
     "@qiwi/logwrap": "^1.5.1",
     "@qiwi/mware-context": "^1.12.1",
-    "@qiwi/substrate": "^1.20.10",
+    "@qiwi/substrate": "^1.20.12",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.0",
     "fast-safe-stringify": "^2.1.1",
@@ -53,7 +53,7 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.2.4",
+    "@qiwi/nestjs-enterprise-infra": "1.2.5",
     "@types/bluebird": "^3.5.36",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",

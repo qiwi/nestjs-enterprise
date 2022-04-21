@@ -45,11 +45,11 @@
     "@nestjs/core": "^8.0.6",
     "@qiwi/mware": "^1.12.1",
     "@qiwi/mware-context": "^1.12.1",
-    "@qiwi/substrate": "^1.20.10",
+    "@qiwi/substrate": "^1.20.12",
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.2.4",
+    "@qiwi/nestjs-enterprise-infra": "1.2.5",
     "esm": "^3.2.25",
     "reflect-metadata": "^0.1.13"
   },
