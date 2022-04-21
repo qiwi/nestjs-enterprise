@@ -7,7 +7,7 @@ import {
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
 import fs from 'fs'
-import path, { resolve } from 'path'
+import path  from 'path'
 import rimraf from 'rimraf'
 import request from 'supertest'
 
@@ -51,7 +51,7 @@ const fakeConfig = {
     return configData[field]
   },
 }
-jest.setTimeout(10000);
+jest.setTimeout(20000);
 
 const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
   return Test.createTestingModule({
@@ -81,7 +81,7 @@ describe('SvcModule', () => {
 
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
-      const module = await moduleFactory({ packagePath: resolve(__dirname, './mock/package.json') })
+      const module = await moduleFactory({ package: { 'version': '0.0.0', 'name': 'test'}})
       const app = module.createNestApplication()
       await app.init()
       app.useGlobalPipes(new ValidationPipe({ whitelist: true }))

@@ -1,6 +1,7 @@
 import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
 import { ILogger } from '@qiwi/substrate'
+import { promises } from 'fs'
 import resolveCwd from 'resolve-cwd'
 
 import { ISvcInfoModuleOpts } from './interfaces'
@@ -35,9 +36,9 @@ export class SvcInfoController {
 
   @Get('version')
   @ApiExcludeEndpoint()
-  version() {
+  async version() {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { version, name } = require(resolveCwd(this.opts.packagePath || './package.json'))
+    const { version, name } = this.opts.package || JSON.parse(await promises.readFile(resolveCwd(this.opts.packagePath || './package.json'), 'utf-8'))
     return { version, name }
   }
 
