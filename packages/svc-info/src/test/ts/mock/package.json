@@ -11,7 +11,7 @@
     "prebuild": "tsc -b packages/facade/tsconfig.es5.json",
     "build": "yarn clean && yarn prebuild && lerna run build --stream --concurrency 2",
     "bootstrap": "lerna bootstrap",
-    "jest": "jest --runInBand --forceExit --detectOpenHandles",
+    "jest": "yarn infra:jest --runInBand --forceExit --detectOpenHandles",
     "test": "yarn jest",
     "test:report": "yarn test && yarn coveralls:push",
     "test:concurrent": "lerna run test --concurrency 1 --stream --no-prefix && yarn coverage:merge",

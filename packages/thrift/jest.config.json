@@ -1,8 +1,4 @@
 {
-  "transform": {
-    "^.+\\.tsx?$": "ts-jest",
-    "^.+\\.jsx?$": "@swissquote/crafty-preset-jest/src/esm-transformer"
-  },
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
   ],
@@ -27,7 +23,7 @@
   "preset": "ts-jest",
   "globals": {
     "ts-jest": {
-      "tsConfig": "<rootDir>/tsconfig.test.json"
+      "tsconfig": "<rootDir>/tsconfig.test.json"
     }
   }
 

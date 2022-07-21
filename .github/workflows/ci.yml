@@ -15,34 +15,6 @@ jobs:
       - id: ci-skip-step
         uses: mstachniuk/ci-skip@v1
 
-  test:
-    name: test
-    needs: init
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Fetch deps
-        run: yarn
-
-      - name: bootstrap
-        run: yarn bootstrap
-
-      - name: build
-        run: yarn build
-
-      - name: lint
-        run: yarn run lint
-
-      - name: test
-        run: yarn run test:report
-
   build:
     name: build
     needs: init
@@ -95,12 +67,6 @@ jobs:
           sudo apt-get install moreutils
           yarn
 
-      - name: bootstrap
-        run: yarn bootstrap
-
-      - name: build
-        run: yarn build
-
       - name: Unit test only
         run: yarn test
 
@@ -138,12 +104,6 @@ jobs:
         run: |
           sudo apt-get install moreutils
           yarn
-
-      - name: bootstrap
-        run: yarn bootstrap
-
-      - name: build
-        run: yarn build
 
       - name: Unit test only
         if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
