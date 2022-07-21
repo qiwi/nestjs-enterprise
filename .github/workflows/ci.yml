@@ -133,9 +133,6 @@ jobs:
           sudo apt-get install moreutils
           yarn
 
-      - name: bootstrap
-        run: yarn bootstrap
-
       - name: build
         run: yarn build
 
