@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-connection-provider [1.1.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-connection-provider@1.1.0...@qiwi/nestjs-enterprise-connection-provider@1.1.1) (2022-07-21)
+
+
+### Performance Improvements
+
+* use yarn@4, update deps ([#56](https://github.com/qiwi/nestjs-enterprise/issues/56)) ([e166672](https://github.com/qiwi/nestjs-enterprise/commit/e166672d31c4ae19be1b6093dcdc3798856bb6aa))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.3.1
+
 # @qiwi/nestjs-enterprise-connection-provider [1.1.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-connection-provider@1.0.5...@qiwi/nestjs-enterprise-connection-provider@1.1.0) (2022-04-21)
 
 
