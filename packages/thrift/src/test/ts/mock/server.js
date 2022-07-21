@@ -59,4 +59,4 @@ var server = thrift.createServer(Calculator, {
   zip: function () {},
 })
 
-export default server
+module.exports = server
