@@ -1,3 +1,18 @@
+## @qiwi/nestjs-enterprise-mdc [1.4.1](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.4.0...@qiwi/nestjs-enterprise-mdc@1.4.1) (2022-07-21)
+
+
+### Performance Improvements
+
+* use yarn@4, update deps ([#56](https://github.com/qiwi/nestjs-enterprise/issues/56)) ([e166672](https://github.com/qiwi/nestjs-enterprise/commit/e166672d31c4ae19be1b6093dcdc3798856bb6aa))
+
+
+
+
+
+### Dependencies
+
+* **@qiwi/nestjs-enterprise-infra:** upgraded to 1.3.1
+
 # @qiwi/nestjs-enterprise-mdc [1.4.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-mdc@1.3.7...@qiwi/nestjs-enterprise-mdc@1.4.0) (2022-04-21)
 
 
