@@ -15,31 +15,6 @@ jobs:
       - id: ci-skip-step
         uses: mstachniuk/ci-skip@v1
 
-  test:
-    name: test
-    needs: init
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-
-      - name: Fetch deps
-        run: yarn
-
-      - name: build
-        run: yarn build
-
-      - name: lint
-        run: yarn run lint
-
-      - name: test
-        run: yarn run test:report
-
   build:
     name: build
     needs: init
