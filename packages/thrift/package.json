@@ -5,7 +5,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "private": false,
   "main": "target/es5/index.js",
   "source": "target/ts/index.ts",
   "types": "target/es5/index.d.ts",
@@ -51,11 +50,11 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.3.0",
-    "@qiwi/nestjs-enterprise-consul": "1.3.0",
+    "@qiwi/nestjs-enterprise-config": "1.4.0",
     "@qiwi/nestjs-enterprise-connection-provider": "1.1.0",
-    "@qiwi/nestjs-enterprise-logger": "1.6.0",
-    "@qiwi/nestjs-enterprise-config": "1.4.0"
+    "@qiwi/nestjs-enterprise-consul": "1.3.0",
+    "@qiwi/nestjs-enterprise-infra": "1.3.0",
+    "@qiwi/nestjs-enterprise-logger": "1.6.0"
   },
   "repository": {
     "type": "git",

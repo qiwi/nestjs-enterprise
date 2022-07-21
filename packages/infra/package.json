@@ -5,7 +5,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "private": false,
   "files": [
     "README.md"
   ],

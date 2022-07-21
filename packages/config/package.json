@@ -5,7 +5,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "private": false,
   "main": "target/es5/index.js",
   "source": "target/ts/index.ts",
   "types": "target/es5/index.d.ts",
@@ -64,7 +63,5 @@
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
   },
-  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
-  "peerDependencies": {},
-  "optionalDependencies": {}
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme"
 }
