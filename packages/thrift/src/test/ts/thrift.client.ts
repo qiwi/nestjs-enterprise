@@ -5,9 +5,9 @@ import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-pro
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
 import path from 'path'
-import { fileURLToPath } from 'url'
 // @ts-ignore
 import * as thrift from 'thrift'
+import { fileURLToPath } from 'url'
 
 import {
   IThriftClientProvider,

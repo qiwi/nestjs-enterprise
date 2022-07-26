@@ -4,9 +4,9 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import path from 'path'
-import { fileURLToPath } from 'url'
 // @ts-ignore
 import * as thrift from 'thrift'
+import { fileURLToPath } from 'url'
 
 import { InjectThriftService, ThriftModule } from '../../main/ts'
 // @ts-ignore

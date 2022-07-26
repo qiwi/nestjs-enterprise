@@ -73,3 +73,5 @@ buildcache
 !.yarn/versions
 
 some
+
+.npmrc

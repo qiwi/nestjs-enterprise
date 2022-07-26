@@ -8,8 +8,10 @@
   "private": true,
   "scripts": {
     "clean": "yarn workspaces foreach -p run clean",
-    "prebuild": "yarn infra:tsc -b packages/facade/tsconfig.es6.json",
-    "build": "yarn clean && yarn prebuild && yarn workspaces foreach -p run build",
+    "prebuild": "yarn infra:tsc -b packages/facade/tsconfig.es6.json && yarn buildstamp",
+    "buildstamp": "yarn infra:buildstamp --git --out.path buildstamp.json",
+    "build": "yarn clean && yarn prebuild && yarn workspaces foreach -pt run build",
+    "build-ci": "yarn prebuild && yarn workspaces foreach -p run build",
     "jest": "yarn infra:jest --runInBand --forceExit --detectOpenHandles",
     "test": "yarn jest",
     "test:report": "yarn test && yarn coveralls:push",
