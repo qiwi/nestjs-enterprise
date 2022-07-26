@@ -5,7 +5,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "target/es6/index.js",
+  "main": "./target/es6/index.js",
+  "exports": "./target/es6/index.js",
   "source": "target/ts/index.ts",
   "types": "target/es6/index.d.ts",
   "typescript": {
