@@ -204,6 +204,16 @@ jobs:
         if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
         run: yarn test:report
 
+      - name: Push coverage
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-${{ needs.init.outputs.checksum }}
+          retention-days: 1
+          path: |
+            coverage
+            package.json
+
   release:
     name: Release
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
@@ -221,6 +231,14 @@ jobs:
         with:
           path: artifact.tar
           key: artifact-${{ needs.init.outputs.checksum }}
+
+      - name: Restore coverage from cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            coverage
+            package.json
+          key: coverage-${{ needs.init.outputs.checksum }}
 
       - name: Check artifact
         if: always()
