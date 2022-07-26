@@ -131,8 +131,8 @@ jobs:
       - name: Install deps
         run: yarn
 
-      - name: Unit test only
-        run: yarn test:unit
+      - name: Tests
+        run: yarn test
 
   #      - name: Push coverage
   #        if: github.ref == 'refs/heads/master'
@@ -194,12 +194,7 @@ jobs:
       - name: Install deps
         run: yarn
 
-      - name: Unit test only
-        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
-        run: yarn test:unit
-
-      - name: Full test
-        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+      - name: Tests
         run: yarn test
 
   release:
