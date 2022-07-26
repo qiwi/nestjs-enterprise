@@ -212,9 +212,7 @@ jobs:
           path: |
             coverage
             package.json
-          key: ${{ runner.os }}-coverage-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-coverage-
+          key: coverage-${{ needs.init.outputs.checksum }}
 
   release:
     name: Release
@@ -248,6 +246,14 @@ jobs:
           workflow_conclusion: false
           search_artifacts: true
           search_depth: 10
+
+      - name: Restore coverage
+        uses: actions/cache@v3
+        with:
+          path: |
+            coverage
+            package.json
+          key: coverage-${{ needs.init.outputs.checksum }}
 
       - name: Unpack artifact
         run: tar -xvf artifact.tar
