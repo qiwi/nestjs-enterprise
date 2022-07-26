@@ -1,4 +1,4 @@
 module.exports = {
   name: '@qiwi/nestjs-enterprise-logger',
-  ...require('../infra/typedoc.js')
+  ...require('@qiwi/nestjs-enterprise-infra/typedoc.cjs')
 }

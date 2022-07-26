@@ -5,6 +5,7 @@ import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-pro
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
 import path from 'path'
+import { fileURLToPath } from 'url'
 // @ts-ignore
 import * as thrift from 'thrift'
 
@@ -17,11 +18,11 @@ import {
 // @ts-ignore
 import { FakeConsulDiscovery9090 } from './mock/fakeConsulDiscovery9090'
 // @ts-ignore
-import Client from './mock/gen-nodejs/Calculator'
+import Client from './mock/gen-nodejs/Calculator.cjs'
 // @ts-ignore
-import server from './mock/server'
+import server from './mock/server.cjs'
 
-const testConfigPath = path.resolve(__dirname, './config/test.json')
+const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
 
 describe('thrift', () => {
   beforeAll(() => {

@@ -8,8 +8,8 @@
   "private": true,
   "scripts": {
     "clean": "yarn workspaces foreach -p run clean",
-    "prebuild": "yarn infra:tsc -b packages/facade/tsconfig.es5.json",
-    "build": "yarn clean && yarn prebuild && yarn workspaces foreach -pt run build",
+    "prebuild": "yarn infra:tsc -b packages/facade/tsconfig.es6.json",
+    "build": "yarn clean && yarn prebuild && yarn workspaces foreach -p run build",
     "jest": "yarn infra:jest --runInBand --forceExit --detectOpenHandles",
     "test": "yarn jest",
     "test:report": "yarn test && yarn coveralls:push",
@@ -17,7 +17,7 @@
     "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
     "coveralls:push": "cat ./coverage/lcov.info | coveralls || echo 'coveralls push failed :(' && exit 0",
     "docs": "yarn infra:typedoc packages/**/src/main",
-    "postupdate": "yarn && yarn bootstrap && npm_config_yes=true npx yarn-audit-fix && yarn build && yarn test",
+    "postupdate": "yarn && npm_config_yes=true npx yarn-audit-fix && yarn build && yarn test",
     "lint": "yarn workspaces foreach -p run lint",
     "lint:fix": "yarn workspaces foreach -p run lint:fix",
     "format": "yarn workspaces foreach -p run format"

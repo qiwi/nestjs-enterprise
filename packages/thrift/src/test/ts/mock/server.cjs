@@ -1,8 +1,8 @@
 /* eslint-disable */
 var thrift = require('thrift')
-var Calculator = require('./gen-nodejs/Calculator')
-var ttypes = require('./gen-nodejs/tutorial_types')
-var SharedStruct = require('./gen-nodejs/shared_types').SharedStruct
+var Calculator = require('./gen-nodejs/Calculator.cjs')
+var ttypes = require('./gen-nodejs/tutorial_types.cjs')
+var SharedStruct = require('./gen-nodejs/shared_types.cjs').SharedStruct
 
 var data = {}
 

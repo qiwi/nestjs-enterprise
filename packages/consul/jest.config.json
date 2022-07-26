@@ -23,7 +23,9 @@
   "preset": "ts-jest",
   "globals": {
     "ts-jest": {
+      "useESM": true,
       "tsconfig": "<rootDir>/tsconfig.test.json"
     }
-  }
+  },
+  "extensionsToTreatAsEsm": [".ts", ".d.ts"]
 }

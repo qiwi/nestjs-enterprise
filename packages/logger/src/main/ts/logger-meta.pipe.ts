@@ -1,5 +1,5 @@
 import { ILogEntry } from '@qiwi/logwrap'
-import { pick } from 'lodash'
+import lo from 'lodash'
 
 export const createMetaPipe = () => ({
   meta,
@@ -9,7 +9,7 @@ export const createMetaPipe = () => ({
   // eslint-disable-line unicorn/consistent-function-scoping
   const { name, version, host, event, origin, extra } = meta
   const { trace_id, span_id, parent_span_id } = meta.trace || {}
-  const auth = pick(meta.auth || {}, 'value.principal', 'type')
+  const auth = lo.pick(meta.auth || {}, 'value.principal', 'type')
   const publicMeta = {
     ...extra,
     mdc: {

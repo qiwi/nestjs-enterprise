@@ -2,6 +2,7 @@ import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
 import { ILogger } from '@qiwi/substrate'
 import { promises } from 'fs'
+import { createRequire } from 'module'
 import resolveCwd from 'resolve-cwd'
 
 import { ISvcInfoModuleOpts } from './interfaces'
@@ -48,7 +49,7 @@ export class SvcInfoController {
     const path = this.opts.path || './buildstamp.json'
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     try {
-      return require(resolveCwd(path))
+      return createRequire(import.meta.url)(resolveCwd(path))
     } catch (e) {
       const message = `required buildstamp on path ${path} is malformed or unreachable`
       this.logger.warn(message, e)

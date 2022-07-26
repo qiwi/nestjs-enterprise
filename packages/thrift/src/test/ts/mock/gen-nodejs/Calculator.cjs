@@ -10,12 +10,12 @@ var Thrift = thrift.Thrift
 var Q = thrift.Q
 var Int64 = require('node-int64')
 
-var shared_ttypes = require('./shared_types')
+var shared_ttypes = require('./shared_types.cjs')
 
-var SharedService = require('./SharedService')
+var SharedService = require('./SharedService.cjs')
 var SharedServiceClient = SharedService.Client
 var SharedServiceProcessor = SharedService.Processor
-var ttypes = require('./tutorial_types')
+var ttypes = require('./tutorial_types.cjs')
 //HELPER FUNCTIONS AND STRUCTURES
 
 var Calculator_ping_args = function (args) {}

@@ -10,7 +10,7 @@ var Thrift = thrift.Thrift
 var Q = thrift.Q
 var Int64 = require('node-int64')
 
-var shared_ttypes = require('./shared_types')
+var shared_ttypes = require('./shared_types.cjs')
 
 var ttypes = (module.exports = {})
 ttypes.Operation = {

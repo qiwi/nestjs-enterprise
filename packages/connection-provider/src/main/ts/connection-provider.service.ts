@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@nestjs/common'
-import { sample } from 'lodash'
+import lo from 'lodash'
 
 import { DiscoveryType, IServiceDeclaration } from './interfaces'
 
@@ -34,7 +34,7 @@ export class ConnectionProviderService implements IConnectionProvider {
 
     if (discovery.type === DiscoveryType.ENDPOINT) {
       // @ts-ignore
-      return sample(discovery.endpoints)
+      return lo.sample(discovery.endpoints)
     }
 
     throw new Error('Invalid serviceProfile')

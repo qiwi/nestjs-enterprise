@@ -7,5 +7,5 @@ module.exports = {
   hideGenerator: true,
   readme: 'README.md',
   theme: 'default',
-  tsconfig: './tsconfig.es5.json',
+  tsconfig: './tsconfig.es6.json',
 }
