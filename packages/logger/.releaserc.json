@@ -1,5 +1,5 @@
 {
-  "ghPages": "gh-pages",
+  "ghPages": "gh-pages docs logger",
   "cmd": "yarn",
   "changelog": "changelog"
 }
