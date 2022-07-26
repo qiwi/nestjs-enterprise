@@ -131,16 +131,19 @@ jobs:
       - name: Install deps
         run: yarn
 
+      - name: Linter
+        run: yarn lint
+
       - name: Tests
         run: yarn test
 
-  #      - name: Push coverage
-  #        if: github.ref == 'refs/heads/master'
-  #        uses: actions/upload-artifact@v3
-  #        with:
-  #          name: artifact-${{ needs.init.outputs.checksum }}
-  #          retention-days: 1
-  #          path: coverage
+      - name: Push coverage
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifact-${{ needs.init.outputs.checksum }}
+          retention-days: 1
+          path: coverage
 
   test_pr:
     if: github.event_name == 'pull_request'
@@ -194,8 +197,12 @@ jobs:
       - name: Install deps
         run: yarn
 
-      - name: Tests
+      - name: Unit test only
+        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
         run: yarn test
+      - name: Full test with report
+        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+        run: yarn test:report
 
   release:
     name: Release
