@@ -37,12 +37,12 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@qiwi/nestjs-enterprise-common": "1.4.1",
+    "@qiwi/nestjs-enterprise-common": "workspace:*",
     "@qiwi/substrate": "^1.20.14",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "1.3.1"
+    "@qiwi/nestjs-enterprise-infra": "workspace:*"
   },
   "author": "Anton Golub <mailbox@antongolub.ru>",
   "license": "MIT",
