@@ -137,13 +137,15 @@ jobs:
       - name: Tests
         run: yarn test
 
-      - name: Push coverage
+      - name: Cache coverage
         if: github.ref == 'refs/heads/master'
-        uses: actions/upload-artifact@v3
+        id: cache-coverage
+        uses: actions/cache@v3
         with:
-          name: artifact-${{ needs.init.outputs.checksum }}
-          retention-days: 1
-          path: coverage
+          path: |
+            coverage
+            package.json
+          key: coverage-${{ needs.init.outputs.checksum }}
 
   test_pr:
     if: github.event_name == 'pull_request'
@@ -203,16 +205,6 @@ jobs:
       - name: Full test with report
         if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
         run: yarn test:report
-
-      - name: Cache coverage
-        if: github.ref == 'refs/heads/master'
-        id: cache-coverage
-        uses: actions/cache@v3
-        with:
-          path: |
-            coverage
-            package.json
-          key: coverage-${{ needs.init.outputs.checksum }}
 
   release:
     name: Release
