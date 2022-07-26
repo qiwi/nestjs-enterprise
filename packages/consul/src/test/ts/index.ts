@@ -3,11 +3,12 @@ import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import path from 'path'
+import { fileURLToPath } from 'url'
 
 import { ConsulModule, IConsulService } from '../../main/ts'
 import { FakeConsulDiscovery } from './mock/fakeConsulDiscovery'
 
-const testConfigPath = path.resolve(__dirname, './config/test.json')
+const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
 
 describe('logger module', () => {
   describe('index', () => {

@@ -1,3 +1,4 @@
+import {jest} from '@jest/globals'
 import { HttpStatus, ValidationPipe } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
@@ -8,8 +9,9 @@ import {
 } from '@qiwi/nestjs-enterprise-logger'
 import fs from 'fs'
 import path  from 'path'
-import rimraf from 'rimraf'
+// import rimraf from 'rimraf'
 import request from 'supertest'
+import { fileURLToPath } from 'url'
 
 import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 
@@ -25,9 +27,9 @@ const buildstamp = {
   },
 }
 
-const buildstampPath = `${process.cwd()}/buildstamp.json`
-const tempFolderPath = `${process.cwd()}/some`
-const tempCustomBuldstampPath = `${tempFolderPath}/foo.json`
+const buildstampPath = path.join(process.cwd(), 'buildstamp.json')
+const tempFolderPath = path.join(process.cwd(), 'some')
+const tempCustomBuildstampPath = path.join(tempFolderPath, 'foo.json')
 
 const fakeConfig = {
   get: (field: 'name' | 'logger' | 'version' | 'local') => {
@@ -36,7 +38,7 @@ const fakeConfig = {
       local: '',
       version: '1',
       logger: {
-        dir: path.resolve(__dirname, '../ts/log'),
+        dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
         level: 'debug',
         maxsize: 157286400,
         datePattern: 'YYYY-MM-DD',
@@ -70,14 +72,14 @@ describe('SvcModule', () => {
   beforeAll(async () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
-    fs.writeFileSync(tempCustomBuldstampPath, JSON.stringify(buildstamp))
+    fs.writeFileSync(tempCustomBuildstampPath, JSON.stringify(buildstamp))
     jest.setTimeout(10000)
   })
 
-  afterAll(() => {
-    fs.unlinkSync(buildstampPath)
-    rimraf.sync(tempFolderPath)
-  })
+  // afterAll(() => {
+  //   fs.unlinkSync(buildstampPath)
+  //   rimraf.sync(tempFolderPath)
+  // })
 
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
@@ -132,7 +134,7 @@ describe('SvcModule', () => {
     })
 
     it('returns buildstamp by custom path', async () => {
-      const module = await moduleFactory({ path: tempCustomBuldstampPath })
+      const module = await moduleFactory({ path: tempCustomBuildstampPath })
       const app = module.createNestApplication()
       await app.init()
       await request(app.getHttpServer())

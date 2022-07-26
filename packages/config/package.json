@@ -5,12 +5,13 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "target/es5/index.js",
+  "main": "target/es6/index.js",
   "source": "target/ts/index.ts",
-  "types": "target/es5/index.d.ts",
+  "types": "target/es6/index.d.ts",
   "typescript": {
-    "definition": "target/es5/index.d.ts"
+    "definition": "target/es6/index.d.ts"
   },
+  "type": "module",
   "files": [
     "README.md",
     "CHANGELOG.md",
@@ -29,12 +30,10 @@
     "lint:fix": "yarn lint --fix",
     "clean": "yarn infra:rimraf target typings buildcache flow-typed docs buildstamp.json",
     "prebuild": "yarn infra:buildstamp --git --out.path buildstamp.json",
-    "build": "yarn prebuild && yarn build:es5 && yarn build:es6 && yarn build:ts && yarn build:libdef && yarn docs && yarn uglify",
-    "build:es5": "mkdir -p target/es5 && yarn infra:tsc -p tsconfig.es5.json",
+    "build": "yarn prebuild && yarn build:es6 && yarn build:ts && yarn docs && yarn uglify",
     "build:es6": "mkdir -p target/es6 && yarn infra:tsc -p tsconfig.es6.json",
     "build:ts": "cp -r src/main/ts target/ts/",
     "build:bundle": "yarn infra:microbundle build src/main/ts/index.ts -o target/bundle",
-    "build:libdef": "yarn infra:libdefkit --tsconfig=tsconfig.es5.json --tsconfig=tsconfig.es6.json",
     "docs": "yarn infra:typedoc",
     "uglify": "yarn infra:uglify",
     "postupdate": "yarn && yarn build && yarn test"
@@ -51,7 +50,8 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
     "lodash": "^4.17.21",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "tsc-esm-fix": "^2.20.0"
   },
   "repository": {
     "type": "git",

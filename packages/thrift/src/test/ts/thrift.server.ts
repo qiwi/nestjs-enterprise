@@ -16,13 +16,14 @@ import {
 // @ts-ignore
 import { FakeConsulDiscovery9091 } from './mock/fakeConsulDiscovery9091'
 // @ts-ignore
-import Calculator from './mock/gen-nodejs/Calculator'
+import Calculator from './mock/gen-nodejs/Calculator.cjs'
 // @ts-ignore
-import { SharedStruct } from './mock/gen-nodejs/shared_types'
+import { SharedStruct } from './mock/gen-nodejs/shared_types.cjs'
 // @ts-ignore
-import ttypes from './mock/gen-nodejs/tutorial_types'
+import ttypes from './mock/gen-nodejs/tutorial_types.cjs'
+import {fileURLToPath} from "url";
 
-const testConfigPath = path.resolve(__dirname, './config/test.json')
+const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
 
 describe('thrift-server', () => {
   @Global()

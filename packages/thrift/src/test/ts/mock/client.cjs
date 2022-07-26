@@ -1,7 +1,7 @@
 /* eslint-disable */
 var thrift = require('thrift')
-var Calculator = require('./gen-nodejs/Calculator')
-var ttypes = require('./gen-nodejs/tutorial_types')
+var Calculator = require('./gen-nodejs/Calculator.cjs')
+var ttypes = require('./gen-nodejs/tutorial_types.cjs')
 const assert = require('assert')
 
 var transport = thrift.TBufferedTransport

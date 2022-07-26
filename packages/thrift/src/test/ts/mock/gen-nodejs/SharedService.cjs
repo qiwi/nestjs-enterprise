@@ -10,7 +10,7 @@ var Thrift = thrift.Thrift
 var Q = thrift.Q
 var Int64 = require('node-int64')
 
-var ttypes = require('./shared_types')
+var ttypes = require('./shared_types.cjs')
 //HELPER FUNCTIONS AND STRUCTURES
 
 var SharedService_getStruct_args = function (args) {

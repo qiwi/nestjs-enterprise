@@ -1,8 +1,11 @@
 import {
-  Config as Uniconfig,
   IConfig as IConfigService,
-  SYNC,
-} from '@qiwi/uniconfig'
+} from '@qiwi/uniconfig/target/es5/'
+import { createRequire } from 'module'
+
+const require = createRequire(import.meta.url)
+
+const uniconfig = require('@qiwi/uniconfig')
 
 export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'
 export const DEFAULT_KUBE_CONFIG_PATH = '<root>/config/kube.json'
@@ -17,7 +20,7 @@ export const resolveConfigPath = (path?: string, local?: boolean): string => {
 
 export function createOpts(path?: string) {
   return {
-    mode: SYNC,
+    mode: uniconfig.SYNC,
     data: {
       data: {
         data: {
@@ -40,7 +43,9 @@ export function createOpts(path?: string) {
 
 export { IConfigService }
 
-export class ConfigService extends Uniconfig implements IConfigService {
+
+// @ts-ignore
+export class ConfigService extends uniconfig.Config implements IConfigService {
   constructor(opts: string) {
     super(createOpts(opts))
   }

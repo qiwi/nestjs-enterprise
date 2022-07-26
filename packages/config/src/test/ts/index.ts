@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
-import { resolve } from 'path'
+import { dirname, join } from 'path'
+import { fileURLToPath } from 'url'
 
 import {
   ConfigModule,
@@ -9,7 +10,9 @@ import {
   resolveConfigPath,
 } from '../../main/ts'
 
-const testCfgPath = resolve(__dirname, './config/test.json')
+const testFileDir = dirname(fileURLToPath(import.meta.url))
+
+const testCfgPath = join(testFileDir, 'config', 'test.json')
 
 describe('configModule', () => {
   describe('index', () => {
