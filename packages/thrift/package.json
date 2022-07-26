@@ -51,11 +51,11 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-config": "1.4.1",
-    "@qiwi/nestjs-enterprise-connection-provider": "1.1.1",
-    "@qiwi/nestjs-enterprise-consul": "1.3.1",
-    "@qiwi/nestjs-enterprise-infra": "1.3.1",
-    "@qiwi/nestjs-enterprise-logger": "1.6.1"
+    "@qiwi/nestjs-enterprise-config": "workspace:*",
+    "@qiwi/nestjs-enterprise-connection-provider": "workspace:*",
+    "@qiwi/nestjs-enterprise-consul": "workspace:*",
+    "@qiwi/nestjs-enterprise-infra": "workspace:*",
+    "@qiwi/nestjs-enterprise-logger": "workspace:*"
   },
   "repository": {
     "type": "git",
