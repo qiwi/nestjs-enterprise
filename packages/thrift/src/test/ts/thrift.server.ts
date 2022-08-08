@@ -84,7 +84,7 @@ describe('thrift-server', () => {
       .useValue(console)
       .compile()
 
-    const thriftClient = clientModule.get(TestService).getClient()
+    const thriftClient = await clientModule.get(TestService).getClient()
 
     const data = {}
 

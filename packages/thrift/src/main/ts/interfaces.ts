@@ -82,7 +82,7 @@ export interface IThriftClientProvider {
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
     opts?: IThriftConnectionOpts,
-  ): TClient
+  ): Promise<TClient>
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
