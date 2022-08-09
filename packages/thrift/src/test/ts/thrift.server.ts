@@ -159,7 +159,6 @@ describe('thrift-server', () => {
 
     // @ts-ignore
     serverModule.get(TestServer)._server.close()
-
-    return clientModule.get('IThriftClientService').pools[Calculator].clear()
+    await clientModule.get('IThriftClientService').pools[Calculator].clear()
   })
 })

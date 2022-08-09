@@ -11,6 +11,10 @@ import {
   IThriftServiceProfile,
 } from './interfaces'
 
+const defoultPoolOpts = {
+  min: 0, max: 10, idleTimeoutMillis: 5000,
+}
+
 @Injectable()
 export class ThriftClientProvider implements IThriftClientProvider {
   constructor(
@@ -44,10 +48,13 @@ export class ThriftClientProvider implements IThriftClientProvider {
       connectionOpts?: { transport: any; protocol: any }
     },
   ): TClient {
+    const info = this.log.info.bind(this.log)
+    const debug = this.log.debug.bind(this.log)
+    const error = this.log.error.bind(this.log)
+
     const getConnectionParams = this.getConnectionParams.bind(this)
     const { multiplexer, connectionOpts } = opts || { multiplexer: true }
     const profile = this.getServiceProfile(serviceProfile)
-    const info = this.log.info.bind(this.log)
     const pools = this.pools
     const poolOpts = this.config.get('thriftPool')
 
@@ -76,11 +83,23 @@ export class ThriftClientProvider implements IThriftClientProvider {
                         protocol: thrift.TCompactProtocol,
                       },
                     )
-                    .on('error', (err) => {
-                      info(
-                        `ThriftClientProvider createConnection error: host=${host}, port=${port} err=${err}`,
-                      )
-                    })
+
+                  connection.on('error', (err) => {
+                    // @ts-ignore
+                    connection._invalid = true
+                    error(`ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`)}
+                  )
+                  connection.on('close', (err) => {
+                    // @ts-ignore
+                    connection._invalid = true
+                    info(`ThriftClientProvider connection close: host=${host}, port=${port} err=${err}`)}
+                  )
+                  connection.on('timeout', (err) => {
+                    // @ts-ignore
+                    connection._invalid = true
+                    error(`ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`)}
+                  )
+
 
                   try {
                     const client = !multiplexer
@@ -90,12 +109,14 @@ export class ThriftClientProvider implements IThriftClientProvider {
                           clientConstructor,
                           connection,
                         )
-                    info(
-                      `created new thrift connection for ${profile.thriftServiceName}`,
+
+                    debug(
+                      `created new thrift client and connection for ${profile.thriftServiceName}`,
                     )
+
                     return { client, connection }
                   } catch (e) {
-                    info(
+                    error(
                       `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName} `,
                     )
                     throw new Error('ThriftClientProvider createClient error')
@@ -105,19 +126,26 @@ export class ThriftClientProvider implements IThriftClientProvider {
                   info(`destroyed connection`)
                   connection.end()
                 },
-              }, poolOpts)
+                async validate({ connection }): Promise<boolean> {
+                  // @ts-ignore
+                  return !connection._invalid && connection.connected
+                }
+              }, {...defoultPoolOpts, ...poolOpts})
             }
 
             const currentPool = pools[clientConstructor as any]
             const resource = await currentPool.acquire()
 
-            info(
+            debug(
               `Pool ${profile.thriftServiceName} status: current pool size=${currentPool.size} available clients=${currentPool.available} borrowed=${currentPool.borrowed} queue=${currentPool.pending} spareResourceCapacity=${currentPool.spareResourceCapacity}`,
             )
 
+            // resource.connection.connected +
+            console.log('connection.child', resource.client.child)
+
             return resource.client[propKey](...args)
               .catch((e: unknown) => {
-                info(
+                error(
                   `ThriftClientProvider error: method=${
                     propKey as string
                   } args=${args} error=${e}`,
