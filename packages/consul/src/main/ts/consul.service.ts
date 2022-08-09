@@ -29,6 +29,8 @@ export class ConsulService implements IConsulService {
   ) {}
 
   async register() {
+    await this.config.ready
+
     const serviceName: string = this.config.get('name')
     const consulHost: string = this.config.get('consul.host')
     const consulPort: string = this.config.get('consul.port')

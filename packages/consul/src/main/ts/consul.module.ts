@@ -9,7 +9,8 @@ import { ConsulService } from './consul.service'
   providers: [
     {
       provide: 'IDiscoveryService',
-      useFactory: (config: IConfig, logger: ILogger) => {
+      useFactory: async (config: IConfig, logger: ILogger) => {
+        await config.ready
         const port = config.get('consul.port')
         const host = config.get('consul.host')
         const secure = config.get('consul.secure')

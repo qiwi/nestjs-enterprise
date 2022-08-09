@@ -37,6 +37,8 @@ describe('configModule', () => {
         providers: [TestService],
       }).compile()
 
+      await module.get('IConfigService').ready
+
       const service = module.get(TestService)
       expect(service.getServiceName()).toBe('test-name-app')
     })
@@ -65,6 +67,7 @@ describe('configModule', () => {
         .overrideProvider('IConfigService')
         .useClass(FakeProvider)
         .compile()
+      await module.get('IConfigService').ready
 
       const service = module.get(TestService)
       expect(service.getServiceName()).toBe('fake-service-name')
