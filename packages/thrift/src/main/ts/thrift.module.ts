@@ -1,7 +1,10 @@
 import { Global, Module } from '@nestjs/common'
 
 import { ThriftClientProvider } from './thrift.client'
-import { INJECT_THRIFT_SERVICE, thriftServiceFactory } from './thrift.decorators'
+import {
+  INJECT_THRIFT_SERVICE,
+  thriftServiceFactory,
+} from './thrift.decorators'
 
 @Global()
 @Module({
@@ -14,6 +17,10 @@ import { INJECT_THRIFT_SERVICE, thriftServiceFactory } from './thrift.decorators
       inject: ['IThriftClientProvider'],
     },
   ],
-  exports: ['IThriftClientService', 'IThriftClientProvider', INJECT_THRIFT_SERVICE],
+  exports: [
+    'IThriftClientService',
+    'IThriftClientProvider',
+    INJECT_THRIFT_SERVICE,
+  ],
 })
 export class ThriftModule {}

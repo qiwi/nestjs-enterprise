@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { IConfig, ILogger } from '@qiwi/substrate'
 import genericPool from 'generic-pool'
-import { factory as promiseFactory } from 'inside-out-promise'
 import * as thrift from 'thrift'
 
 import {
@@ -50,6 +49,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const profile = this.getServiceProfile(serviceProfile)
     const info = this.log.info.bind(this.log)
     const pools = this.pools
+    const poolOpts = this.config.get('thriftPool')
 
     const proxy: any = new Proxy(
       {},
@@ -59,55 +59,74 @@ export class ThriftClientProvider implements IThriftClientProvider {
             return proxy
           }
           return async (...args: any[]) => {
-
-            if(!pools[clientConstructor as any]) {
+            if (!pools[clientConstructor as any]) {
               pools[clientConstructor as any] = genericPool.createPool({
                 create: async function () {
                   const { host, port } = await getConnectionParams(profile)
                   info(
-                      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+                    `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
                   )
 
                   const connection = thrift
-                      .createConnection(
-                          host,
-                          port,
-                          connectionOpts || {
-                            transport: thrift.TFramedTransport,
-                            protocol: thrift.TCompactProtocol,
-                          },
+                    .createConnection(
+                      host,
+                      port,
+                      connectionOpts || {
+                        transport: thrift.TFramedTransport,
+                        protocol: thrift.TCompactProtocol,
+                      },
+                    )
+                    .on('error', (err) => {
+                      info(
+                        `ThriftClientProvider createConnection error: host=${host}, port=${port} err=${err}`,
                       )
-                      // TODO: remove ts-ignore after fix this
-                      // @ts-ignore
-                      // .on('error', reject.bind(promise))
+                    })
 
-                  const client = !multiplexer
+                  try {
+                    const client = !multiplexer
                       ? thrift.createClient(clientConstructor, connection)
                       : new thrift.Multiplexer().createClient(
                           profile.thriftServiceName,
                           clientConstructor,
                           connection,
-                      )
-                  return { client, connection }
+                        )
+                    info(
+                      `created new thrift connection for ${profile.thriftServiceName}`,
+                    )
+                    return { client, connection }
+                  } catch (e) {
+                    info(
+                      `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName} `,
+                    )
+                    throw new Error('ThriftClientProvider createClient error')
+                  }
                 },
-                destroy: async function({connection}) {
+                destroy: async function ({ connection }) {
+                  info(`destroyed connection`)
                   connection.end()
-                }
-              })
+                },
+              }, poolOpts)
             }
 
-            const { promise, reject } = promiseFactory()
             const currentPool = pools[clientConstructor as any]
             const resource = await currentPool.acquire()
 
+            info(
+              `Pool ${profile.thriftServiceName} status: current pool size=${currentPool.size} available clients=${currentPool.available} borrowed=${currentPool.borrowed} queue=${currentPool.pending} spareResourceCapacity=${currentPool.spareResourceCapacity}`,
+            )
+
             return resource.client[propKey](...args)
-                .catch((e: unknown) => {
-                  // TODO: add logger or monad or exception filter
-                  reject.call(promise, e)
-                })
-                .finally(()=>{
-                  currentPool.release(resource)
-                })
+              .catch((e: unknown) => {
+                info(
+                  `ThriftClientProvider error: method=${
+                    propKey as string
+                  } args=${args} error=${e}`,
+                )
+                currentPool.destroy(resource)
+              })
+              .finally(() => {
+                currentPool.release(resource)
+              })
           }
         },
       },

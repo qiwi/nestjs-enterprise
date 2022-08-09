@@ -6,7 +6,7 @@ import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
 import path from 'path'
 import * as thrift from 'thrift'
-import {fileURLToPath} from "url";
+import { fileURLToPath } from 'url'
 
 import {
   IThriftClientProvider,
@@ -23,7 +23,11 @@ import { SharedStruct } from './mock/gen-nodejs/shared_types.cjs'
 // @ts-ignore
 import ttypes from './mock/gen-nodejs/tutorial_types.cjs'
 
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 describe('thrift-server', () => {
   @Global()

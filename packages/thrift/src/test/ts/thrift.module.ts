@@ -3,7 +3,8 @@ import {
   InjectThriftService,
   ThriftClientProvider,
   ThriftModule,
-  ThriftServer, thriftServiceFactory
+  ThriftServer,
+  thriftServiceFactory,
 } from '../../main/ts'
 
 describe('thrift.module', () => {
@@ -17,7 +18,7 @@ describe('thrift.module', () => {
     thriftServiceFactory,
   ]
 
-  cases.forEach(dep => {
+  cases.forEach((dep) => {
     it(`${getName(dep)} is exported`, () => {
       expect(dep).toBeDefined()
     })

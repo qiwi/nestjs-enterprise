@@ -22,7 +22,11 @@ import Client from './mock/gen-nodejs/Calculator.cjs'
 // @ts-ignore
 import server from './mock/server.cjs'
 
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 describe('thrift', () => {
   beforeAll(() => {
