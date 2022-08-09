@@ -98,8 +98,11 @@ describe('thrift', () => {
         .compile()
 
       const thriftClient = module.get(TestService).getClient()
+
       expect(await thriftClient.add(1, 2)).toBe(3)
       expect(await thriftClient.add(10, -10)).toBe(0)
+
+      return module.get('IThriftClientService').pools[Client].clear()
     })
   })
 })

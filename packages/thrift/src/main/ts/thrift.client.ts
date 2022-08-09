@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { IConfig, ILogger } from '@qiwi/substrate'
+import genericPool from 'generic-pool'
 import { factory as promiseFactory } from 'inside-out-promise'
 import * as thrift from 'thrift'
 
@@ -18,7 +19,11 @@ export class ThriftClientProvider implements IThriftClientProvider {
     @Inject('IConnectionProvider')
     private connectionProvider: IConnectionProvider,
     @Inject('IConfigService') private config: IConfig,
-  ) {}
+  ) {
+    this.pools = {}
+  }
+
+  pools: any
 
   async getConnectionParams(
     serviceProfile: IServiceDeclaration,
@@ -44,6 +49,8 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const { multiplexer, connectionOpts } = opts || { multiplexer: true }
     const profile = this.getServiceProfile(serviceProfile)
     const info = this.log.info.bind(this.log)
+    const pools = this.pools
+
     const proxy: any = new Proxy(
       {},
       {
@@ -52,44 +59,55 @@ export class ThriftClientProvider implements IThriftClientProvider {
             return proxy
           }
           return async (...args: any[]) => {
-            const { host, port } = await getConnectionParams(profile)
-            console.log(host, port)
-            console.log(propKey, ...args)
-            info(
-              `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
-            )
-            const { promise, resolve, reject } = promiseFactory()
-            const connection = thrift
-              .createConnection(
-                host,
-                port,
-                connectionOpts || {
-                  transport: thrift.TFramedTransport,
-                  protocol: thrift.TCompactProtocol,
+
+            if(!pools[clientConstructor as any]) {
+              pools[clientConstructor as any] = genericPool.createPool({
+                create: async function () {
+                  const { host, port } = await getConnectionParams(profile)
+                  info(
+                      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+                  )
+
+                  const connection = thrift
+                      .createConnection(
+                          host,
+                          port,
+                          connectionOpts || {
+                            transport: thrift.TFramedTransport,
+                            protocol: thrift.TCompactProtocol,
+                          },
+                      )
+                      // TODO: remove ts-ignore after fix this
+                      // @ts-ignore
+                      // .on('error', reject.bind(promise))
+
+                  const client = !multiplexer
+                      ? thrift.createClient(clientConstructor, connection)
+                      : new thrift.Multiplexer().createClient(
+                          profile.thriftServiceName,
+                          clientConstructor,
+                          connection,
+                      )
+                  return { client, connection }
                 },
-              )
-              // TODO: remove ts-ignore after fix this
-              // @ts-ignore
-              .on('error', reject.bind(promise))
-
-            const client = !multiplexer
-              ? thrift.createClient(clientConstructor, connection)
-              : new thrift.Multiplexer().createClient(
-                  profile.thriftServiceName,
-                  clientConstructor,
-                  connection,
-                )
-
-            // @ts-ignore
-            client[propKey](...args)
-              .then(resolve.bind(promise))
-              .catch((e: unknown) => {
-                // TODO: add logger or monad or exception filter
-                reject.call(promise, e)
+                destroy: async function({connection}) {
+                  connection.end()
+                }
               })
-              .finally(() => connection && connection.end())
+            }
 
-            return promise
+            const { promise, reject } = promiseFactory()
+            const currentPool = pools[clientConstructor as any]
+            const resource = await currentPool.acquire()
+
+            return resource.client[propKey](...args)
+                .catch((e: unknown) => {
+                  // TODO: add logger or monad or exception filter
+                  reject.call(promise, e)
+                })
+                .finally(()=>{
+                  currentPool.release(resource)
+                })
           }
         },
       },

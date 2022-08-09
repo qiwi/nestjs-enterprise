@@ -83,6 +83,8 @@ describe('thrift', () => {
       expect(testService.foo).toBe(testService.bar)
       expect(await testService.foo.add(1, 2)).toBe(3)
       expect(await testService.bar.add(10, -10)).toBe(0)
+
+      return module.get('IThriftClientService').pools[Client].clear()
     })
   })
 })

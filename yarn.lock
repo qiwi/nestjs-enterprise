@@ -1733,7 +1733,9 @@ __metadata:
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/nestjs-enterprise-logger": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
+    "@types/generic-pool": "npm:^3"
     "@types/thrift": "npm:^0.10.11"
+    generic-pool: "npm:^3.8.2"
     inside-out-promise: "npm:^2.1.4"
     lodash: "npm:^4.17.21"
     reflect-metadata: "npm:^0.1.13"
@@ -2239,6 +2241,15 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: c46cad9514da52203eeed1cd72cb4caef3540edf2f3d64116febb36a5c5028478d5d3247f3894bb967872872b5aaa2c5628802056c05cd3543562d8ee9c182a0
+  languageName: node
+  linkType: hard
+
+"@types/generic-pool@npm:^3":
+  version: 3.1.11
+  resolution: "@types/generic-pool@npm:3.1.11"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: ddf978d2b0d27b68cb6155206a11878adb68a5bf1dca40f92c13c845a8570370a4a2e79ee70b4d9607269e5309584e66ac0dba3443d7660e4d491460a8768fff
   languageName: node
   linkType: hard
 
@@ -5210,6 +5221,13 @@ __metadata:
     strip-ansi: "npm:^6.0.1"
     wide-align: "npm:^1.1.5"
   checksum: 4fc68f770dba9962a326918f33f58f2458eddea08442c2d716238357e4291dee4223a812ce11084b54f928d607e4dfb6f380ba28d435b2721de94a22d5600669
+  languageName: node
+  linkType: hard
+
+"generic-pool@npm:^3.8.2":
+  version: 3.8.2
+  resolution: "generic-pool@npm:3.8.2"
+  checksum: 1b14dd96e927fd30528517f741e1670ee944c683552d4eb43746394dcd1da2937b94a1b7a563a722b71600347a2d14d4d4986bb691c8843c2213ebfd5ab3f8a7
   languageName: node
   linkType: hard
 
