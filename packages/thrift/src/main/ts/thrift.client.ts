@@ -12,7 +12,9 @@ import {
 } from './interfaces'
 
 const defoultPoolOpts = {
-  min: 0, max: 10, idleTimeoutMillis: 5000,
+  min: 0,
+  max: 10,
+  idleTimeoutMillis: 5000,
 }
 
 @Injectable()
@@ -67,15 +69,15 @@ export class ThriftClientProvider implements IThriftClientProvider {
           }
           return async (...args: any[]) => {
             if (!pools[clientConstructor as any]) {
-              pools[clientConstructor as any] = genericPool.createPool({
-                create: async function () {
-                  const { host, port } = await getConnectionParams(profile)
-                  info(
-                    `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
-                  )
+              pools[clientConstructor as any] = genericPool.createPool(
+                {
+                  create: async function () {
+                    const { host, port } = await getConnectionParams(profile)
+                    info(
+                      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+                    )
 
-                  const connection = thrift
-                    .createConnection(
+                    const connection = thrift.createConnection(
                       host,
                       port,
                       connectionOpts || {
@@ -84,53 +86,60 @@ export class ThriftClientProvider implements IThriftClientProvider {
                       },
                     )
 
-                  connection.on('error', (err) => {
+                    connection.on('error', (err) => {
+                      // @ts-ignore
+                      connection._invalid = true
+                      error(
+                        `ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`,
+                      )
+                    })
+                    connection.on('close', (err) => {
+                      // @ts-ignore
+                      connection._invalid = true
+                      info(
+                        `ThriftClientProvider connection close: host=${host}, port=${port} err=${err}`,
+                      )
+                    })
+                    connection.on('timeout', (err) => {
+                      // @ts-ignore
+                      connection._invalid = true
+                      error(
+                        `ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`,
+                      )
+                    })
+
+                    try {
+                      const client = !multiplexer
+                        ? thrift.createClient(clientConstructor, connection)
+                        : new thrift.Multiplexer().createClient(
+                            profile.thriftServiceName,
+                            clientConstructor,
+                            connection,
+                          )
+
+                      debug(
+                        `created new thrift client and connection for ${profile.thriftServiceName}`,
+                      )
+
+                      return { client, connection }
+                    } catch (e) {
+                      error(
+                        `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName} `,
+                      )
+                      throw new Error('ThriftClientProvider createClient error')
+                    }
+                  },
+                  destroy: async function ({ connection }) {
+                    info(`destroyed connection`)
+                    connection.end()
+                  },
+                  async validate({ connection }): Promise<boolean> {
                     // @ts-ignore
-                    connection._invalid = true
-                    error(`ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`)}
-                  )
-                  connection.on('close', (err) => {
-                    // @ts-ignore
-                    connection._invalid = true
-                    info(`ThriftClientProvider connection close: host=${host}, port=${port} err=${err}`)}
-                  )
-                  connection.on('timeout', (err) => {
-                    // @ts-ignore
-                    connection._invalid = true
-                    error(`ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`)}
-                  )
-
-
-                  try {
-                    const client = !multiplexer
-                      ? thrift.createClient(clientConstructor, connection)
-                      : new thrift.Multiplexer().createClient(
-                          profile.thriftServiceName,
-                          clientConstructor,
-                          connection,
-                        )
-
-                    debug(
-                      `created new thrift client and connection for ${profile.thriftServiceName}`,
-                    )
-
-                    return { client, connection }
-                  } catch (e) {
-                    error(
-                      `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName} `,
-                    )
-                    throw new Error('ThriftClientProvider createClient error')
-                  }
+                    return !connection._invalid && connection.connected
+                  },
                 },
-                destroy: async function ({ connection }) {
-                  info(`destroyed connection`)
-                  connection.end()
-                },
-                async validate({ connection }): Promise<boolean> {
-                  // @ts-ignore
-                  return !connection._invalid && connection.connected
-                }
-              }, {...defoultPoolOpts, ...poolOpts})
+                { ...defoultPoolOpts, ...poolOpts },
+              )
             }
 
             const currentPool = pools[clientConstructor as any]
