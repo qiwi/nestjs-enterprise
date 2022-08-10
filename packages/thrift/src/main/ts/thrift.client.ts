@@ -50,17 +50,14 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const profile = this.getServiceProfile(serviceProfile)
     const { host, port } = await this.getConnectionParams(profile)
 
-    const eventHandler = (
-      event: string,
-      connection: thrift.Connection,
-      err?: unknown,
-    ) => {
-      // @ts-ignore
-      connection._invalid = true
-      // @ts-ignore
-      ;(err ? this.log.error : this.log.info)(
-        `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err}`,
-      )
+    const eventListen = (event: string, connection: thrift.Connection) => {
+      connection.on(event, (err) => {
+        // @ts-ignore
+        connection._invalid = true
+        ;(err ? this.log.error : this.log.info)(
+          `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err}`,
+        )
+      })
     }
 
     this.log.info(
@@ -69,15 +66,9 @@ export class ThriftClientProvider implements IThriftClientProvider {
 
     const connection = thrift.createConnection(host, port, connectionOpts)
 
-    connection.on('error', (err) => {
-      eventHandler('error', connection, err)
-    })
-    connection.on('close', () => {
-      eventHandler('close', connection)
-    })
-    connection.on('timeout', (err) => {
-      eventHandler('timeout', connection, err)
-    })
+    eventListen('error', connection)
+    eventListen('timeout', connection)
+    eventListen('close', connection)
 
     return connection
   }
