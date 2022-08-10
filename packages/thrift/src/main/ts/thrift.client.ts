@@ -49,14 +49,14 @@ export class ThriftClientProvider implements IThriftClientProvider {
     opts?: {
       multiplexer: boolean
       connectionOpts?: { transport: any; protocol: any }
-    },
+    } = { multiplexer: true },
   ): TClient {
     const info = this.log.info.bind(this.log)
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
 
     const getConnectionParams = this.getConnectionParams.bind(this)
-    const { multiplexer, connectionOpts } = opts || { multiplexer: true }
+    const { multiplexer, connectionOpts } = opts
     const profile = this.getServiceProfile(serviceProfile)
     const pools = this.pools
     const poolOpts: TPoolOpts = this.config.get('thriftPool')
