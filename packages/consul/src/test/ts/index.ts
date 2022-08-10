@@ -40,6 +40,7 @@ describe('logger module', () => {
         .overrideProvider('ILogger')
         .useValue({ info: console.log })
         .compile()
+      await module.get('IConfigService').ready
 
       expect(
         await module.get(TestService).getConnectionParams(),
@@ -69,6 +70,7 @@ describe('logger module', () => {
         .overrideProvider('ILogger')
         .useValue({ info: (el: undefined) => el })
         .compile()
+      await module.get('IConfigService').ready
 
       expect(await module.get(TestService).getKv()).toMatchObject({
         value: 'consul',
@@ -97,6 +99,8 @@ describe('logger module', () => {
         .overrideProvider('ILogger')
         .useValue({ info: (el: undefined) => el })
         .compile()
+
+      await module.get('IConfigService').ready
 
       expect(await module.get(TestService).register()).toBe(
         'registered in consul OK',
