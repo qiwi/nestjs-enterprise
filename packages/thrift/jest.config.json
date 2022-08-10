@@ -1,13 +1,13 @@
 {
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
+    "test"
   ],
   "collectCoverageFrom": [
     "<rootDir>/src/main/**/*.(j|t)s"
   ],
   "testMatch": [
-    "<rootDir>/src/test/js/*.js",
-    "<rootDir>/src/test/ts/*.ts"
+    "<rootDir>/src/test/js/*.(j|t)s"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"
