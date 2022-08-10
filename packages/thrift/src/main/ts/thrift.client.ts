@@ -12,10 +12,10 @@ import {
   TPoolOpts,
 } from './interfaces'
 
-const defoultPoolOpts = {
+const defaultPoolOpts = {
   min: 0,
   max: 10,
-  idleTimeoutMillis: 30000,
+  idleTimeoutMillis: 30000
 }
 
 @Injectable()
@@ -139,10 +139,10 @@ export class ThriftClientProvider implements IThriftClientProvider {
                   },
                   async validate({ connection }): Promise<boolean> {
                     // @ts-ignore
-                    return !connection._invalid && connection.connected
+                    return !connection._invalid
                   },
                 },
-                { ...defoultPoolOpts, ...poolOpts },
+                { ...defaultPoolOpts, ...poolOpts },
               )
             }
 
