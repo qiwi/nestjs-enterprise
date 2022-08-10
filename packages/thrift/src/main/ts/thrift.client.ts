@@ -47,11 +47,9 @@ export class ThriftClientProvider implements IThriftClientProvider {
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
     opts: {
-      multiplexer: boolean
+      multiplexer?: boolean,
       connectionOpts?: { transport: any; protocol: any }
-    } = {
-      multiplexer: true,
-    },
+    } = {},
   ): TClient {
     const info = this.log.info.bind(this.log)
     const debug = this.log.debug.bind(this.log)
@@ -59,7 +57,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
 
     const getConnectionParams = this.getConnectionParams.bind(this)
     const {
-      multiplexer,
+      multiplexer = true,
       connectionOpts = {
         transport: thrift.TFramedTransport,
         protocol: thrift.TCompactProtocol,
