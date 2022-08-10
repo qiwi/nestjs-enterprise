@@ -8,7 +8,7 @@ import {
   IConnectionProvider,
   IServiceDeclaration,
   IThriftClientProvider,
-  IThriftServiceProfile,
+  IThriftServiceProfile, TPoolOpts,
 } from './interfaces'
 
 const defoultPoolOpts = {
@@ -58,7 +58,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const { multiplexer, connectionOpts } = opts || { multiplexer: true }
     const profile = this.getServiceProfile(serviceProfile)
     const pools = this.pools
-    const poolOpts = this.config.get('thriftPool')
+    const poolOpts: TPoolOpts = this.config.get('thriftPool')
 
     const proxy: any = new Proxy(
       {},
@@ -157,7 +157,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
                 error(
                   `ThriftClientProvider error: method=${
                     propKey as string
-                  } args=${args} error=${e}`,
+                  } error=${e}`,
                 )
                 currentPool.destroy(resource)
               })
