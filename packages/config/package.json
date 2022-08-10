@@ -39,9 +39,9 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.5",
-    "@nestjs/core": "^9.0.5",
-    "@qiwi/uniconfig": "^3.5.9",
+    "@nestjs/common": "^9.0.8",
+    "@nestjs/core": "^9.0.8",
+    "@qiwi/uniconfig": "^3.5.11",
     "rxjs": "^7.5.6",
     "tslib": "^2.4.0"
   },

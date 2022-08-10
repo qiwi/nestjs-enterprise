@@ -3,7 +3,7 @@
 
 __metadata:
   version: 7
-  cacheKey: 9
+  cacheKey: 8
 
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.1.2
@@ -670,14 +670,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@humanwhocodes/config-array@npm:^0.9.2":
-  version: 0.9.5
-  resolution: "@humanwhocodes/config-array@npm:0.9.5"
+"@humanwhocodes/config-array@npm:^0.10.4":
+  version: 0.10.4
+  resolution: "@humanwhocodes/config-array@npm:0.10.4"
   dependencies:
     "@humanwhocodes/object-schema": "npm:^1.2.1"
     debug: "npm:^4.1.1"
     minimatch: "npm:^3.0.4"
-  checksum: 7d55ac1e5d33dc470f5be444ff12d59e0d132320e46cf909cac13d289877d1f56a1ec3efba8cf4ab1a413e65a281d4f817e34c132575aed50c49240c9d830c38
+  checksum: 1de59dbea29b5206781f4e4d283c81ae4470ccb0296f9f425aedf9e6f43b480f165da918da11f8f5fcd5152be47e609b006a418a51dc6857f04177e9f88efadc
+  languageName: node
+  linkType: hard
+
+"@humanwhocodes/gitignore-to-minimatch@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "@humanwhocodes/gitignore-to-minimatch@npm:1.0.2"
+  checksum: 7dfb574df8fa4dc3fcf27ab81b886df33bab68a4d1362d8798b9c6fab6a45309c3028b0a88ce26db05ddec3350cbf58439944e0f04d549de67902f1d1a2e9157
   languageName: node
   linkType: hard
 
@@ -1202,9 +1209,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "@nestjs/common@npm:9.0.5"
+"@nestjs/common@npm:^9.0.8":
+  version: 9.0.8
+  resolution: "@nestjs/common@npm:9.0.8"
   dependencies:
     iterare: "npm:1.2.1"
     tslib: "npm:2.4.0"
@@ -1222,13 +1229,13 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 27a4eec69e8d154d6002e83fc6a83d55cf64da2920297576eba40af0e783f6830cf3a55d1e548cfef795637d34d8bfab4c7f6f56796ec12e52cb6807ee5f97af
+  checksum: 928284f9154a2a4c35aa460f0ab9279358ebb8ca34f60a153b70270bd4fa56a224679541854f5629f883167ace7e3ef391c929a5dff67d5f6be860b5893fe6da
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "@nestjs/core@npm:9.0.5"
+"@nestjs/core@npm:^9.0.8":
+  version: 9.0.8
+  resolution: "@nestjs/core@npm:9.0.8"
   dependencies:
     "@nuxtjs/opencollective": "npm:0.3.2"
     fast-safe-stringify: "npm:2.1.1"
@@ -1251,7 +1258,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: 996a7ce6b5839769c9f3aacac6245a77d97be1d2b7fbbb258d85b247ab9841dc7e5164507f45d30dd0fd25f333e1d3a26e6fe1841cb22d498f935a6bbcca595b
+  checksum: 7c099767b34194b677d0240c0f5bce10ad849dc47c904a15371e5365d8db99c3426fb19c524326598012ed5cd6d387b1756202ecfb6bbe244c58faf2f7b56a5e
   languageName: node
   linkType: hard
 
@@ -1272,9 +1279,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "@nestjs/platform-express@npm:9.0.5"
+"@nestjs/platform-express@npm:^9.0.8":
+  version: 9.0.8
+  resolution: "@nestjs/platform-express@npm:9.0.8"
   dependencies:
     body-parser: "npm:1.20.0"
     cors: "npm:2.8.5"
@@ -1284,19 +1291,19 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
-  checksum: fa6c3085d9ffd83222032c3fd5ba8a04599cbfd3fae4a0f7f8ec59151d91bed7a96e1795424faaa29dcedac687fb4d4d26f05b18b611a53363e8bfebf5bd7dad
+  checksum: a3dbad6081b4c401227d51822d872f5acafb34d3893856d8dc546ac1a3b73db91cd0347d918dd2284babc5af14aa63a5d188c9b86b4c48af23a7a6f49c62be5b
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:^6.0.4":
-  version: 6.0.4
-  resolution: "@nestjs/swagger@npm:6.0.4"
+"@nestjs/swagger@npm:^6.0.5":
+  version: 6.0.5
+  resolution: "@nestjs/swagger@npm:6.0.5"
   dependencies:
     "@nestjs/mapped-types": "npm:1.1.0"
     js-yaml: "npm:4.1.0"
     lodash: "npm:4.17.21"
     path-to-regexp: "npm:3.2.0"
-    swagger-ui-dist: "npm:4.12.0"
+    swagger-ui-dist: "npm:4.13.2"
   peerDependencies:
     "@fastify/static": ^6.0.0
     "@nestjs/common": ^9.0.0
@@ -1305,13 +1312,13 @@ __metadata:
   peerDependenciesMeta:
     "@fastify/static":
       optional: true
-  checksum: 4e8fd200cd23b1fe5c25ce76db0c261e0a4da7695552379bd8fd8b55246ca33b7657bc4a98ef6ac880174831ec932265bde9da12888091ecd40f8153cc00fa10
+  checksum: 288792d99c17276d87a8fb1a6d5bd7a57d6366709ddc64a4caeaca6989276b17afe46f8f0c3c6ba9f3a875427dbe278fccf64d5b6e737ea3329524919c5006c2
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^9.0.5":
-  version: 9.0.5
-  resolution: "@nestjs/testing@npm:9.0.5"
+"@nestjs/testing@npm:^9.0.8":
+  version: 9.0.8
+  resolution: "@nestjs/testing@npm:9.0.8"
   dependencies:
     tslib: "npm:2.4.0"
   peerDependencies:
@@ -1324,7 +1331,7 @@ __metadata:
       optional: true
     "@nestjs/platform-express":
       optional: true
-  checksum: c76452da11a94d30c92898cab391576dbb5fa31ae0557155b532bd4bec96c3910bfc8d741f511ab48558f8952acd4aecd26c6ae7a7e9488e89fa7af556322523
+  checksum: 5f2d64eb7d5e92b3ebe47f8ae6e5d98ef64724145be2a0ddace6b37773f09a8f9866cf67b0ae71c4834832d999f9983590c904c3256c6d5f0d540886f6e7fd6f
   languageName: node
   linkType: hard
 
@@ -1554,9 +1561,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-common@workspace:packages/common"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
-    "@nestjs/platform-express": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/platform-express": "npm:^9.0.8"
     "@qiwi/decorator-utils": "npm:^3.2.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/express": "npm:^4.17.13"
@@ -1575,10 +1582,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-config@workspace:packages/config"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/uniconfig": "npm:^3.5.9"
+    "@qiwi/uniconfig": "npm:^3.5.11"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.13.2"
     lodash: "npm:^4.17.21"
@@ -1592,8 +1599,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-connection-provider@workspace:packages/connection-provider"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
     lodash: "npm:^4.17.21"
@@ -1607,8 +1614,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-consul@workspace:packages/consul"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/consul-service-discovery": "npm:^1.10.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
@@ -1625,15 +1632,15 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-infra@workspace:packages/infra"
   dependencies:
-    "@nestjs/testing": "npm:^9.0.5"
+    "@nestjs/testing": "npm:^9.0.8"
     "@swissquote/crafty-preset-jest": "npm:^1.19.1"
     "@types/jest": "npm:^28.1.6"
     "@types/jest-json-schema": "npm:^6.1.1"
     "@types/supertest": "npm:^2.0.12"
     buildstamp: "npm:^2.0.0"
-    eslint: "npm:^8.20.0"
+    eslint: "npm:^8.21.0"
     eslint-config-prettier: "npm:^8.5.0"
-    eslint-config-qiwi: "npm:^1.17.4"
+    eslint-config-qiwi: "npm:^1.17.5"
     esm: "npm:^3.2.25"
     jest: "npm:^28.1.3"
     prettier: "npm:^2.7.1"
@@ -1643,7 +1650,7 @@ __metadata:
     terser: "npm:^5.14.2"
     ts-jest: "npm:^28.0.7"
     tsc-esm-fix: "npm:^2.20.0"
-    typedoc: "npm:^0.23.9"
+    typedoc: "npm:^0.23.10"
     typescript: "npm:^4.7.4"
   languageName: unknown
   linkType: soft
@@ -1652,8 +1659,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-logger@workspace:packages/logger"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/logwrap": "npm:^1.5.1"
     "@qiwi/mware-context": "npm:^1.13.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
@@ -1676,8 +1683,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-mdc@workspace:packages/mdc"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/mware": "npm:^1.13.1"
     "@qiwi/mware-context": "npm:^1.13.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
@@ -1705,9 +1712,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-svc-info@workspace:packages/svc-info"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
-    "@nestjs/swagger": "npm:^6.0.4"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/swagger": "npm:^6.0.5"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/bluebird": "npm:^3.5.36"
     "@types/rimraf": "npm:^3.0.2"
@@ -1725,8 +1732,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-thrift@workspace:packages/thrift"
   dependencies:
-    "@nestjs/common": "npm:^9.0.5"
-    "@nestjs/core": "npm:^9.0.5"
+    "@nestjs/common": "npm:^9.0.8"
+    "@nestjs/core": "npm:^9.0.8"
     "@qiwi/nestjs-enterprise-config": "workspace:*"
     "@qiwi/nestjs-enterprise-connection-provider": "workspace:*"
     "@qiwi/nestjs-enterprise-consul": "workspace:*"
@@ -1832,223 +1839,200 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-core@npm:3.5.2":
-  version: 3.5.2
-  resolution: "@qiwi/uniconfig-core@npm:3.5.2"
-  dependencies:
-    browser-or-node: "npm:^1.3.0"
-    lodash: "npm:^4.17.21"
-    tslib: "npm:^2.3.1"
-  checksum: 7c47a6e400b2245b0efa6f9701f386c7ea6998e9dec375cf8a77a4ddd9b1d024fd91501208871ec8a236c6c51acc8c900c3dbed26a24a22453a6a1fafbb3c127
-  languageName: node
-  linkType: hard
-
-"@qiwi/uniconfig-core@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-core@npm:3.5.3"
+"@qiwi/uniconfig-core@npm:3.5.4":
+  version: 3.5.4
+  resolution: "@qiwi/uniconfig-core@npm:3.5.4"
   dependencies:
     browser-or-node: "npm:^2.0.0"
     lodash: "npm:^4.17.21"
-    tslib: "npm:^2.3.1"
-  checksum: fb757e12371e5e2ea402eeee8e158bfc6d2eea7d3011adeb2f29707233155f65777069b7625fd9ed9d4797a329e0dfa0db6f269e55a6f7d02fa3dd3c532aeb98
+    tslib: "npm:^2.4.0"
+  checksum: 30546674e37356a02c07ea2eaa617bd46df002349472c57dfc23c043cf9ccc6e3a8ded00d9c30d96a9757932f00dc0e16de80bd9542565dd5814e09facf49a0f
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-ajv@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-ajv@npm:3.5.3"
+"@qiwi/uniconfig-plugin-ajv@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-ajv@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    ajv: "npm:^8.6.3"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    ajv: "npm:^8.11.0"
     ajv-formats: "npm:^2.1.1"
-    tslib: "npm:^2.3.1"
-  checksum: 799b77f7424bc6a81f4596ed69cb38fa23c9d51e0128874c53c992c06e331d33796aee566b62e302b29736339fa1956ae7087b460bf92dcda653b24f3ed9678c
+    tslib: "npm:^2.4.0"
+  checksum: 6922a946a9f1033655243144229d04314c4edfffc513ab1fdb19b4d97c8d4be982d2dc6423ab0e8714151036d2a4c9655fcd36f30d297601f5cb91fe573e00eb
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-api-file@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-api-file@npm:3.5.3"
+"@qiwi/uniconfig-plugin-api-file@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-api-file@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    tslib: "npm:^2.3.1"
-  checksum: 5aa5cd7a064d8bf71ce517b0e0ada6f8208ae7f868f8a50bb6725ce3afce2c49e542d07ca511f14b8ad31f5acd36330ff56a2c87811ddfaeb484d06aeae36dba
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    tslib: "npm:^2.4.0"
+  checksum: 141b8f2e369ecae8d455974ac7a88892d1c84cc7e45f3f1ae9875f367b3488cb3ef6f5a0096c1e27034decf2b46b27993378e45dc9aff071855baa93788af916
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-api-http@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-api-http@npm:3.5.3"
+"@qiwi/uniconfig-plugin-api-http@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-api-http@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     sync-request: "npm:^6.1.0"
     then-request: "npm:^6.0.2"
-    tslib: "npm:^2.3.1"
-  checksum: eb66ec38b0ec9182e78fdc8f2b6253fa57b2c3b07b4c15d9c2b45679f49237a1f8baa2458011c2db9c59f0136d466d21417b7004aa4f568b0ceb00e2e076510d
+    tslib: "npm:^2.4.0"
+  checksum: f6b254771d642c77f8165a0ae75eddf5e27c9172c3400c06f1ca81b9444efbadc24196bfa6d349adb2fc2dab7547840c356f478edc706ec1a9add84b145f4df9
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-argv@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-argv@npm:3.5.3"
+"@qiwi/uniconfig-plugin-argv@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-argv@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    tslib: "npm:^2.3.1"
-    yargs: "npm:^17.2.0"
-  checksum: 41ecd94e9debcba62b01d862c17f9ce98c6f45c21a538c13c1f5cbd72378272763c89508f234478f0ac45da64cc80a50d9de56a6a1a713fa3ea65f5ac9fa7f0e
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    tslib: "npm:^2.4.0"
+    yargs: "npm:^17.5.1"
+  checksum: 7bed63bcf5146e10369b38b8d2186d3e713c201200386ce090454c30a2eababe484839d05c2a38973edb1ef4c80579dc16a8ee354075301643d2a2323fcd413f
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-datatree@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-datatree@npm:3.5.3"
+"@qiwi/uniconfig-plugin-datatree@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-datatree@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    "@types/lodash": "npm:^4.14.173"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     lodash: "npm:^4.17.21"
-    tslib: "npm:^2.3.1"
-  checksum: f59c2785d765019d7c0059990434f9c01e088b2d36e063fee484bb745d7ba0d6a03be4d29db92cb1187c8e018315f55ca8fe6653d5e8eeaf5c9dbffb1870dafa
+    tslib: "npm:^2.4.0"
+  checksum: a31baf2efaecf651fd6264613471d561ce5b5d9ad5aadbc2b119b78392d484c308fc2597c1e021226607f1be499562181c5fbd081f694bb571bb932bb8b43c22
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-dot@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-dot@npm:3.5.3"
+"@qiwi/uniconfig-plugin-dot@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-dot@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     dot: "npm:1.1.3"
-    tslib: "npm:^2.3.1"
-  checksum: 2fd6587853a627cd9fd1790056eff61669ff0e78eb67a2d96703a30e1fbc812188246cb2108cd9e8a0cd9a86284ef606c2f4f5d746241d7df9e0e08f5e09786d
+    tslib: "npm:^2.4.0"
+  checksum: ae03edc1baa430457fc65d562504c108d940107e04e5a5d2ec4f056332eb00dc7302ce1cbb2a64e9dca1b97c56910f67d61e8c692e92c1d1f7ab56824f0f221d
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-dotenv@npm:3.5.9":
-  version: 3.5.9
-  resolution: "@qiwi/uniconfig-plugin-dotenv@npm:3.5.9"
+"@qiwi/uniconfig-plugin-dotenv@npm:3.5.11":
+  version: 3.5.11
+  resolution: "@qiwi/uniconfig-plugin-dotenv@npm:3.5.11"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    dotenv: "npm:^16.0.0"
-    tslib: "npm:^2.3.1"
-  checksum: 86ad9c027889e3e7ccc51d4864a57d321a356746bfa852e4698d58a001fad741e4a3042ff453e9a60ff7d178567ad6fd61ffc525f55095f378ffce5683b5292e
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    dotenv: "npm:^16.0.1"
+    tslib: "npm:^2.4.0"
+  checksum: b59c9054a47419ae41f935d0a691b8063b7569cba75773448818026e5d2d72fe126cd2b765c03111c1b25796af91c23c065c4a4704ae86ff76bc8e1b5ed85c6a
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-env@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-env@npm:3.5.3"
+"@qiwi/uniconfig-plugin-env@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-env@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    tslib: "npm:^2.3.1"
-  checksum: 0135d20601aec74f552d9df5432f7a494940a507af1ffc80ad020c75b7b2b0c2135a08c9c4dcd2772d6abd0fa153465cae487d80278a4c192854b23601627d8c
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    tslib: "npm:^2.4.0"
+  checksum: 32367d4e518d04f6b1f440c5c39c402149b1642e7c589bd647de97dc62f9e4006c9ba3ceacb7e47a43c0031f13e0d644586f3f6f75eda9bb47209ea4ab7e7f02
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-global@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-global@npm:3.5.3"
+"@qiwi/uniconfig-plugin-global@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-global@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    tslib: "npm:^2.3.1"
-  checksum: f9a4128d877854c20d1c578c962029701a7acd1e9f6983728e764b9501b212236bcb8b3e89289bf6fc0ec991d5145f240bfc60ea18b3a7d6bd04351ecfd3fb70
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    tslib: "npm:^2.4.0"
+  checksum: 803b3ab0c9aa1f81fd5c5c4b2a86917ff14b62e80d09c70e73e1e0e2735a39caff4f9ec09ada5a839eb327267341f091ea25955e80581eeed8d5de436f7f2bef
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-ip@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-ip@npm:3.5.3"
+"@qiwi/uniconfig-plugin-ip@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-ip@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    ip: "npm:^1.1.5"
-    tslib: "npm:^2.3.1"
-  checksum: 635dca4fb435d588cc2c397a7812e029ac3a723990ee02fad2afa9a8cc4a0a9337113f7647eb1b6bb7fe42abc15d3cf796ebc003a2c6cbf7c89b79c967d7be2b
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    ip: "npm:^2.0.0"
+    tslib: "npm:^2.4.0"
+  checksum: a88ad88d40064e74c0329498cc9d9cdf0de7a5033a8a6c0b45deabe4d98aa219c764688cd2685a53604f2a9996c2d2a691eb7434313f924a587801707c7f8b76
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-json@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-json@npm:3.5.3"
+"@qiwi/uniconfig-plugin-json@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-json@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    tslib: "npm:^2.3.1"
-  checksum: 9f18b6644c35ffaefcbef3bd7ab2afa32fceb997be60eda1d9cb2a15c706382da17166757bf4d30eb4fea1fb38018c98a7328f42432c519cb86f4c39d492a56c
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    tslib: "npm:^2.4.0"
+  checksum: dee4dc5d0cc0b77609591789010ff444524d13bb38a079775f82449c633c5937238ab2b6a526910f02479ba7688f077fa4551a37b4609df27f9145c388450bde
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-path@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-path@npm:3.5.3"
+"@qiwi/uniconfig-plugin-path@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-path@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-root": "npm:3.5.2"
-    tslib: "npm:^2.3.1"
-  checksum: 0c9df063ef8412135cfc5b2ba0115678fe9947cf2691bbf9d87000badbe94ece5b2d64f78b8da7bab9af6fe2633079018920647646d2ef751a4e84717ace23fe
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    "@qiwi/uniconfig-plugin-root": "npm:3.5.5"
+    tslib: "npm:^2.4.0"
+  checksum: c0c4f497322fa1fb4a9da8b9121e1c1adb8108e3e287c696bd328fd13010aabef08d6da5b4f256503ca8ead6d401ae91473222b0e8e4c0070ed89576a11452a7
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-pkg@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-pkg@npm:3.5.3"
+"@qiwi/uniconfig-plugin-pkg@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-pkg@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     read-pkg: "npm:^5.2.0"
-  checksum: 412bdfcca81ed8d1324bb5ab5321f41c127955b120d95ec057facaeb117968095b75dd077993aa68d2a31780b2c24df924701495d2ac4f76206f910ef0a2a25d
+  checksum: 56db15a652f9cdf85f634ba36fb2a6f2f2034997825f386544573ac9c587f064ecb6a27c68d211a01fc3b2c656dab3d5bbccc577a40a15711739e963c57afd8a
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-root@npm:3.5.2":
-  version: 3.5.2
-  resolution: "@qiwi/uniconfig-plugin-root@npm:3.5.2"
+"@qiwi/uniconfig-plugin-root@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-root@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.2"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     app-root-path: "npm:^3.0.0"
-    tslib: "npm:^2.3.1"
-  checksum: f74bcade25c9fb078139f02c0079984a3c06c6ec84b0c92ac48ff347b5782dcc27c24e4daace16f4657819bc02845b78f88f61734dc54e7b6f9c43b554269e40
+    tslib: "npm:^2.4.0"
+  checksum: 6733c8a7ebd694c65e081f04250c1c76c2768f28966c907e50a888b10113e5bcee72014e1b7a6d2cccba60997a92e668f9a6d20981d8cbbde1df2dd39eeb4b43
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-root@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-root@npm:3.5.3"
+"@qiwi/uniconfig-plugin-yaml@npm:3.5.5":
+  version: 3.5.5
+  resolution: "@qiwi/uniconfig-plugin-yaml@npm:3.5.5"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    app-root-path: "npm:^3.0.0"
-    tslib: "npm:^2.3.1"
-  checksum: 1a192e1cc3b998d74053dc83ebac7a51ac3088167fd27cf92e1d7a2e71e3bd191abf08318d181ddda8fe1b6ff5bfe6d1cb6fa56fc6a2f1ff33b4fa2117f735f5
-  languageName: node
-  linkType: hard
-
-"@qiwi/uniconfig-plugin-yaml@npm:3.5.3":
-  version: 3.5.3
-  resolution: "@qiwi/uniconfig-plugin-yaml@npm:3.5.3"
-  dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
+    "@qiwi/uniconfig-core": "npm:3.5.4"
     js-yaml: "npm:^4.1.0"
-    tslib: "npm:^2.3.1"
-  checksum: 90cb35c673b117aa9ccee6c8f565cf88b5c518c7ccb7e3f73c8417ac32d31d9c0a6b4d643ac4d324926c3654d07058f21c58bc2e028df8ca63b4b5ca23bb78de
+    tslib: "npm:^2.4.0"
+  checksum: ca2653db6815fc3634645109668b2f78a3fdd7e17f58d097c2f865abf5cddda6c71a7c0cef218aeeb86fffd7e7980a9e377176d88c44569bedc39024592458d9
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig@npm:^3.5.9":
-  version: 3.5.9
-  resolution: "@qiwi/uniconfig@npm:3.5.9"
+"@qiwi/uniconfig@npm:^3.5.11":
+  version: 3.5.11
+  resolution: "@qiwi/uniconfig@npm:3.5.11"
   dependencies:
-    "@qiwi/uniconfig-core": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-ajv": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-api-file": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-api-http": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-argv": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-datatree": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-dot": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-dotenv": "npm:3.5.9"
-    "@qiwi/uniconfig-plugin-env": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-global": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-ip": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-json": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-path": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-pkg": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-root": "npm:3.5.3"
-    "@qiwi/uniconfig-plugin-yaml": "npm:3.5.3"
-  checksum: a714689e98e6948c816cffdd7e24d83015caff40d15689b7f54462429699066ae1bb1cca3c7f7aded25bfe18166f2472a5b474a19b605d48e342cb052e183e87
+    "@qiwi/uniconfig-core": "npm:3.5.4"
+    "@qiwi/uniconfig-plugin-ajv": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-api-file": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-api-http": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-argv": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-datatree": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-dot": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-dotenv": "npm:3.5.11"
+    "@qiwi/uniconfig-plugin-env": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-global": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-ip": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-json": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-path": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-pkg": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-root": "npm:3.5.5"
+    "@qiwi/uniconfig-plugin-yaml": "npm:3.5.5"
+  checksum: 8cc458b34484029ee6924929dc3b9f27f3bbaf1df8f498a963c1a7a2d6422b43c511dea18a56e37d6af5603e42adc414d988db611976043799e537d0447ca6e7
   languageName: node
   linkType: hard
 
@@ -2780,6 +2764,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"acorn@npm:^8.8.0":
+  version: 8.8.0
+  resolution: "acorn@npm:8.8.0"
+  bin:
+    acorn: bin/acorn
+  checksum: 15b10fb381a8a0394a718eba147e120b9d1ae6ed087e61612ee5fda94f98182e5fcd78ef6725c027dc3c5677ce920617c14c359d7777e8ef6a058d2ba113f81f
+  languageName: node
+  linkType: hard
+
 "agent-base@npm:6, agent-base@npm:^6.0.2":
   version: 6.0.2
   resolution: "agent-base@npm:6.0.2"
@@ -2836,7 +2829,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ajv@npm:^8.0.0, ajv@npm:^8.11.0, ajv@npm:^8.6.3":
+"ajv@npm:^8.0.0, ajv@npm:^8.11.0":
   version: 8.11.0
   resolution: "ajv@npm:8.11.0"
   dependencies:
@@ -3299,7 +3292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browser-or-node@npm:^1.2.1, browser-or-node@npm:^1.3.0":
+"browser-or-node@npm:^1.2.1":
   version: 1.3.0
   resolution: "browser-or-node@npm:1.3.0"
   checksum: 684a64f074109e1c6a71e601bca4a5965dabd3321a93dcd7a367913cb8911537937c0d145776bd90b39c61c64cafd2d3255c566d7ead9e65a9445a1a9068db96
@@ -4126,10 +4119,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.0.0":
-  version: 16.0.0
-  resolution: "dotenv@npm:16.0.0"
-  checksum: 8ae7a66f2f7d93609be3bce35c3933455d5229ad36dd5c90c455a666473c2ae8170fbd4f3ec76674e50551bf1313c13ca191c1bc41883d8df7f97772763dd5c9
+"dotenv@npm:^16.0.1":
+  version: 16.0.1
+  resolution: "dotenv@npm:16.0.1"
+  checksum: beb53488e342583049efbd1afb4488e97fbcecf2052607e512a3871239a3976fc437a01a8ed9e6fcef6adc316796895c89f95fe0a7faa08c77ba8c22794ea1fc
   languageName: node
   linkType: hard
 
@@ -4377,9 +4370,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-qiwi@npm:^1.17.4":
-  version: 1.17.4
-  resolution: "eslint-config-qiwi@npm:1.17.4"
+"eslint-config-qiwi@npm:^1.17.5":
+  version: 1.17.5
+  resolution: "eslint-config-qiwi@npm:1.17.5"
   dependencies:
     "@typescript-eslint/eslint-plugin": "npm:^5.30.0"
     "@typescript-eslint/parser": "npm:^5.30.0"
@@ -4392,11 +4385,11 @@ __metadata:
     eslint-plugin-react: "npm:^7.30.1"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-simple-import-sort: "npm:^7.0.0"
-    eslint-plugin-sonarjs: "npm:^0.14.0"
+    eslint-plugin-sonarjs: "npm:^0.15.0"
     eslint-plugin-unicorn: "npm:^43.0.0"
   peerDependencies:
     eslint: "*"
-  checksum: fd02d2781af541e7fa12b8f3b3a1aeae47b7aeedccad92fd46b93121d93b158db1bbe8554f4959c9ae90868602f1017cb4c80773708f749926d70155ed7156aa
+  checksum: 952c31293a5f72139778a6f87456945e34681b29742a2b389a9dec0c5dd1b1fc032d1e065dfc8a03bb7a4e2f94ae4d68b40efc09757ab0e40ac06add1c0be7ab
   languageName: node
   linkType: hard
 
@@ -4554,12 +4547,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-sonarjs@npm:^0.14.0":
-  version: 0.14.0
-  resolution: "eslint-plugin-sonarjs@npm:0.14.0"
+"eslint-plugin-sonarjs@npm:^0.15.0":
+  version: 0.15.0
+  resolution: "eslint-plugin-sonarjs@npm:0.15.0"
   peerDependencies:
     eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 26dbf258f338af1fac16c0a0617c0e8b9f8028bd7ac5ed1dc7a719a3056d208a09f239459cc2d54cf704c090cc04249e528022307b52fba0c85c207e4fe24b25
+  checksum: ee5a792d0b044afc714aadbace0257cd625e5bcfccd9f3f87e5e98ce2e73372d878c41ae5be0a9190b07e76d77dcd42645ece22f5bcdb6cd43b87f30150fb7e6
   languageName: node
   linkType: hard
 
@@ -4648,12 +4641,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.20.0":
-  version: 8.20.0
-  resolution: "eslint@npm:8.20.0"
+"eslint@npm:^8.21.0":
+  version: 8.21.0
+  resolution: "eslint@npm:8.21.0"
   dependencies:
     "@eslint/eslintrc": "npm:^1.3.0"
-    "@humanwhocodes/config-array": "npm:^0.9.2"
+    "@humanwhocodes/config-array": "npm:^0.10.4"
+    "@humanwhocodes/gitignore-to-minimatch": "npm:^1.0.2"
     ajv: "npm:^6.10.0"
     chalk: "npm:^4.0.0"
     cross-spawn: "npm:^7.0.2"
@@ -4663,14 +4657,17 @@ __metadata:
     eslint-scope: "npm:^7.1.1"
     eslint-utils: "npm:^3.0.0"
     eslint-visitor-keys: "npm:^3.3.0"
-    espree: "npm:^9.3.2"
+    espree: "npm:^9.3.3"
     esquery: "npm:^1.4.0"
     esutils: "npm:^2.0.2"
     fast-deep-equal: "npm:^3.1.3"
     file-entry-cache: "npm:^6.0.1"
+    find-up: "npm:^5.0.0"
     functional-red-black-tree: "npm:^1.0.1"
     glob-parent: "npm:^6.0.1"
     globals: "npm:^13.15.0"
+    globby: "npm:^11.1.0"
+    grapheme-splitter: "npm:^1.0.4"
     ignore: "npm:^5.2.0"
     import-fresh: "npm:^3.0.0"
     imurmurhash: "npm:^0.1.4"
@@ -4689,7 +4686,7 @@ __metadata:
     v8-compile-cache: "npm:^2.0.3"
   bin:
     eslint: bin/eslint.js
-  checksum: 121dcf9388711bcdaf355f0ff12daab5afda28fdb3e99719896547836393a580118fcba9012e0b38bcc5d9c33f2a8fc57213ef5291140a7d66363f4a671f4c86
+  checksum: f9e465173a5d301b21b01a33499d23bd345b3996fb5ff72d597e2116ee60429fcba10a166ffc5a3dba37750c4d9fbf0c9349edec43cbef303bce2b23ee3648bd
   languageName: node
   linkType: hard
 
@@ -4708,6 +4705,17 @@ __metadata:
     acorn-jsx: "npm:^5.3.2"
     eslint-visitor-keys: "npm:^3.3.0"
   checksum: 519ce18064cf4818452dd08ed8fb3e2eb0744f0d8cced4acb51daea70bf714e85616e50e0864a17d58ad43e12955fdd283724f83e978e78e2016a8795c895e66
+  languageName: node
+  linkType: hard
+
+"espree@npm:^9.3.3":
+  version: 9.3.3
+  resolution: "espree@npm:9.3.3"
+  dependencies:
+    acorn: "npm:^8.8.0"
+    acorn-jsx: "npm:^5.3.2"
+    eslint-visitor-keys: "npm:^3.3.0"
+  checksum: d9267170f35a687b40478108c917caf36d70dd7eb67d37ecae0714e97259e0b171e1b72cee5f6a8d2c903b2ac2e758d3124bc111c3711164ab7436dff688bee5
   languageName: node
   linkType: hard
 
@@ -5395,6 +5403,13 @@ __metadata:
   version: 1.0.1
   resolution: "graceful-readlink@npm:1.0.1"
   checksum: 4a7faf9cc055f675d966507a59e42c986c1ff26255754f0f2421c838f900699f134763c1fc5b72039bcb9a360bcad2b734d0bab6df126d076f57a547ff9f07a2
+  languageName: node
+  linkType: hard
+
+"grapheme-splitter@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "grapheme-splitter@npm:1.0.4"
+  checksum: c67a8e522758dd907770a78ad750e6dfdcce327b0696fdd82f4b7acb8bb22b0574c88f806afb3c6597a536fa9016e6e3486071535fd0e9226b8505c67cf2fb01
   languageName: node
   linkType: hard
 
@@ -7436,7 +7451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.16":
+"marked@npm:^4.0.18":
   version: 4.0.18
   resolution: "marked@npm:4.0.18"
   bin:
@@ -9407,10 +9422,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger-ui-dist@npm:4.12.0":
-  version: 4.12.0
-  resolution: "swagger-ui-dist@npm:4.12.0"
-  checksum: b0963607a79345765af279efa3d104748d5c23b7e243025b72e6647fa0ef6e1f693b7859a1038f2e722c384fefeddbd4359de1519976bd71c483d15bedd96889
+"swagger-ui-dist@npm:4.13.2":
+  version: 4.13.2
+  resolution: "swagger-ui-dist@npm:4.13.2"
+  checksum: 4bf5a1ca2b101bc024ed65c47d656854ec46d744f310a553c847bc10736da5a95217aadcc4dbd65c6817131160aa569f8049d0a4442c7b37f6f706866d02161a
   languageName: node
   linkType: hard
 
@@ -9819,19 +9834,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.9":
-  version: 0.23.9
-  resolution: "typedoc@npm:0.23.9"
+"typedoc@npm:^0.23.10":
+  version: 0.23.10
+  resolution: "typedoc@npm:0.23.10"
   dependencies:
     lunr: "npm:^2.3.9"
-    marked: "npm:^4.0.16"
+    marked: "npm:^4.0.18"
     minimatch: "npm:^5.1.0"
     shiki: "npm:^0.10.1"
   peerDependencies:
     typescript: 4.6.x || 4.7.x
   bin:
     typedoc: bin/typedoc
-  checksum: 350f967802af5c56424c2292b9e224ebb8e758a3a9934b588d0c5aef33347ff4cf45cb223f8d9efb834a7b8a86f9c1e9d7f148f78f24c966125467dd15ee5002
+  checksum: 38267337d74431ab1a77da6721254e0c1847d784815e29cd542896665f5cbc78b725d37a1b3a3942458186f8b87a9616fb0d01f2bad9566b970997a27b31cc44
   languageName: node
   linkType: hard
 
@@ -10337,22 +10352,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"yargs@npm:^17.2.0":
-  version: 17.4.1
-  resolution: "yargs@npm:17.4.1"
-  dependencies:
-    cliui: "npm:^7.0.2"
-    escalade: "npm:^3.1.1"
-    get-caller-file: "npm:^2.0.5"
-    require-directory: "npm:^2.1.1"
-    string-width: "npm:^4.2.3"
-    y18n: "npm:^5.0.5"
-    yargs-parser: "npm:^21.0.0"
-  checksum: e2e03884891f994ffad80484a755a124b7a1d8f091dc5071de47eae639d6dc4cf5c80fcd35b37dd8e30624bd82e493167e802efb835095c24c54992e8ffb5095
-  languageName: node
-  linkType: hard
-
-"yargs@npm:^17.3.1":
+"yargs@npm:^17.3.1, yargs@npm:^17.5.1":
   version: 17.5.1
   resolution: "yargs@npm:17.5.1"
   dependencies:
