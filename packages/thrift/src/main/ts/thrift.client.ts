@@ -15,7 +15,7 @@ import {
 const defoultPoolOpts = {
   min: 0,
   max: 10,
-  idleTimeoutMillis: 5000,
+  idleTimeoutMillis: 30000,
 }
 
 @Injectable()
@@ -149,9 +149,6 @@ export class ThriftClientProvider implements IThriftClientProvider {
             debug(
               `Pool ${profile.thriftServiceName} status: current pool size=${currentPool.size} available clients=${currentPool.available} borrowed=${currentPool.borrowed} queue=${currentPool.pending} spareResourceCapacity=${currentPool.spareResourceCapacity}`,
             )
-
-            // resource.connection.connected +
-            console.log('connection.child', resource.client.child)
 
             return resource.client[propKey](...args)
               .catch((e: unknown) => {
