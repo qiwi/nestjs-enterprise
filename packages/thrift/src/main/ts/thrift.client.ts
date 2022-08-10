@@ -48,8 +48,20 @@ export class ThriftClientProvider implements IThriftClientProvider {
     connectionOpts?: { transport: any; protocol: any },
   ): Promise<thrift.Connection> {
     const profile = this.getServiceProfile(serviceProfile)
-
     const { host, port } = await this.getConnectionParams(profile)
+
+    const eventHandler = (
+      event: string,
+      connection: thrift.Connection,
+      err?: unknown,
+    ) => {
+      // @ts-ignore
+      connection._invalid = true
+      // @ts-ignore
+      ;(err ? this.log.error : this.log.info)(
+        `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err}`,
+      )
+    }
 
     this.log.info(
       `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
@@ -58,25 +70,13 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const connection = thrift.createConnection(host, port, connectionOpts)
 
     connection.on('error', (err) => {
-      // @ts-ignore
-      connection._invalid = true
-      this.log.error(
-        `ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`,
-      )
+      eventHandler('error', connection, err)
     })
     connection.on('close', () => {
-      // @ts-ignore
-      connection._invalid = true
-      this.log.info(
-        `ThriftClientProvider connection close: host=${host}, port=${port}`,
-      )
+      eventHandler('close', connection)
     })
     connection.on('timeout', (err) => {
-      // @ts-ignore
-      connection._invalid = true
-      this.log.error(
-        `ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`,
-      )
+      eventHandler('timeout', connection, err)
     })
 
     return connection
