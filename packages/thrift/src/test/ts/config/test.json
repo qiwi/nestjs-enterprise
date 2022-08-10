@@ -20,6 +20,11 @@
       }
     },
 
+    "thriftPool": {
+      "min": 0,
+      "max": 10
+    },
+
     "logger": {
       "level": "debug",
       "dir": "$logDir:",

@@ -16,7 +16,11 @@ import Client from './mock/gen-nodejs/Calculator.cjs'
 // @ts-ignore
 import server from './mock/server.cjs'
 
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 describe('thrift', () => {
   beforeAll(() => {
@@ -83,6 +87,7 @@ describe('thrift', () => {
       expect(testService.foo).toBe(testService.bar)
       expect(await testService.foo.add(1, 2)).toBe(3)
       expect(await testService.bar.add(10, -10)).toBe(0)
+      await module.get('IThriftClientService').pools[Client].clear()
     })
   })
 })

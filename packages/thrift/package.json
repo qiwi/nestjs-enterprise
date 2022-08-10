@@ -43,6 +43,7 @@
     "@nestjs/core": "^9.0.5",
     "@qiwi/substrate": "^1.20.14",
     "@types/thrift": "^0.10.11",
+    "generic-pool": "^3.8.2",
     "inside-out-promise": "^2.1.4",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
@@ -55,7 +56,8 @@
     "@qiwi/nestjs-enterprise-connection-provider": "workspace:*",
     "@qiwi/nestjs-enterprise-consul": "workspace:*",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
-    "@qiwi/nestjs-enterprise-logger": "workspace:*"
+    "@qiwi/nestjs-enterprise-logger": "workspace:*",
+    "@types/generic-pool": "^3"
   },
   "repository": {
     "type": "git",
