@@ -4,10 +4,10 @@
     "test"
   ],
   "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.(j|t)s"
+    "<rootDir>/src/main/**/*"
   ],
   "testMatch": [
-    "<rootDir>/src/test/js/*.(j|t)s"
+    "<rootDir>/src/test/**/*.(j|t)s"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"
