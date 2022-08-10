@@ -43,6 +43,45 @@ export class ThriftClientProvider implements IThriftClientProvider {
       : ref
   }
 
+  async createConnection(
+    serviceProfile: IThriftServiceProfile | string,
+    connectionOpts?: { transport: any; protocol: any },
+  ): Promise<thrift.Connection> {
+    const profile = this.getServiceProfile(serviceProfile)
+
+    const { host, port } = await this.getConnectionParams(profile)
+
+    this.log.info(
+      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+    )
+
+    const connection = thrift.createConnection(host, port, connectionOpts)
+
+    connection.on('error', (err) => {
+      // @ts-ignore
+      connection._invalid = true
+      this.log.error(
+        `ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`,
+      )
+    })
+    connection.on('close', () => {
+      // @ts-ignore
+      connection._invalid = true
+      this.log.info(
+        `ThriftClientProvider connection close: host=${host}, port=${port}`,
+      )
+    })
+    connection.on('timeout', (err) => {
+      // @ts-ignore
+      connection._invalid = true
+      this.log.error(
+        `ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`,
+      )
+    })
+
+    return connection
+  }
+
   getClient<TClient>(
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
@@ -55,7 +94,6 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
 
-    const getConnectionParams = this.getConnectionParams.bind(this)
     const {
       multiplexer = true,
       connectionOpts = {
@@ -66,6 +104,8 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const profile = this.getServiceProfile(serviceProfile)
     const pools = this.pools
     const poolOpts: TPoolOpts = this.config.get('thriftPool')
+
+    const createConnection = this.createConnection.bind(this)
 
     const proxy: any = new Proxy(
       {},
@@ -79,38 +119,10 @@ export class ThriftClientProvider implements IThriftClientProvider {
               pools[clientConstructor as any] = genericPool.createPool(
                 {
                   create: async function () {
-                    const { host, port } = await getConnectionParams(profile)
-                    info(
-                      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
-                    )
-
-                    const connection = thrift.createConnection(
-                      host,
-                      port,
+                    const connection = await createConnection(
+                      serviceProfile,
                       connectionOpts,
                     )
-
-                    connection.on('error', (err) => {
-                      // @ts-ignore
-                      connection._invalid = true
-                      error(
-                        `ThriftClientProvider connection error: host=${host}, port=${port} err=${err}`,
-                      )
-                    })
-                    connection.on('close', (err) => {
-                      // @ts-ignore
-                      connection._invalid = true
-                      info(
-                        `ThriftClientProvider connection close: host=${host}, port=${port} err=${err}`,
-                      )
-                    })
-                    connection.on('timeout', (err) => {
-                      // @ts-ignore
-                      connection._invalid = true
-                      error(
-                        `ThriftClientProvider connection timeout: host=${host}, port=${port} err=${err}`,
-                      )
-                    })
 
                     try {
                       const client = !multiplexer
@@ -134,7 +146,9 @@ export class ThriftClientProvider implements IThriftClientProvider {
                     }
                   },
                   destroy: async function ({ connection }) {
-                    info(`ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`)
+                    info(
+                      `ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`,
+                    )
                     connection.end()
                   },
                   async validate({ connection }): Promise<boolean> {
