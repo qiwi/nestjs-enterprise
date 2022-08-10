@@ -10,6 +10,7 @@
     "<rootDir>/src/test/**/*.(j|t)s"
   ],
   "testPathIgnorePatterns": [
+    "mock",
     "/node_modules/"
   ],
   "moduleFileExtensions": [
