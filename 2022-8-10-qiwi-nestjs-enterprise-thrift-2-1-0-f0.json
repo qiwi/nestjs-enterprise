@@ -1,0 +1,13 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/nestjs-enterprise-thrift",
+  "hash": "0bb42036c8c7a68bbf02ae87433a1d981c3c2ad2",
+  "version": "2.1.0",
+  "devDependencies": {
+    "@qiwi/nestjs-enterprise-config": "2.0.0",
+    "@qiwi/nestjs-enterprise-connection-provider": "2.0.0",
+    "@qiwi/nestjs-enterprise-consul": "2.0.0",
+    "@qiwi/nestjs-enterprise-infra": "2.0.1",
+    "@qiwi/nestjs-enterprise-logger": "2.0.0"
+  }
+}
