@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2022.7.26-qiwi.nestjs-enterprise-thrift.2.0.0-f0...2022.8.10-qiwi.nestjs-enterprise-thrift.2.1.0-f0) (2022-08-10)
+
+### Features
+* feat: add thrift pool (#64) [0bb4203](https://github.com/qiwi/nestjs-enterprise/commit/0bb42036c8c7a68bbf02ae87433a1d981c3c2ad2)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.0.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-thrift@1.3.1...2022.7.26-qiwi.nestjs-enterprise-thrift.2.0.0-f0) (2022-07-26)
 
 ### Fixes & improvements
@@ -16,5 +21,3 @@
 * perf: @qiwi/nestjs-enterprise-consul updated to 2.0.0
 * perf: @qiwi/nestjs-enterprise-infra updated to 2.0.1
 * perf: @qiwi/nestjs-enterprise-logger updated to 2.0.0
-
-
