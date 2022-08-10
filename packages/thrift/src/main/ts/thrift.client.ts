@@ -15,7 +15,7 @@ import {
 const defaultPoolOpts = {
   min: 0,
   max: 10,
-  idleTimeoutMillis: 30000
+  idleTimeoutMillis: 30000,
 }
 
 @Injectable()
@@ -47,7 +47,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
     opts: {
-      multiplexer?: boolean,
+      multiplexer?: boolean
       connectionOpts?: { transport: any; protocol: any }
     } = {},
   ): TClient {
@@ -122,7 +122,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
                           )
 
                       debug(
-                        `created new thrift client and connection for ${profile.thriftServiceName}`,
+                        `ThriftClientProvider created new thrift client and connection for ${profile.thriftServiceName}`,
                       )
 
                       return { client, connection }
@@ -134,7 +134,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
                     }
                   },
                   destroy: async function ({ connection }) {
-                    info(`destroyed connection`)
+                    info(`ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`)
                     connection.end()
                   },
                   async validate({ connection }): Promise<boolean> {
@@ -154,6 +154,10 @@ export class ThriftClientProvider implements IThriftClientProvider {
             )
 
             return resource.client[propKey](...args)
+              .then((res: any) => {
+                currentPool.release(resource)
+                return res
+              })
               .catch((e: unknown) => {
                 error(
                   `ThriftClientProvider error: method=${
@@ -161,9 +165,6 @@ export class ThriftClientProvider implements IThriftClientProvider {
                   } error=${e}`,
                 )
                 currentPool.destroy(resource)
-              })
-              .finally(() => {
-                currentPool.release(resource)
               })
           }
         },
