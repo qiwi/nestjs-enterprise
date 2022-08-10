@@ -8,7 +8,8 @@ import {
   IConnectionProvider,
   IServiceDeclaration,
   IThriftClientProvider,
-  IThriftServiceProfile, TPoolOpts,
+  IThriftServiceProfile,
+  TPoolOpts,
 } from './interfaces'
 
 const defoultPoolOpts = {

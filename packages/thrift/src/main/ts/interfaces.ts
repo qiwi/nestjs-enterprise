@@ -96,17 +96,17 @@ export type Extender = <BaseClass extends ClassType<any>>(
 ) => BaseClass
 
 export type TPoolOpts = {
-  max?: number;
-  min?: number;
-  maxWaitingClients?: number;
-  testOnBorrow?: boolean;
-  testOnReturn?: boolean;
-  acquireTimeoutMillis?: number;
-  fifo?: boolean;
-  priorityRange?: number;
-  autostart?: boolean;
-  evictionRunIntervalMillis?: number;
-  numTestsPerEvictionRun?: number;
-  softIdleTimeoutMillis?: number;
-  idleTimeoutMillis?: number;
+  max?: number
+  min?: number
+  maxWaitingClients?: number
+  testOnBorrow?: boolean
+  testOnReturn?: boolean
+  acquireTimeoutMillis?: number
+  fifo?: boolean
+  priorityRange?: number
+  autostart?: boolean
+  evictionRunIntervalMillis?: number
+  numTestsPerEvictionRun?: number
+  softIdleTimeoutMillis?: number
+  idleTimeoutMillis?: number
 }
