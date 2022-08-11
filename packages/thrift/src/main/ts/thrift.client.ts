@@ -85,7 +85,6 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
     const createConnection = this.createConnection.bind(this)
-    const profile = this.getServiceProfile(serviceProfile)
 
     const {
       multiplexer = true,
@@ -94,6 +93,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
         protocol: thrift.TCompactProtocol,
       },
     } = opts
+    const profile = this.getServiceProfile(serviceProfile)
     const pools = this.pools
     const poolOpts: TPoolOpts = this.config.get('thriftPool')
 

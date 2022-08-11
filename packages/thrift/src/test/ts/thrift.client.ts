@@ -101,7 +101,6 @@ describe('thrift', () => {
         .useValue(console)
         .compile()
 
-     
       const thriftClient = module.get(TestService).getClient()
 
       expect(await thriftClient.add(1, 2)).toBe(3)

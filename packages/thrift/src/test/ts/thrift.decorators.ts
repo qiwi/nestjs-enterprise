@@ -82,7 +82,6 @@ describe('thrift', () => {
         .useValue(console)
         .compile()
 
-     
       const testService = module.get(TestService)
 
       expect(testService.foo).toBe(testService.bar)
