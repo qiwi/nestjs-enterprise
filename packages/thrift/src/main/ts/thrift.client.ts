@@ -85,8 +85,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
     const createConnection = this.createConnection.bind(this)
-    const configReady = this.config.ready
-    const getServiceProfile = this.getServiceProfile.bind(this)
+    const profile = this.getServiceProfile(serviceProfile)
 
     const {
       multiplexer = true,
@@ -106,8 +105,6 @@ export class ThriftClientProvider implements IThriftClientProvider {
             return proxy
           }
           return async (...args: any[]) => {
-            await configReady
-            const profile = getServiceProfile(serviceProfile)
             if (!pools[clientConstructor as any]) {
               pools[clientConstructor as any] = genericPool.createPool(
                 {

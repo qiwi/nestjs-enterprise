@@ -82,8 +82,7 @@ describe('thrift', () => {
         .useValue(console)
         .compile()
 
-      await module.get('IConfigService').ready
-
+     
       const testService = module.get(TestService)
 
       expect(testService.foo).toBe(testService.bar)

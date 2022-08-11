@@ -88,8 +88,6 @@ describe('thrift-server', () => {
       .useValue(console)
       .compile()
 
-    await clientModule.get('IConfigService').ready
-
     const thriftClient = clientModule.get(TestService).getClient()
 
     const data = {}
