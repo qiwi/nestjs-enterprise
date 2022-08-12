@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-config@2.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2022.7.26-qiwi.nestjs-enterprise-config.2.0.0-f0...2022.8.12-qiwi.nestjs-enterprise-config.2.0.1-f0) (2022-08-12)
+
+### Fixes & improvements
+* perf: make config async (#65) [f1c2243](https://github.com/qiwi/nestjs-enterprise/commit/f1c2243535f453f0525c1aae32fd9ff5612b8e19)
+
 ## [@qiwi/nestjs-enterprise-config@2.0.0](https://github.com/qiwi/nestjs-enterprise/compare/@qiwi/nestjs-enterprise-config@1.4.1...2022.7.26-qiwi.nestjs-enterprise-config.2.0.0-f0) (2022-07-26)
 
 ### Fixes & improvements
@@ -12,5 +17,3 @@
 
 ### Dependencies
 * perf: @qiwi/nestjs-enterprise-infra updated to 2.0.1
-
-
