@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.3](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.2-f0...2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.3-f0) (2022-08-12)
+
+### Fixes & improvements
+* fix: throw thrift errors, use singleton thrift proxy [4de482d](https://github.com/qiwi/nestjs-enterprise/commit/4de482d0b46f570f0f948e2c9e450cb89a9dbb10)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.2](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.1-f0...2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.2-f0) (2022-08-12)
 
 ### Fixes & improvements
