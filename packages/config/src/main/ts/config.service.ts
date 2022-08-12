@@ -20,7 +20,7 @@ export const resolveConfigPath = (path?: string, local?: boolean): string => {
 
 export function createOpts(path?: string) {
   return {
-    mode: uniconfig.SYNC,
+    mode: uniconfig.ASYNC,
     data: {
       data: {
         data: {

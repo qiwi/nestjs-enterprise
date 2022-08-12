@@ -15,7 +15,11 @@ export class ConfigModule {
       providers: [
         {
           provide: 'IConfigService',
-          useFactory: () => new ConfigService(options.path),
+          useFactory: async () => {
+            const service = new ConfigService(options.path)
+            await service.ready
+            return service
+          },
         },
       ],
       exports: ['IConfigService'],
