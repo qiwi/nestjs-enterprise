@@ -31,6 +31,8 @@ export class ThriftClientProvider implements IThriftClientProvider {
     this.pools = new Map()
   }
 
+  private thriftProxy: any
+
   pools: Map<thrift.TClientConstructor<any>, TThriftPool<any>>
 
   async getConnectionParams(
@@ -150,9 +152,13 @@ export class ThriftClientProvider implements IThriftClientProvider {
     clientConstructor: thrift.TClientConstructor<TClient>,
     thriftOpts: TThriftOpts = {},
   ): TClient {
-    const pool = this.getPool<TClient>(serviceProfile, clientConstructor, thriftOpts)
+    if (this.thriftProxy) {
+      return this.thriftProxy
+    }
+
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
+    const getPool = this.getPool.bind(this)
     const proxy: any = new Proxy(
       {},
       {
@@ -161,6 +167,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
             return proxy
           }
           return async (...args: any[]) => {
+            const pool = getPool<TClient>(serviceProfile, clientConstructor, thriftOpts)
             const resource = await pool.acquire()
             debug(
               `Pool ${resource.profile.thriftServiceName} status: current pool size=${pool.size} available clients=${pool.available} borrowed=${pool.borrowed} queue=${pool.pending} spareResourceCapacity=${pool.spareResourceCapacity}`,
@@ -178,12 +185,15 @@ export class ThriftClientProvider implements IThriftClientProvider {
                   } error=${e}`,
                 )
                 pool.destroy(resource)
+                throw e
               })
           }
         },
       },
     )
-    return proxy as TClient
+
+    this.thriftProxy = proxy
+    return proxy
   }
 }
 
