@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.2](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.1-f0...2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.2-f0) (2022-08-12)
+
+### Fixes & improvements
+* fix: fix thrift pools map [8e0b14b](https://github.com/qiwi/nestjs-enterprise/commit/8e0b14b5de13e6f20d5c2960240590303693dc64)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.1](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.10-qiwi.nestjs-enterprise-thrift.2.1.0-f0...2022.8.12-qiwi.nestjs-enterprise-thrift.2.1.1-f0) (2022-08-12)
 
 ### Dependencies
