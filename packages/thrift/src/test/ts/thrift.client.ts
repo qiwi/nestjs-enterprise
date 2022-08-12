@@ -105,7 +105,7 @@ describe('thrift', () => {
 
       expect(await thriftClient.add(1, 2)).toBe(3)
       expect(await thriftClient.add(10, -10)).toBe(0)
-      await module.get('IThriftClientService').pools[Client].clear()
+      await module.get('IThriftClientService').pools.get(Client).clear()
     })
   })
 })
