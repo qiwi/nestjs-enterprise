@@ -29,7 +29,7 @@ describe('createAppPipe', () => {
     expect(typeof pipe).toBe('function')
   })
 
-  test('pipe calls log and ', () => {
+  it('pipe calls log and ', () => {
     const log = jest.fn()
     const loggerMock: ILogger = {
       log,
