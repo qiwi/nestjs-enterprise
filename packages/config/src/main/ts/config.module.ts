@@ -9,14 +9,14 @@ import { ConfigService } from './config.service'
   exports: ['IConfigService'],
 })
 export class ConfigModule {
-  static register(options: { path: string }): DynamicModule {
+  static register(options: { path?: string, config?: Record<any, any> } = {}): DynamicModule {
     return {
       module: ConfigModule,
       providers: [
         {
           provide: 'IConfigService',
           useFactory: async () => {
-            const service = new ConfigService(options.path)
+            const service = new ConfigService(options.path || options.config)
             await service.ready
             return service
           },

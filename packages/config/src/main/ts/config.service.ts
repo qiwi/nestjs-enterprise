@@ -1,11 +1,8 @@
 import {
+  ASYNC,
+  Config,
   IConfig as IConfigService,
-} from '@qiwi/uniconfig/target/es5/'
-import { createRequire } from 'module'
-
-const require = createRequire(import.meta.url)
-
-const uniconfig = require('@qiwi/uniconfig')
+} from '@qiwi/uniconfig'
 
 export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'
 export const DEFAULT_KUBE_CONFIG_PATH = '<root>/config/kube.json'
@@ -18,35 +15,38 @@ export const resolveConfigPath = (path?: string, local?: boolean): string => {
   return local ? DEFAULT_LOCAL_CONFIG_PATH : DEFAULT_KUBE_CONFIG_PATH
 }
 
-export function createOpts(path?: string) {
-  return {
-    mode: uniconfig.ASYNC,
-    data: {
+const normalizeOpts = (opts?: string | Record<any, any>) => {
+  if (typeof opts === 'string' || opts === undefined) {
+    return {
+      mode: ASYNC,
       data: {
         data: {
-          target: '$env:ENVIRONMENT_PROFILE_NAME',
-          local: '$env:LOCAL',
-          path,
-          resolveConfigPath,
+          data: {
+            target: '$env:ENVIRONMENT_PROFILE_NAME',
+            local: '$env:LOCAL',
+            path: opts,
+            resolveConfigPath,
+          },
+          template: `{{=it.resolveConfigPath(it.path, it.local)}}`,
         },
-        template: `{{=it.resolveConfigPath(it.path, it.local)}}`,
-      },
-      sources: {
-        env: {
-          pipeline: 'env',
+        sources: {
+          env: {
+            pipeline: 'env',
+          },
         },
       },
-    },
-    pipeline: 'datatree>dot>path>file>json>datatree',
+      pipeline: 'datatree>dot>path>file>json>datatree',
+    }
   }
+
+  return opts
 }
 
 export { IConfigService }
 
 
-// @ts-ignore
-export class ConfigService extends uniconfig.Config implements IConfigService {
-  constructor(opts: string) {
-    super(createOpts(opts))
+export class ConfigService extends Config implements IConfigService {
+  constructor(opts?: string | Record<any, any>) {
+    super(normalizeOpts(opts))
   }
 }
