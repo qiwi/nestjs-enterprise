@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-config@2.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.12-qiwi.nestjs-enterprise-config.2.0.1-f0...2022.8.13-qiwi.nestjs-enterprise-config.2.1.0-f0) (2022-08-13)
+
+### Features
+* feat: accept uniconfig directive as config service input [30fd575](https://github.com/qiwi/nestjs-enterprise/commit/30fd57525904d77316fae0b33a06df5022673ca2)
+
 ## [@qiwi/nestjs-enterprise-config@2.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2022.7.26-qiwi.nestjs-enterprise-config.2.0.0-f0...2022.8.12-qiwi.nestjs-enterprise-config.2.0.1-f0) (2022-08-12)
 
 ### Fixes & improvements
