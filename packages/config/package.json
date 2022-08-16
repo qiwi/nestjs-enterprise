@@ -33,7 +33,7 @@
     "prebuild": "cp ../../buildstamp.json ./",
     "build": "yarn prebuild && yarn build:es6 && yarn build:ts && yarn docs && yarn uglify",
     "build:es6": "mkdir -p target/es6 && yarn infra:tsc -p tsconfig.es6.json && yarn infra:tsc-esm-fix --target='target/es6'",
-    "build:ts": "cp -r src/main/ts target/ts/",
+    "build:ts": "cp -r src/main/ts/ target/ts/",
     "docs": "yarn infra:typedoc",
     "uglify": "yarn infra:uglify",
     "postupdate": "yarn && yarn build && yarn test"
