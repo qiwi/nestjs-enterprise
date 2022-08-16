@@ -39,8 +39,8 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.8",
-    "@nestjs/core": "^9.0.8",
+    "@nestjs/common": "^9.0.9",
+    "@nestjs/core": "^9.0.9",
     "@qiwi/consul-service-discovery": "^1.10.0",
     "@qiwi/substrate": "^1.20.14",
     "reflect-metadata": "^0.1.13",

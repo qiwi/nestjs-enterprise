@@ -39,10 +39,10 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.8",
-    "@nestjs/core": "^9.0.8",
+    "@nestjs/common": "^9.0.9",
+    "@nestjs/core": "^9.0.9",
     "@qiwi/logwrap": "^1.5.1",
-    "@qiwi/mware-context": "^1.13.0",
+    "@qiwi/mware-context": "^1.14.0",
     "@qiwi/substrate": "^1.20.14",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.0",

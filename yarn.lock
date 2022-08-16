@@ -1209,9 +1209,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/common@npm:^9.0.8":
-  version: 9.0.8
-  resolution: "@nestjs/common@npm:9.0.8"
+"@nestjs/common@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@nestjs/common@npm:9.0.9"
   dependencies:
     iterare: "npm:1.2.1"
     tslib: "npm:2.4.0"
@@ -1229,13 +1229,13 @@ __metadata:
       optional: true
     class-validator:
       optional: true
-  checksum: 928284f9154a2a4c35aa460f0ab9279358ebb8ca34f60a153b70270bd4fa56a224679541854f5629f883167ace7e3ef391c929a5dff67d5f6be860b5893fe6da
+  checksum: 9cbf4dfadd5a99f69748ee01180d6a95d1894fd5b10093a65f8d3ba929aaac6c7421d3f5b5f5907b34f8c5d42769f43bf0dd6e162d87b8e8e9055561959a9c72
   languageName: node
   linkType: hard
 
-"@nestjs/core@npm:^9.0.8":
-  version: 9.0.8
-  resolution: "@nestjs/core@npm:9.0.8"
+"@nestjs/core@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@nestjs/core@npm:9.0.9"
   dependencies:
     "@nuxtjs/opencollective": "npm:0.3.2"
     fast-safe-stringify: "npm:2.1.1"
@@ -1258,7 +1258,7 @@ __metadata:
       optional: true
     "@nestjs/websockets":
       optional: true
-  checksum: 7c099767b34194b677d0240c0f5bce10ad849dc47c904a15371e5365d8db99c3426fb19c524326598012ed5cd6d387b1756202ecfb6bbe244c58faf2f7b56a5e
+  checksum: 8b89d97c5d0cea4378e4249c4886878e47095ecda7d2ed107c19bf760635a1a63d2816971f3faa9a9a6ea2d5548dfa97d963cfb38e4a0b21605c45883d8e27b3
   languageName: node
   linkType: hard
 
@@ -1279,9 +1279,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/platform-express@npm:^9.0.8":
-  version: 9.0.8
-  resolution: "@nestjs/platform-express@npm:9.0.8"
+"@nestjs/platform-express@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@nestjs/platform-express@npm:9.0.9"
   dependencies:
     body-parser: "npm:1.20.0"
     cors: "npm:2.8.5"
@@ -1291,7 +1291,7 @@ __metadata:
   peerDependencies:
     "@nestjs/common": ^9.0.0
     "@nestjs/core": ^9.0.0
-  checksum: a3dbad6081b4c401227d51822d872f5acafb34d3893856d8dc546ac1a3b73db91cd0347d918dd2284babc5af14aa63a5d188c9b86b4c48af23a7a6f49c62be5b
+  checksum: bf83edeec5d9db6508adfa20449d1d5c92313584445ed65e391103d07ea6f8037dcf1df00a18c9f4e2a0cd0555f0c5f3e017f6a57385e63a9b934ee613fa0135
   languageName: node
   linkType: hard
 
@@ -1316,9 +1316,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/testing@npm:^9.0.8":
-  version: 9.0.8
-  resolution: "@nestjs/testing@npm:9.0.8"
+"@nestjs/testing@npm:^9.0.9":
+  version: 9.0.9
+  resolution: "@nestjs/testing@npm:9.0.9"
   dependencies:
     tslib: "npm:2.4.0"
   peerDependencies:
@@ -1331,7 +1331,7 @@ __metadata:
       optional: true
     "@nestjs/platform-express":
       optional: true
-  checksum: 5f2d64eb7d5e92b3ebe47f8ae6e5d98ef64724145be2a0ddace6b37773f09a8f9866cf67b0ae71c4834832d999f9983590c904c3256c6d5f0d540886f6e7fd6f
+  checksum: a0499e27d2ca4e05f4361173aa4a81ec9fcd67f7dc60936aeb3e33a0a8adb044d81c6100cc9f0c355f1436bd549ac3705ab0ae38894d0272657983d666b59a6b
   languageName: node
   linkType: hard
 
@@ -1464,10 +1464,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/mware-context@npm:1.13.0, @qiwi/mware-context@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "@qiwi/mware-context@npm:1.13.0"
-  checksum: d356b151988377ebd2806ed6daf01d244113baa8321d37ca66123f0e7b9803b3e17a33b07f9942b515212c35a44917ad707d4450119555488c7580121ffd2dae
+"@qiwi/mware-context@npm:1.14.0, @qiwi/mware-context@npm:^1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware-context@npm:1.14.0"
+  checksum: 326e9394cb87794a2fccb2576c2d10a3a78fd13363887dae5bd0468ebd0e168e44967f8aa0eac2c28c44227a2028379116995e2d5b0762b8925261ce06d1c4b2
   languageName: node
   linkType: hard
 
@@ -1478,21 +1478,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/mware-cors@npm:1.12.0":
-  version: 1.12.0
-  resolution: "@qiwi/mware-cors@npm:1.12.0"
+"@qiwi/mware-cors@npm:1.13.0":
+  version: 1.13.0
+  resolution: "@qiwi/mware-cors@npm:1.13.0"
   dependencies:
     lodash: "npm:^4.17.21"
-  checksum: 20ed711be03ebf13de1ef849d2bc9c0513c994edbf566ecc2aabb6652d2508f0cf35b735f89a23c74159b2dfd6f3f3d3fb8437b85d56fd3654fadbb86fca2995
+  checksum: 0164de698002412689914c0ecc79db35381e3694a817ec6213b5bec40c2f1edd5e34540b30b52cef6a0cbaa7df7ab02f50e33db2a6d591e3d4635df048dec398
   languageName: node
   linkType: hard
 
-"@qiwi/mware-crumbs@npm:1.13.1":
-  version: 1.13.1
-  resolution: "@qiwi/mware-crumbs@npm:1.13.1"
+"@qiwi/mware-crumbs@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware-crumbs@npm:1.14.0"
   dependencies:
     ip: "npm:^2.0.0"
-  checksum: 2b005c463ba5617c8af9ced368aec2425365065092a2e7a0f4aa2d128a046f547262a5e0e7122076995b96d47e813e6f6ac92f6f8281f596a6c683378f366221
+  checksum: 937cd559d94a2cb29660a37637fd14854dd813c6e3a27fee31b58e64d8922cd456583df107dc724b018d627e72d4738a184ff212f5b747d2e03322a8de6b49c6
   languageName: node
   linkType: hard
 
@@ -1512,48 +1512,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/mware-logger@npm:1.13.0":
-  version: 1.13.0
-  resolution: "@qiwi/mware-logger@npm:1.13.0"
+"@qiwi/mware-logger@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware-logger@npm:1.14.0"
   dependencies:
     http-status-codes: "npm:^2.2.0"
-  checksum: 1cbf8fc81e0c2b88e49e27a7d875ae25947f97883522c023792c90805f6ca5b18faf09a0796dfcab486fbd6c127ebcab5c6305052d47f1a3659ae718598bfeb5
+  checksum: b0cd1fdff5ec1bcf734f0380a3551b38e4591b240bfb44199cafca5fbbfdcc5d4db6685afa542ab9faa33da747c81ecc7d36bc0314bd4c117e0d15e98235648d
   languageName: node
   linkType: hard
 
-"@qiwi/mware-mdc@npm:1.13.0":
-  version: 1.13.0
-  resolution: "@qiwi/mware-mdc@npm:1.13.0"
+"@qiwi/mware-mdc@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware-mdc@npm:1.14.0"
   dependencies:
-    "@qiwi/mware-context": "npm:1.13.0"
+    "@qiwi/mware-context": "npm:1.14.0"
     cls-hooked: "npm:^4.2.2"
-  checksum: caac39005012a3f7237e06810fb17ac0c565a9f9336496d3f2af9f30c57e80b15b7f4d2a55437dedd36a2a5dc63f51fa251dc93007e1c72aaca9a5cd01cda26e
+  checksum: 9ab4764b09705707fab409d9783d9c14eaccbb97ae2dc43893bc60437a92927a043c6e4f1ae3c11d29e4bfdfa346cec898df5664e50e4f854927f55fd8783d42
   languageName: node
   linkType: hard
 
-"@qiwi/mware-validator@npm:1.13.0":
-  version: 1.13.0
-  resolution: "@qiwi/mware-validator@npm:1.13.0"
+"@qiwi/mware-validator@npm:1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware-validator@npm:1.14.0"
   dependencies:
     ajv: "npm:^8.11.0"
     ajv-formats: "npm:^2.1.1"
     http-status-codes: "npm:^2.2.0"
-  checksum: a48916c7345e95e5b4521501864a7accb9494a214b4382acc5c390b7e352c12ca4287fbe371145f20fa077801acf4be087b4f77ec16f78ddd05fe3d6840985af
+  checksum: 05b021b0435b94eff2f4204d57a9cc1a44cb960ed39704ee8ae2132220d742060c6ac53faed20d36fbdb06b208dbe446423d5e060245fe42d17a0efdbb8aa304
   languageName: node
   linkType: hard
 
-"@qiwi/mware@npm:^1.13.1":
-  version: 1.13.1
-  resolution: "@qiwi/mware@npm:1.13.1"
+"@qiwi/mware@npm:^1.14.0":
+  version: 1.14.0
+  resolution: "@qiwi/mware@npm:1.14.0"
   dependencies:
     "@qiwi/mware-core": "npm:1.13.0"
-    "@qiwi/mware-cors": "npm:1.12.0"
-    "@qiwi/mware-crumbs": "npm:1.13.1"
+    "@qiwi/mware-cors": "npm:1.13.0"
+    "@qiwi/mware-crumbs": "npm:1.14.0"
     "@qiwi/mware-infra": "npm:1.0.0"
-    "@qiwi/mware-logger": "npm:1.13.0"
-    "@qiwi/mware-mdc": "npm:1.13.0"
-    "@qiwi/mware-validator": "npm:1.13.0"
-  checksum: 6a35d229b2fb82054270746e44f0b682a4f02be5947a8fe701f2af1a359b8416cf11281f8630b46857d8aa454e9607f704f5627af476683f4dbd721d69a67ac3
+    "@qiwi/mware-logger": "npm:1.14.0"
+    "@qiwi/mware-mdc": "npm:1.14.0"
+    "@qiwi/mware-validator": "npm:1.14.0"
+  checksum: 4ee4100dc0dcfbec9416a485f9f97ebb6f6f66d77e0affdf4bb098d81c2ad16a9c7cd59c3cac4d845396eca8fa0cf113423e75fca3da0623027d4a5ba5179379
   languageName: node
   linkType: hard
 
@@ -1561,9 +1561,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-common@workspace:packages/common"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
-    "@nestjs/platform-express": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
+    "@nestjs/platform-express": "npm:^9.0.9"
     "@qiwi/decorator-utils": "npm:^3.2.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/express": "npm:^4.17.13"
@@ -1582,8 +1582,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-config@workspace:packages/config"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/uniconfig": "npm:^3.5.11"
     class-transformer: "npm:^0.5.1"
@@ -1599,8 +1599,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-connection-provider@workspace:packages/connection-provider"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
     lodash: "npm:^4.17.21"
@@ -1614,8 +1614,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-consul@workspace:packages/consul"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@qiwi/consul-service-discovery": "npm:^1.10.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
@@ -1632,13 +1632,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-infra@workspace:packages/infra"
   dependencies:
-    "@nestjs/testing": "npm:^9.0.8"
+    "@nestjs/testing": "npm:^9.0.9"
     "@swissquote/crafty-preset-jest": "npm:^1.19.1"
-    "@types/jest": "npm:^28.1.6"
+    "@types/jest": "npm:^28.1.7"
     "@types/jest-json-schema": "npm:^6.1.1"
     "@types/supertest": "npm:^2.0.12"
     buildstamp: "npm:^2.0.0"
-    eslint: "npm:^8.21.0"
+    eslint: "npm:^8.22.0"
     eslint-config-prettier: "npm:^8.5.0"
     eslint-config-qiwi: "npm:^1.17.5"
     esm: "npm:^3.2.25"
@@ -1648,8 +1648,8 @@ __metadata:
     rimraf: "npm:^3.0.2"
     supertest: "npm:^6.2.4"
     terser: "npm:^5.14.2"
-    ts-jest: "npm:^28.0.7"
-    tsc-esm-fix: "npm:^2.20.0"
+    ts-jest: "npm:^28.0.8"
+    tsc-esm-fix: "npm:^2.20.3"
     typedoc: "npm:^0.23.10"
     typescript: "npm:^4.7.4"
   languageName: unknown
@@ -1659,10 +1659,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-logger@workspace:packages/logger"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@qiwi/logwrap": "npm:^1.5.1"
-    "@qiwi/mware-context": "npm:^1.13.0"
+    "@qiwi/mware-context": "npm:^1.14.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
     "@types/bluebird": "npm:^3.5.36"
@@ -1683,10 +1683,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-mdc@workspace:packages/mdc"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
-    "@qiwi/mware": "npm:^1.13.1"
-    "@qiwi/mware-context": "npm:^1.13.0"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
+    "@qiwi/mware": "npm:^1.14.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^1.20.14"
     esm: "npm:^3.2.25"
@@ -1712,8 +1711,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-svc-info@workspace:packages/svc-info"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@nestjs/swagger": "npm:^6.0.5"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/bluebird": "npm:^3.5.36"
@@ -1732,8 +1731,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@qiwi/nestjs-enterprise-thrift@workspace:packages/thrift"
   dependencies:
-    "@nestjs/common": "npm:^9.0.8"
-    "@nestjs/core": "npm:^9.0.8"
+    "@nestjs/common": "npm:^9.0.9"
+    "@nestjs/core": "npm:^9.0.9"
     "@qiwi/nestjs-enterprise-config": "workspace:*"
     "@qiwi/nestjs-enterprise-connection-provider": "workspace:*"
     "@qiwi/nestjs-enterprise-consul": "workspace:*"
@@ -2301,13 +2300,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^28.1.6":
-  version: 28.1.6
-  resolution: "@types/jest@npm:28.1.6"
+"@types/jest@npm:^28.1.7":
+  version: 28.1.7
+  resolution: "@types/jest@npm:28.1.7"
   dependencies:
-    jest-matcher-utils: "npm:^28.0.0"
+    expect: "npm:^28.0.0"
     pretty-format: "npm:^28.0.0"
-  checksum: 357821d89b5a1067a774e12eebf38c1c51aa66b60d4cfa8bfac9bc12bb12fbc0e20fc9046c8b74c51b18f1e7ce94c6798c470a46302ea65016155d1f10d6986d
+  checksum: e463f4aeffc64ace59a146f3b288e3903d6feb241b34162729df9aac0790c2d98470a9884b3a60b224451441f756f77fbee5f56bd7eefda46a2b530e6c58fa86
   languageName: node
   linkType: hard
 
@@ -4641,9 +4640,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.21.0":
-  version: 8.21.0
-  resolution: "eslint@npm:8.21.0"
+"eslint@npm:^8.22.0":
+  version: 8.22.0
+  resolution: "eslint@npm:8.22.0"
   dependencies:
     "@eslint/eslintrc": "npm:^1.3.0"
     "@humanwhocodes/config-array": "npm:^0.10.4"
@@ -4686,7 +4685,7 @@ __metadata:
     v8-compile-cache: "npm:^2.0.3"
   bin:
     eslint: bin/eslint.js
-  checksum: f9e465173a5d301b21b01a33499d23bd345b3996fb5ff72d597e2116ee60429fcba10a166ffc5a3dba37750c4d9fbf0c9349edec43cbef303bce2b23ee3648bd
+  checksum: 38bc9cb70cca6eba28d01bd72d7e6e8c3a869b4b4c3425e00af981e63155e12256290eb958c6bf379d2d364980ffe0ff211af9fd527342eeec4a559979989a55
   languageName: node
   linkType: hard
 
@@ -4811,7 +4810,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"expect@npm:^28.1.3":
+"expect@npm:^28.0.0, expect@npm:^28.1.3":
   version: 28.1.3
   resolution: "expect@npm:28.1.3"
   dependencies:
@@ -6503,7 +6502,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-matcher-utils@npm:^28.0.0, jest-matcher-utils@npm:^28.1.3":
+"jest-matcher-utils@npm:^28.1.3":
   version: 28.1.3
   resolution: "jest-matcher-utils@npm:28.1.3"
   dependencies:
@@ -9639,9 +9638,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-jest@npm:^28.0.7":
-  version: 28.0.7
-  resolution: "ts-jest@npm:28.0.7"
+"ts-jest@npm:^28.0.8":
+  version: 28.0.8
+  resolution: "ts-jest@npm:28.0.8"
   dependencies:
     bs-logger: "npm:0.x"
     fast-json-stable-stringify: "npm:2.x"
@@ -9668,13 +9667,13 @@ __metadata:
       optional: true
   bin:
     ts-jest: cli.js
-  checksum: dc5a074b1364380308a9ea9d2e91c7a8b134f23378e0cc6ab4ee21e77cee1d17e14acd1cd23a828e08992c5db2c86c0c3b94e1633842612872d18bc9656724b8
+  checksum: 2e005f7c1227b4a2a01888fc55fb4ca833c6279261fb919fd1a8df5cc0ea4411ef3f3870db7479319efa2dee2916943098bdfde8ec4fef6aba3dfcac55be08a2
   languageName: node
   linkType: hard
 
-"tsc-esm-fix@npm:^2.20.0":
-  version: 2.20.0
-  resolution: "tsc-esm-fix@npm:2.20.0"
+"tsc-esm-fix@npm:^2.20.3":
+  version: 2.20.3
+  resolution: "tsc-esm-fix@npm:2.20.3"
   dependencies:
     "@types/fs-extra": "npm:^9.0.13"
     fs-extra: "npm:^10.1.0"
@@ -9684,7 +9683,7 @@ __metadata:
     tslib: "npm:^2.4.0"
   bin:
     tsc-esm-fix: target/es6/cli.mjs
-  checksum: 35f3d9732c5b3c36443278bf7ae6b93853979864d69f4373a5b1eea21437eb2601bce1fe2856896125cda263f0751a64a525d8bb5adf6ab34bd7b1cd714fd527
+  checksum: 64defd630c0a34f239973a1ad414980f3a990f89dd8b06912b804c5fa6a1f1bc3838e746e8733c7b98b94eb3a00af134b772b1e4c8b5bccaa9227aeed2d9c130
   languageName: node
   linkType: hard
 
