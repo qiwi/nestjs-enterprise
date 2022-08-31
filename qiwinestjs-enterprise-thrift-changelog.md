@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.6](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.16-qiwi.nestjs-enterprise-thrift.2.1.5-f0...2022.8.31-qiwi.nestjs-enterprise-thrift.2.1.6-f0) (2022-08-31)
+
+### Fixes & improvements
+* perf(thrift): improve error logging (#67) [03941e5](https://github.com/qiwi/nestjs-enterprise/commit/03941e5df1f27f87e4a46cd4c27928cb90716a02)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.5](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.13-qiwi.nestjs-enterprise-thrift.2.1.4-f0...2022.8.16-qiwi.nestjs-enterprise-thrift.2.1.5-f0) (2022-08-16)
 
 ### Fixes & improvements
