@@ -58,7 +58,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
         // @ts-ignore
         connection._invalid = true
         ;(err ? this.log.error : this.log.info)(
-          `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err}`,
+          `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err} stack=${err?.stack}`,
         )
       })
     }
@@ -123,7 +123,8 @@ export class ThriftClientProvider implements IThriftClientProvider {
 
           } catch (e) {
             error(
-                `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName} `,
+                // @ts-ignore
+                `ThriftClientProvider createClient error: err=${e} stack=${e?.stack} thriftServiceName=${profile.thriftServiceName} `,
             )
             throw new Error('ThriftClientProvider createClient error')
           }
@@ -182,7 +183,8 @@ export class ThriftClientProvider implements IThriftClientProvider {
                 error(
                   `Thrift ${resource.profile.thriftServiceName} error: method=${
                     propKey as string
-                  } error=${e}`,
+                  // @ts-ignore
+                  } error=${e} stack=${e?.stack}`,
                 )
                 pool.destroy(resource)
                 throw e
