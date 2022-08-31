@@ -39,15 +39,15 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.9",
-    "@nestjs/core": "^9.0.9",
+    "@nestjs/common": "^9.0.11",
+    "@nestjs/core": "^9.0.11",
     "@types/rimraf": "^3.0.2",
     "resolve-cwd": "^3.0.0",
     "rxjs": "^7.5.6",
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@nestjs/swagger": "^6.0.5",
+    "@nestjs/swagger": "^6.1.0",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.36",
     "class-transformer": "^0.5.1",
