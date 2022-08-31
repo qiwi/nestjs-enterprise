@@ -124,7 +124,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
           } catch (e) {
             error(
                 // @ts-ignore
-                `ThriftClientProvider createClient error: err=${e} stack=${e?.stack} thriftServiceName=${profile.thriftServiceName} `,
+                `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName}  stack=${e?.stack}`,
             )
             throw new Error('ThriftClientProvider createClient error')
           }
