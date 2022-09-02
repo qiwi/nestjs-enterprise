@@ -1,3 +1,9 @@
+## [@qiwi/nestjs-enterprise@2.0.2](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.16-qiwi.nestjs-enterprise.2.0.1-f0...2022.9.2-qiwi.nestjs-enterprise.2.0.2-f0) (2022-09-02)
+
+### Dependencies
+* perf: @qiwi/nestjs-enterprise-common updated to 2.0.2
+* perf: @qiwi/nestjs-enterprise-infra updated to 2.0.3
+
 ## [@qiwi/nestjs-enterprise@2.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2022.7.26-qiwi.nestjs-enterprise.2.0.0-f0...2022.8.16-qiwi.nestjs-enterprise.2.0.1-f0) (2022-08-16)
 
 ### Dependencies
