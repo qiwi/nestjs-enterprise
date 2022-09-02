@@ -7,7 +7,7 @@
     "services": {
       "common-auth": {
         "type": "thrift",
-        "thriftServiceName": "serice",
+        "thriftServiceName": "someTserviceName",
         "discovery": {
           "type": "consul",
           "serviceName": "serviceName"

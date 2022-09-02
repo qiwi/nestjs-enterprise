@@ -29,8 +29,10 @@ export class ThriftClientProvider implements IThriftClientProvider {
     @Inject('IConfigService') private config: IConfig,
   ) {
     this.pools = new Map()
+    this.proxies = new Map()
   }
 
+  private proxies: Map<thrift.TClientConstructor<any>, any>
 
   pools: Map<thrift.TClientConstructor<any>, TThriftPool<any>>
 
@@ -152,11 +154,13 @@ export class ThriftClientProvider implements IThriftClientProvider {
     clientConstructor: thrift.TClientConstructor<TClient>,
     thriftOpts: TThriftOpts = {},
   ): TClient {
+    if (this.proxies.has(clientConstructor)) {
+      return this.proxies.get(clientConstructor) as TClient
+    }
 
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
-    const getPool = this.getPool.bind(this)
-    const pools = this.pools
+    const pool = this.getPool<TClient>(serviceProfile, clientConstructor, thriftOpts)
     const proxy: any = new Proxy(
       {},
       {
@@ -164,10 +168,9 @@ export class ThriftClientProvider implements IThriftClientProvider {
           if (propKey === 'then') {
             return proxy
           }
+
           return async (...args: any[]) => {
-            const pool = getPool<TClient>(serviceProfile, clientConstructor, thriftOpts)
             const resource = await pool.acquire()
-            debug(`Current pools map size: ${[...pools.keys()].length}`)
             debug(
               `Pool ${resource.profile.thriftServiceName} status: current pool size=${pool.size} available clients=${pool.available} borrowed=${pool.borrowed} queue=${pool.pending} spareResourceCapacity=${pool.spareResourceCapacity}`,
             )
@@ -192,6 +195,7 @@ export class ThriftClientProvider implements IThriftClientProvider {
       },
     )
 
+    this.proxies.set(clientConstructor, proxy)
     return proxy
   }
 }

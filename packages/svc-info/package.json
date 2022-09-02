@@ -47,7 +47,7 @@
     "tslib": "^2.4.0"
   },
   "devDependencies": {
-    "@nestjs/swagger": "^6.1.0",
+    "@nestjs/swagger": "^6.1.1",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.36",
     "class-transformer": "^0.5.1",

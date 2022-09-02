@@ -3,7 +3,7 @@
 
 __metadata:
   version: 7
-  cacheKey: 8
+  cacheKey: 9
 
 "@ampproject/remapping@npm:^2.1.0":
   version: 2.1.2
@@ -1353,9 +1353,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nestjs/swagger@npm:^6.1.0":
-  version: 6.1.0
-  resolution: "@nestjs/swagger@npm:6.1.0"
+"@nestjs/swagger@npm:^6.1.1":
+  version: 6.1.1
+  resolution: "@nestjs/swagger@npm:6.1.1"
   dependencies:
     "@nestjs/mapped-types": "npm:1.1.0"
     js-yaml: "npm:4.1.0"
@@ -1370,7 +1370,7 @@ __metadata:
   peerDependenciesMeta:
     "@fastify/static":
       optional: true
-  checksum: ad352ab2c5d6075ff2b7614450681f4c51fc73698920c551cadeeed1aae91ce9507bb1a5da80f13de36dbfe9f884daa515ac0979b717c28a07bde4de3a04a332
+  checksum: d73c21f3f205d706a4f4d390e166fa8edc8748fb6d09fb9650f629c19356581c36124ff1382876e983746100fa6ff57da8bb4855f926fb8465d8e18e7436fd06
   languageName: node
   linkType: hard
 
@@ -1708,7 +1708,7 @@ __metadata:
     terser: "npm:^5.15.0"
     ts-jest: "npm:^28.0.8"
     tsc-esm-fix: "npm:^2.20.4"
-    typedoc: "npm:^0.23.12"
+    typedoc: "npm:^0.23.13"
     typescript: "npm:^4.8.2"
   languageName: unknown
   linkType: soft
@@ -1771,7 +1771,7 @@ __metadata:
   dependencies:
     "@nestjs/common": "npm:^9.0.11"
     "@nestjs/core": "npm:^9.0.11"
-    "@nestjs/swagger": "npm:^6.1.0"
+    "@nestjs/swagger": "npm:^6.1.1"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/bluebird": "npm:^3.5.36"
     "@types/rimraf": "npm:^3.0.2"
@@ -9885,9 +9885,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typedoc@npm:^0.23.12":
-  version: 0.23.12
-  resolution: "typedoc@npm:0.23.12"
+"typedoc@npm:^0.23.13":
+  version: 0.23.13
+  resolution: "typedoc@npm:0.23.13"
   dependencies:
     lunr: "npm:^2.3.9"
     marked: "npm:^4.0.19"
@@ -9897,7 +9897,7 @@ __metadata:
     typescript: 4.6.x || 4.7.x || 4.8.x
   bin:
     typedoc: bin/typedoc
-  checksum: a5795fe6b4ae5a4f44b64f1b411dd87f418b2644f0983dc5f7ac4aa22cc5d550e47f2d52cdcab3b7235431ac89aea88097fa02c8089442815d743a839721f15f
+  checksum: 58e2d6041af9afce46e383f1bc42e4a158d247939f56d850fd75b3e6b334ede92763dd0e44d0edfb74e906bfba0e79f52670246fc9602a8edd34810b371e8b94
   languageName: node
   linkType: hard
 
