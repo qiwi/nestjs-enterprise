@@ -1,3 +1,15 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.8](https://github.com/qiwi/nestjs-enterprise/compare/2022.9.2-qiwi.nestjs-enterprise-thrift.2.1.7-f0...2022.9.2-qiwi.nestjs-enterprise-thrift.2.1.8-f0) (2022-09-02)
+
+### Fixes & improvements
+* fix(thrift): restore proxy cache [db79d9b](https://github.com/qiwi/nestjs-enterprise/commit/db79d9bd2765a382048f3920448e884110f5651f)
+
+### Dependencies
+* perf: @qiwi/nestjs-enterprise-config updated to 2.1.2
+* perf: @qiwi/nestjs-enterprise-connection-provider updated to 2.0.2
+* perf: @qiwi/nestjs-enterprise-consul updated to 2.0.2
+* perf: @qiwi/nestjs-enterprise-infra updated to 2.0.3
+* perf: @qiwi/nestjs-enterprise-logger updated to 2.0.2
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.7](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.31-qiwi.nestjs-enterprise-thrift.2.1.6-f0...2022.9.2-qiwi.nestjs-enterprise-thrift.2.1.7-f0) (2022-09-02)
 
 ### Fixes & improvements
