@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.7](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.31-qiwi.nestjs-enterprise-thrift.2.1.6-f0...2022.9.2-qiwi.nestjs-enterprise-thrift.2.1.7-f0) (2022-09-02)
+
+### Fixes & improvements
+* fix: fix thrift cache (#68) [56cb21c](https://github.com/qiwi/nestjs-enterprise/commit/56cb21c41a06450ef2b5af4c8edd6670ed500b04)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.6](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.16-qiwi.nestjs-enterprise-thrift.2.1.5-f0...2022.8.31-qiwi.nestjs-enterprise-thrift.2.1.6-f0) (2022-08-31)
 
 ### Fixes & improvements
