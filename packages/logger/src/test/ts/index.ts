@@ -126,7 +126,7 @@ describe('logger', () => {
 
         testlog() {
           this.logger.push({
-            meta: { event: 'metaevent', extra: { ttl: '25' } },
+            meta: { event: 'metaevent', extra: { ttl: '25' }, location: 'localhost' },
             input: ['4111 1111 1111 1111'],
             level: LogLevel.INFO,
           })
@@ -174,6 +174,7 @@ describe('logger', () => {
           host: expect.any(String),
           name: 'test-name-app2',
           version: '1',
+          location: 'localhost',
           publicMeta: {
             app_version: '1',
             auth: {},
@@ -184,6 +185,7 @@ describe('logger', () => {
               spanId: undefined,
               traceId: undefined,
             },
+            location: 'localhost',
             origin: undefined,
             serviceName: 'test-name-app2',
             ttl: '25',
