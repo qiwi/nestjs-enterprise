@@ -39,17 +39,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.0.11",
-    "@nestjs/core": "^9.0.11",
-    "@qiwi/consul-service-discovery": "^1.10.0",
-    "@qiwi/substrate": "^1.20.14",
+    "@nestjs/common": "^9.2.1",
+    "@nestjs/core": "^9.2.1",
+    "@qiwi/consul-service-discovery": "^1.10.4",
+    "@qiwi/substrate": "^1.20.16",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.5.6",
-    "tslib": "^2.4.0"
+    "rxjs": "^7.6.0",
+    "tslib": "^2.4.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
-    "@types/bluebird": "^3.5.36",
+    "@types/bluebird": "^3.5.38",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2"
   },
