@@ -1625,10 +1625,12 @@ __metadata:
     "@qiwi/decorator-utils": "npm:^3.2.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/express": "npm:^4.17.13"
+    "@types/graphite": "npm:^0"
     axios: "npm:^0.27.2"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.13.2"
     express: "npm:^4.18.1"
+    graphite: "npm:^0.1.5"
     inside-out-promise: "npm:^2.1.4"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.5.6"
@@ -2310,6 +2312,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 2785f1a962029597d01799bf96b400b4bedcf5295f379e0c08f2d1faa656fece563ecb655e85d379a61efdd4c99e5da16cce9f591c5a311f3354d86a27dab498
+  languageName: node
+  linkType: hard
+
+"@types/graphite@npm:^0":
+  version: 0.1.0
+  resolution: "@types/graphite@npm:0.1.0"
+  checksum: fa85130011f36a92767ca51e40f667ecb66b5644b98fd066bd516c831ecb82e5c5fd5b68ab09a6df75ce72e6fd31ecb9bede8ef1cdcdb6f376b8eda78303215b
   languageName: node
   linkType: hard
 
@@ -5447,6 +5456,13 @@ __metadata:
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: c67a8e522758dd907770a78ad750e6dfdcce327b0696fdd82f4b7acb8bb22b0574c88f806afb3c6597a536fa9016e6e3486071535fd0e9226b8505c67cf2fb01
+  languageName: node
+  linkType: hard
+
+"graphite@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "graphite@npm:0.1.5"
+  checksum: c444f5d707467e7c2fd580777c08ec4ef544b4c9bc37b0ed3d766ca53f0531413d15e92f28b1236e4126d9b951116b49d29169d9aa2d315457385d6047849387
   languageName: node
   linkType: hard
 
