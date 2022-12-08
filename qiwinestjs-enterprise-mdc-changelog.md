@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-mdc@2.0.3](https://github.com/qiwi/nestjs-enterprise/compare/2022.9.2-qiwi.nestjs-enterprise-mdc.2.0.2-f0...2022.12.8-qiwi.nestjs-enterprise-mdc.2.0.3-f0) (2022-12-08)
+
+### Fixes & improvements
+* perf: update deps (#70) [2726943](https://github.com/qiwi/nestjs-enterprise/commit/2726943b391da9a3de925c2c6e8585cdfccbbcba)
+
+### Dependencies
+* perf: @qiwi/nestjs-enterprise-infra updated to 2.0.4
+
 ## [@qiwi/nestjs-enterprise-mdc@2.0.2](https://github.com/qiwi/nestjs-enterprise/compare/2022.8.16-qiwi.nestjs-enterprise-mdc.2.0.1-f0...2022.9.2-qiwi.nestjs-enterprise-mdc.2.0.2-f0) (2022-09-02)
 
 ### Dependencies
