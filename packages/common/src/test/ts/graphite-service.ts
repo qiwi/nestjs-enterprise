@@ -32,8 +32,9 @@ describe('graphite-metric', () => {
   })
 
   afterAll(async () => {
-    await mockServer.stop()
     graphiteLogger.clearInterval()
+    await sleep(1200)
+    await mockServer.stop()
   })
   afterEach(() => {
     mockServer.flush()
