@@ -20,7 +20,7 @@ const graphiteLogger = new GraphiteLogger({
   applicationName,
   datacenter,
   podId,
-  syncInterval: 300,
+  syncInterval: 200,
   environment,
 })
 
@@ -33,7 +33,7 @@ describe('graphite-metric', () => {
 
   afterAll(async () => {
     graphiteLogger.clearInterval()
-    await sleep(1200)
+    await sleep(1000)
     await mockServer.stop()
   })
   afterEach(() => {
@@ -58,7 +58,7 @@ describe('graphite-metric', () => {
 
     test('basic logToGraphite works', async () => {
       await graphiteLogger.log({ testMetricKey: 'testMetricValue' })
-      await sleep(700)
+      await sleep(400)
 
       expect(mockServer.timestamplessRequestStack[0]).toBe(
         `${GraphiteLogger.enrichMetricName('testMetricKey')} testMetricValue`,
@@ -71,7 +71,7 @@ describe('graphite-metric', () => {
         testMetricKey: 'testMetricValue',
         testMetricKey2: 'testMetricValue2',
       })
-      await sleep(700)
+      await sleep(400)
 
       expect(mockServer.timestamplessRequestStack.join('')).toBe(
         [
@@ -85,7 +85,7 @@ describe('graphite-metric', () => {
 
     test('forced logToGraphite works', async () => {
       await graphiteLogger.log({ testMetricKey: 'testMetricValueForce' }, true)
-      await sleep(100)
+      await sleep(10)
       expect(mockServer.timestamplessRequestStack[0]).toBe(
         `${GraphiteLogger.enrichMetricName(
           'testMetricKey',
@@ -98,7 +98,7 @@ describe('graphite-metric', () => {
         return { testMetricKey: 'testMetricValueCallback' }
       }
       await graphiteLogger.attach(getMetrics)
-      await sleep(1100)
+      await sleep(500)
 
       expect(mockServer.timestamplessRequestStack[0]).toBe(
         `${GraphiteLogger.enrichMetricName(
@@ -132,7 +132,7 @@ describe('graphite-metric', () => {
 
       await request(app.getHttpServer()).get('/graphite')
 
-      await sleep(1100)
+      await sleep(500)
 
       expect(mockServer.timestamplessRequestStack.at(-2)).toMatch(
         /\$type.app.\$cluster.example-application-name.\$host.environment-datacenter-example-pod-id.\$metric.graphiteController.rpm-p9+/g,
