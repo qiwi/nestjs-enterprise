@@ -131,7 +131,7 @@ describe('graphite-metric', () => {
 
       await request(app.getHttpServer()).get('/graphite')
 
-      await sleep(2000)
+      await sleep(1100)
 
       expect(mockServer.timestamplessRequestStack.at(-2)).toMatch(
         /\$type.app.\$cluster.example-application-name.\$host.environment-datacenter-example-pod-id.\$metric.graphiteController.rpm-p9+/g,
