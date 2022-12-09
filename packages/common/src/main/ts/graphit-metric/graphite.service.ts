@@ -43,8 +43,8 @@ export class GraphiteLogger {
       this.#graphiteApiEndpoint = `plaintext://${graphiteApiEndpoint}/`
       this.#syncInterval = syncInterval || 60 * 1000
 
+      // @ts-ignore
       this.interval = setInterval(
-        // @ts-ignore
         this.pushToServer.bind(this),
         this.#syncInterval,
       )
