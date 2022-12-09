@@ -24,6 +24,7 @@ const graphiteLogger = new GraphiteLogger({
   environment,
 })
 
+jest.setTimeout(10000)
 describe('graphite-metric', () => {
   let mockServer: any
   beforeAll(async () => {
