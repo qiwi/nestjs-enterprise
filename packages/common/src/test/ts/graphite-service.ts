@@ -33,11 +33,8 @@ describe('graphite-metric', () => {
 
   afterAll(async () => {
     graphiteLogger.clearInterval()
-    await sleep(1000)
+    await sleep(600)
     await mockServer.stop()
-  })
-  afterEach(() => {
-    mockServer.flush()
   })
 
   describe('graphite', () => {
@@ -45,6 +42,7 @@ describe('graphite-metric', () => {
       expect(GraphiteLogger.enrichMetricName('testMetricKey')).toBe(
         `$type.app.$cluster.${applicationName}.$host.${environment}-${datacenter}-${podId}.$metric.testMetricKey`,
       )
+      mockServer.flush()
     })
 
     test('formatMetrics works properly', async () => {
@@ -54,6 +52,7 @@ describe('graphite-metric', () => {
         [`$type.app.$cluster.${applicationName}.$host.${environment}-${datacenter}-${podId}.$metric.testMetricKey`]:
           'testMetricValue',
       })
+      mockServer.flush()
     })
 
     test('basic logToGraphite works', async () => {
@@ -63,6 +62,7 @@ describe('graphite-metric', () => {
       expect(mockServer.timestamplessRequestStack[0]).toBe(
         `${GraphiteLogger.enrichMetricName('testMetricKey')} testMetricValue`,
       )
+      mockServer.flush()
     })
 
     test('multiple metrics logToGraphite works', async () => {
@@ -81,6 +81,7 @@ describe('graphite-metric', () => {
           )} testMetricValue2`,
         ].join(''),
       )
+      mockServer.flush()
     })
 
     test('forced logToGraphite works', async () => {
@@ -91,6 +92,7 @@ describe('graphite-metric', () => {
           'testMetricKey',
         )} testMetricValueForce`,
       )
+      mockServer.flush()
     })
 
     test('callback logger works', async () => {
@@ -105,12 +107,14 @@ describe('graphite-metric', () => {
           'testMetricKey',
         )} testMetricValueCallback`,
       )
+      mockServer.flush()
     })
 
     test('clearQueue works', async () => {
       graphiteLogger.queue = { testMetricKey: 'testMetricValue' }
       graphiteLogger.clearQueue()
       expect({}).toMatchObject(graphiteLogger.queue)
+      mockServer.flush()
     })
 
     test('decorator', async () => {
@@ -137,6 +141,7 @@ describe('graphite-metric', () => {
       expect(mockServer.timestamplessRequestStack.at(-2)).toMatch(
         /\$type.app.\$cluster.example-application-name.\$host.environment-datacenter-example-pod-id.\$metric.graphiteController.rpm-p9+/g,
       )
+      mockServer.flush()
     })
   })
 })
