@@ -1,7 +1,7 @@
 import { applyDecorators } from '@nestjs/common'
 
-import { GmRpmDecorator } from './gm-rpm.decorator'
+import { GmMeteredDecorator } from './gm-metered.decorator'
 
 export function GraphiteDecorator(metricName: string) {
-  return applyDecorators(GmRpmDecorator(metricName))
+  return applyDecorators(GmMeteredDecorator(metricName))
 }

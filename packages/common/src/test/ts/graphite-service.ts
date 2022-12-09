@@ -1,9 +1,10 @@
-import {Controller, Get} from "@nestjs/common";
-import {Test} from "@nestjs/testing";
 import { promisify } from 'node:util'
-import request from "supertest";
 
-import {GraphiteDecorator, GraphiteLogger} from '../../main/ts'
+import { Controller, Get } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
+import request from 'supertest'
+
+import { GraphiteDecorator, GraphiteLogger } from '../../main/ts'
 // @ts-ignore
 import { GraphiteMockServer } from './mock/graphite-server'
 
@@ -111,7 +112,7 @@ describe('graphite-metric', () => {
       expect({}).toMatchObject(graphiteLogger.queue)
     })
 
-    test('decorator', async ()=>{
+    test('decorator', async () => {
       @Controller()
       class TestController {
         @Get('/graphite')
@@ -132,8 +133,9 @@ describe('graphite-metric', () => {
 
       await sleep(2000)
 
-      expect(mockServer.timestamplessRequestStack.at(-2))
-          .toMatch(/\$type.app.\$cluster.example-application-name.\$host.environment-datacenter-example-pod-id.\$metric.graphiteController.rpm-p9+/g)
+      expect(mockServer.timestamplessRequestStack.at(-2)).toMatch(
+        /\$type.app.\$cluster.example-application-name.\$host.environment-datacenter-example-pod-id.\$metric.graphiteController.rpm-p9+/g,
+      )
     })
   })
 })

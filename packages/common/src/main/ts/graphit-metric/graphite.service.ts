@@ -1,6 +1,6 @@
-import graphite from 'graphite'
 import os from 'node:os'
-import { env } from 'node:process'
+
+import graphite from 'graphite'
 
 import { CountReservoir } from './count.reservoir'
 
@@ -18,34 +18,36 @@ export class GraphiteLogger {
   private static instance: this
   private static environment: string
   private static datacenter: string
-  private interval: number | undefined;
+  private interval: NodeJS.Timeout | undefined
 
   constructor({
-    // @ts-ignore
     applicationName,
-    // @ts-ignore
     podId,
-    // @ts-ignore
     graphiteApiEndpoint,
-    // @ts-ignore
     syncInterval,
-    // @ts-ignore
     datacenter,
-    // @ts-ignore
     environment,
+  }: {
+    applicationName?: string
+    podId?: string
+    graphiteApiEndpoint?: string
+    syncInterval?: number
+    datacenter?: string
+    environment?: string
   } = {}) {
     if (!GraphiteLogger.instance) {
-      GraphiteLogger.applicationName = applicationName || env.APP_NAME
+      GraphiteLogger.applicationName = applicationName || 'application'
       GraphiteLogger.podId = podId || os.hostname()
-      GraphiteLogger.datacenter = datacenter || env.DATACENTER || 'no_dc'
-      GraphiteLogger.environment =
-        environment || env.ENVIRONMENT_PROFILE_NAME || 'dev'
-      this.#graphiteApiEndpoint = `plaintext://${
-        graphiteApiEndpoint || env.GRAPHITE_HOST
-      }/`
+      GraphiteLogger.datacenter = datacenter || 'no_dc'
+      GraphiteLogger.environment = environment || 'dev'
+      this.#graphiteApiEndpoint = `plaintext://${graphiteApiEndpoint}/`
       this.#syncInterval = syncInterval || 60 * 1000
 
-      this.interval = setInterval(this.pushToServer.bind(this), this.#syncInterval)
+      this.interval = setInterval(
+        // @ts-ignore
+        this.pushToServer.bind(this),
+        this.#syncInterval,
+      )
       GraphiteLogger.instance = this
     } else {
       return GraphiteLogger.instance
@@ -139,7 +141,7 @@ export class GraphiteLogger {
     this.getMetricsCallbacks.push(callback)
   }
 
-  clearInterval(){
+  clearInterval() {
     clearInterval(this.interval)
   }
 }
