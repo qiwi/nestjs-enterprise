@@ -1,0 +1,38 @@
+{
+  "transform": {
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        "useESM": true,
+        "tsconfig": "<rootDir>/tsconfig.test.json"
+      }
+    ]
+  },
+  "collectCoverage": true,
+  "coveragePathIgnorePatterns": [
+  ],
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/**/*.(j|t)s"
+  ],
+  "testMatch": [
+    "<rootDir>/src/test/js/*.js",
+    "<rootDir>/src/test/ts/*.ts"
+  ],
+  "testPathIgnorePatterns": [
+    "/node_modules/"
+  ],
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx",
+    "json",
+    "node"
+  ],
+  "preset": "ts-jest",
+  "globals": {},
+  "extensionsToTreatAsEsm": [
+    ".ts",
+    ".d.ts"
+  ]
+}
