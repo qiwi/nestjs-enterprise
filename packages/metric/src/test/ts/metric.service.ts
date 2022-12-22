@@ -77,7 +77,6 @@ describe('MetricService', () => {
   it('get node metric from callback', async () => {
     await metricService.attach(getNodeMetrics)
     await metricService.push()
-    console.log(JSON.stringify(metricAcc))
     expect(metricAcc).toMatchObject({
       'node.process.memory-usage.rss': expect.any(Number),
       'node.process.memory-usage.heap-total': expect.any(Number),

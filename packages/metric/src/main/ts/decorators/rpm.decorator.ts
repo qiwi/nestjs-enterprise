@@ -7,7 +7,6 @@ export const RpmDecorator = constructDecorator(
     injectMetric(proto, 'metricService')
 
     return function (...args: Array<any>) {
-      console.log('metricname', ...args)
       // @ts-ignore
       this.metricService.meter(metricName).update()
       return target(args)

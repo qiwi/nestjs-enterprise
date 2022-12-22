@@ -69,8 +69,6 @@ export class MetricService {
       ...(await this.getMetricsFromCallbacks()),
     }
 
-    console.log('graphiteService12', this.graphiteService.sendMetric())
-    // '$type.app.$cluster.internal-front-log-proxy.$host.testing-dl-internal-front-log-proxy-5b56c968c4-pglqz.$metric.logEvent.rpm-p50': 23,
     return this.graphiteService.sendMetric(metric)
   }
 
