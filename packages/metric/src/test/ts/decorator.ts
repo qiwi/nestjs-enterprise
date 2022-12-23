@@ -7,13 +7,13 @@ import {
   GraphiteService,
   MetricService,
   RequestRateDecorator,
-  RpmDecorator,
+  MeteredDecorator,
 } from '../../main/ts'
 
 @Controller()
 export class TestClassController {
   @Get('RpmDecorator')
-  @RpmDecorator('RpmDecorator')
+  @MeteredDecorator('RpmDecorator')
   async RpmDecorator() {
     return 'RpmDecorator'
   }

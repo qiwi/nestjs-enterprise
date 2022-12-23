@@ -12,7 +12,7 @@ import {Controller, Get, Module} from "@nestjs/common";
 
 @Controller()
 export class TestClassController {
-    @Get('RpmDecorator')
+    @Get('MeteredDecorator')
     @MetricDecorator('Controller')
     async test() {
         return 'foo'
