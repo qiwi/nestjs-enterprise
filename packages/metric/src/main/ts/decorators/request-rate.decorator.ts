@@ -1,6 +1,8 @@
 import { Inject } from '@nestjs/common'
 import { constructDecorator } from '@qiwi/decorator-utils'
 
+import { isPromise } from '../utills'
+
 export const RequestRateDecorator = constructDecorator(
   ({ target, proto, args: [metricName] }) => {
     const injectMetric = Inject('IMetricService')
@@ -10,10 +12,7 @@ export const RequestRateDecorator = constructDecorator(
       // @ts-ignore
       const res = target.apply(this, args)
 
-      if (
-        res instanceof Promise ||
-        (typeof res === 'object' && typeof res.then === 'function')
-      ) {
+      if (isPromise(res)) {
         return res.then((data: any) => {
           // @ts-ignore
           this.metricService.timer(metricName).update(Date.now() - start)
