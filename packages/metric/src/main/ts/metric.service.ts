@@ -81,10 +81,12 @@ export class MetricService {
   }
 
   private async getMetricsFromCallbacks() {
-    return this.metricsCallbacks.reduce(
-      async (acc, callback) => ({ ...acc, ...(await callback()) }),
-      {},
-    )
+    const data = await Promise.all(this.metricsCallbacks.map((el) => el()))
+    const flatData = data.reduce((acc, el) => ({ ...acc, ...el }), {})
+
+    return Object.entries(flatData).reduce((acc, [key, value]) => {
+      return { ...acc, ...{ [`${this.metricPrefix}.${key}`]: value } }
+    }, {})
   }
 
   private formatTimers() {

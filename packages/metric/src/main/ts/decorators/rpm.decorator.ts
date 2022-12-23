@@ -9,7 +9,8 @@ export const RpmDecorator = constructDecorator(
     return function (...args: Array<any>) {
       // @ts-ignore
       this.metricService.meter(metricName).update()
-      return target(args)
+      //@ts-ignore
+      return target.apply(this, args)
     }
   },
 )

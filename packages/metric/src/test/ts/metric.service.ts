@@ -71,21 +71,21 @@ describe('MetricService', () => {
   it('attach', async () => {
     await metricService.attach(() => ({ testMetric: 1000 }))
     await metricService.push()
-    expect(metricAcc).toMatchObject({ testMetric: 1000 })
+    expect(metricAcc).toMatchObject({ 'prefix.testMetric': 1000 })
   })
 
   it('get node metric from callback', async () => {
     await metricService.attach(getNodeMetrics)
     await metricService.push()
     expect(metricAcc).toMatchObject({
-      'node.process.memory-usage.rss': expect.any(Number),
-      'node.process.memory-usage.heap-total': expect.any(Number),
-      'node.process.memory-usage.heap-used': expect.any(Number),
-      'node.os.loadavg.1m': expect.any(Number),
-      'node.os.loadavg.5m': expect.any(Number),
-      'node.os.loadavg.15m': expect.any(Number),
-      'node.os.freemem': expect.any(Number),
-      'node.os.totalmem': expect.any(Number),
+      'prefix.node.process.memory-usage.rss': expect.any(Number),
+      'prefix.node.process.memory-usage.heap-total': expect.any(Number),
+      'prefix.node.process.memory-usage.heap-used': expect.any(Number),
+      'prefix.node.os.loadavg.1m': expect.any(Number),
+      'prefix.node.os.loadavg.5m': expect.any(Number),
+      'prefix.node.os.loadavg.15m': expect.any(Number),
+      'prefix.node.os.freemem': expect.any(Number),
+      'prefix.node.os.totalmem': expect.any(Number),
     })
   })
 })

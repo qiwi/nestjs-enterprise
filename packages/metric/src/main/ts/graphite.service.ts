@@ -6,9 +6,7 @@ export class GraphiteService {
   private client: GraphiteClient
 
   constructor(graphiteApiEndpoint: string) {
-    this.client = GraphiteClient.createClient(
-      `plaintext://${graphiteApiEndpoint}/`,
-    )
+    this.client = GraphiteClient.createClient(`plaintext://${graphiteApiEndpoint}/`)
   }
 
   public sendMetric(metrics: Record<string, any>) {

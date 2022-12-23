@@ -9,9 +9,9 @@ export { getNodeMetrics } from './get-node-metrics'
 
 function MetricDecorator(metricName: string) {
   return applyDecorators(
-    ErrorDecorator(metricName),
-    RpmDecorator(metricName),
-    RequestRateDecorator(metricName),
+    ErrorDecorator(metricName + '.Error'),
+    RpmDecorator(metricName + '.Rpm'),
+    RequestRateDecorator(metricName + '.Request-rate'),
   )
 }
 
