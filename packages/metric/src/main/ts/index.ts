@@ -1,8 +1,8 @@
 import { applyDecorators } from '@nestjs/common'
 
 import { ErrorDecorator } from './decorators/error.decorator'
-import { RequestRateDecorator } from './decorators/request-rate.decorator'
 import { MeteredDecorator } from './decorators/metered.decorator'
+import { RequestRateDecorator } from './decorators/request-rate.decorator'
 export { GraphiteService } from './graphite.service'
 export { MetricService } from './metric.service'
 export { getNodeMetrics } from './get-node-metrics'
@@ -15,4 +15,9 @@ function MetricDecorator(metricName: string) {
   )
 }
 
-export { MetricDecorator, RequestRateDecorator, MeteredDecorator, ErrorDecorator }
+export {
+  MetricDecorator,
+  RequestRateDecorator,
+  MeteredDecorator,
+  ErrorDecorator,
+}

@@ -5,10 +5,22 @@ export const RequestRateDecorator = constructDecorator(
   ({ target, proto, args: [metricName] }) => {
     const injectMetric = Inject('IMetricService')
     injectMetric(proto, 'metricService')
-    return async function (...args: Array<any>) {
+    return function (...args: Array<any>) {
       const start = Date.now()
       // @ts-ignore
-      const res = await target.apply(this, args)
+      const res = target.apply(this, args)
+
+      if (
+        res instanceof Promise ||
+        (typeof res === 'object' && typeof res.then === 'function')
+      ) {
+        return res.then((data: any) => {
+          // @ts-ignore
+          this.metricService.timer(metricName).update(Date.now() - start)
+          return data
+        })
+      }
+
       // @ts-ignore
       this.metricService.timer(metricName).update(Date.now() - start)
       return res

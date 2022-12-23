@@ -1736,7 +1736,6 @@ __metadata:
     "@qiwi/decorator-utils": "npm:^3.2.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/graphite": "npm:^0.1.0"
-    esm: "npm:^3.2.25"
     graphite: "npm:^0.1.5"
     measured-reporting: "npm:^2.0.0"
     reflect-metadata: "npm:^0.1.13"

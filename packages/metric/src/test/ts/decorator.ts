@@ -5,9 +5,9 @@ import request from 'supertest'
 import {
   ErrorDecorator,
   GraphiteService,
+  MeteredDecorator,
   MetricService,
   RequestRateDecorator,
-  MeteredDecorator,
 } from '../../main/ts'
 
 @Controller()

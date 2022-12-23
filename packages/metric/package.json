@@ -1,13 +1,12 @@
 {
   "name": "@qiwi/nestjs-enterprise-metric",
   "version": "1.6.1",
-  "description": "Logger module for nestjs enterprise",
+  "description": "Metric module for nestjs enterprise",
   "publishConfig": {
     "access": "public"
   },
   "main": "./target/es6/index.js",
   "exports": "./target/es6/index.js",
-  "source": "target/ts/index.ts",
   "types": "target/es6/index.d.ts",
   "typescript": {
     "definition": "target/es6/index.d.ts"
@@ -48,7 +47,6 @@
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/graphite": "^0.1.0",
-    "esm": "^3.2.25",
     "reflect-metadata": "^0.1.13"
   },
   "repository": {
@@ -57,7 +55,7 @@
   },
   "keywords": [
     "js platform",
-    "logger"
+    "metric"
   ],
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
