@@ -7,9 +7,9 @@ export const RequestRateDecorator = constructDecorator(
     injectMetric(proto, 'metricService')
     return async function (...args: Array<any>) {
       const start = Date.now()
-      //@ts-ignore
+      // @ts-ignore
       const res = await target.apply(this, args)
-      //@ts-ignore
+      // @ts-ignore
       this.metricService.timer(metricName).update(Date.now() - start)
       return res
     }
