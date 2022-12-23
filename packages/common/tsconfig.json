@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "./src/main/ts/",
     "baseUrl": "./src/main/ts/",
-    "tsBuildInfoFile": "./buildcache/.tsbuildinfo",
+    "tsBuildInfoFile": "./buildcache/.tsbuildinfo"
   },
   "include": [
     "./src/main/ts"

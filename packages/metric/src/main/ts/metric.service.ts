@@ -90,8 +90,6 @@ export class MetricService {
   }
 
   private formatTimers() {
-    if (this.collectionTimer.lenght) return
-
     return Object.entries(this.collectionTimer).reduce((acc, [name, value]) => {
       const { meter, histogram } = value.toJSON()
 
@@ -111,8 +109,6 @@ export class MetricService {
   }
 
   private formatMeter() {
-    if (this.collectionMeter.lenght) return
-
     return Object.entries(this.collectionMeter).reduce((acc, [name, value]) => {
       return {
         ...acc,
@@ -125,8 +121,6 @@ export class MetricService {
   }
 
   private formatHistogram() {
-    if (this.collectionHistogram.lenght) return
-
     return Object.entries(this.collectionHistogram).reduce(
       (acc, [name, value]) => {
         return {
