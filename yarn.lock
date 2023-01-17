@@ -1597,10 +1597,12 @@ __metadata:
     "@qiwi/decorator-utils": "npm:^3.2.8"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/express": "npm:^4.17.14"
+    "@types/graphite": "npm:^0.1.0"
     axios: "npm:^0.27.2"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.13.2"
     express: "npm:^4.18.2"
+    graphite: "npm:^0.1.5"
     inside-out-promise: "npm:^2.1.4"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.6.0"
@@ -1722,6 +1724,21 @@ __metadata:
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.6.0"
     tslib: "npm:^2.4.1"
+  languageName: unknown
+  linkType: soft
+
+"@qiwi/nestjs-enterprise-metric@workspace:packages/metric":
+  version: 0.0.0-use.local
+  resolution: "@qiwi/nestjs-enterprise-metric@workspace:packages/metric"
+  dependencies:
+    "@nestjs/common": "npm:^9.2.1"
+    "@nestjs/core": "npm:^9.2.1"
+    "@qiwi/decorator-utils": "npm:^3.2.8"
+    "@qiwi/nestjs-enterprise-infra": "workspace:*"
+    "@types/graphite": "npm:^0.1.0"
+    graphite: "npm:^0.1.5"
+    measured-reporting: "npm:^2.0.0"
+    reflect-metadata: "npm:^0.1.13"
   languageName: unknown
   linkType: soft
 
@@ -2267,6 +2284,13 @@ __metadata:
   dependencies:
     "@types/node": "npm:*"
   checksum: 2785f1a962029597d01799bf96b400b4bedcf5295f379e0c08f2d1faa656fece563ecb655e85d379a61efdd4c99e5da16cce9f591c5a311f3354d86a27dab498
+  languageName: node
+  linkType: hard
+
+"@types/graphite@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "@types/graphite@npm:0.1.0"
+  checksum: fa85130011f36a92767ca51e40f667ecb66b5644b98fd066bd516c831ecb82e5c5fd5b68ab09a6df75ce72e6fd31ecb9bede8ef1cdcdb6f376b8eda78303215b
   languageName: node
   linkType: hard
 
@@ -3251,6 +3275,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"binary-search@npm:^1.3.3":
+  version: 1.3.6
+  resolution: "binary-search@npm:1.3.6"
+  checksum: 4b712c8bd5f39fb4e3bf30f945cc46f39cddf868b016aaac017fa5dbaad153a99019df718eb0f2457e5ad8ac81793475a504bfac18822d30ad368602be91bb3f
+  languageName: node
+  linkType: hard
+
 "bind-decorator@npm:^1.0.11":
   version: 1.0.11
   resolution: "bind-decorator@npm:1.0.11"
@@ -3812,6 +3843,13 @@ __metadata:
   version: 1.1.0
   resolution: "console-control-strings@npm:1.1.0"
   checksum: d286ffd439aac97472557325e6aa4cc3a2eefe495a70a9640b89508880db4bba1bd1b29bb011608c23033d884c84cac8da95c8f12ca0ec69ccc70d6d5f39c618
+  languageName: node
+  linkType: hard
+
+"console-log-level@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "console-log-level@npm:1.4.1"
+  checksum: a08ecb8bb0e48712157bfec0e8de4c88447abcfbe627727f52b4e5b32a52ef1f647b2868c9e25b8b709f8ad455a41c1ba5267766c338d381a1af15247c2dc386
   languageName: node
   linkType: hard
 
@@ -5523,6 +5561,13 @@ __metadata:
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: c67a8e522758dd907770a78ad750e6dfdcce327b0696fdd82f4b7acb8bb22b0574c88f806afb3c6597a536fa9016e6e3486071535fd0e9226b8505c67cf2fb01
+  languageName: node
+  linkType: hard
+
+"graphite@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "graphite@npm:0.1.5"
+  checksum: c444f5d707467e7c2fd580777c08ec4ef544b4c9bc37b0ed3d766ca53f0531413d15e92f28b1236e4126d9b951116b49d29169d9aa2d315457385d6047849387
   languageName: node
   linkType: hard
 
@@ -7305,12 +7350,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mapcap@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "mapcap@npm:1.0.0"
+  checksum: a2e8de222cb8eb437044a3134395e1d83344dabf71cf4adf0415ff41703bdbedfb8dbde7b7c96e97420108ebc8d2f6e760b678520e8fe1c0f5ef73c247403ca8
+  languageName: node
+  linkType: hard
+
 "marked@npm:^4.0.19":
   version: 4.1.0
   resolution: "marked@npm:4.1.0"
   bin:
     marked: bin/marked.js
   checksum: e0831237a532b2e14262284c82c79882325d0e0493204676413b882d36fb8daf798b711901152818f9bd7b63d7f509abd98344ccd0456da4bed89a4279177d5c
+  languageName: node
+  linkType: hard
+
+"measured-core@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "measured-core@npm:2.0.0"
+  dependencies:
+    binary-search: "npm:^1.3.3"
+    optional-js: "npm:^2.0.0"
+  checksum: cfd9ab5fd2e4a0c282360cf4f368c88d191dc4d28c2aa56897a35224b60ed455af92e3946e1753296f9c1c69cf89c9ee1747ab62f1508b770dbd379213262db5
+  languageName: node
+  linkType: hard
+
+"measured-reporting@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "measured-reporting@npm:2.0.0"
+  dependencies:
+    console-log-level: "npm:^1.4.1"
+    mapcap: "npm:^1.0.0"
+    measured-core: "npm:^2.0.0"
+    optional-js: "npm:^2.0.0"
+  checksum: 1d7e4e462cfa88dded506a60a2e4cfc8946d9c6c8563e9a1fc9ffcee0c59bbdfb64d6225dd18267348d2eaffa16fb37e8dffaa6946fce313cdea72347559e86f
   languageName: node
   linkType: hard
 
@@ -7938,6 +8012,13 @@ __metadata:
   dependencies:
     mimic-fn: "npm:^2.1.0"
   checksum: 69704199051db0cf44c6c7196bada91387e2a9d171b4585a55c5ce518e64522007e2bcd35833ce5663078bb72042af4cd69289586fef4f74655f604b5e02a617
+  languageName: node
+  linkType: hard
+
+"optional-js@npm:^2.0.0":
+  version: 2.3.0
+  resolution: "optional-js@npm:2.3.0"
+  checksum: 38ec89126ac316a55724e4b087109c930387a4a1d3af61f74293ea69ce70119db6d1889ff2d6033d853c95f1529898484c8ca77d0ab6eb5709a2cade10a349c3
   languageName: node
   linkType: hard
 
