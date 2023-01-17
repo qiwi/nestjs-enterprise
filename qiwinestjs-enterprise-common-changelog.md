@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-common@2.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2022.12.8-qiwi.nestjs-enterprise-common.2.0.3-f0...2023.1.17-qiwi.nestjs-enterprise-common.2.1.0-f0) (2023-01-17)
+
+### Features
+* feat(common): add graphite decorator and metricService [845cf1a](https://github.com/qiwi/nestjs-enterprise/commit/845cf1a38c3aead4265602eca7c8d186e0516e52)
+
 ## [@qiwi/nestjs-enterprise-common@2.0.3](https://github.com/qiwi/nestjs-enterprise/compare/2022.9.2-qiwi.nestjs-enterprise-common.2.0.2-f0...2022.12.8-qiwi.nestjs-enterprise-common.2.0.3-f0) (2022-12-08)
 
 ### Fixes & improvements
