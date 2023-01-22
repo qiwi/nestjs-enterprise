@@ -1600,7 +1600,7 @@ __metadata:
     "@types/graphite": "npm:^0.1.0"
     axios: "npm:^0.27.2"
     class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.13.2"
+    class-validator: "npm:^0.14.0"
     express: "npm:^4.18.2"
     graphite: "npm:^0.1.5"
     inside-out-promise: "npm:^2.1.4"
@@ -1619,7 +1619,7 @@ __metadata:
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/uniconfig": "npm:^3.5.11"
     class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.13.2"
+    class-validator: "npm:^0.14.0"
     lodash: "npm:^4.17.21"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.6.0"
@@ -1653,7 +1653,7 @@ __metadata:
     "@qiwi/substrate": "npm:^1.20.16"
     "@types/bluebird": "npm:^3.5.38"
     class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.13.2"
+    class-validator: "npm:^0.14.0"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.6.0"
     tslib: "npm:^2.4.1"
@@ -1700,7 +1700,7 @@ __metadata:
     "@types/bluebird": "npm:^3.5.38"
     "@types/winston": "npm:^2.4.4"
     class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.13.2"
+    class-validator: "npm:^0.14.0"
     esm: "npm:^3.2.25"
     fast-luhn: "npm:^2.0.1"
     fast-safe-stringify: "npm:^2.1.1"
@@ -1765,7 +1765,7 @@ __metadata:
     "@types/bluebird": "npm:^3.5.38"
     "@types/rimraf": "npm:^3.0.2"
     class-transformer: "npm:^0.5.1"
-    class-validator: "npm:^0.13.2"
+    class-validator: "npm:^0.14.0"
     esm: "npm:^3.2.25"
     reflect-metadata: "npm:^0.1.13"
     resolve-cwd: "npm:^3.0.0"
@@ -2603,6 +2603,13 @@ __metadata:
   version: 9.0.0
   resolution: "@types/uuid@npm:9.0.0"
   checksum: f834b8b23d48e80d79aad515934815b720e5d1646742804af99afad1df406467d4f5089893bca06ef67d41ebb58edfeb583dae47211b8d7eefdb666cf7ae93a7
+  languageName: node
+  linkType: hard
+
+"@types/validator@npm:^13.7.10":
+  version: 13.7.10
+  resolution: "@types/validator@npm:13.7.10"
+  checksum: 369a33e8183a9eb5b18d2a0b2bd0ee36972a32b8b366484bb7bc4ada15691a5082baa1022f0ec3d85f24216d7af9819c414bec1f749217fa95f59b923e7af5a2
   languageName: node
   linkType: hard
 
@@ -3622,13 +3629,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"class-validator@npm:^0.13.2":
-  version: 0.13.2
-  resolution: "class-validator@npm:0.13.2"
+"class-validator@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "class-validator@npm:0.14.0"
   dependencies:
-    libphonenumber-js: "npm:^1.9.43"
+    "@types/validator": "npm:^13.7.10"
+    libphonenumber-js: "npm:^1.10.14"
     validator: "npm:^13.7.0"
-  checksum: 3b3c45bb9c84be5a621c23ecc1db70a844554d348b0d64229487e46b362fb945b885e60b65c2016f3f782f7e609c75919cb058ba3b264fb7ee8b30e654fa938f
+  checksum: 3bd7e3b93ee293b5cd456a52f7240accc69400234cc95985f38271c3f5ca44eb65d751d95d93a18f1bedd6373411b9909ee5c6d117cc6ca0fc77072c25880ccd
   languageName: node
   linkType: hard
 
@@ -7105,10 +7113,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"libphonenumber-js@npm:^1.9.43":
-  version: 1.9.51
-  resolution: "libphonenumber-js@npm:1.9.51"
-  checksum: 420aab9377ab64f5819aabae48ef8604b337848aff6ad48a5f0016aab3badb41ad50af710752c2a9966c6d7d6b9c3977d4deccb65fabd10a5d04a2ff8bc77056
+"libphonenumber-js@npm:^1.10.14":
+  version: 1.10.18
+  resolution: "libphonenumber-js@npm:1.10.18"
+  checksum: 03f916516301f91abdeb94a69b4345d78c70d262bb42c2f08a76c3d5ca4de1673500a755836e7e9fc3433394ed66ea8ac9e17f9ead10eed2fabbe2769d230986
   languageName: node
   linkType: hard
 

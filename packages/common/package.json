@@ -54,7 +54,7 @@
     "@types/graphite": "^0.1.0",
     "axios": "^0.27.2",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
+    "class-validator": "^0.14.0",
     "express": "^4.18.2",
     "inside-out-promise": "^2.1.4"
   },

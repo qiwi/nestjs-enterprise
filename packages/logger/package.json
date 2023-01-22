@@ -55,7 +55,7 @@
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.38",
     "class-transformer": "^0.5.1",
-    "class-validator": "^0.13.2",
+    "class-validator": "^0.14.0",
     "esm": "^3.2.25",
     "reflect-metadata": "^0.1.13"
   },
