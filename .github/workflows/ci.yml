@@ -94,7 +94,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Restore artifact from cache (if exists)
         uses: actions/cache@v3
@@ -252,7 +252,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v3.0.0
