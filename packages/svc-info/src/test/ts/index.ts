@@ -7,16 +7,16 @@ import {
   LoggerModule,
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
-import fs from 'fs'
-import path  from 'path'
+import fs from 'node:fs'
+import path  from 'node:path'
 // import rimraf from 'rimraf'
 import request from 'supertest'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 
 const buildstamp = {
-  date: 1600692101204,
+  date: 1_600_692_101_204,
   git: {
     commitId: '1234567890123456789012345678901234567890',
     repoUrl: 'http://localhost',
@@ -40,7 +40,7 @@ const fakeConfig = {
       logger: {
         dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
         level: 'debug',
-        maxsize: 157286400,
+        maxsize: 157_286_400,
         datePattern: 'YYYY-MM-DD',
         appJsonFilename: 'application-json.log',
         appFilename: 'testlog.log',
@@ -53,7 +53,7 @@ const fakeConfig = {
     return configData[field]
   },
 }
-jest.setTimeout(20000);
+jest.setTimeout(20_000);
 
 const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
   return Test.createTestingModule({
@@ -73,7 +73,7 @@ describe('SvcModule', () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
     fs.writeFileSync(tempCustomBuildstampPath, JSON.stringify(buildstamp))
-    jest.setTimeout(10000)
+    jest.setTimeout(10_000)
   })
 
   // afterAll(() => {

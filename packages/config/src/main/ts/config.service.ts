@@ -42,7 +42,7 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
   return opts
 }
 
-export { IConfigService }
+
 
 
 export class ConfigService extends Config implements IConfigService {
@@ -50,3 +50,5 @@ export class ConfigService extends Config implements IConfigService {
     super(normalizeOpts(opts))
   }
 }
+
+export {IConfig as IConfigService} from '@qiwi/uniconfig'

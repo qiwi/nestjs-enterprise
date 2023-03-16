@@ -3,7 +3,7 @@ import { NestFactory } from '@nestjs/core'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import axios from 'axios'
 import express from 'express'
-import http from 'http'
+import http from 'node:http'
 import { factory as iop } from 'inside-out-promise'
 
 import { Port } from '../../main/ts/port'

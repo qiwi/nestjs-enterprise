@@ -11,7 +11,7 @@ export type IConnectionParams = {
   port: string
 }
 
-const CONSUL_CHECK_REG_INTERVAL = 60000
+const CONSUL_CHECK_REG_INTERVAL = 60_000
 
 export interface IConsulService {
   register(opts: any): IPromise

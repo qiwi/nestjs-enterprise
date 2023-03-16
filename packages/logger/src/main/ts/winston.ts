@@ -1,6 +1,6 @@
 import safeJsonStrinify from 'fast-safe-stringify'
-import * as fs from 'fs'
-import * as path from 'path'
+import * as fs from 'node:fs'
+import * as path from 'node:path'
 import * as winston from 'winston'
 
 const {
@@ -21,7 +21,7 @@ const isTimestampValid = (timestamp: any) =>
 
 export const formatKibanaEntry = (entry: TWinstonEntry) => {
   const { level, timestamp, meta, message } = entry
-  const { timestamp: metaTimestamp } = meta
+  const { timestamp: metaTimestamp, publicMeta } = meta
   const formattedTimestamp = new Date(
     (isTimestampValid(metaTimestamp) && metaTimestamp) || timestamp,
   ).toISOString()
@@ -29,7 +29,7 @@ export const formatKibanaEntry = (entry: TWinstonEntry) => {
     '@timestamp': formattedTimestamp,
     level: level.toUpperCase(),
     message,
-    ...meta.publicMeta,
+    ...publicMeta,
   }
 }
 
