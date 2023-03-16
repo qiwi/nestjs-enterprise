@@ -39,13 +39,13 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.2.1",
-    "@nestjs/core": "^9.2.1",
-    "@qiwi/consul-service-discovery": "^1.10.4",
-    "@qiwi/substrate": "^1.20.16",
+    "@nestjs/common": "^9.3.10",
+    "@nestjs/core": "^9.3.10",
+    "@qiwi/consul-service-discovery": "^1.10.5",
+    "@qiwi/substrate": "^1.20.17",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.6.0",
-    "tslib": "^2.4.1"
+    "rxjs": "^7.8.0",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",

@@ -39,17 +39,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.2.1",
-    "@nestjs/core": "^9.2.1",
-    "@qiwi/substrate": "^1.20.16",
-    "@types/thrift": "^0.10.11",
+    "@nestjs/common": "^9.3.10",
+    "@nestjs/core": "^9.3.10",
+    "@qiwi/substrate": "^1.20.17",
+    "@types/thrift": "^0.10.12",
     "generic-pool": "^3.9.0",
     "inside-out-promise": "^2.1.4",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.6.0",
-    "thrift": "0.16.0",
-    "tslib": "^2.4.1"
+    "rxjs": "^7.8.0",
+    "thrift": "0.18.1",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-config": "workspace:*",
@@ -57,7 +57,7 @@
     "@qiwi/nestjs-enterprise-consul": "workspace:*",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@qiwi/nestjs-enterprise-logger": "workspace:*",
-    "@types/generic-pool": "^3.1.11"
+    "@types/generic-pool": "^3.8.1"
   },
   "repository": {
     "type": "git",
