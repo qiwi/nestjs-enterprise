@@ -3,9 +3,9 @@ import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ILogger, LogLevel } from '@qiwi/substrate'
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import {
   createMetaPipe,
@@ -35,7 +35,7 @@ describe('logger', () => {
         logger: {
           dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
           level: 'debug',
-          maxsize: 157286400,
+          maxsize: 157_286_400,
           datePattern: 'YYYY-MM-DD',
           appJsonFilename: 'application-json.log',
           appFilename: 'testlog.log',

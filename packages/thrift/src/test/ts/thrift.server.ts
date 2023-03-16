@@ -4,9 +4,9 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
-import path from 'path'
+import path from 'node:path'
 import * as thrift from 'thrift'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 import {
   IThriftClientProvider,
@@ -112,11 +112,18 @@ describe('thrift-server', () => {
         // eslint-disable-next-line eqeqeq
         if (work.op == ttypes.Operation.ADD) {
           val = work.num1 + work.num2
-        } else if (work.op === ttypes.Operation.SUBTRACT) {
+        } else switch (work.op) {
+ case ttypes.Operation.SUBTRACT: {
           val = work.num1 - work.num2
-        } else if (work.op === ttypes.Operation.MULTIPLY) {
+        
+ break;
+ }
+ case ttypes.Operation.MULTIPLY: {
           val = work.num1 * work.num2
-        } else if (work.op === ttypes.Operation.DIVIDE) {
+        
+ break;
+ }
+ case ttypes.Operation.DIVIDE: {
           if (work.num2 === 0) {
             const x = new ttypes.InvalidOperation()
             x.whatOp = work.op
@@ -126,7 +133,10 @@ describe('thrift-server', () => {
             return
           }
           val = work.num1 / work.num2
-        } else {
+        
+ break;
+ }
+ default: {
           const x = new ttypes.InvalidOperation()
           x.whatOp = work.op
           x.why = 'Invalid operation'
@@ -134,6 +144,7 @@ describe('thrift-server', () => {
           result(x)
           return
         }
+ }
 
         const entry = new SharedStruct()
         entry.key = logid

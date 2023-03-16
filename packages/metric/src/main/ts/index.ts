@@ -17,7 +17,11 @@ function MetricDecorator(metricName: string) {
 
 export {
   MetricDecorator,
-  RequestRateDecorator,
-  MeteredDecorator,
-  ErrorDecorator,
+  
+  
+  
 }
+
+export {RequestRateDecorator} from './decorators/request-rate.decorator'
+export {MeteredDecorator} from './decorators/metered.decorator'
+export {ErrorDecorator} from './decorators/error.decorator'

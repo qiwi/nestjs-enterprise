@@ -1,8 +1,8 @@
 import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
 import { ILogger } from '@qiwi/substrate'
-import { promises } from 'fs'
-import { createRequire } from 'module'
+import { promises } from 'node:fs'
+import { createRequire } from 'node:module'
 import resolveCwd from 'resolve-cwd'
 
 import { ISvcInfoModuleOpts } from './interfaces'

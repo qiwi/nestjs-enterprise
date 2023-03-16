@@ -6,9 +6,9 @@ export class FakeConsulDiscovery implements IConsulService {
   }
 
   async getKv() {
-    return Promise.resolve({
+    return {
       value: 'consul',
-    })
+    };
   }
 
   async getConnectionParams() {

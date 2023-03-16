@@ -12,7 +12,7 @@ describe('formatKibanaEntry', () => {
       description: 'adds string timestamp from meta',
       input: {
         level: 'foo',
-        timestamp: 1599847151451,
+        timestamp: 1_599_847_151_451,
         meta: {
           timestamp: '2020-09-11T18:30:19.868Z',
         },
@@ -28,9 +28,9 @@ describe('formatKibanaEntry', () => {
       description: 'adds instant timestamp from meta',
       input: {
         level: 'foo',
-        timestamp: 1599847151451,
+        timestamp: 1_599_847_151_451,
         meta: {
-          timestamp: 1599849019865,
+          timestamp: 1_599_849_019_865,
         },
         message: 'bar',
       },
@@ -44,7 +44,7 @@ describe('formatKibanaEntry', () => {
       description: 'adds timestamp from root',
       input: {
         level: 'foo',
-        timestamp: 1599847151451,
+        timestamp: 1_599_847_151_451,
         meta: {
           timestamp: 'bar',
           publicMeta: {
@@ -64,7 +64,7 @@ describe('formatKibanaEntry', () => {
       description: 'adds root timestamp if meta.timestamp is null',
       input: {
         level: 'foo',
-        timestamp: 1599847151451,
+        timestamp: 1_599_847_151_451,
         meta: {
           // eslint-disable-next-line unicorn/no-null
           timestamp: null,
@@ -85,7 +85,7 @@ describe('formatKibanaEntry', () => {
       description: 'adds root timestamp if meta.timestamp is undefined',
       input: {
         level: 'foo',
-        timestamp: 1600081785361,
+        timestamp: 1_600_081_785_361,
         meta: {
           timestamp: undefined,
           publicMeta: {

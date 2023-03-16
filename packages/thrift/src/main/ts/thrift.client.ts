@@ -17,7 +17,7 @@ import {
 const defaultPoolOpts = {
   min: 0,
   max: 10,
-  idleTimeoutMillis: 30000,
+  idleTimeoutMillis: 30_000,
 }
 
 @Injectable()
@@ -108,13 +108,13 @@ export class ThriftClientProvider implements IThriftClientProvider {
           )
 
           try {
-            const client = !multiplexer
-              ? thrift.createClient(clientConstructor, connection)
-              : new thrift.Multiplexer().createClient(
+            const client = multiplexer
+              ? new thrift.Multiplexer().createClient(
                 profile.thriftServiceName,
                 clientConstructor,
                 connection,
               )
+              : thrift.createClient(clientConstructor, connection)
 
             debug(
                 `ThriftClientProvider created new thrift client and connection for ${profile.thriftServiceName}`,

@@ -38,9 +38,9 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.2.1",
-    "@nestjs/core": "^9.2.1",
-    "@qiwi/decorator-utils": "^3.2.8",
+    "@nestjs/common": "^9.3.10",
+    "@nestjs/core": "^9.3.10",
+    "@qiwi/decorator-utils": "^3.3.0",
     "graphite": "^0.1.5",
     "measured-reporting": "^2.0.0"
   },

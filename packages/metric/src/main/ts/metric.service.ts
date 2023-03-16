@@ -85,7 +85,7 @@ export class MetricService {
     const flatData = data.reduce((acc, el) => ({ ...acc, ...el }), {})
 
     return Object.entries(flatData).reduce((acc, [key, value]) => {
-      return { ...acc, ...{ [`${this.metricPrefix}.${key}`]: value } }
+      return { ...acc,  [`${this.metricPrefix}.${key}`]: value  }
     }, {})
   }
 

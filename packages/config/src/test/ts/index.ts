@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
-import { dirname, join } from 'path'
-import { fileURLToPath } from 'url'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import {
   ConfigModule,

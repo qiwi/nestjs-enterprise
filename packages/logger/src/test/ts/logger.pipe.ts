@@ -8,7 +8,7 @@ import createWinstonLogger from '../../main/ts/winston'
 const loggerConfig = {
   dir: 'somepath',
   level: 'debug',
-  maxsize: 157286400,
+  maxsize: 157_286_400,
   datePattern: 'YYYY-MM-DD',
   appJsonFilename: 'application-json.log',
   appFilename: 'testlog.log',

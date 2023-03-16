@@ -4,10 +4,10 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
-import path from 'path'
+import path from 'node:path'
 // @ts-ignore
 import * as thrift from 'thrift'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 import {
   IThriftClientProvider,
