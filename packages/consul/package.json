@@ -42,7 +42,7 @@
     "@nestjs/common": "^9.3.10",
     "@nestjs/core": "^9.3.10",
     "@qiwi/consul-service-discovery": "^1.10.5",
-    "@qiwi/substrate": "^1.20.17",
+    "@qiwi/substrate": "^2.0.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "tslib": "^2.5.0"

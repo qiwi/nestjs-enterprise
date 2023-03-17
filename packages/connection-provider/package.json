@@ -41,7 +41,7 @@
   "dependencies": {
     "@nestjs/common": "^9.3.10",
     "@nestjs/core": "^9.3.10",
-    "@qiwi/substrate": "^1.20.17",
+    "@qiwi/substrate": "^2.0.3",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",

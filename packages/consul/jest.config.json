@@ -1,4 +1,7 @@
 {
+  "transform": {
+    "^.+\\.tsx?$": ["ts-jest", {"useESM": true, "tsconfig": "<rootDir>/tsconfig.test.json"}]
+  },
   "collectCoverage": true,
   "coveragePathIgnorePatterns": [
   ],
@@ -21,11 +24,5 @@
     "node"
   ],
   "preset": "ts-jest",
-  "globals": {
-    "ts-jest": {
-      "useESM": true,
-      "tsconfig": "<rootDir>/tsconfig.test.json"
-    }
-  },
   "extensionsToTreatAsEsm": [".ts", ".d.ts"]
 }

@@ -41,7 +41,7 @@
   "dependencies": {
     "@nestjs/common": "^9.3.10",
     "@nestjs/core": "^9.3.10",
-    "@qiwi/decorator-utils": "^3.3.0",
+    "@qiwi/decorator-utils": "^4.5.2",
     "graphite": "^0.1.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
