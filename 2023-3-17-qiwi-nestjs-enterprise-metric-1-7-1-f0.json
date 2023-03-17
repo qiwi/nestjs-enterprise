@@ -1,0 +1,9 @@
+{
+  "META_VERSION": "1",
+  "name": "@qiwi/nestjs-enterprise-metric",
+  "hash": "53c2b63b4bf5020c8d7b3e69b3df296ffbd39e2f",
+  "version": "1.7.1",
+  "devDependencies": {
+    "@qiwi/nestjs-enterprise-infra": "2.0.5"
+  }
+}
