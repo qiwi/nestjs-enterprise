@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-infra@2.0.5](https://github.com/qiwi/nestjs-enterprise/compare/2022.12.8-qiwi.nestjs-enterprise-infra.2.0.4-f0...2023.3.17-qiwi.nestjs-enterprise-infra.2.0.5-f0) (2023-03-17)
+
+### Fixes & improvements
+* perf: up deps [53c2b63](https://github.com/qiwi/nestjs-enterprise/commit/53c2b63b4bf5020c8d7b3e69b3df296ffbd39e2f)
+
 ## [@qiwi/nestjs-enterprise-infra@2.0.4](https://github.com/qiwi/nestjs-enterprise/compare/2022.9.2-qiwi.nestjs-enterprise-infra.2.0.3-f0...2022.12.8-qiwi.nestjs-enterprise-infra.2.0.4-f0) (2022-12-08)
 
 ### Fixes & improvements
