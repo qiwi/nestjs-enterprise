@@ -1736,18 +1736,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/decorator-utils@npm:^3.3.0":
-  version: 3.3.0
-  resolution: "@qiwi/decorator-utils@npm:3.3.0"
+"@qiwi/decorator-utils@npm:^4.5.2":
+  version: 4.5.2
+  resolution: "@qiwi/decorator-utils@npm:4.5.2"
   dependencies:
-    "@qiwi/substrate": "npm:^1.20.16"
+    "@qiwi/substrate": "npm:^2.0.2"
     lodash.get: "npm:^4.4.2"
-    lodash.isfunction: "npm:^3.0.9"
-    lodash.isundefined: "npm:^3.0.1"
     lodash.mapvalues: "npm:^4.6.0"
+    lodash.once: "npm:^4.1.1"
     lodash.reduce: "npm:^4.6.0"
     lodash.set: "npm:^4.3.2"
-  checksum: 1a412b7a6122dea342ff9b0fa42f0e4f044256c006105c61e23828611cd5abbbcf20aa8f86213679adcaa0115db6ac798b6f863d4fd3a086d63c6d44926300f5
+  checksum: a826ab09634892a0199848591ed9e1f4037579df9b23e93289c48a45bfeac5cc7cc4006eaa82f5ef729e37da39e2790d628772e63fd2a0c8f26b5ce2ed8d9cff
   languageName: node
   linkType: hard
 
@@ -1881,7 +1880,7 @@ __metadata:
     "@nestjs/common": "npm:^9.3.10"
     "@nestjs/core": "npm:^9.3.10"
     "@nestjs/platform-express": "npm:^9.3.10"
-    "@qiwi/decorator-utils": "npm:^3.3.0"
+    "@qiwi/decorator-utils": "npm:^4.5.2"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/express": "npm:^4.17.17"
     "@types/graphite": "npm:^0.1.0"
@@ -1921,7 +1920,7 @@ __metadata:
     "@nestjs/common": "npm:^9.3.10"
     "@nestjs/core": "npm:^9.3.10"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.17"
+    "@qiwi/substrate": "npm:^2.0.3"
     lodash: "npm:^4.17.21"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.8.0"
@@ -1937,7 +1936,7 @@ __metadata:
     "@nestjs/core": "npm:^9.3.10"
     "@qiwi/consul-service-discovery": "npm:^1.10.5"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.17"
+    "@qiwi/substrate": "npm:^2.0.3"
     "@types/bluebird": "npm:^3.5.38"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.0"
@@ -1953,13 +1952,13 @@ __metadata:
   dependencies:
     "@nestjs/testing": "npm:^9.3.10"
     "@swissquote/crafty-preset-jest": "npm:^1.21.1"
-    "@types/jest": "npm:^29.4.4"
+    "@types/jest": "npm:^29.5.0"
     "@types/jest-json-schema": "npm:^6.1.1"
     "@types/supertest": "npm:^2.0.12"
     buildstamp: "npm:^2.1.1"
     eslint: "npm:^8.36.0"
     eslint-config-prettier: "npm:^8.7.0"
-    eslint-config-qiwi: "npm:^2.1.0"
+    eslint-config-qiwi: "npm:^2.1.1"
     esm: "npm:^3.2.25"
     jest: "npm:^29.5.0"
     prettier: "npm:^2.8.4"
@@ -1983,7 +1982,7 @@ __metadata:
     "@qiwi/logwrap": "npm:^1.5.1"
     "@qiwi/mware-context": "npm:^1.14.0"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.16"
+    "@qiwi/substrate": "npm:^2.0.3"
     "@types/bluebird": "npm:^3.5.38"
     "@types/winston": "npm:^2.4.4"
     class-transformer: "npm:^0.5.1"
@@ -2006,7 +2005,7 @@ __metadata:
     "@nestjs/core": "npm:^9.3.10"
     "@qiwi/mware": "npm:^1.14.1"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.17"
+    "@qiwi/substrate": "npm:^2.0.3"
     esm: "npm:^3.2.25"
     reflect-metadata: "npm:^0.1.13"
     rxjs: "npm:^7.8.0"
@@ -2020,7 +2019,7 @@ __metadata:
   dependencies:
     "@nestjs/common": "npm:^9.3.10"
     "@nestjs/core": "npm:^9.3.10"
-    "@qiwi/decorator-utils": "npm:^3.3.0"
+    "@qiwi/decorator-utils": "npm:^4.5.2"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@types/graphite": "npm:^0.1.0"
     graphite: "npm:^0.1.5"
@@ -2072,7 +2071,7 @@ __metadata:
     "@qiwi/nestjs-enterprise-consul": "workspace:*"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/nestjs-enterprise-logger": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.17"
+    "@qiwi/substrate": "npm:^2.0.3"
     "@types/generic-pool": "npm:^3.8.1"
     "@types/thrift": "npm:^0.10.12"
     generic-pool: "npm:^3.9.0"
@@ -2091,7 +2090,7 @@ __metadata:
   dependencies:
     "@qiwi/nestjs-enterprise-common": "workspace:*"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/substrate": "npm:^1.20.17"
+    "@qiwi/substrate": "npm:^2.0.3"
     tslib: "npm:^2.5.0"
   languageName: unknown
   linkType: soft
@@ -2105,21 +2104,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/substrate-abstract@npm:1.20.11":
-  version: 1.20.11
-  resolution: "@qiwi/substrate-abstract@npm:1.20.11"
-  dependencies:
-    "@qiwi/substrate-types": "npm:2.0.0"
-  checksum: 9baa1a4e5e4d72307c1eb344a4e0262d2e8a9cb8e07d87da2fae6b944f36fda91f43ac4f1d2e250caef3c0a2d9c8864303384ed5f392d1f908c42e2803a71a44
-  languageName: node
-  linkType: hard
-
 "@qiwi/substrate-abstract@npm:1.20.7":
   version: 1.20.7
   resolution: "@qiwi/substrate-abstract@npm:1.20.7"
   dependencies:
     "@qiwi/substrate-types": "npm:1.53.1"
   checksum: 7fdab972be0df12caad6e21fc1ca97ff459745f003b71ab361ade559e0f7adb942d9b28b5dfb2b1da609ab9a67248bf98cbe1319a5576132eb22c712db74a0b8
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate-abstract@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@qiwi/substrate-abstract@npm:2.0.2"
+  dependencies:
+    "@qiwi/substrate-types": "npm:2.0.2"
+  checksum: f709bec34697698b5ec27f05353ccc28304e6216631c3b5cf028a614fc49552351fb5e5f81be2b8fddb70d295c2d83f9a89d3d864a0ec617334ac913c775314a
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate-abstract@npm:2.0.3":
+  version: 2.0.3
+  resolution: "@qiwi/substrate-abstract@npm:2.0.3"
+  dependencies:
+    "@qiwi/substrate-types": "npm:2.0.3"
+  checksum: 680a6b7e171c8ede357ca985e50cacbef4cedfae3532839e38d14759fcdbf547a060a1fac4d7d33251bc9e014f97e01cba951784d54ce9872f59822e6415ddb7
   languageName: node
   linkType: hard
 
@@ -2133,16 +2141,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/substrate-std@npm:1.3.12":
-  version: 1.3.12
-  resolution: "@qiwi/substrate-std@npm:1.3.12"
-  dependencies:
-    "@qiwi/substrate-types": "npm:2.0.0"
-    tslib: "npm:^2.5.0"
-  checksum: d5382e0c591826adc9ae383c33b32ce44623e727194565bcc89005751b23079178107880eba6d55d763480f9943236d60bc38eb22d0874f6f93d1f9c8c3e1281
-  languageName: node
-  linkType: hard
-
 "@qiwi/substrate-std@npm:1.3.7":
   version: 1.3.7
   resolution: "@qiwi/substrate-std@npm:1.3.7"
@@ -2150,6 +2148,26 @@ __metadata:
     "@qiwi/substrate-types": "npm:1.53.1"
     tslib: "npm:^2.3.1"
   checksum: 499c92281c8669b8d6b28fd598ccdb95778e62c3bcdf271460aacb7e016838e62b4f9101f36b4da0c67fdedd7aed6f38533232ac9ee75c1be09de4d5ae98a4d1
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate-std@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@qiwi/substrate-std@npm:2.0.2"
+  dependencies:
+    "@qiwi/substrate-types": "npm:2.0.2"
+    tslib: "npm:^2.5.0"
+  checksum: 171658f59990dce0d28365bee6f9c47c70ffa9effe443574a09eb8a406ac56821a3033a1b69b2454bc72ce58c62a5d36ee35a57d98982a63e2aeed740397baab
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate-std@npm:2.0.3":
+  version: 2.0.3
+  resolution: "@qiwi/substrate-std@npm:2.0.3"
+  dependencies:
+    "@qiwi/substrate-types": "npm:2.0.3"
+    tslib: "npm:^2.5.0"
+  checksum: eba92a329a6e88c2fda46f760eee99af3c36fa92d9ba25e0c0501876bcccf4158a1b8f8ab7b36e09c829034807f38e9108d28a18bbe06c515147977a3728f918
   languageName: node
   linkType: hard
 
@@ -2167,10 +2185,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/substrate-types@npm:2.0.0":
-  version: 2.0.0
-  resolution: "@qiwi/substrate-types@npm:2.0.0"
-  checksum: 819c3e54c4ec1feab33e969e251f2cdf838936449e4bc93bf977ac833f268b0882d3f332de3af11a2dad6cc13cee4db60d927bc139b38ee5b743b2cd9d698607
+"@qiwi/substrate-types@npm:2.0.2":
+  version: 2.0.2
+  resolution: "@qiwi/substrate-types@npm:2.0.2"
+  checksum: 94b07d988f81ef74689e69e7b9dbfdde01cd75c63d3189ca23f60b3ecefc6fc8be3c9fc1a36324a74656677e1ea737ba3d485aefde9dfc7b5e1b409f4893e0e1
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate-types@npm:2.0.3":
+  version: 2.0.3
+  resolution: "@qiwi/substrate-types@npm:2.0.3"
+  checksum: c570ff7a7ffcdc6f38c5ee95daa040cd9d4eb293dc3ad1fbdb31e39b7c58782ff8e3f1dbe221939820ae2f2fce61c174bc9e1084d4910533c49cdb5c0a10d6d4
   languageName: node
   linkType: hard
 
@@ -2186,7 +2211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/substrate@npm:^1.20.15, @qiwi/substrate@npm:^1.20.16":
+"@qiwi/substrate@npm:^1.20.15":
   version: 1.20.16
   resolution: "@qiwi/substrate@npm:1.20.16"
   dependencies:
@@ -2198,15 +2223,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/substrate@npm:^1.20.17":
-  version: 1.20.17
-  resolution: "@qiwi/substrate@npm:1.20.17"
+"@qiwi/substrate@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@qiwi/substrate@npm:2.0.2"
   dependencies:
-    "@qiwi/substrate-abstract": "npm:1.20.11"
-    "@qiwi/substrate-std": "npm:1.3.12"
-    "@qiwi/substrate-types": "npm:2.0.0"
+    "@qiwi/substrate-abstract": "npm:2.0.2"
+    "@qiwi/substrate-std": "npm:2.0.2"
+    "@qiwi/substrate-types": "npm:2.0.2"
     tslib: "npm:^2.5.0"
-  checksum: df2c2e70befe46f4f035607667783431c91054296a2dd7934a9af15a92002b100ba7572910ef2cd54bc1cddafa18406252090cee12ddbee466a647510de397c5
+  checksum: 5a9bcb7ece21bf81ab708d82e61b8278033b678cfe0bb426124daa7149e7bba6829598baa03791b696df67857577b8a15857aaf32158edcd60322eb1f063de4e
+  languageName: node
+  linkType: hard
+
+"@qiwi/substrate@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "@qiwi/substrate@npm:2.0.3"
+  dependencies:
+    "@qiwi/substrate-abstract": "npm:2.0.3"
+    "@qiwi/substrate-std": "npm:2.0.3"
+    "@qiwi/substrate-types": "npm:2.0.3"
+    tslib: "npm:^2.5.0"
+  checksum: a848366fc1d356245e2b1f37ca83776a2d237d7a4c5db5d76ec825a46cdd3bcb2160f7f0960d132e9bbfa6505221c0ec35ab8eccefb7bbd6cd3a26338501ef29
   languageName: node
   linkType: hard
 
@@ -2670,13 +2707,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.4.4":
-  version: 29.4.4
-  resolution: "@types/jest@npm:29.4.4"
+"@types/jest@npm:^29.5.0":
+  version: 29.5.0
+  resolution: "@types/jest@npm:29.5.0"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: bd7fdec614e0a2ba3c18598a51f819e2e5641550f1e2c6aefad878000e6a135501a35bcd9e84f0750233898696796d18abbb9ef267d69a98d727ca98328ea12c
+  checksum: 7d0503801a231c27a83c750e10b82028cc67bbf91b89c4e192a7b13f211e6a0158cda2575f6214550d709d158f23b967db08218dc8b367cf9289c0ab6cf41dd9
   languageName: node
   linkType: hard
 
@@ -4805,9 +4842,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-qiwi@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "eslint-config-qiwi@npm:2.1.0"
+"eslint-config-qiwi@npm:^2.1.1":
+  version: 2.1.1
+  resolution: "eslint-config-qiwi@npm:2.1.1"
   dependencies:
     "@typescript-eslint/eslint-plugin": "npm:^5.55.0"
     "@typescript-eslint/parser": "npm:^5.55.0"
@@ -4817,8 +4854,8 @@ __metadata:
     eslint-plugin-unicorn: "npm:^46.0.0"
   peerDependencies:
     eslint: ^8.0.0
-    typescript: ^4.0.0
-  checksum: daaca6e3c4fd1f9f13546cb8eeeefd4077ce1ba60091c83fb858efee4c21a6377766c91cf8fb4ce76eb36df51cc81e783688ea661ecc61154df0927f49d2c740
+    typescript: "*"
+  checksum: ab4936008bdd41be8cdef890e512e3111ddad281c3302010b3daab1e85cf7f045b9b5d4795537d5d15c5d75115199c7bcf957aadb9000a477d968473ade3c9e5
   languageName: node
   linkType: hard
 
@@ -7683,20 +7720,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.isfunction@npm:^3.0.9":
-  version: 3.0.9
-  resolution: "lodash.isfunction@npm:3.0.9"
-  checksum: 2a26511aa8eb399c41a2e18140e3d7e073db55f62e9477c6938deb5fb7310a4a687cbad4a9d7298c7549c740d2a03d3966475818a49667a6b0204f747b19187f
-  languageName: node
-  linkType: hard
-
-"lodash.isundefined@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "lodash.isundefined@npm:3.0.1"
-  checksum: 65318328262c88d644f4bd36392ff2253343772cef9028562d4b09e9cdf09540567f062bf8cde697e6067cacc8d14e2d39ca8aa57778ae106131127defb2c823
-  languageName: node
-  linkType: hard
-
 "lodash.mapvalues@npm:^4.6.0":
   version: 4.6.0
   resolution: "lodash.mapvalues@npm:4.6.0"
@@ -7715,6 +7738,13 @@ __metadata:
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
   checksum: aab58997bcad5ab91908498bbe8ce4b78e8e5025a944f9a8b6a1f11bd2afba4dae55c61dfdcefadadd6cd04efb0c998109e14c633f4aa1f8b4541e4d252c69ea
+  languageName: node
+  linkType: hard
+
+"lodash.once@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.once@npm:4.1.1"
+  checksum: 210c440af77b8f34fa8c7a559b4e7de9b9baef1c9d2fc1e9eae1440034cf0030eca115e81abf164ce6039e4872e0b4b5ade7729394e93aa7545094fc46ea2a29
   languageName: node
   linkType: hard
 

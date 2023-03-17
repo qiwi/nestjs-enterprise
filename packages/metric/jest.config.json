@@ -30,7 +30,6 @@
     "node"
   ],
   "preset": "ts-jest",
-  "globals": {},
   "extensionsToTreatAsEsm": [
     ".ts",
     ".d.ts"
