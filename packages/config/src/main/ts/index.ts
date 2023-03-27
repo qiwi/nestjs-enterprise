@@ -4,4 +4,5 @@ export {
   DEFAULT_KUBE_CONFIG_PATH,
   DEFAULT_LOCAL_CONFIG_PATH,
   IConfigService,
+  ConfigService,
 } from './config.service'
