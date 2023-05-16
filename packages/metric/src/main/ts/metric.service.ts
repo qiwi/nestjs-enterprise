@@ -1,9 +1,9 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 // @ts-ignore
 import { Histogram, Meter, Timer } from 'measured-core'
 
 @Injectable()
-export class MetricService {
+export class MetricService implements OnModuleDestroy {
   private collectionTimer: Record<string, Timer> = {}
   private collectionHistogram: Record<string, Histogram> = {}
   private collectionMeter: Record<string, Meter> = {}
@@ -11,6 +11,10 @@ export class MetricService {
 
   private readonly metricPrefix
   private readonly interval: any
+
+  onModuleDestroy() {
+    this.clearInterval()
+  }
 
   constructor(
     @Inject('IGraphiteService') private graphiteService: any,
