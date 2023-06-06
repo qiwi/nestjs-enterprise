@@ -1,5 +1,5 @@
 import { Global, Inject, Injectable, Module } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
+import { Test, TestingModule } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
@@ -29,12 +29,14 @@ const testConfigPath = path.join(
 )
 
 describe('thrift', () => {
+  let module: TestingModule
   beforeAll(() => {
     server.listen(9090)
   })
 
-  afterAll(() => {
-    server.close()
+  afterAll(async () => {
+    await server.close()
+    await module?.close()
   })
   describe('index', () => {
     it('properly exposes its inners', () => {
@@ -85,7 +87,7 @@ describe('thrift', () => {
     }
 
     it('exposes thrift api', async () => {
-      const module = await Test.createTestingModule({
+      module = await Test.createTestingModule({
         imports: [
           ConfigModule.register({ path: testConfigPath }),
           ConnectionProviderModule,
@@ -105,7 +107,6 @@ describe('thrift', () => {
 
       expect(await thriftClient.add(1, 2)).toBe(3)
       expect(await thriftClient.add(10, -10)).toBe(0)
-      await module.get('IThriftClientService').pools.get(Client).clear()
     })
   })
 })
