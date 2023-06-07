@@ -15,8 +15,7 @@
     "<rootDir>/src/main/**/*.(j|t)s"
   ],
   "testMatch": [
-    "<rootDir>/src/test/js/*.js",
-    "<rootDir>/src/test/ts/*.ts"
+    "<rootDir>/src/test/**/!(*.node).(j|t)s"
   ],
   "testPathIgnorePatterns": [
     "/node_modules/"

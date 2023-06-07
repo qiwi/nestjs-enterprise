@@ -51,4 +51,4 @@ export class ConfigService extends Config implements IConfigService {
   }
 }
 
-export {IConfig as IConfigService} from '@qiwi/uniconfig'
+export type {IConfig as IConfigService} from '@qiwi/uniconfig'

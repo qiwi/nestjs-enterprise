@@ -39,17 +39,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.3.10",
-    "@nestjs/core": "^9.3.10",
-    "@qiwi/substrate": "^2.0.3",
+    "@nestjs/common": "^9.4.2",
+    "@nestjs/core": "^9.4.2",
+    "@qiwi/substrate": "^2.0.4",
     "@types/thrift": "^0.10.12",
     "generic-pool": "^3.9.0",
-    "inside-out-promise": "^2.1.4",
+    "inside-out-promise": "^2.1.5",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0",
+    "rxjs": "^7.8.1",
     "thrift": "0.18.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.5.3"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-config": "workspace:*",

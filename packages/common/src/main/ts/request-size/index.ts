@@ -5,6 +5,7 @@ import {
   Injectable,
   SetMetadata,
   UseGuards,
+  Inject,
 } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
@@ -14,7 +15,7 @@ const getRequestSize = (ctx: ExecutionContext) =>
 
 @Injectable()
 export class RequestSizeCanActivate implements CanActivate {
-  constructor(private reflector: Reflector) {}
+  constructor(@Inject(Reflector) private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
     const requestSizeLimit = this.reflector.get<string[]>(

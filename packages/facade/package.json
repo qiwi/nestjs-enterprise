@@ -38,8 +38,8 @@
   },
   "dependencies": {
     "@qiwi/nestjs-enterprise-common": "workspace:*",
-    "@qiwi/substrate": "^2.0.3",
-    "tslib": "^2.5.0"
+    "@qiwi/substrate": "^2.0.4",
+    "tslib": "^2.5.3"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*"

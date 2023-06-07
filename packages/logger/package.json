@@ -39,16 +39,16 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.3.10",
-    "@nestjs/core": "^9.3.10",
+    "@nestjs/common": "^9.4.2",
+    "@nestjs/core": "^9.4.2",
     "@qiwi/logwrap": "^1.5.1",
     "@qiwi/mware-context": "^1.14.0",
-    "@qiwi/substrate": "^2.0.3",
+    "@qiwi/substrate": "^2.0.4",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.1",
     "fast-safe-stringify": "^2.1.1",
-    "rxjs": "^7.8.0",
-    "tslib": "^2.5.0",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.5.3",
     "winston": "^3.8.2"
   },
   "devDependencies": {

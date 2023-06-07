@@ -39,12 +39,12 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.3.10",
-    "@nestjs/core": "^9.3.10",
+    "@nestjs/common": "^9.4.2",
+    "@nestjs/core": "^9.4.2",
     "@qiwi/mware": "^1.14.1",
-    "@qiwi/substrate": "^2.0.3",
-    "rxjs": "^7.8.0",
-    "tslib": "^2.5.0"
+    "@qiwi/substrate": "^2.0.4",
+    "rxjs": "^7.8.1",
+    "tslib": "^2.5.3"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
