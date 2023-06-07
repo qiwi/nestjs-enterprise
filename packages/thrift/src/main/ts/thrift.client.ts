@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 import { IConfig, ILogger } from '@qiwi/substrate'
 import genericPool from 'generic-pool'
 import * as thrift from 'thrift'
@@ -21,7 +21,7 @@ const defaultPoolOpts = {
 }
 
 @Injectable()
-export class ThriftClientProvider implements IThriftClientProvider {
+export class ThriftClientProvider implements IThriftClientProvider, OnModuleDestroy {
   constructor(
     @Inject('ILogger') private log: ILogger,
     @Inject('IConnectionProvider')
@@ -30,6 +30,18 @@ export class ThriftClientProvider implements IThriftClientProvider {
   ) {
     this.pools = new Map()
     this.proxies = new Map()
+  }
+
+  async onModuleDestroy() {
+    return Promise.all(
+      [...this.pools.entries()]
+        .map(
+          async ([, pool]) => {
+            await pool.drain()
+            return pool.clear()
+          }
+        )
+    )
   }
 
   private proxies: Map<thrift.TClientConstructor<any>, any>
@@ -176,18 +188,18 @@ export class ThriftClientProvider implements IThriftClientProvider {
             )
 
             return (resource.client as any)[propKey](...args)
-              .then((res: any) => {
-                pool.release(resource)
+              .then(async (res: any) => {
+                await pool.release(resource)
                 return res
               })
-              .catch((e: unknown) => {
+              .catch(async (e: unknown) => {
                 error(
                   `Thrift ${resource.profile.thriftServiceName} error: method=${
                     propKey as string
                   // @ts-ignore
                   } error=${e} stack=${e?.stack}`,
                 )
-                pool.destroy(resource)
+                await pool.destroy(resource)
                 throw e
               })
           }
