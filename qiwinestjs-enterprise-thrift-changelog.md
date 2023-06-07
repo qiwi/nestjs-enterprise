@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@2.1.12](https://github.com/qiwi/nestjs-enterprise/compare/2023.3.27-qiwi.nestjs-enterprise-thrift.2.1.11-f0...2023.6.7-qiwi.nestjs-enterprise-thrift.2.1.12-f0) (2023-06-07)
+
+### Fixes & improvements
+* fix: clear pools on destroy (#82) [78a1f76](https://github.com/qiwi/nestjs-enterprise/commit/78a1f76bbf4424a6d12bf12dfd008c50398c2920)
+
 ## [@qiwi/nestjs-enterprise-thrift@2.1.11](https://github.com/qiwi/nestjs-enterprise/compare/2023.3.17-qiwi.nestjs-enterprise-thrift.2.1.10-f0...2023.3.27-qiwi.nestjs-enterprise-thrift.2.1.11-f0) (2023-03-27)
 
 ### Dependencies
