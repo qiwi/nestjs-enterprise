@@ -1951,6 +1951,7 @@ __metadata:
     "@swissquote/crafty-preset-jest": "npm:^1.21.1"
     "@types/jest": "npm:^29.5.0"
     "@types/jest-json-schema": "npm:^6.1.1"
+    "@types/lodash": "npm:^4.14.195"
     "@types/supertest": "npm:^2.0.12"
     buildstamp: "npm:^2.1.1"
     eslint: "npm:^8.36.0"
@@ -2691,6 +2692,13 @@ __metadata:
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 8e5c6dd393411418e3d803ab0a09862b4ed47f73e7ed990f3b907dd41cc4d2f2b4f7aed9a39c7fd2acaa80314ac1397a5e2e5e6c25a338f01bbfba708cc70d8e
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.195":
+  version: 4.14.195
+  resolution: "@types/lodash@npm:4.14.195"
+  checksum: a503fc2cef87abc17ec6f388009a787e609b799b8fcb69c47f9b91d5a47e564b5c00fd121f691acf2b2bb43b788e28ca22781de1ac561b2c35bea380c6446f79
   languageName: node
   linkType: hard
 
