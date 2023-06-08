@@ -41,7 +41,7 @@
   "dependencies": {
     "@nestjs/common": "^9.3.10",
     "@nestjs/core": "^9.3.10",
-    "@qiwi/consul-service-discovery": "^1.10.5",
+    "@qiwi/consul-service-discovery": "^1.10.6",
     "@qiwi/substrate": "^2.0.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
@@ -50,6 +50,7 @@
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.38",
+    "@types/consul": "^0.40.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0"
   },
