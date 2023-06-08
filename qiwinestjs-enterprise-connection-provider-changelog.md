@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-connection-provider@2.0.5](https://github.com/qiwi/nestjs-enterprise/compare/2023.3.17-qiwi.nestjs-enterprise-connection-provider.2.0.4-f0...2023.6.8-qiwi.nestjs-enterprise-connection-provider.2.0.5-f0) (2023-06-08)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-infra updated to 2.0.6
+
 ## [@qiwi/nestjs-enterprise-connection-provider@2.0.4](https://github.com/qiwi/nestjs-enterprise/compare/2022.12.8-qiwi.nestjs-enterprise-connection-provider.2.0.3-f0...2023.3.17-qiwi.nestjs-enterprise-connection-provider.2.0.4-f0) (2023-03-17)
 
 ### Fixes & improvements
