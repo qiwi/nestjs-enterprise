@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-consul@2.0.5](https://github.com/qiwi/nestjs-enterprise/compare/2023.3.17-qiwi.nestjs-enterprise-consul.2.0.4-f0...2023.6.8-qiwi.nestjs-enterprise-consul.2.0.5-f0) (2023-06-08)
+
+### Fixes & improvements
+* fix(consul): added destroy consul service [f204816](https://github.com/qiwi/nestjs-enterprise/commit/f2048164d97d94d364773369f105a8b4ef523d06)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-infra updated to 2.0.6
+
 ## [@qiwi/nestjs-enterprise-consul@2.0.4](https://github.com/qiwi/nestjs-enterprise/compare/2022.12.8-qiwi.nestjs-enterprise-consul.2.0.3-f0...2023.3.17-qiwi.nestjs-enterprise-consul.2.0.4-f0) (2023-03-17)
 
 ### Fixes & improvements
