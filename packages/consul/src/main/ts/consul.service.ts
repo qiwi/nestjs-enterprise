@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common'
+import {Inject, Injectable, OnModuleDestroy} from '@nestjs/common'
 import {
   ConsulDiscoveryService,
   IConsulKvSetOptions,
@@ -20,13 +20,17 @@ export interface IConsulService {
 }
 
 @Injectable()
-export class ConsulService implements IConsulService {
+export class ConsulService implements IConsulService, OnModuleDestroy {
   constructor(
     @Inject('ILogger') private log: ILogger,
     @Inject('IConfigService') private config: IConfig,
     @Inject('IDiscoveryService')
     private discoveryService: ConsulDiscoveryService,
   ) {}
+
+  async onModuleDestroy(): Promise<void> {
+    await this.discoveryService.clear()
+  }
 
   async register() {
     const serviceName: string = this.config.get('name')
