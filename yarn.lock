@@ -2731,6 +2731,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/consul@npm:^0.40.0":
+  version: 0.40.0
+  resolution: "@types/consul@npm:0.40.0"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: fea463383d7b33385b2944351e6425ee3ae7eecf17ca732ff932a69b3c26981e19f1c49c0ac4e8fc00d417499529f2cb68bfb17c29283815be688264c24d5e30
+  languageName: node
+  linkType: hard
+
 "@types/cookiejar@npm:*":
   version: 2.1.2
   resolution: "@types/cookiejar@npm:2.1.2"
@@ -2865,6 +2874,13 @@ __metadata:
   version: 7.0.11
   resolution: "@types/json-schema@npm:7.0.11"
   checksum: 8e5c6dd393411418e3d803ab0a09862b4ed47f73e7ed990f3b907dd41cc4d2f2b4f7aed9a39c7fd2acaa80314ac1397a5e2e5e6c25a338f01bbfba708cc70d8e
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:^4.14.195":
+  version: 4.14.195
+  resolution: "@types/lodash@npm:4.14.195"
+  checksum: a503fc2cef87abc17ec6f388009a787e609b799b8fcb69c47f9b91d5a47e564b5c00fd121f691acf2b2bb43b788e28ca22781de1ac561b2c35bea380c6446f79
   languageName: node
   linkType: hard
 

@@ -1,5 +1,5 @@
 // @ts-ignore
-import * as thrift from 'thrift'
+import type { TClientConstructor } from 'thrift'
 
 export const enum TServiceType {
   THRIFT = 'thrift',
@@ -75,6 +75,6 @@ export type IServiceDeclaration = IThriftServiceProfile | IDbServiceProfile
 export interface IThriftClientService {
   getClient<TClient>(
     serviceProfile: IServiceDeclaration,
-    clientConstructor: thrift.TClientConstructor<TClient>,
+    clientConstructor: TClientConstructor<TClient>,
   ): TClient
 }
