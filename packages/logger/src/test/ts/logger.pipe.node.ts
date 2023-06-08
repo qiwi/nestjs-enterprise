@@ -49,7 +49,7 @@ describe('createAppPipe', () => {
       meta: {},
     }
     deepEqual(pipe(inputEntry), inputEntry)
-    deepEqual(log.mock.calls.at(0)?.arguments,{
+    deepEqual(log.mock.calls.at(0)?.arguments.at(0),{
       level: inputEntry.level,
       message: input.join(' '),
       meta: inputEntry.meta,

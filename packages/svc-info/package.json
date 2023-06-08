@@ -46,10 +46,10 @@
     "tslib": "^2.5.3"
   },
   "devDependencies": {
-    "@types/rimraf": "^4.0.5",
     "@nestjs/swagger": "^6.3.0",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.38",
+    "@types/rimraf": "^4.0.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "esm": "^3.2.25",

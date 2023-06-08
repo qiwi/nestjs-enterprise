@@ -12,11 +12,9 @@ export type TWinstonEntry = {
 
 const {
   createLogger,
-  transports ,
-  format ,
+  transports: { Console, File } ,
+  format: { combine, printf, timestamp } ,
 }: any = winston
-const { Console, File } = transports
-const { combine, printf, timestamp } = format
 
 const isTimestampValid = (timestamp: any) =>
   typeof timestamp === 'number' || Date.parse(timestamp)
