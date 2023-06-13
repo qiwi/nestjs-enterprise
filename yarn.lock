@@ -1927,9 +1927,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/consul-service-discovery@npm:^1.10.6":
-  version: 1.10.6
-  resolution: "@qiwi/consul-service-discovery@npm:1.10.6"
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
   resolution: "@pkgjs/parseargs@npm:0.11.0"
