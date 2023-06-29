@@ -10,7 +10,7 @@ type TTestCase = {
 }
 
 describe('formatKibanaEntry', () => {
-  it('test cases', (t) => {
+  it('test cases', async (t) => {
     const testCases: TTestCase[] = [
       {
         description: 'adds string timestamp from meta',
@@ -108,7 +108,7 @@ describe('formatKibanaEntry', () => {
     ]
 
     for (const { input, output, description } of testCases) {
-      t.test(description, () => {
+      await t.test(description, () => {
         deepEqual(formatKibanaEntry(input), output)
       })
     }

@@ -66,6 +66,10 @@ describe('Decorators', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   describe('Decorators', () => {
     it('RpmDecorator', async () => {
       await request(app.getHttpServer()).get('/RpmDecorator').expect(200)

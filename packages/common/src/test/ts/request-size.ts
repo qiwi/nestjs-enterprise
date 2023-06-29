@@ -72,6 +72,10 @@ describe('RequestSize decorators', () => {
     await app.init()
   })
 
+  afterAll(async () => {
+    await app.close()
+  })
+
   describe('class decorator', () => {
     const cases: Cases = [
       [

@@ -9,7 +9,7 @@ import {
 } from '@qiwi/nestjs-enterprise-logger'
 import fs from 'node:fs'
 import path  from 'node:path'
-// import rimraf from 'rimraf'
+import {sync} from 'rimraf'
 import request from 'supertest'
 import { fileURLToPath } from 'node:url'
 
@@ -76,10 +76,10 @@ describe('SvcModule', () => {
     jest.setTimeout(10_000)
   })
 
-  // afterAll(() => {
-  //   fs.unlinkSync(buildstampPath)
-  //   rimraf.sync(tempFolderPath)
-  // })
+  afterAll(() => {
+    fs.unlinkSync(buildstampPath)
+    sync(tempFolderPath)
+  })
 
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
@@ -96,7 +96,7 @@ describe('SvcModule', () => {
             name: expect.any(String),
           })
         })
-      return app.close()
+      await app.close()
     })
   })
 
@@ -113,7 +113,7 @@ describe('SvcModule', () => {
             /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
           )
         })
-      return app.close()
+      await app.close()
     })
   })
 
@@ -130,7 +130,7 @@ describe('SvcModule', () => {
         .expect((data) => {
           expect(data.body).toEqual(buildstamp)
         })
-      return app.close()
+      await app.close()
     })
 
     it('returns buildstamp by custom path', async () => {
@@ -143,7 +143,7 @@ describe('SvcModule', () => {
         .expect((data) => {
           expect(data.body).toEqual(buildstamp)
         })
-      return app.close()
+      await app.close()
     })
 
     it('returns error message, when builstamp does not exist', async () => {
@@ -158,7 +158,7 @@ describe('SvcModule', () => {
             'required buildstamp on path foo/bar/baz.json is malformed or unreachable',
           )
         })
-      return app.close()
+      await app.close()
     })
   })
 })

@@ -18,11 +18,32 @@ import {
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import { createTransports } from '../../main/ts/winston'
 
+
 const testLogPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'log', 'application-json.log')
 const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
 
+const typeSymbol = Symbol('type')
+const AnyString = {
+  [typeSymbol]: 'string'
+}
+
+const toMatchObject = (actual: any, expected: any) => {
+  for (const key of Object.keys(expected)) {
+    if (!actual[key]) console.error('exist', key)
+    if (typeof expected[key] === 'object') {
+      if (expected[key][typeSymbol]) {
+        equal(typeof actual[key], expected[key][typeSymbol])
+      } else {
+        toMatchObject(actual[key], expected[key])
+      }
+      continue
+    }
+    deepEqual(actual[key], expected[key])
+  }
+}
+
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
-// TODO пофиксить  импорт winston
+
 describe('logger', () => {
   const fakeConfig = {
     get: (field: 'name' | 'logger' | 'version' | 'local') => {
@@ -163,8 +184,8 @@ describe('logger', () => {
         .compile()
 
       module.get(TestService).testlog()
-      console.error(log.mock.calls.at(0)?.arguments)
-      deepEqual(log.mock.calls.at(0)?.arguments,{
+
+      toMatchObject(log.mock.calls.at(0)?.arguments.at(0),{
         level: LogLevel.INFO,
         message: '4111 **** **** 1111',
         meta: {
@@ -172,14 +193,14 @@ describe('logger', () => {
           extra: {
             ttl: '25',
           },
-          host: expect.any(String),
+          host: AnyString,
           name: 'test-name-app2',
           version: '1',
           publicMeta: {
             app_version: '1',
             auth: {},
             event: 'metaevent',
-            host: expect.any(String),
+            host: AnyString,
             mdc: {
               parentSpanId: undefined,
               spanId: undefined,

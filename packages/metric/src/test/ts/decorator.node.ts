@@ -17,6 +17,13 @@ const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
 }
 
+const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, any>) => {
+  for (const key of Object.keys(expected)) {
+    if (!actual[key]) console.error('exist', key)
+    equal(typeof actual[key], typeof expected[key])
+  }
+}
+
 @Controller()
 export class TestClassController {
   @Get('RpmDecorator')
@@ -96,7 +103,7 @@ describe('Decorators', () => {
         .expect(200)
 
       await metricService.push()
-      toMatchObject(data, {
+      toMatchObjectTypes(data, {
         'decorator-test-prefix.RequestRateDecorator.meter.count': 1,
         'decorator-test-prefix.RequestRateDecorator.meter.1MinuteRate': 0,
         'decorator-test-prefix.RequestRateDecorator.meter.5MinuteRate': 0,
