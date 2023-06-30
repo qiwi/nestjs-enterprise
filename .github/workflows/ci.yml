@@ -24,14 +24,14 @@ jobs:
   build:
     name: build
     needs: init
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Download artifact
         uses: qiwi-forks/action-download-artifact@v2
@@ -87,14 +87,14 @@ jobs:
   test_push:
     needs: [build, init]
     if: github.event_name == 'push'
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Restore artifact from cache (if exists)
         uses: actions/cache@v3
@@ -152,8 +152,8 @@ jobs:
     needs: [build, init]
     strategy:
       matrix:
-        os: [ ubuntu-20.04 ]
-        node-version: [ 16 ]
+        os: [ ubuntu-22.04 ]
+        node-version: [ 20 ]
     name: Test (Node v${{ matrix.node-version }}, OS ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     steps:
@@ -200,17 +200,17 @@ jobs:
         run: yarn
 
       - name: Unit test only
-        if: matrix.node-version != '16' || matrix.os != 'ubuntu-20.04'
+        if: matrix.node-version != '20' || matrix.os != 'ubuntu-22.04'
         run: yarn test
       - name: Full test with report
-        if: matrix.node-version == '16' && matrix.os == 'ubuntu-20.04'
+        if: matrix.node-version == '20' && matrix.os == 'ubuntu-22.04'
         run: yarn test:report
 
   release:
     name: Release
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     needs: [test_push, init]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -252,7 +252,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 20
 
       - name: Codeclimate
         uses: paambaati/codeclimate-action@v3.0.0

@@ -22,9 +22,10 @@
     "buildstamp.json"
   ],
   "scripts": {
-    "test": "yarn lint && yarn test:spec",
+    "test": "yarn lint && yarn test:node",
     "test:gen": "yarn jest --updateSnapshot",
     "test:spec": "yarn jest",
+    "test:node": "ESBK_TSCONFIG_PATH=./tsconfig.test.json node --loader tsx --test **/*.node.ts",
     "jest": "yarn infra:jest -w=1 --config=jest.config.json",
     "format": "yarn infra:prettier --write \"src/**/*.ts\"",
     "lint": "yarn infra:eslint src/**/*.ts",
@@ -39,17 +40,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.3.10",
-    "@nestjs/core": "^9.3.10",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/core": "^9.4.3",
     "@qiwi/logwrap": "^1.5.1",
     "@qiwi/mware-context": "^1.14.0",
-    "@qiwi/substrate": "^2.0.3",
+    "@qiwi/substrate": "^2.0.4",
     "@types/winston": "^2.4.4",
     "fast-luhn": "^2.0.1",
     "fast-safe-stringify": "^2.1.1",
-    "rxjs": "^7.8.0",
-    "tslib": "^2.5.0",
-    "winston": "^3.8.2"
+    "rxjs": "^7.8.1",
+    "tslib": "^2.6.0",
+    "winston": "^3.9.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",

@@ -13,7 +13,8 @@
     "build": "yarn clean && yarn prebuild && yarn workspaces foreach -pt run build",
     "build-ci": "yarn prebuild && yarn workspaces foreach -p run build",
     "jest": "yarn infra:jest --runInBand --forceExit --detectOpenHandles",
-    "test": "yarn jest",
+    "test": "yarn test:node",
+    "test:node": "node --loader tsx --test **/*.node.ts",
     "test:report": "yarn test && yarn coveralls:push",
     "coverage:merge": "node scripts/js/coverage-merge.js",
     "codeclimate:push": "codeclimate-test-reporter < ./coverage/lcov.info",
@@ -29,7 +30,8 @@
     "coveralls": "^3.1.1",
     "find-git-root": "^1.0.4",
     "jest": "^29.5.0",
-    "snazzy": "^9.0.0"
+    "snazzy": "^9.0.0",
+    "tsx": "^3.12.7"
   },
   "repository": {
     "type": "git",

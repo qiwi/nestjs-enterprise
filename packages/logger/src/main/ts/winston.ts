@@ -1,13 +1,7 @@
 import safeJsonStrinify from 'fast-safe-stringify'
-import * as fs from 'node:fs'
-import * as path from 'node:path'
+import {existsSync, mkdirSync} from 'node:fs'
+import {resolve} from 'node:path'
 import * as winston from 'winston'
-
-const {
-  createLogger,
-  transports: { Console, File },
-  format: { combine, printf, timestamp },
-}: any = winston
 
 export type TWinstonEntry = {
   level: string
@@ -15,6 +9,12 @@ export type TWinstonEntry = {
   meta: Record<string, any>
   message: unknown
 }
+
+const {
+  createLogger,
+  transports: { Console, File } ,
+  format: { combine, printf, timestamp } ,
+}: any = winston
 
 const isTimestampValid = (timestamp: any) =>
   typeof timestamp === 'number' || Date.parse(timestamp)
@@ -66,11 +66,11 @@ function createFileAppender({
     return
   }
 
-  const dirname = path.resolve(dir)
+  const dirname = resolve(dir)
 
   try {
-    if (!fs.existsSync(dirname)) {
-      fs.mkdirSync(`${dirname}`)
+    if (!existsSync(dirname)) {
+      mkdirSync(`${dirname}`)
     }
   } catch (e) {
     console.error(e)

@@ -1,4 +1,3 @@
-import {jest} from '@jest/globals'
 import { HttpStatus, ValidationPipe } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
@@ -12,6 +11,8 @@ import path  from 'node:path'
 import {sync} from 'rimraf'
 import request from 'supertest'
 import { fileURLToPath } from 'node:url'
+import { describe, it, before, after } from 'node:test'
+import { equal, deepEqual, match } from 'node:assert'
 
 import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 
@@ -30,6 +31,13 @@ const buildstamp = {
 const buildstampPath = path.join(process.cwd(), 'buildstamp.json')
 const tempFolderPath = path.join(process.cwd(), 'some')
 const tempCustomBuildstampPath = path.join(tempFolderPath, 'foo.json')
+
+const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, string>) => {
+  for (const key of Object.keys(expected)) {
+    if (!actual[key]) console.error('exist', key)
+    equal(typeof actual[key], expected[key])
+  }
+}
 
 const fakeConfig = {
   get: (field: 'name' | 'logger' | 'version' | 'local') => {
@@ -53,7 +61,6 @@ const fakeConfig = {
     return configData[field]
   },
 }
-jest.setTimeout(20_000);
 
 const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
   return Test.createTestingModule({
@@ -69,14 +76,13 @@ const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
 }
 
 describe('SvcModule', () => {
-  beforeAll(async () => {
+  before(async () => {
     fs.writeFileSync(buildstampPath, JSON.stringify(buildstamp))
     fs.mkdirSync(tempFolderPath, { recursive: true })
     fs.writeFileSync(tempCustomBuildstampPath, JSON.stringify(buildstamp))
-    jest.setTimeout(10_000)
   })
 
-  afterAll(() => {
+  after(() => {
     fs.unlinkSync(buildstampPath)
     sync(tempFolderPath)
   })
@@ -91,9 +97,9 @@ describe('SvcModule', () => {
         .get('/svc-info/version')
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.body).toMatchObject({
-            version: expect.any(String),
-            name: expect.any(String),
+          toMatchObjectTypes(data.body, {
+            version: 'string',
+            name: 'string',
           })
         })
       await app.close()
@@ -109,7 +115,7 @@ describe('SvcModule', () => {
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.text).toMatch(
+          match(data.text,
             /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
           )
         })
@@ -128,7 +134,7 @@ describe('SvcModule', () => {
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.body).toEqual(buildstamp)
+          deepEqual(data.body, buildstamp)
         })
       await app.close()
     })
@@ -141,7 +147,7 @@ describe('SvcModule', () => {
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.body).toEqual(buildstamp)
+          deepEqual(data.body, buildstamp)
         })
       await app.close()
     })
@@ -154,7 +160,7 @@ describe('SvcModule', () => {
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
-          expect(data.text).toEqual(
+          equal(data.text,
             'required buildstamp on path foo/bar/baz.json is malformed or unreachable',
           )
         })

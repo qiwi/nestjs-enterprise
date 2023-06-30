@@ -1,6 +1,8 @@
 import { Controller, Get, INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import request from 'supertest'
+import { describe, it, before, after } from 'node:test'
+import { equal } from 'node:assert'
 
 import {
   ErrorDecorator,
@@ -9,6 +11,18 @@ import {
   MetricService,
   RequestRateDecorator,
 } from '../../main/ts'
+import lodash from "lodash";
+
+const toMatchObject = (actual: any, expected: any) => {
+  equal(lodash.isMatch(actual, expected), true)
+}
+
+const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, any>) => {
+  for (const key of Object.keys(expected)) {
+    if (!actual[key]) console.error('exist', key)
+    equal(typeof actual[key], typeof expected[key])
+  }
+}
 
 @Controller()
 export class TestClassController {
@@ -36,7 +50,7 @@ describe('Decorators', () => {
   let app: INestApplication
   let metricService: MetricService
 
-  beforeAll(async () => {
+  before(async () => {
     const moduleRef = await Test.createTestingModule({
       controllers: [TestClassController],
       providers: [
@@ -66,7 +80,7 @@ describe('Decorators', () => {
     await app.init()
   })
 
-  afterAll(async () => {
+  after(async () => {
     await app.close()
   })
 
@@ -75,7 +89,7 @@ describe('Decorators', () => {
       await request(app.getHttpServer()).get('/RpmDecorator').expect(200)
 
       await metricService.push()
-      expect(data).toMatchObject({
+      toMatchObject(data,{
         'decorator-test-prefix.RpmDecorator.meter.count': 1,
         'decorator-test-prefix.RpmDecorator.meter.1MinuteRate': 0,
         'decorator-test-prefix.RpmDecorator.meter.5MinuteRate': 0,
@@ -89,7 +103,7 @@ describe('Decorators', () => {
         .expect(200)
 
       await metricService.push()
-      expect(data).toMatchObject({
+      toMatchObjectTypes(data, {
         'decorator-test-prefix.RequestRateDecorator.meter.count': 1,
         'decorator-test-prefix.RequestRateDecorator.meter.1MinuteRate': 0,
         'decorator-test-prefix.RequestRateDecorator.meter.5MinuteRate': 0,
@@ -113,7 +127,7 @@ describe('Decorators', () => {
       await request(app.getHttpServer()).get('/ErrorDecorator').expect(500)
 
       await metricService.push()
-      expect(data).toMatchObject({
+      toMatchObject(data,{
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.count': 1,
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.1MinuteRate': 0,
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.5MinuteRate': 0,

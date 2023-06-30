@@ -22,9 +22,10 @@
     "buildstamp.json"
   ],
   "scripts": {
-    "test": "yarn lint && yarn test:spec",
+    "test": "yarn lint && yarn test:node",
     "test:gen": "yarn jest --updateSnapshot",
     "test:spec": "yarn jest",
+    "test:node": "node --loader tsx --test **/*.node.ts",
     "jest": "yarn infra:jest -w=1 --config=jest.config.json",
     "format": "yarn infra:prettier --write \"src/**/*.ts\"",
     "lint": "yarn infra:eslint src/**/*.ts",
@@ -39,17 +40,17 @@
     "postupdate": "yarn && yarn build && yarn test"
   },
   "dependencies": {
-    "@nestjs/common": "^9.3.10",
-    "@nestjs/core": "^9.3.10",
-    "@types/rimraf": "^4.0.5",
+    "@nestjs/common": "^9.4.3",
+    "@nestjs/core": "^9.4.3",
     "resolve-cwd": "^3.0.0",
-    "rxjs": "^7.8.0",
-    "tslib": "^2.5.0"
+    "rxjs": "^7.8.1",
+    "tslib": "^2.6.0"
   },
   "devDependencies": {
-    "@nestjs/swagger": "^6.2.1",
+    "@nestjs/swagger": "^6.3.0",
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@types/bluebird": "^3.5.38",
+    "@types/rimraf": "^4.0.5",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "esm": "^3.2.25",

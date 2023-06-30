@@ -2,6 +2,8 @@ import { Controller, HttpCode, Patch, Post } from '@nestjs/common'
 import { NestApplication } from '@nestjs/core'
 import { Test, TestingModule } from '@nestjs/testing'
 import request from 'supertest'
+import { describe, it, before, after } from 'node:test'
+import { equal } from 'node:assert'
 
 import { RequestSize } from '../../main/ts/request-size'
 
@@ -43,23 +45,23 @@ describe('RequestSize decorators', () => {
   let module: TestingModule
   let app: NestApplication
 
-  const processTestCases = (cases: Cases) => {
-    cases.forEach(([description, path, method, data, succ]) => {
-      it(description, () => {
-        return request(app.getHttpServer())
+  const processTestCases = async (cases: Cases, t) => {
+    for await (const [description, path, method, data, succ] of cases) {
+      await t.test(description, async () => {
+        request(app.getHttpServer())
           [method](path)
           .send({ data })
           .expect(succ.status)
           .expect((res) => {
             if (res.status === 200) {
-              return expect(res.text).toBe(succ.data)
+              return equal(res.text, succ.data)
             }
           })
       })
-    })
+    }
   }
 
-  beforeAll(async () => {
+  before(async () => {
     module = await Test.createTestingModule({
       controllers: [
         TestClassController,
@@ -72,11 +74,11 @@ describe('RequestSize decorators', () => {
     await app.init()
   })
 
-  afterAll(async () => {
+  after(async () => {
     await app.close()
   })
 
-  describe('class decorator', () => {
+  it('class decorator', async (t) => {
     const cases: Cases = [
       [
         '200 if request size > 512',
@@ -94,9 +96,9 @@ describe('RequestSize decorators', () => {
         { status: 403 },
       ],
     ]
-    processTestCases(cases)
+    await processTestCases(cases, t)
   })
-  describe('method decorator', () => {
+  it('method decorator', async (t) => {
     const cases: Cases = [
       [
         '200 if request size > 512',
@@ -114,10 +116,10 @@ describe('RequestSize decorators', () => {
         { status: 403 },
       ],
     ]
-    processTestCases(cases)
+    await processTestCases(cases, t)
   })
 
-  describe('param decorator', () => {
+  it('param decorator', async (t) => {
     const cases: Cases = [
       [
         'return request size',
@@ -128,6 +130,6 @@ describe('RequestSize decorators', () => {
       ],
     ]
 
-    processTestCases(cases)
+    await processTestCases(cases, t)
   })
 })

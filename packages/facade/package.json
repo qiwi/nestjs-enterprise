@@ -23,7 +23,8 @@
     "buildstamp.json"
   ],
   "scripts": {
-    "test": "yarn lint && yarn jest",
+    "test": "yarn lint && yarn test:node",
+    "test:node": "node --loader tsx --test **/*.node.ts",
     "jest": "yarn infra:jest -w=1 --config=jest.config.json",
     "lint": "yarn infra:eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
@@ -38,8 +39,8 @@
   },
   "dependencies": {
     "@qiwi/nestjs-enterprise-common": "workspace:*",
-    "@qiwi/substrate": "^2.0.3",
-    "tslib": "^2.5.0"
+    "@qiwi/substrate": "^2.0.4",
+    "tslib": "^2.6.0"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*"

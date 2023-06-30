@@ -10,7 +10,7 @@
     "<rootDir>/src/main/**/*"
   ],
   "testMatch": [
-    "<rootDir>/src/test/**/*.(j|t)s"
+    "<rootDir>/src/test/**/!(*.node).(j|t)s"
   ],
   "testPathIgnorePatterns": [
     "mock",

@@ -5,13 +5,14 @@ import {
   Injectable,
   SetMetadata,
   UseGuards,
+  Inject,
 } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
 
 @Injectable()
 export class PortCanActivate implements CanActivate {
-  constructor(private reflector: Reflector) {}
+  constructor(@Inject(Reflector) private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
     const port = this.reflector.get<string[]>('port', context.getHandler())
