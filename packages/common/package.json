@@ -46,7 +46,7 @@
     "graphite": "^0.1.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@nestjs/platform-express": "^9.4.3",

@@ -44,7 +44,7 @@
     "@nestjs/core": "^9.4.3",
     "resolve-cwd": "^3.0.0",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@nestjs/swagger": "^6.3.0",
