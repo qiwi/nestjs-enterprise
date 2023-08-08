@@ -26,11 +26,11 @@
     "format": "yarn workspaces foreach -p run format"
   },
   "devDependencies": {
-    "c8": "^8.0.0",
+    "c8": "^8.0.1",
     "codeclimate-test-reporter": "^0.5.1",
     "coveralls": "^3.1.1",
     "find-git-root": "^1.0.4",
-    "jest": "^29.5.0",
+    "jest": "^29.6.2",
     "snazzy": "^9.0.0",
     "tsx": "^3.12.7"
   },

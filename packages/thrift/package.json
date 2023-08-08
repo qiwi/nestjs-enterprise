@@ -50,7 +50,7 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "thrift": "0.18.1",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-config": "workspace:*",

@@ -42,10 +42,10 @@
   "dependencies": {
     "@nestjs/common": "^9.4.3",
     "@nestjs/core": "^9.4.3",
-    "@qiwi/mware": "^1.14.1",
+    "@qiwi/mware": "^1.14.2",
     "@qiwi/substrate": "^2.0.4",
     "rxjs": "^7.8.1",
-    "tslib": "^2.6.0"
+    "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@qiwi/nestjs-enterprise-infra": "workspace:*",
