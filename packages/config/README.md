@@ -1,9 +1,11 @@
 # @qiwi/nestjs-enterprise-config
 Nestjs module for processing [uniconfig-based](https://github.com/qiwi/uniconfig) configs.
+
 ## Installation
 ```shell script
 yarn add @qiwi/nestjs-enterprise-config
 ```
+
 ## Configuration
 Static import
 ```typescript
