@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-infra@3.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-infra.2.0.6-f0...2023.8.11-qiwi.nestjs-enterprise-infra.3.0.0-f0) (2023-08-11)
+
+### Fixes & improvements
+* perf: up deps and release [038979e](https://github.com/qiwi/nestjs-enterprise/commit/038979e99dd52c8283834a35953ba7c9ecfc060b)
+
+### BREAKING CHANGES
+* perf: up deps and release [038979e](https://github.com/qiwi/nestjs-enterprise/commit/038979e99dd52c8283834a35953ba7c9ecfc060b)
+
 ## [@qiwi/nestjs-enterprise-infra@2.0.6](https://github.com/qiwi/nestjs-enterprise/compare/2023.3.17-qiwi.nestjs-enterprise-infra.2.0.5-f0...2023.6.8-qiwi.nestjs-enterprise-infra.2.0.6-f0) (2023-06-08)
 
 ### Fixes & improvements
