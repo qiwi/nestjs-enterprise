@@ -1,3 +1,14 @@
+## [@qiwi/nestjs-enterprise-metric@2.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-metric.1.7.3-f0...2023.8.11-qiwi.nestjs-enterprise-metric.2.0.0-f0) (2023-08-11)
+
+### Fixes & improvements
+* perf: up deps and release [038979e](https://github.com/qiwi/nestjs-enterprise/commit/038979e99dd52c8283834a35953ba7c9ecfc060b)
+
+### BREAKING CHANGES
+* perf: up deps and release [038979e](https://github.com/qiwi/nestjs-enterprise/commit/038979e99dd52c8283834a35953ba7c9ecfc060b)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-infra updated to 3.0.0
+
 ## [@qiwi/nestjs-enterprise-metric@1.7.3](https://github.com/qiwi/nestjs-enterprise/compare/2023.5.16-qiwi.nestjs-enterprise-metric.1.7.2-f0...2023.6.8-qiwi.nestjs-enterprise-metric.1.7.3-f0) (2023-06-08)
 
 ### Dependencies
