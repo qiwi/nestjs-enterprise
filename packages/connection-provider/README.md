@@ -8,6 +8,7 @@ Requires following packages to be installed
 ```shell script
 yarn add @qiwi/nestjs-enterprise-connection-provider
 ```
+
 ## Configuration
 Imports
 ```typescript

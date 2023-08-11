@@ -1,5 +1,6 @@
 # @qiwi/nestjs-enterprise-metric
 Nestjs metric module
+
 ## Installation
 ```shell script
 yarn add @qiwi/nestjs-enterprise-metric

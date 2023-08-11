@@ -1,5 +1,6 @@
 # @qiwi/nestjs-enterprise-logger
 Nestjs module for logging based on [winston](https://github.com/winstonjs/winston)
+
 ## Installation
 Following packages should be installed before
 - [@qiwi/nestjs-enterprise-config](https://github.com/qiwi/nestjs-enterprise/tree/master/packages/config)

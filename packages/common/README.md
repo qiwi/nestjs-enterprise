@@ -1,5 +1,5 @@
 # @qiwi/nestjs-enterprise-common
-Common assets
+*Common assets*
 
 ## Install
 ```shell script

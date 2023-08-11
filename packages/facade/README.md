@@ -1,5 +1,5 @@
 # @qiwi/nestjs-enterprise
-Facade
+*Facade*
 
 ## Install
 ```shell script
