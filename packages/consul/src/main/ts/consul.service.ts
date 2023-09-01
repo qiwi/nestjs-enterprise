@@ -1,10 +1,10 @@
 import {Inject, Injectable, OnModuleDestroy} from '@nestjs/common'
-import {
-  ConsulDiscoveryService,
+import { ConsulDiscoveryService } from '@qiwi/consul-service-discovery'
+import type {
   IConsulKvSetOptions,
   INormalizedConsulKvValue,
 } from '@qiwi/consul-service-discovery'
-import { IConfig, ILogger, IPromise } from '@qiwi/substrate'
+import type { IConfig, ILogger, IPromise } from '@qiwi/substrate'
 
 export type IConnectionParams = {
   host: string

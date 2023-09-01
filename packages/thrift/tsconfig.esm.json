@@ -1,0 +1,28 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "target": "es2022",
+    "module": "es2022",
+    "rootDir": "./src/main/ts",
+    "outDir": "./target/esm",
+    "tsBuildInfoFile": "./target/esm/.tsbuildinfo"
+  },
+  "references": [
+    {
+      "path": "../config/tsconfig.esm.json"
+    },
+    {
+      "path": "../connection-provider/tsconfig.esm.json"
+    },
+    {
+      "path": "../consul/tsconfig.esm.json"
+    },
+    {
+      "path": "../infra/tsconfig.esm.json"
+    },
+    {
+      "path": "../logger/tsconfig.esm.json"
+    }
+  ]
+}

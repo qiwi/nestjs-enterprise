@@ -3,10 +3,25 @@
   "version": "1.6.1",
   "description": "Logger module for nestjs enterprise",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "type": "module",
+    "main": "./target/cjs/index.cjs",
+    "module": "./target/esm/index.mjs",
+    "types": "./target/esm/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./target/cjs/index.cjs",
+        "import": "./target/esm/index.mjs",
+        "types": "./target/esm/index.d.ts"
+      }
+    },
+    "files": [
+      "target/cjs/**/*",
+      "target/esm/**/*"
+    ]
   },
   "main": "./target/es6/index.js",
-  "exports": "./target/es6/index.js",
+  "exports": "./src/main/ts/index.ts",
   "source": "target/ts/index.ts",
   "types": "target/es6/index.d.ts",
   "typescript": {

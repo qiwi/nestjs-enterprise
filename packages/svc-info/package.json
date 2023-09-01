@@ -3,10 +3,25 @@
   "version": "1.4.1",
   "description": "Service-info controller for nestjs enterprise",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "type": "module",
+    "main": "./target/cjs/index.cjs",
+    "module": "./target/esm/index.mjs",
+    "types": "./target/esm/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./target/cjs/index.cjs",
+        "import": "./target/esm/index.mjs",
+        "types": "./target/esm/index.d.ts"
+      }
+    },
+    "files": [
+      "target/cjs/**/*",
+      "target/esm/**/*"
+    ]
   },
   "main": "./target/es6/index.js",
-  "exports": "./target/es6/index.js",
+  "exports": "./src/main/ts/index.ts",
   "source": "target/ts/index.ts",
   "types": "target/es6/index.d.ts",
   "typescript": {
@@ -54,7 +69,8 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "esm": "^3.2.25",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.1"
   },
   "repository": {
     "type": "git",

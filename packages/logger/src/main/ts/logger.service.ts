@@ -6,7 +6,7 @@ import {
 import { Logwrap, mdc } from '@qiwi/logwrap'
 // @ts-ignore
 import { DEFAULT_NS } from '@qiwi/mware-context'
-import { IConfig, ILogger, LogLevel } from '@qiwi/substrate'
+import type { IConfig, ILogger, LogLevel } from '@qiwi/substrate'
 import * as os from 'node:os'
 
 import { createAppPipe } from './app.pipe'
