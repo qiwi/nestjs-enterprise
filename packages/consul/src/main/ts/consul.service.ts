@@ -1,10 +1,11 @@
-import {Inject, Injectable, OnModuleDestroy} from '@nestjs/common'
-import {
-  ConsulDiscoveryService,
+import { ConsulDiscoveryService } from '@qiwi/consul-service-discovery'
+import type {
   IConsulKvSetOptions,
   INormalizedConsulKvValue,
 } from '@qiwi/consul-service-discovery'
-import { IConfig, ILogger, IPromise } from '@qiwi/substrate'
+import type { IConfig, ILogger, IPromise } from '@qiwi/substrate'
+
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 
 export type IConnectionParams = {
   host: string
@@ -15,7 +16,9 @@ const CONSUL_CHECK_REG_INTERVAL = 60_000
 
 export interface IConsulService {
   register(opts: any): IPromise
+
   getConnectionParams(opts: any): Promise<IConnectionParams | undefined>
+
   getKv(key: string): Promise<INormalizedConsulKvValue>
 }
 

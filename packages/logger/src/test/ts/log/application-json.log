@@ -1,0 +1,4 @@
+{"@timestamp":"2023-09-12T10:58:48.662Z","level":"ERROR","message":"testinfo-foo-static"}
+{"@timestamp":"2023-09-12T10:58:48.818Z","level":"ERROR","message":"testinfo-foo-dynamic"}
+{"@timestamp":"2023-09-12T10:58:48.992Z","level":"INFO","message":"4111 **** **** 1111","ttl":"25","mdc":{},"event":"metaevent","auth":{},"app_version":"1","serviceName":"test-name-app2","host":"MB530385.local"}
+{"@timestamp":"2023-09-12T10:58:49.028Z","level":"ERROR","message":"eventMessage","mdc":{},"event":"metaevent","auth":{},"app_version":"1","serviceName":"test-name-app2","host":"MB530385.local"}

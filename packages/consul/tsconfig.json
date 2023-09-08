@@ -1,14 +1,37 @@
 {
-  "extends": "../../packages/infra/tsconfig.compiler.json",
   "compilerOptions": {
-    "rootDir": "./src/main/ts/",
-    "baseUrl": "./src/main/ts/",
-    "tsBuildInfoFile": "./buildcache/.tsbuildinfo"
+    "module": "es2022",
+    "target": "es2022",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "downlevelIteration": true,
+    "importHelpers": true,
+    "baseUrl": "./",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@qiwi/nestjs-enterprise-config": [
+        "../config/src/main/ts"
+      ],
+      "@qiwi/nestjs-enterprise-logger": [
+        "../logger/src/main/ts"
+      ]
+    }
   },
   "include": [
-    "src/main/ts"
+    "./src/main/ts",
+    "./src/test/ts"
   ],
   "exclude": [
-    "node_modules"
+    "./node_modules"
   ]
 }

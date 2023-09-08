@@ -1,0 +1,7 @@
+/node_modules
+/target
+
+# test temp
+
+/src/test/ts/log
+/buildstamp.json

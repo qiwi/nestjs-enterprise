@@ -1,36 +1,60 @@
 {
+  "displayName": "@qiwi/nestjs-enterprise-metric",
+  "injectGlobals": false,
+  "clearMocks": true,
+  "resetMocks": true,
+  "testEnvironment": "node",
+  "testMatch": [
+    "<rootDir>/src/test/[jt]s/**/*.[jt]s?(x)"
+  ],
+  "testPathIgnorePatterns": [
+    "__mocks__",
+    "__snapshots__"
+  ],
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/[jt]s/**/*.[jt]s?(x)"
+  ],
+  "coverageDirectory": "<rootDir>/target/coverage",
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/node_modules",
+    "<rootDir>/target"
+  ],
+  "coverageProvider": "v8",
+  "coverageReporters": [
+    "json",
+    "lcov"
+  ],
+  "snapshotResolver": "@packasso/jest-snapshot-resolver",
+  "moduleNameMapper": {},
   "transform": {
-    "^.+\\.tsx?$": [
-      "ts-jest",
+    "^.+\\.svg$": "@packasso/jest-svgr-transformer",
+    "^.+\\.[jt]sx?$": [
+      "@swc/jest",
       {
-        "useESM": true,
-        "tsconfig": "<rootDir>/tsconfig.test.json"
+        "jsc": {
+          "parser": {
+            "syntax": "typescript",
+            "tsx": true,
+            "decorators": true,
+            "dynamicImport": true
+          },
+          "transform": {
+            "react": {
+              "runtime": "automatic"
+            },
+            "legacyDecorator": true,
+            "decoratorMetadata": true
+          }
+        }
       }
     ]
   },
-  "collectCoverage": true,
-  "coveragePathIgnorePatterns": [
-  ],
-  "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.(j|t)s"
-  ],
-  "testMatch": [
-    "<rootDir>/src/test/**/!(*.node).(j|t)s"
-  ],
-  "testPathIgnorePatterns": [
-    "/node_modules/"
-  ],
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "js",
-    "jsx",
-    "json",
-    "node"
-  ],
-  "preset": "ts-jest",
   "extensionsToTreatAsEsm": [
     ".ts",
-    ".d.ts"
+    ".tsx"
+  ],
+  "transformIgnorePatterns": [
+    "/node_modules/"
   ]
 }

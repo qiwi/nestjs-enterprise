@@ -1,8 +1,4 @@
-import {
-  ASYNC,
-  Config,
-  IConfig as IConfigService,
-} from '@qiwi/uniconfig'
+import { ASYNC, Config, IConfig as IConfigService } from '@qiwi/uniconfig'
 
 export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'
 export const DEFAULT_KUBE_CONFIG_PATH = '<root>/config/kube.json'
@@ -42,13 +38,10 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
   return opts
 }
 
-
-
-
 export class ConfigService extends Config implements IConfigService {
   constructor(opts?: string | Record<any, any>) {
     super(normalizeOpts(opts))
   }
 }
 
-export type {IConfig as IConfigService} from '@qiwi/uniconfig'
+export type { IConfig as IConfigService } from '@qiwi/uniconfig'

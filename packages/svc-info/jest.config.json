@@ -1,27 +1,63 @@
 {
-  "transform": {
-    "^.+\\.tsx?$": ["ts-jest", {"useESM": true, "tsconfig": "<rootDir>/tsconfig.test.json"}]
-  },
-  "collectCoverage": true,
-  "coveragePathIgnorePatterns": [
-  ],
-  "collectCoverageFrom": [
-    "<rootDir>/src/main/**/*.(j|t)s"
-  ],
+  "displayName": "@qiwi/nestjs-enterprise-svc-info",
+  "injectGlobals": false,
+  "clearMocks": true,
+  "resetMocks": true,
+  "testEnvironment": "node",
   "testMatch": [
-    "<rootDir>/src/test/**/!(*.node).(j|t)s"
+    "<rootDir>/src/test/[jt]s/**/*.[jt]s?(x)"
   ],
   "testPathIgnorePatterns": [
-    "/node_modules/"
+    "__mocks__",
+    "__snapshots__"
   ],
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "js",
-    "jsx",
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/[jt]s/**/*.[jt]s?(x)"
+  ],
+  "coverageDirectory": "<rootDir>/target/coverage",
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/node_modules",
+    "<rootDir>/target"
+  ],
+  "coverageProvider": "v8",
+  "coverageReporters": [
     "json",
-    "node"
+    "lcov"
   ],
-  "preset": "ts-jest",
-  "extensionsToTreatAsEsm": [".ts", ".d.ts"]
+  "snapshotResolver": "@packasso/jest-snapshot-resolver",
+  "moduleNameMapper": {
+    "@qiwi/nestjs-enterprise-config": "<rootDir>/../config/src/main/ts",
+    "@qiwi/nestjs-enterprise-logger": "<rootDir>/../logger/src/main/ts"
+  },
+  "transform": {
+    "^.+\\.svg$": "@packasso/jest-svgr-transformer",
+    "^.+\\.[jt]sx?$": [
+      "@swc/jest",
+      {
+        "jsc": {
+          "parser": {
+            "syntax": "typescript",
+            "tsx": true,
+            "decorators": true,
+            "dynamicImport": true
+          },
+          "transform": {
+            "react": {
+              "runtime": "automatic"
+            },
+            "legacyDecorator": true,
+            "decoratorMetadata": true
+          }
+        }
+      }
+    ]
+  },
+  "extensionsToTreatAsEsm": [
+    ".ts",
+    ".tsx"
+  ],
+  "transformIgnorePatterns": [
+    "/node_modules/"
+  ]
 }

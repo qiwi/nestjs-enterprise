@@ -1,14 +1,23 @@
 {
   "collectCoverage": true,
+  "collectCoverageFrom": [
+    "<rootDir>/src/main/[jt]s/**/*.[jt]s?(x)"
+  ],
+  "coverageDirectory": "<rootDir>/target/coverage",
+  "coveragePathIgnorePatterns": [
+    "<rootDir>/node_modules",
+    "<rootDir>/target"
+  ],
   "projects": [
-    "<rootDir>/packages/facade/jest.config.json",
     "<rootDir>/packages/common/jest.config.json",
-    "<rootDir>/packages/mdc/jest.config.json",
+    "<rootDir>/packages/connection-provider/jest.config.json",
     "<rootDir>/packages/config/jest.config.json",
-    "<rootDir>/packages/logger/jest.config.json",
-    "<rootDir>/packages/svc-info/jest.config.json",
     "<rootDir>/packages/consul/jest.config.json",
+    "<rootDir>/packages/facade/jest.config.json",
+    "<rootDir>/packages/logger/jest.config.json",
+    "<rootDir>/packages/mdc/jest.config.json",
     "<rootDir>/packages/thrift/jest.config.json",
-    "<rootDir>/packages/connection-provider/jest.config.json"
+    "<rootDir>/packages/metric/jest.config.json",
+    "<rootDir>/packages/svc-info/jest.config.json"
   ]
 }

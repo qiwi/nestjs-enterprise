@@ -1,4 +1,5 @@
 import { ILogEntry } from '@qiwi/logwrap'
+
 import luhn from 'fast-luhn'
 
 export const masker = (input: string | number): string => {
@@ -9,9 +10,11 @@ export const masker = (input: string | number): string => {
   )
 }
 
-// eslint-disable-next-line unicorn/consistent-function-scoping
-export const maskerLoggerPipeFactory = () => (entry: ILogEntry): ILogEntry => ({
-  // eslint-disable-line
-  ...entry,
-  input: entry.input.map(masker),
-})
+export const maskerLoggerPipeFactory =
+  () =>
+  // eslint-disable-next-line unicorn/consistent-function-scoping
+  (entry: ILogEntry): ILogEntry => ({
+    // eslint-disable-line
+    ...entry,
+    input: entry.input.map(masker),
+  })

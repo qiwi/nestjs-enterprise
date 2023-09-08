@@ -1,5 +1,6 @@
-import { Inject } from '@nestjs/common'
 import { constructDecorator } from '@qiwi/decorator-utils'
+
+import { Inject } from '@nestjs/common'
 
 export const MeteredDecorator = constructDecorator(
   ({ target, proto, args: [metricName] }) => {

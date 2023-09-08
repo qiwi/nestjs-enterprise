@@ -31,6 +31,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
+          cache: npm
           node-version: 20.5.0
 
       - name: Download artifact
@@ -61,11 +62,15 @@ jobs:
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
         run: yarn
 
+      - name: Install packasso
+        if: ${{ steps.check-artifact.outputs.exists == 'false' }}
+        run: npx packasso install
+
       - name: Build
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
         run: |
-          yarn build-ci
-          tar -cvf artifact.tar packages/*/target package.json packages/*/docs
+          npx packasso build
+          tar -cvf artifact.tar packages/*/target package.json
 
       - name: Save artifact
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
@@ -94,6 +99,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
+          cache: npm
           node-version: 20.5.0
 
       - name: Restore artifact from cache (if exists)
@@ -131,11 +137,14 @@ jobs:
       - name: Install deps
         run: yarn
 
+      - name: Install packasso
+        run: npx packasso install
+
       - name: Linter
-        run: yarn lint
+        run: npx packasso lint
 
       - name: Tests
-        run: yarn test
+        run: npx packasso test
 
       - name: Cache coverage
         if: github.ref == 'refs/heads/master'
@@ -162,6 +171,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
+          cache: npm
           node-version: ${{ matrix.node-version }}
 
       - uses: actions/cache@v3
@@ -199,12 +209,15 @@ jobs:
       - name: Install deps
         run: yarn
 
+      - name: Install packasso
+        run: npx packasso install
+
       - name: Unit test only
         if: matrix.node-version != '20.5.0' || matrix.os != 'ubuntu-22.04'
-        run: yarn test
-      - name: Full test with report
-        if: matrix.node-version == '20.5.0' && matrix.os == 'ubuntu-22.04'
-        run: yarn test:report
+        run: npx packasso test
+#      - name: Full test with report
+#        if: matrix.node-version == '20.5.0' && matrix.os == 'ubuntu-22.04'
+#        run: yarn test:report
 
   release:
     name: Release
@@ -252,6 +265,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
+          cache: npm
           node-version: 20.5.0
 
       - name: Codeclimate

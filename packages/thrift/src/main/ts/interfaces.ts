@@ -1,6 +1,6 @@
-import {Pool} from 'generic-pool'
 import * as thrift from 'thrift'
-import {TProtocol, TTransport} from 'thrift'
+import { Pool } from 'generic-pool'
+import { TProtocol, TTransport } from 'thrift'
 
 export const enum TServiceType {
   THRIFT = 'thrift',
@@ -112,7 +112,11 @@ export type TPoolOpts = {
   idleTimeoutMillis?: number
 }
 
-export type TThriftPoolResource<TClient> = {connection: thrift.Connection, client: TClient, profile: IThriftServiceProfile}
+export type TThriftPoolResource<TClient> = {
+  connection: thrift.Connection
+  client: TClient
+  profile: IThriftServiceProfile
+}
 export type TThriftPool<TClient> = Pool<TThriftPoolResource<TClient>>
 
 export type TThriftOpts = {
@@ -122,4 +126,3 @@ export type TThriftOpts = {
     protocol: TProtocol
   }
 }
-
