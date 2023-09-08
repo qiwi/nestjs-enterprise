@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-metric@2.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2023.8.11-qiwi.nestjs-enterprise-metric.2.0.0-f0...2023.9.8-qiwi.nestjs-enterprise-metric.2.0.1-f0) (2023-09-08)
+
+### Fixes & improvements
+* perf: update decorator-utils (#92) [d375f90](https://github.com/qiwi/nestjs-enterprise/commit/d375f90bb15c15b2c3afd5d9a996ede76301b6b6)
+
 ## [@qiwi/nestjs-enterprise-metric@2.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-metric.1.7.3-f0...2023.8.11-qiwi.nestjs-enterprise-metric.2.0.0-f0) (2023-08-11)
 
 ### Fixes & improvements
