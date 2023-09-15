@@ -26,23 +26,8 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
   if (typeof opts === 'string' || opts === undefined) {
     return {
       mode: ASYNC,
-      data: {
-        data: {
-          data: {
-            target: '$env:ENVIRONMENT_PROFILE_NAME',
-            local: '$env:LOCAL',
-            path: opts,
-            resolveConfigPath,
-          },
-          template: `{{=it.resolveConfigPath(it.path, it.local, it.target)}}`,
-        },
-        sources: {
-          env: {
-            pipeline: 'env',
-          },
-        },
-      },
-      pipeline: 'datatree>dot>path>file>json>datatree',
+      data: resolveConfigPath(opts, !!process.env.LOCAL, process.env.ENVIRONMENT_PROFILE_NAME),
+      pipeline: 'path>file>json>datatree',
     }
   }
 
