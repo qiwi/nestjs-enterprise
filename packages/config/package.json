@@ -42,7 +42,7 @@
   "dependencies": {
     "@nestjs/common": "^10.1.3",
     "@nestjs/core": "^10.1.3",
-    "@qiwi/uniconfig": "^3.5.11",
+    "@qiwi/uniconfig": "^3.5.13",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.1"
   },

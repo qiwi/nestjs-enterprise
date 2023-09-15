@@ -4,15 +4,22 @@ import {
   IConfig as IConfigService,
 } from '@qiwi/uniconfig'
 
-export const DEFAULT_LOCAL_CONFIG_PATH = '<root>/config/local.json'
-export const DEFAULT_KUBE_CONFIG_PATH = '<root>/config/kube.json'
+export const DEFAULT_LOCAL_CONFIG_PATH = '<cwd>/config/local.json'
+export const DEFAULT_KUBE_CONFIG_PATH = '<cwd>/config/kube.json'
 
-export const resolveConfigPath = (path?: string, local?: boolean): string => {
+export const resolveConfigPath = (path?: string, local?: boolean, env?: string): string | string[] => {
   if (path) {
     return path
   }
 
-  return local ? DEFAULT_LOCAL_CONFIG_PATH : DEFAULT_KUBE_CONFIG_PATH
+  return local
+    ? DEFAULT_LOCAL_CONFIG_PATH
+    : env
+      ? [
+        `<cwd>/config/${env}.json`,
+        DEFAULT_KUBE_CONFIG_PATH,
+      ]
+      : DEFAULT_KUBE_CONFIG_PATH
 }
 
 const normalizeOpts = (opts?: string | Record<any, any>) => {
@@ -27,7 +34,7 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
             path: opts,
             resolveConfigPath,
           },
-          template: `{{=it.resolveConfigPath(it.path, it.local)}}`,
+          template: `{{=it.resolveConfigPath(it.path, it.local, it.target)}}`,
         },
         sources: {
           env: {
@@ -42,13 +49,10 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
   return opts
 }
 
-
-
-
 export class ConfigService extends Config implements IConfigService {
   constructor(opts?: string | Record<any, any>) {
     super(normalizeOpts(opts))
   }
 }
 
-export type {IConfig as IConfigService} from '@qiwi/uniconfig'
+export type { IConfig as IConfigService } from '@qiwi/uniconfig'
