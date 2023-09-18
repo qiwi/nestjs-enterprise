@@ -44,15 +44,23 @@ export class MyService {
   }
 }
 ````
+
+`ConfigService` tries to read config file from `<cwd>/config/${process.env.ENVIRONMENT_PROFILE_NAME}.json`.
+
+If it does not exist, then module will read from `<cwd>/config/kube.json` (`DEFAULT_KUBE_CONFIG_PATH`).
+
+If `process.env.LOCAL` is truthy, then service will read from `<cwd>/config/local.json` (`DEFAULT_LOCAL_CONFIG_PATH`).
+
 ## API
 ### Class ConfigModule
 Exports `ConfigService` with token `IConfigService`
 ##### static register (opts: { path: string }): DynamicModule
 
 ### Function resolveConfigPath
-#### resolveConfigPath (path?: string, local?: boolean): string
+
+#### resolveConfigPath (path?: string, local?: boolean, env?: string): string
 
 ###  DEFAULT_KUBE_CONFIG_PATH
-#### '\<root>/config/local.json'
+`<cwd>/config/kube.json`
 ###  DEFAULT_LOCAL_CONFIG_PATH
-#### '\<root>/config/kube.json'
+`<cwd>/config/local.json`
