@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-thrift@3.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2023.8.11-qiwi.nestjs-enterprise-thrift.3.0.0-f0...2023.9.18-qiwi.nestjs-enterprise-thrift.3.0.1-f0) (2023-09-18)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-config updated to 4.0.0
+
 ## [@qiwi/nestjs-enterprise-thrift@3.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-thrift.2.1.13-f0...2023.8.11-qiwi.nestjs-enterprise-thrift.3.0.0-f0) (2023-08-11)
 
 ### Fixes & improvements
