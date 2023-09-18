@@ -2298,7 +2298,7 @@ __metadata:
     "@nestjs/common": "npm:^10.1.3"
     "@nestjs/core": "npm:^10.1.3"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
-    "@qiwi/uniconfig": "npm:^3.5.13"
+    "@qiwi/uniconfig": "npm:^3.5.14"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.0"
     lodash: "npm:^4.17.21"
@@ -2594,13 +2594,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-api-file@npm:3.6.0":
-  version: 3.6.0
-  resolution: "@qiwi/uniconfig-plugin-api-file@npm:3.6.0"
+"@qiwi/uniconfig-plugin-api-file@npm:4.0.0":
+  version: 4.0.0
+  resolution: "@qiwi/uniconfig-plugin-api-file@npm:4.0.0"
   dependencies:
     "@qiwi/uniconfig-core": "npm:3.5.4"
     tslib: "npm:^2.4.0"
-  checksum: 3ef20aabaab339170113db8ea9aceb3920aa6ec12d8ac7cbe3cee9cb396313af400561e418dbda66ca772e9e1a3a07527de3ad7e13296d8d16560732e26e25ef
+  checksum: b230ef5316325269f4a6ab2f541d1fe50058875c389509d4f089b248945774e8f11ec21d86fe94e5b23d6dbea8c47ebc3bbb57229f6d1c91df2d41570e2aa8ea
   languageName: node
   linkType: hard
 
@@ -2691,13 +2691,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-json@npm:3.5.6":
-  version: 3.5.6
-  resolution: "@qiwi/uniconfig-plugin-json@npm:3.5.6"
+"@qiwi/uniconfig-plugin-json@npm:3.5.7":
+  version: 3.5.7
+  resolution: "@qiwi/uniconfig-plugin-json@npm:3.5.7"
   dependencies:
     "@qiwi/uniconfig-core": "npm:3.5.4"
     tslib: "npm:^2.4.0"
-  checksum: bd07c193338c10bf9e8c2aa6dd32748639ab638cfaa32cfc2b2de1f33df77863ccf17da1e71119b8989e10cdeb6fd11d70043b2132bcdd2c7fcf56ad5bc683c6
+  checksum: 7ef12fb98adc6a62a0bc1af77e48022d70b0baa2b228bbc58de2569824e9dd5219f5977638aa9655ff5e54e1206dc73d60508042bbcb162f7137f7f58c3512a6
   languageName: node
   linkType: hard
 
@@ -2733,24 +2733,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-plugin-yaml@npm:3.5.6":
-  version: 3.5.6
-  resolution: "@qiwi/uniconfig-plugin-yaml@npm:3.5.6"
+"@qiwi/uniconfig-plugin-yaml@npm:3.5.7":
+  version: 3.5.7
+  resolution: "@qiwi/uniconfig-plugin-yaml@npm:3.5.7"
   dependencies:
     "@qiwi/uniconfig-core": "npm:3.5.4"
     js-yaml: "npm:^4.1.0"
     tslib: "npm:^2.4.0"
-  checksum: ee678503e9bac159ed63e15b8fd4106110b9250b99d4bd90f10ad54a36f96189219a436c87b77f2f61e9c8f9ed02bc34dd35fcc093e10165a0353f034b545dfa
+  checksum: bdeed9e55ec0fd6558208c351532df41092071c8d7473559eada0367be28001d91e78c102e02e9a3c0021aee3547689a862600f4daffc6a24e3957d6a92626b7
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig@npm:^3.5.13":
-  version: 3.5.13
-  resolution: "@qiwi/uniconfig@npm:3.5.13"
+"@qiwi/uniconfig@npm:^3.5.14":
+  version: 3.5.14
+  resolution: "@qiwi/uniconfig@npm:3.5.14"
   dependencies:
     "@qiwi/uniconfig-core": "npm:3.5.4"
     "@qiwi/uniconfig-plugin-ajv": "npm:3.5.5"
-    "@qiwi/uniconfig-plugin-api-file": "npm:3.6.0"
+    "@qiwi/uniconfig-plugin-api-file": "npm:4.0.0"
     "@qiwi/uniconfig-plugin-api-http": "npm:3.5.5"
     "@qiwi/uniconfig-plugin-argv": "npm:3.5.5"
     "@qiwi/uniconfig-plugin-datatree": "npm:3.5.5"
@@ -2759,12 +2759,12 @@ __metadata:
     "@qiwi/uniconfig-plugin-env": "npm:3.5.5"
     "@qiwi/uniconfig-plugin-global": "npm:3.5.5"
     "@qiwi/uniconfig-plugin-ip": "npm:3.5.5"
-    "@qiwi/uniconfig-plugin-json": "npm:3.5.6"
+    "@qiwi/uniconfig-plugin-json": "npm:3.5.7"
     "@qiwi/uniconfig-plugin-path": "npm:3.6.0"
     "@qiwi/uniconfig-plugin-pkg": "npm:3.5.5"
     "@qiwi/uniconfig-plugin-root": "npm:3.5.5"
-    "@qiwi/uniconfig-plugin-yaml": "npm:3.5.6"
-  checksum: c3b13520c17c12844b6a6c823bfdb9a5279420a878e4739889bf50e19db0e5c545935a658b2f8176e7c4e25b8d6ae6586408a04be666984011ba2e3ed56d8030
+    "@qiwi/uniconfig-plugin-yaml": "npm:3.5.7"
+  checksum: 79d1bf0529e9f73ed2569fad4c73ecc55b953c7990bc6624170e8669e045bce8cb47fd8ba8d4a11d7a5a58606c8319f561b67b7c29d19299c90a79c28f5766bf
   languageName: node
   linkType: hard
 
