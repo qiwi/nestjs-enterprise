@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-config@4.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.8.11-qiwi.nestjs-enterprise-config.3.0.0-f0...2023.9.18-qiwi.nestjs-enterprise-config.4.0.0-f0) (2023-09-18)
+
+### Features
+* feat(config): use cwd instead of root, support environment configs (#94) [6c2e74b](https://github.com/qiwi/nestjs-enterprise/commit/6c2e74be851817d49672ad8ad21b215c23388dea)
+
+### BREAKING CHANGES
+* feat(config): use cwd instead of root, support environment configs (#94) [6c2e74b](https://github.com/qiwi/nestjs-enterprise/commit/6c2e74be851817d49672ad8ad21b215c23388dea)
+
 ## [@qiwi/nestjs-enterprise-config@3.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-config.2.1.6-f0...2023.8.11-qiwi.nestjs-enterprise-config.3.0.0-f0) (2023-08-11)
 
 ### Fixes & improvements
