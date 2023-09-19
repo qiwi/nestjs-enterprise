@@ -63,3 +63,5 @@ export class TestParamController {
 
 - When used as a method decorator or class decorator, work like [guard](https://docs.nestjs.com/guards), allows a request that is smaller than the specified size.
 - When used as a parameter decorator, get size of request.   
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/common/)

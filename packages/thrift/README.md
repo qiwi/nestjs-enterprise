@@ -113,3 +113,4 @@ class AuthService {
 ### Class ConnectionProviderModule
 Exports `IThriftClientService` with token `IThriftClientService`
 
+### [Docs](https://qiwi.github.io/nestjs-enterprise/thrift/)

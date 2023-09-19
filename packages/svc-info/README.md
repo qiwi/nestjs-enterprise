@@ -88,3 +88,4 @@ const opts: ISvcInfoModuleOpts = {
 })
 export class AppModule {}
 ```
+### [Docs](https://qiwi.github.io/nestjs-enterprise/svc-info)

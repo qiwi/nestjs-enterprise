@@ -50,3 +50,5 @@ export class TestClassController {
 
 export class AppModule {}
 ```
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/metric/)

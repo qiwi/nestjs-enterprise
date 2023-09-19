@@ -95,3 +95,5 @@ Creates pipe for pan masking
 
 ### Function masker = (input: string | number): string
 Masks pans
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/logger/)
