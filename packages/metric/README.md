@@ -8,6 +8,15 @@ yarn add @qiwi/nestjs-enterprise-metric
 
 ## Usage
 ```typescript
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule)
+  metricService = app.get('IMetricService')
+  metricService.attach(getNodeMetrics)
+  
+  // ...etc
+}
+```
+```typescript
 import {GraphiteService, MetricDecorator, MetricService} from '@qiwi/nestjs-enterprise-metric'
 import {Controller, Get, Module} from "@nestjs/common";
 

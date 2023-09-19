@@ -11,7 +11,11 @@ import lodash from 'lodash'
 import { ConsulModule, IConsulService } from '../../main/ts'
 import { FakeConsulDiscovery } from './mock/fakeConsulDiscovery'
 
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
@@ -48,9 +52,10 @@ describe('logger module', () => {
         .useValue({ info: console.log })
         .compile()
 
-      toMatchObject(
-        await module.get(TestService).getConnectionParams(),
-      { host: 'test', port: 'test' })
+      toMatchObject(await module.get(TestService).getConnectionParams(), {
+        host: 'test',
+        port: 8080,
+      })
     })
 
     it('getKv works', async () => {
@@ -105,9 +110,7 @@ describe('logger module', () => {
         .useValue({ info: (el: undefined) => el })
         .compile()
 
-      equal(await module.get(TestService).register(),
-        'registered in consul OK',
-      )
+      equal(await module.get(TestService).register(), 'registered in consul OK')
     })
   })
 })

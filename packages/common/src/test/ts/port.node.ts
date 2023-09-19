@@ -9,7 +9,7 @@ import { describe, it, before, after } from 'node:test'
 import { equal } from 'node:assert'
 import lodash from 'lodash'
 
-import { Port } from '../../main/ts/port'
+import { Port } from '../../main/ts'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
@@ -93,7 +93,7 @@ describe('port decorators', () => {
       const app = await NestFactory.create(
         AppModule,
         new ExpressAdapter(server),
-        {cors: true},
+        { cors: true },
       )
 
       app.useGlobalPipes(
@@ -121,35 +121,34 @@ describe('port decorators', () => {
       [
         '8080 > 8080 = 200',
         `http://${host}:8080/only8080`,
-        {data: 8080, status: 200},
+        { data: 8080, status: 200 },
       ],
       [
         '8081 > 8081 = 200',
         `http://${host}:8081/only8081`,
-        {data: 8081, status: 200},
+        { data: 8081, status: 200 },
       ],
       [
         '8081 > 8080 = 403',
         `http://${host}:8081/only8080`,
         null, // eslint-disable-line unicorn/no-null
-        {response: {status: 403}},
+        { response: { status: 403 } },
       ],
       [
         '8080 > 8081 = 403',
         `http://${host}:8080/only8081`,
         null, // eslint-disable-line unicorn/no-null
-        {response: {status: 403}},
+        { response: { status: 403 } },
       ],
     ]
 
     for await (const [description, url, succ, err] of cases) {
       await t.test(description, async () => {
-          await axios
-            .get(url)
-            .then((data) => toMatchObject(data, succ))
-            .catch((e) => toMatchObject(e, err))
-        }
-      )
+        await axios
+          .get(url)
+          .then((data) => toMatchObject(data, succ))
+          .catch((e) => toMatchObject(e, err))
+      })
     }
   })
 })

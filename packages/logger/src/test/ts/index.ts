@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import { jest } from '@jest/globals'
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
@@ -17,8 +17,16 @@ import {
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import { createTransports } from '../../main/ts/winston'
 
-const testLogPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'log', 'application-json.log')
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testLogPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'log',
+  'application-json.log',
+)
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -33,7 +41,12 @@ describe('logger', () => {
         local: '',
         version: '1',
         logger: {
-          dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
+          dir: path.join(
+            path.dirname(fileURLToPath(import.meta.url)),
+            '..',
+            'ts',
+            'log',
+          ),
           level: 'debug',
           maxsize: 157_286_400,
           datePattern: 'YYYY-MM-DD',

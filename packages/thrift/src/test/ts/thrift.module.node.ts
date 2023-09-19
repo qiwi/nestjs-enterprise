@@ -10,9 +10,7 @@ import { describe, it } from 'node:test'
 import { notEqual } from 'node:assert'
 
 describe('thrift.module', () => {
-  const getName = (v: any) => String(v?.name || v)
-
-  it('exports',  (t) => {
+  it('exports', () => {
     const cases = [
       ThriftModule,
       ThriftServer,
@@ -22,9 +20,7 @@ describe('thrift.module', () => {
       thriftServiceFactory,
     ]
     for (const dep of cases) {
-      // t.test(`${getName(dep)} is exported`, () => {
-        notEqual(dep, undefined)
-      // })
+      notEqual(dep, undefined)
     }
-  });
+  })
 })

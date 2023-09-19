@@ -1,5 +1,19 @@
-// @ts-ignore
-import type { TClientConstructor } from 'thrift'
+export type IConnectionParams = {
+  host: string
+  port: number
+}
+
+export interface IDiscoverable {
+  /**
+   * Get connection params by service name.
+   *
+   * @param serviceName
+   * @return Host and port to connection
+   */
+  getConnectionParams(
+    serviceName: string,
+  ): Promise<IConnectionParams | undefined>
+}
 
 export const enum TServiceType {
   THRIFT = 'thrift',
@@ -15,15 +29,6 @@ export const enum DiscoveryType {
 export type IConsulDiscovery = {
   type: DiscoveryType.CONSUL
   serviceName: string
-}
-
-export type IConnectionParams = {
-  host: string
-  port: number
-}
-
-export type IConnectionProvider = {
-  getConnectionParams: (opts: any) => Promise<IConnectionParams>
 }
 
 export type IEndpointDiscovery = {
@@ -59,10 +64,6 @@ export interface IServiceProfile {
   creds?: ICreds
 }
 
-export interface IConsulService {
-  register(opts: any): Promise<any>
-}
-
 export interface IDbServiceProfile extends IServiceProfile {
   type: TServiceType.DB
   discovery: IEndpointDiscovery
@@ -71,10 +72,3 @@ export interface IDbServiceProfile extends IServiceProfile {
 }
 
 export type IServiceDeclaration = IThriftServiceProfile | IDbServiceProfile
-
-export interface IThriftClientService {
-  getClient<TClient>(
-    serviceProfile: IServiceDeclaration,
-    clientConstructor: TClientConstructor<TClient>,
-  ): TClient
-}

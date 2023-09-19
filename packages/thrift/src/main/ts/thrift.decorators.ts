@@ -20,6 +20,15 @@ const cache = new WeakMap()
 
 export const INJECT_THRIFT_SERVICE = Symbol('InjectThriftService')
 
+/**
+ * Thrift client decorator
+ *
+ * @param Client
+ * @param serviceProfile
+ * @param connOpts
+ * @constructor
+ * @return Inject thrift client service
+ */
 export const InjectThriftService = <C>(
   Client: thrift.TClientConstructor<C>,
   serviceProfile: IThriftServiceProfile | string,

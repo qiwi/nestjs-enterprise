@@ -1,31 +1,32 @@
 import { Inject, Injectable } from '@nestjs/common'
 import lo from 'lodash'
 
-import { DiscoveryType, IServiceDeclaration } from './interfaces'
+import {
+  IConnectionParams,
+  IDiscoverable,
+  DiscoveryType,
+  IServiceDeclaration,
+} from './interfaces'
 
-export type IConnectionParams = {
-  host: string
-  port: number
-}
-
-interface IConnectionProvider {
-  getConnectionParams: (opts: any) => Promise<IConnectionParams>
-}
-
-interface IConsulService {
-  getConnectionParams: (opts: any) => Promise<IConnectionParams>
+export interface IConnectionProvider {
+  /**
+   * Get connection params from config or consul
+   *
+   * @param serviceProfile
+   */
+  getConnectionParams(
+    serviceProfile: IServiceDeclaration,
+  ): Promise<IConnectionParams | undefined>
 }
 
 @Injectable()
 export class ConnectionProviderService implements IConnectionProvider {
   constructor(
     @Inject('IConsul')
-    private consul: IConsulService,
+    private consul: IDiscoverable,
   ) {}
 
-  async getConnectionParams(
-    serviceProfile: IServiceDeclaration,
-  ): Promise<IConnectionParams> {
+  async getConnectionParams(serviceProfile: IServiceDeclaration) {
     const discovery = serviceProfile.discovery
 
     if (discovery.type === DiscoveryType.CONSUL) {
@@ -33,7 +34,6 @@ export class ConnectionProviderService implements IConnectionProvider {
     }
 
     if (discovery.type === DiscoveryType.ENDPOINT) {
-      // @ts-ignore
       return lo.sample(discovery.endpoints)
     }
 

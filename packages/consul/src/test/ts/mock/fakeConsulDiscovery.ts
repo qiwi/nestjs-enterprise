@@ -8,13 +8,13 @@ export class FakeConsulDiscovery implements IConsulService {
   async getKv() {
     return {
       value: 'consul',
-    };
+    }
   }
 
   async getConnectionParams() {
     return {
       host: 'test',
-      port: 'test',
+      port: 8080,
     }
   }
 }

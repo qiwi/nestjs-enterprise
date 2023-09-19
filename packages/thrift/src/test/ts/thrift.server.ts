@@ -112,39 +112,40 @@ describe('thrift-server', () => {
         // eslint-disable-next-line eqeqeq
         if (work.op == ttypes.Operation.ADD) {
           val = work.num1 + work.num2
-        } else switch (work.op) {
- case ttypes.Operation.SUBTRACT: {
-          val = work.num1 - work.num2
-        
- break;
- }
- case ttypes.Operation.MULTIPLY: {
-          val = work.num1 * work.num2
-        
- break;
- }
- case ttypes.Operation.DIVIDE: {
-          if (work.num2 === 0) {
-            const x = new ttypes.InvalidOperation()
-            x.whatOp = work.op
-            x.why = 'Cannot divide by 0'
-            // @ts-ignore
-            result(x)
-            return
+        } else
+          switch (work.op) {
+            case ttypes.Operation.SUBTRACT: {
+              val = work.num1 - work.num2
+
+              break
+            }
+            case ttypes.Operation.MULTIPLY: {
+              val = work.num1 * work.num2
+
+              break
+            }
+            case ttypes.Operation.DIVIDE: {
+              if (work.num2 === 0) {
+                const x = new ttypes.InvalidOperation()
+                x.whatOp = work.op
+                x.why = 'Cannot divide by 0'
+                // @ts-ignore
+                result(x)
+                return
+              }
+              val = work.num1 / work.num2
+
+              break
+            }
+            default: {
+              const x = new ttypes.InvalidOperation()
+              x.whatOp = work.op
+              x.why = 'Invalid operation'
+              // @ts-ignore
+              result(x)
+              return
+            }
           }
-          val = work.num1 / work.num2
-        
- break;
- }
- default: {
-          const x = new ttypes.InvalidOperation()
-          x.whatOp = work.op
-          x.why = 'Invalid operation'
-          // @ts-ignore
-          result(x)
-          return
-        }
- }
 
         const entry = new SharedStruct()
         entry.key = logid

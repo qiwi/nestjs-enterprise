@@ -1,6 +1,6 @@
 import safeJsonStrinify from 'fast-safe-stringify'
-import {existsSync, mkdirSync} from 'node:fs'
-import {resolve} from 'node:path'
+import { existsSync, mkdirSync } from 'node:fs'
+import { resolve } from 'node:path'
 import * as winston from 'winston'
 
 export type TWinstonEntry = {
@@ -12,13 +12,17 @@ export type TWinstonEntry = {
 
 const {
   createLogger,
-  transports: { Console, File } ,
-  format: { combine, printf, timestamp } ,
+  transports: { Console, File },
+  format: { combine, printf, timestamp },
 }: any = winston
 
 const isTimestampValid = (timestamp: any) =>
   typeof timestamp === 'number' || Date.parse(timestamp)
 
+/**
+ * @param {TWinstonEntry} entry - logEntry with winston format
+ * @return - logEntry with kibana format
+ */
 export const formatKibanaEntry = (entry: TWinstonEntry) => {
   const { level, timestamp, meta, message } = entry
   const { timestamp: metaTimestamp, publicMeta } = meta

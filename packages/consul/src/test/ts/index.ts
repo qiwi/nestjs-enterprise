@@ -8,7 +8,11 @@ import { fileURLToPath } from 'node:url'
 import { ConsulModule, IConsulService } from '../../main/ts'
 import { FakeConsulDiscovery } from './mock/fakeConsulDiscovery'
 
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 describe('logger module', () => {
   describe('index', () => {
@@ -41,9 +45,9 @@ describe('logger module', () => {
         .useValue({ info: console.log })
         .compile()
 
-      expect(
-        await module.get(TestService).getConnectionParams(),
-      ).toMatchObject({ host: 'test', port: 'test' })
+      expect(await module.get(TestService).getConnectionParams()).toMatchObject(
+        { host: 'test', port: 'test' },
+      )
     })
 
     it('getKv works', async () => {

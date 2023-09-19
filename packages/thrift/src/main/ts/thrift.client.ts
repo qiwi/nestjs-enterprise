@@ -6,7 +6,6 @@ import * as thrift from 'thrift'
 import {
   IConnectionParams,
   IConnectionProvider,
-  IServiceDeclaration,
   IThriftClientProvider,
   IThriftServiceProfile,
   TPoolOpts,
@@ -21,7 +20,9 @@ const defaultPoolOpts = {
 }
 
 @Injectable()
-export class ThriftClientProvider implements IThriftClientProvider, OnModuleDestroy {
+export class ThriftClientProvider
+  implements IThriftClientProvider, OnModuleDestroy
+{
   constructor(
     @Inject('ILogger') private log: ILogger,
     @Inject('IConnectionProvider')
@@ -34,13 +35,10 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
 
   async onModuleDestroy() {
     return Promise.all(
-      [...this.pools.entries()]
-        .map(
-          async ([, pool]) => {
-            await pool.drain()
-            return pool.clear()
-          }
-        )
+      [...this.pools.entries()].map(async ([, pool]) => {
+        await pool.drain()
+        return pool.clear()
+      }),
     )
   }
 
@@ -48,24 +46,38 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
 
   pools: Map<thrift.TClientConstructor<any>, TThriftPool<any>>
 
-  async getConnectionParams(
-    serviceProfile: IServiceDeclaration,
-  ): Promise<IConnectionParams> {
-    return this.connectionProvider.getConnectionParams(serviceProfile)
-  }
-
-  getServiceProfile(ref: IThriftServiceProfile | string): IThriftServiceProfile {
+  getServiceProfile(
+    ref: IThriftServiceProfile | string,
+  ): IThriftServiceProfile {
     return typeof ref === 'string'
       ? (this.config.get(ref) as IThriftServiceProfile)
       : ref
+  }
+
+  private async getConnectionParams(
+    serviceProfile: IThriftServiceProfile | string,
+  ): Promise<IConnectionParams & { thriftServiceName: string } > {
+    const profile = this.getServiceProfile(serviceProfile)
+    const connectionParams = await this.connectionProvider.getConnectionParams(
+      profile,
+    )
+    if (!connectionParams) {
+      throw new Error(
+        `Bad connections params - ${
+          typeof serviceProfile === 'string' ? serviceProfile : ''
+        }`,
+      )
+    }
+    return { ...connectionParams, thriftServiceName: profile.thriftServiceName }
   }
 
   async createConnection(
     serviceProfile: IThriftServiceProfile | string,
     connectionOpts?: { transport: any; protocol: any },
   ): Promise<thrift.Connection> {
-    const profile = this.getServiceProfile(serviceProfile)
-    const { host, port } = await this.getConnectionParams(profile)
+    const { host, port, thriftServiceName } = await this.getConnectionParams(
+      serviceProfile,
+    )
     const listenEvent = (event: string, connection: thrift.Connection) => {
       connection.on(event, (err) => {
         // @ts-ignore
@@ -77,7 +89,7 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
     }
 
     this.log.info(
-      `Service: ${profile.thriftServiceName}, thrift connection params= ${host} ${port}`,
+      `Service: ${thriftServiceName}, thrift connection params= ${host} ${port}`,
     )
 
     const connection = thrift.createConnection(host, port, connectionOpts)
@@ -92,7 +104,7 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
   getPool<TClient>(
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
-    opts: TThriftOpts
+    opts: TThriftOpts,
   ): TThriftPool<TClient> {
     if (this.pools.has(clientConstructor)) {
       return this.pools.get(clientConstructor) as TThriftPool<TClient>
@@ -115,36 +127,35 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
       {
         create: async function () {
           const connection = await createConnection(
-              serviceProfile,
-              connectionOpts,
+            serviceProfile,
+            connectionOpts,
           )
 
           try {
             const client = multiplexer
               ? new thrift.Multiplexer().createClient(
-                profile.thriftServiceName,
-                clientConstructor,
-                connection,
-              )
+                  profile.thriftServiceName,
+                  clientConstructor,
+                  connection,
+                )
               : thrift.createClient(clientConstructor, connection)
 
             debug(
-                `ThriftClientProvider created new thrift client and connection for ${profile.thriftServiceName}`,
+              `ThriftClientProvider created new thrift client and connection for ${profile.thriftServiceName}`,
             )
 
-            return { client, connection, profile}
-
+            return { client, connection, profile }
           } catch (e) {
             error(
-                // @ts-ignore
-                `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName}  stack=${e?.stack}`,
+              // @ts-ignore
+              `ThriftClientProvider createClient error: err=${e} thriftServiceName=${profile.thriftServiceName}  stack=${e?.stack}`,
             )
             throw new Error('ThriftClientProvider createClient error')
           }
         },
         destroy: async function ({ connection }) {
           info(
-              `ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`,
+            `ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`,
           )
           connection.end()
         },
@@ -154,7 +165,7 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
         },
       },
       { ...defaultPoolOpts, ...poolOpts },
-    )
+    ) as TThriftPool<TClient>
 
     this.pools.set(clientConstructor, pool)
 
@@ -172,7 +183,11 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
 
     const debug = this.log.debug.bind(this.log)
     const error = this.log.error.bind(this.log)
-    const pool = this.getPool<TClient>(serviceProfile, clientConstructor, thriftOpts)
+    const pool = this.getPool<TClient>(
+      serviceProfile,
+      clientConstructor,
+      thriftOpts,
+    )
     const proxy: any = new Proxy(
       {},
       {
@@ -187,7 +202,8 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
               `Pool ${resource.profile.thriftServiceName} status: current pool size=${pool.size} available clients=${pool.available} borrowed=${pool.borrowed} queue=${pool.pending} spareResourceCapacity=${pool.spareResourceCapacity}`,
             )
 
-            return (resource.client as any)[propKey](...args)
+            return (resource.client as any)
+              [propKey](...args)
               .then(async (res: any) => {
                 await pool.release(resource)
                 return res
@@ -196,7 +212,7 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
                 error(
                   `Thrift ${resource.profile.thriftServiceName} error: method=${
                     propKey as string
-                  // @ts-ignore
+                    // @ts-ignore
                   } error=${e} stack=${e?.stack}`,
                 )
                 await pool.destroy(resource)
@@ -214,4 +230,4 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
 
 // Legacy
 export const ThriftClientService = ThriftClientProvider
-export interface IThriftClientService extends IThriftClientProvider {} // eslint-disable-line
+export type IThriftClientService = IThriftClientProvider

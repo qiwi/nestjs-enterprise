@@ -11,13 +11,16 @@ import {
   MetricService,
   RequestRateDecorator,
 } from '../../main/ts'
-import lodash from "lodash";
+import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
 }
 
-const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, any>) => {
+const toMatchObjectTypes = (
+  actual: Record<string, any>,
+  expected: Record<string, any>,
+) => {
   for (const key of Object.keys(expected)) {
     if (!actual[key]) console.error('exist', key)
     equal(typeof actual[key], typeof expected[key])
@@ -89,7 +92,7 @@ describe('Decorators', () => {
       await request(app.getHttpServer()).get('/RpmDecorator').expect(200)
 
       await metricService.push()
-      toMatchObject(data,{
+      toMatchObject(data, {
         'decorator-test-prefix.RpmDecorator.meter.count': 1,
         'decorator-test-prefix.RpmDecorator.meter.1MinuteRate': 0,
         'decorator-test-prefix.RpmDecorator.meter.5MinuteRate': 0,
@@ -127,7 +130,7 @@ describe('Decorators', () => {
       await request(app.getHttpServer()).get('/ErrorDecorator').expect(500)
 
       await metricService.push()
-      toMatchObject(data,{
+      toMatchObject(data, {
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.count': 1,
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.1MinuteRate': 0,
         'decorator-test-prefix.ErrorDecorator.TypeError.meter.5MinuteRate': 0,

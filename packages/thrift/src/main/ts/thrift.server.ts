@@ -1,5 +1,12 @@
 import * as thrift from 'thrift'
 
+/**
+ * Thrift server decorator
+ *
+ * @param processor
+ * @param port
+ * @constructor
+ */
 export const ThriftServer = (processor: any, port: number): ClassDecorator => {
   // eslint-disable-next-line @typescript-eslint/ban-types
   return <TFunction extends Function>(target: TFunction) => {

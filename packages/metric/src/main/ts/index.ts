@@ -7,6 +7,12 @@ export { GraphiteService } from './graphite.service'
 export { MetricService } from './metric.service'
 export { getNodeMetrics } from './get-node-metrics'
 
+/**
+ * Union {@link ErrorDecorator},  {@link MeteredDecorator} and {@link RequestRateDecorator}
+ *
+ * @param metricName
+ * @constructor
+ */
 function MetricDecorator(metricName: string) {
   return applyDecorators(
     ErrorDecorator(metricName + '.Error'),
@@ -15,13 +21,8 @@ function MetricDecorator(metricName: string) {
   )
 }
 
-export {
-  MetricDecorator,
-  
-  
-  
-}
+export { MetricDecorator }
 
-export {RequestRateDecorator} from './decorators/request-rate.decorator'
-export {MeteredDecorator} from './decorators/metered.decorator'
-export {ErrorDecorator} from './decorators/error.decorator'
+export { RequestRateDecorator } from './decorators/request-rate.decorator'
+export { MeteredDecorator } from './decorators/metered.decorator'
+export { ErrorDecorator } from './decorators/error.decorator'

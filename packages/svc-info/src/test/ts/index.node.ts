@@ -7,8 +7,8 @@ import {
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
 import fs from 'node:fs'
-import path  from 'node:path'
-import {sync} from 'rimraf'
+import path from 'node:path'
+import { sync } from 'rimraf'
 import request from 'supertest'
 import { fileURLToPath } from 'node:url'
 import { describe, it, before, after } from 'node:test'
@@ -32,7 +32,10 @@ const buildstampPath = path.join(process.cwd(), 'buildstamp.json')
 const tempFolderPath = path.join(process.cwd(), 'some')
 const tempCustomBuildstampPath = path.join(tempFolderPath, 'foo.json')
 
-const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, string>) => {
+const toMatchObjectTypes = (
+  actual: Record<string, any>,
+  expected: Record<string, string>,
+) => {
   for (const key of Object.keys(expected)) {
     if (!actual[key]) console.error('exist', key)
     equal(typeof actual[key], expected[key])
@@ -46,7 +49,12 @@ const fakeConfig = {
       local: '',
       version: '1',
       logger: {
-        dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
+        dir: path.join(
+          path.dirname(fileURLToPath(import.meta.url)),
+          '..',
+          'ts',
+          'log',
+        ),
         level: 'debug',
         maxsize: 157_286_400,
         datePattern: 'YYYY-MM-DD',
@@ -89,7 +97,9 @@ describe('SvcModule', () => {
 
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
-      const module = await moduleFactory({ package: { 'version': '0.0.0', 'name': 'test'}})
+      const module = await moduleFactory({
+        package: { version: '0.0.0', name: 'test' },
+      })
       const app = module.createNestApplication()
       await app.init()
       app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
@@ -115,7 +125,8 @@ describe('SvcModule', () => {
         .get('/svc-info/uptime')
         .expect(HttpStatus.OK)
         .expect((data) => {
-          match(data.text,
+          match(
+            data.text,
             /^Uptime is \d+ days, \d+ hours, \d+ mins, \d+ secs$/,
           )
         })
@@ -160,7 +171,8 @@ describe('SvcModule', () => {
         .get(buildstampEndpoint)
         .expect(HttpStatus.OK)
         .expect((data) => {
-          equal(data.text,
+          equal(
+            data.text,
             'required buildstamp on path foo/bar/baz.json is malformed or unreachable',
           )
         })

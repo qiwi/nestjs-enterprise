@@ -33,7 +33,7 @@ describe('mdc', () => {
         },
         ctx,
       )
-      toMatchObject(mdcService.getTrace(ctx),{
+      toMatchObject(mdcService.getTrace(ctx), {
         trace_id: '1',
         span_id: '2',
         parent_span_id: '3',

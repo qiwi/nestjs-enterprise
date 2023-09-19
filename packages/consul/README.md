@@ -30,6 +30,30 @@ import { ConsulModule } from '@qiwi/nestjs-enterprise-consul'
 export class AppModule {}
 ```
 
+### Config
+```json
+{
+  "data": {
+    "name": "APP_NAME",
+    "server": {
+      "port": 8080,
+      "host": "$host:"
+    },
+    "consul": {
+      "host": "CONSUL_AGENT_HOST",
+      "port": "CONSUL_AGENT_PORT",
+      "token": "consul token",
+      "tags": ["tag"]
+    }
+  },
+  "sources": {
+    "host": {
+      "pipeline": "ip"
+    }
+  }
+}
+```
+
 ## Usage
 ```typescript
 import { NestFactory } from '@nestjs/core'

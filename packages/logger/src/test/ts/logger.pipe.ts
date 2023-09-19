@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import { jest } from '@jest/globals'
 import { ILogEntry } from '@qiwi/logwrap'
 import { ILogger } from '@qiwi/substrate'
 

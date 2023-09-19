@@ -17,7 +17,8 @@ import createWinstonLogger from './winston'
 @Injectable()
 export class LoggerService
   extends Logwrap
-  implements ILogger, LoggerServiceNest {
+  implements ILogger, LoggerServiceNest
+{
   // @ts-ignore
   constructor(
     @Inject('ILoggerPipeline') pipeline: TLoggerPipe[],

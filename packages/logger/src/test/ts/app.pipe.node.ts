@@ -22,6 +22,6 @@ describe('createAppPipe', () => {
       input: [],
       meta: {},
     }
-    deepEqual(pipe(input),{ ...input, meta: { name, version, host } })
+    deepEqual(pipe(input), { ...input, meta: { name, version, host } })
   })
 })

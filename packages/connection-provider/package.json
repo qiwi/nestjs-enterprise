@@ -18,7 +18,6 @@
     "CHANGELOG.md",
     "target",
     "typings",
-    "flow-typed",
     "buildstamp.json"
   ],
   "scripts": {

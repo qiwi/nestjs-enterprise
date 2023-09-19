@@ -10,7 +10,7 @@
     "clean": "yarn workspaces foreach -p run clean",
     "prebuild": "yarn infra:tsc -b packages/facade/tsconfig.es6.json && yarn buildstamp",
     "buildstamp": "yarn infra:buildstamp --git --output='buildstamp.json'",
-    "build": "yarn clean && yarn prebuild && yarn workspaces foreach -pt run build",
+    "build": "yarn clean && yarn prebuild && yarn workspaces foreach --topological-dev -p run build",
     "build-ci": "yarn prebuild && yarn workspaces foreach -p run build",
     "jest": "yarn infra:jest --runInBand --forceExit --detectOpenHandles",
     "test": "yarn test:node",
