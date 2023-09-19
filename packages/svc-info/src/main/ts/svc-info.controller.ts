@@ -38,8 +38,14 @@ export class SvcInfoController {
   @Get('version')
   @ApiExcludeEndpoint()
   async version() {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    const { version, name } = this.opts.package || JSON.parse(await promises.readFile(resolveCwd(this.opts.packagePath || './package.json'), 'utf-8'))
+    const { version, name } =
+      this.opts.package ||
+      JSON.parse(
+        await promises.readFile(
+          resolveCwd(this.opts.packagePath || './package.json'),
+          'utf-8',
+        ),
+      )
     return { version, name }
   }
 
@@ -47,7 +53,6 @@ export class SvcInfoController {
   @ApiExcludeEndpoint()
   buildInfo() {
     const path = this.opts.path || './buildstamp.json'
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
     try {
       return createRequire(import.meta.url)(resolveCwd(path))
     } catch (e) {

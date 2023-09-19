@@ -59,7 +59,6 @@ class AuthService {
             },
         })
         return this.client
-    }
   }
 }
 ```
@@ -78,6 +77,38 @@ class AuthService {
       }
     }
 ```
+
+### Config
+```json
+{
+  "data": {
+    "services": {
+      "service-1": {
+        "type": "thrift",
+        "thriftServiceName": "test service 1",
+        "discovery": {
+          "type": "endpoint",
+          "endpoints": [{ "host": "service-1.test.com", "port": "8080" }]
+        }
+      },
+      "service-2": {
+        "type": "thrift",
+        "thriftServiceName": "test service 2",
+        "discovery": {
+          "type": "consul",
+          "serviceName": "consul name"
+        },
+        "creds": {
+          "type": "username-and-password",
+          "username": "username",
+          "password": "password"
+        }
+      }
+    }
+  }
+}
+```
+
 ## API
 ### Class ConnectionProviderModule
 Exports `IThriftClientService` with token `IThriftClientService`

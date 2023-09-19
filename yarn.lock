@@ -2330,6 +2330,7 @@ __metadata:
     "@nestjs/common": "npm:^10.1.3"
     "@nestjs/core": "npm:^10.1.3"
     "@qiwi/consul-service-discovery": "npm:^1.10.6"
+    "@qiwi/nestjs-enterprise-connection-provider": "workspace:*"
     "@qiwi/nestjs-enterprise-infra": "workspace:*"
     "@qiwi/substrate": "npm:^2.0.4"
     "@types/bluebird": "npm:^3.5.38"

@@ -2,13 +2,16 @@ import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
 
 import { getNodeMetrics, MetricService } from '../../main/ts'
-import lodash from "lodash";
+import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
 }
 
-const toMatchObjectTypes = (actual: Record<string, any>, expected: Record<string, string>) => {
+const toMatchObjectTypes = (
+  actual: Record<string, any>,
+  expected: Record<string, string>,
+) => {
   for (const key of Object.keys(expected)) {
     if (!actual[key]) console.error('exist', key)
     equal(typeof actual[key], expected[key])
@@ -100,7 +103,7 @@ describe('MetricService', () => {
       'prefix.node.os.loadavg.5m': 'number',
       'prefix.node.os.loadavg.15m': 'number',
       'prefix.node.os.freemem': 'number',
-      'prefix.node.os.totalmem': 'number'
+      'prefix.node.os.totalmem': 'number',
     })
   })
 })

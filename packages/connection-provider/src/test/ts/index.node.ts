@@ -1,8 +1,8 @@
-import { ConnectionProviderService } from '../../main/ts/index'
+import { ConnectionProviderService } from '../../main/ts'
 import { DiscoveryType, TServiceType } from '../../main/ts/interfaces'
 import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
-import lodash from "lodash";
+import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
@@ -11,7 +11,7 @@ const toMatchObject = (actual: any, expected: any) => {
 describe('connection-provider', () => {
   describe('simple provider', () => {
     const service = new ConnectionProviderService({
-      getConnectionParams: async () => ({host: 'host', port: 1000}),
+      getConnectionParams: async () => ({ host: 'host', port: 1000 }),
     })
 
     it('returns endpoints with service name', async () => {
@@ -24,7 +24,8 @@ describe('connection-provider', () => {
             serviceName: 'serviceName',
           },
         }),
-       {host: 'host', port: 1000})
+        { host: 'host', port: 1000 },
+      )
     })
 
     it('returns endpoints with endpoints', async () => {
@@ -37,7 +38,8 @@ describe('connection-provider', () => {
             endpoints: [{ host: '10', port: 20 }],
           },
         }),
-      { host: '10', port: 20 })
+        { host: '10', port: 20 },
+      )
     })
   })
 })

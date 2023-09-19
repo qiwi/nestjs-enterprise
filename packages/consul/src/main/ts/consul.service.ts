@@ -1,22 +1,34 @@
-import {Inject, Injectable, OnModuleDestroy} from '@nestjs/common'
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 import {
   ConsulDiscoveryService,
   IConsulKvSetOptions,
   INormalizedConsulKvValue,
 } from '@qiwi/consul-service-discovery'
 import { IConfig, ILogger, IPromise } from '@qiwi/substrate'
-
-export type IConnectionParams = {
-  host: string
-  port: string
-}
+import { IDiscoverable } from '@qiwi/nestjs-enterprise-connection-provider'
 
 const CONSUL_CHECK_REG_INTERVAL = 60_000
 
-export interface IConsulService {
-  register(opts: any): IPromise
-  getConnectionParams(opts: any): Promise<IConnectionParams | undefined>
+export interface IConsulService extends IDiscoverable {
+  /**
+   * Register service in consul.
+   */
+  register(): IPromise
+
+  /**
+   * Get value by key from storage
+   *
+   * @param key
+   * @return Value by key
+   */
   getKv(key: string): Promise<INormalizedConsulKvValue>
+
+  /**
+   * Set key-value in storage
+   *
+   * @param data
+   */
+  setKv(data: IConsulKvSetOptions): IPromise<boolean, any>
 }
 
 @Injectable()
@@ -67,7 +79,12 @@ export class ConsulService implements IConsulService, OnModuleDestroy {
   }
 
   async getConnectionParams(serviceName: string) {
-    return this.discoveryService.getConnectionParams(serviceName)
+    const connectionParams = await this.discoveryService.getConnectionParams(
+      serviceName,
+    )
+    return connectionParams
+      ? { host: connectionParams.host, port: +connectionParams.port }
+      : undefined
   }
 
   async getKv(key: string) {

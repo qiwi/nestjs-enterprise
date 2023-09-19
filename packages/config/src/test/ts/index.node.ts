@@ -40,7 +40,7 @@ describe('configModule', () => {
       }).compile()
 
       const service = module.get(TestService)
-      equal(service.getServiceName(),'test-name-app')
+      equal(service.getServiceName(), 'test-name-app')
       await module.close()
     })
 
@@ -70,7 +70,7 @@ describe('configModule', () => {
         .compile()
 
       const service = module.get(TestService)
-      equal(service.getServiceName(),'fake-service-name')
+      equal(service.getServiceName(), 'fake-service-name')
       await module.close()
     })
   })

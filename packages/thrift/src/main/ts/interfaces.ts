@@ -1,77 +1,15 @@
-import {Pool} from 'generic-pool'
+import { Pool } from 'generic-pool'
 import * as thrift from 'thrift'
-import {TProtocol, TTransport} from 'thrift'
+import { TProtocol, TTransport } from 'thrift'
+import type { IThriftServiceProfile } from '@qiwi/nestjs-enterprise-connection-provider'
 
-export const enum TServiceType {
-  THRIFT = 'thrift',
-  HTTP = 'http',
-  DB = 'db',
-}
-
-export const enum DiscoveryType {
-  CONSUL = 'consul',
-  ENDPOINT = 'endpoint',
-}
-
-export type IConsulDiscovery = {
-  type: DiscoveryType.CONSUL
-  serviceName: string
-}
-
-export type IConnectionParams = {
-  host: string
-  port: number
-}
-
-export type IConnectionProvider = {
-  getConnectionParams: (opts: any) => Promise<IConnectionParams>
-}
-
-export type IEndpointDiscovery = {
-  type: DiscoveryType.ENDPOINT
-  endpoints: Array<IConnectionParams>
-}
-
-export type TDiscovery = IConsulDiscovery | IEndpointDiscovery
-
-export interface IServiceDiscoverable {
-  discovery: TDiscovery
-}
-
-export interface IThriftServiceProfile extends IServiceDiscoverable {
-  type: TServiceType.THRIFT
-  thriftServiceName: string
-}
-
-export const enum CredType {
-  USERANDPASSWORD = 'username-and-password',
-}
-
-export type IUsernameAndPasswordCreds = {
-  type: CredType.USERANDPASSWORD
-  username: string
-  password: string
-}
-
-export type ICreds = IUsernameAndPasswordCreds
-
-export interface IServiceProfile {
-  type: TServiceType
-  creds?: ICreds
-}
-
-export interface IConsulService {
-  register(opts: any): Promise<any>
-}
-
-export interface IDbServiceProfile extends IServiceProfile {
-  type: TServiceType.DB
-  discovery: IEndpointDiscovery
-  creds: IUsernameAndPasswordCreds
-  [key: string]: any
-}
-
-export type IServiceDeclaration = IThriftServiceProfile | IDbServiceProfile
+export type {
+  IServiceDeclaration,
+  IConnectionProvider,
+  IThriftServiceProfile,
+  IConnectionParams,
+} from '@qiwi/nestjs-enterprise-connection-provider'
+export type { IConsulService } from '@qiwi/nestjs-enterprise-consul'
 
 export interface IThriftConnectionOpts {
   multiplexer?: boolean
@@ -79,6 +17,13 @@ export interface IThriftConnectionOpts {
 }
 
 export interface IThriftClientProvider {
+  /**
+   * Get thrift client from pool or create new client
+   *
+   * @param serviceProfile
+   * @param clientConstructor
+   * @param opts
+   */
   getClient<TClient>(
     serviceProfile: IThriftServiceProfile | string,
     clientConstructor: thrift.TClientConstructor<TClient>,
@@ -86,7 +31,6 @@ export interface IThriftClientProvider {
   ): TClient
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 export interface ClassType<InstanceType> extends Function {
   new (...args: any[]): InstanceType
   prototype: InstanceType
@@ -112,7 +56,11 @@ export type TPoolOpts = {
   idleTimeoutMillis?: number
 }
 
-export type TThriftPoolResource<TClient> = {connection: thrift.Connection, client: TClient, profile: IThriftServiceProfile}
+export type TThriftPoolResource<TClient> = {
+  connection: thrift.Connection
+  client: TClient
+  profile: IThriftServiceProfile
+}
 export type TThriftPool<TClient> = Pool<TThriftPoolResource<TClient>>
 
 export type TThriftOpts = {
@@ -122,4 +70,3 @@ export type TThriftOpts = {
     protocol: TProtocol
   }
 }
-

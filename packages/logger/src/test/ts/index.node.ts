@@ -18,13 +18,20 @@ import {
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import { createTransports } from '../../main/ts/winston'
 
-
-const testLogPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'log', 'application-json.log')
-const testConfigPath = path.join(path.dirname(fileURLToPath(import.meta.url)), 'config', 'test.json')
+const testLogPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'log',
+  'application-json.log',
+)
+const testConfigPath = path.join(
+  path.dirname(fileURLToPath(import.meta.url)),
+  'config',
+  'test.json',
+)
 
 const typeSymbol = Symbol('type')
 const AnyString = {
-  [typeSymbol]: 'string'
+  [typeSymbol]: 'string',
 }
 
 const toMatchObject = (actual: any, expected: any) => {
@@ -53,7 +60,12 @@ describe('logger', () => {
         local: '',
         version: '1',
         logger: {
-          dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
+          dir: path.join(
+            path.dirname(fileURLToPath(import.meta.url)),
+            '..',
+            'ts',
+            'log',
+          ),
           level: 'debug',
           maxsize: 157_286_400,
           datePattern: 'YYYY-MM-DD',
@@ -136,7 +148,7 @@ describe('logger', () => {
       module.get(TestService).testlog()
       await delay(100)
       const res = fs.readFileSync(path.resolve(testLogPath))
-      match(res.toString(),/testinfo-foo-dynamic/)
+      match(res.toString(), /testinfo-foo-dynamic/)
       await module.close()
     })
 
@@ -185,7 +197,7 @@ describe('logger', () => {
 
       module.get(TestService).testlog()
 
-      toMatchObject(log.mock.calls.at(0)?.arguments.at(0),{
+      toMatchObject(log.mock.calls.at(0)?.arguments.at(0), {
         level: LogLevel.INFO,
         message: '4111 **** **** 1111',
         meta: {
@@ -243,7 +255,7 @@ describe('logger', () => {
       module.get(TestService).testlog()
       await delay(100)
       const res = fs.readFileSync(path.resolve(testLogPath))
-      match(res.toString(),/"message":"eventMessage"/)
+      match(res.toString(), /"message":"eventMessage"/)
       match(res.toString(), /"level":"ERROR",/)
       match(res.toString(), /"event":"metaevent"/)
       await module.close()

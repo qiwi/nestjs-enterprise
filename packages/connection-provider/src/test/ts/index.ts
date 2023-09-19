@@ -1,10 +1,10 @@
-import { ConnectionProviderService } from '../../main/ts/index'
+import { ConnectionProviderService } from '../../main/ts'
 import { DiscoveryType, TServiceType } from '../../main/ts/interfaces'
 
 describe('connection-provider', () => {
   describe('simple provider', () => {
     const service = new ConnectionProviderService({
-      getConnectionParams: async () => ({host: 'host', port: 1000}),
+      getConnectionParams: async () => ({ host: 'host', port: 1000 }),
     })
 
     it('returns endpoints with service name', async () => {
@@ -17,7 +17,7 @@ describe('connection-provider', () => {
             serviceName: 'serviceName',
           },
         }),
-      ).toMatchObject({host: 'host', port: 1000})
+      ).toMatchObject({ host: 'host', port: 1000 })
     })
 
     it('returns endpoints with endpoints', async () => {

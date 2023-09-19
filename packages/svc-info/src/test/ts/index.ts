@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import { jest } from '@jest/globals'
 import { HttpStatus, ValidationPipe } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
@@ -8,8 +8,8 @@ import {
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
 import fs from 'node:fs'
-import path  from 'node:path'
-import {sync} from 'rimraf'
+import path from 'node:path'
+import { sync } from 'rimraf'
 import request from 'supertest'
 import { fileURLToPath } from 'node:url'
 
@@ -38,7 +38,12 @@ const fakeConfig = {
       local: '',
       version: '1',
       logger: {
-        dir: path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'ts', 'log'),
+        dir: path.join(
+          path.dirname(fileURLToPath(import.meta.url)),
+          '..',
+          'ts',
+          'log',
+        ),
         level: 'debug',
         maxsize: 157_286_400,
         datePattern: 'YYYY-MM-DD',
@@ -53,7 +58,7 @@ const fakeConfig = {
     return configData[field]
   },
 }
-jest.setTimeout(20_000);
+jest.setTimeout(20_000)
 
 const moduleFactory = (opts?: ISvcInfoModuleOpts) => {
   return Test.createTestingModule({
@@ -83,7 +88,9 @@ describe('SvcModule', () => {
 
   describe('/version', () => {
     it('returns version and name of service from package.json', async () => {
-      const module = await moduleFactory({ package: { 'version': '0.0.0', 'name': 'test'}})
+      const module = await moduleFactory({
+        package: { version: '0.0.0', name: 'test' },
+      })
       const app = module.createNestApplication()
       await app.init()
       app.useGlobalPipes(new ValidationPipe({ whitelist: true }))
