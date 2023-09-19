@@ -19,6 +19,18 @@
 <ul class="tsd-signatures">
 <li class="tsd-signature tsd-anchor-link" id="getNodeMetrics"><span class="tsd-kind-call-signature">get<wbr/>Node<wbr/>Metrics</span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">node.os.freemem</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.15m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.1m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.5m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.totalmem</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.heap-total</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.heap-used</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.rss</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span><a href="#getNodeMetrics" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" id="icon-anchor"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"></path></g></svg></a></li>
 <li class="tsd-description">
+<div class="tsd-comment tsd-typography"><p>Return process and os metric.</p>
+<ul>
+<li>node.process.memory-usage.rss - representing the Resident Set Size (RSS) in bytes.</li>
+<li>node.process.memory-usage.heap-total - refer to V8&#39;s memory usage.</li>
+<li>node.process.memory-usage.heap-used - refer to V8&#39;s memory usage.</li>
+<li>node.os.loadavg.1m - 1 minute load averages.</li>
+<li>node.os.loadavg.5m - 5 minute load averages.</li>
+<li>node.os.loadavg.15m - 15 minute load averages.</li>
+<li>node.os.freemem - amount of free system memory in bytes as an integer.</li>
+<li>node.os.totalmem - total amount of system memory in bytes as an integer.</li>
+</ul>
+</div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-symbol">{ </span><br/><span>    </span><span class="tsd-kind-property">node.os.freemem</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.15m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.1m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.loadavg.5m</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.os.totalmem</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.heap-total</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.heap-used</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span>    </span><span class="tsd-kind-property">node.process.memory-usage.rss</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">; </span><br/><span class="tsd-signature-symbol">}</span></h4>
 <ul class="tsd-parameters">
 <li class="tsd-parameter">
@@ -36,9 +48,15 @@
 <li class="tsd-parameter">
 <h5><span class="tsd-kind-property">node.process.memory-<wbr/>usage.heap-<wbr/>used</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li>
 <li class="tsd-parameter">
-<h5><span class="tsd-kind-property">node.process.memory-<wbr/>usage.rss</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li></ul><aside class="tsd-sources">
+<h5><span class="tsd-kind-property">node.process.memory-<wbr/>usage.rss</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li></ul>
+<div class="tsd-comment tsd-typography">
+<h4>See</h4><ul>
+<li><a href="https://nodejs.org/api/process.html#process_process_memoryusage">https://nodejs.org/api/process.html#process_process_memoryusage</a></li>
+<li><a href="https://nodejs.org/api/os.html#os_os_loadavg">https://nodejs.org/api/os.html#os_os_loadavg</a></li>
+</ul>
+</div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/ccda8c6/packages/metric/src/main/ts/get-node-metrics.ts#L3">packages/metric/src/main/ts/get-node-metrics.ts:3</a></li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/5f76999/packages/metric/src/main/ts/get-node-metrics.ts#L18">packages/metric/src/main/ts/get-node-metrics.ts:18</a></li></ul></aside></li></ul></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
