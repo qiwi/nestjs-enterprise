@@ -97,3 +97,5 @@ Exports `ConsulService` with token `IConsul`
 |INormalizedConsulKvValue.key | string | key
 |INormalizedConsulKvValue.flags | number | flags
 |INormalizedConsulKvValue.value | string | value
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/consul/)

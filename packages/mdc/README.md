@@ -43,3 +43,5 @@ async function bootstrap() {
 see [@qiwi/mware](https://github.com/qiwi/mware)
 #### clscxt
 see [@qiwi/mware-context](https://github.com/qiwi/mware/tree/master/packages/mware-context)
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/mdc/)

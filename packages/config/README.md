@@ -217,3 +217,5 @@ Exports `ConfigService` with token `IConfigService`
 `<cwd>/config/kube.json`
 ###  DEFAULT_LOCAL_CONFIG_PATH
 `<cwd>/config/local.json`
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/config/)

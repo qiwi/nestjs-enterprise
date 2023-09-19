@@ -85,3 +85,5 @@ export class ThriftClientProvider implements IThriftClientProvider, OnModuleDest
 Exports `IConnectionProvider` with token `IConnectionProviderService`
 ### Class ConnectionProviderService
 #### getConnectionParams( serviceProfile: IServiceDeclaration ): Promise<IConnectionParams>
+
+### [Docs](https://qiwi.github.io/nestjs-enterprise/connection-provider/)
