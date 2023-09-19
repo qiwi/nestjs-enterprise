@@ -63,8 +63,8 @@ export class ThriftClientProvider
     )
     if (!connectionParams) {
       throw new Error(
-        `Bad connections params - ${
-          typeof serviceProfile === 'string' ? serviceProfile : ''
+        `Bad connections params${
+          typeof serviceProfile === 'string' ? ' - ' + serviceProfile : ''
         }`,
       )
     }
@@ -230,4 +230,4 @@ export class ThriftClientProvider
 
 // Legacy
 export const ThriftClientService = ThriftClientProvider
-export type IThriftClientService = IThriftClientProvider
+export interface IThriftClientService extends IThriftClientProvider {} // eslint-disable-line
