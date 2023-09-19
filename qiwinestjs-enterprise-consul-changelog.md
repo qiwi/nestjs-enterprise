@@ -1,3 +1,14 @@
+## [@qiwi/nestjs-enterprise-consul@4.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.8.11-qiwi.nestjs-enterprise-consul.3.0.0-f0...2023.9.19-qiwi.nestjs-enterprise-consul.4.0.0-f0) (2023-09-19)
+
+### Features
+* feat: update readme, add jsdoc annotations, fix interfaces, formatting [efe7977](https://github.com/qiwi/nestjs-enterprise/commit/efe79772b9c26aea055f2bcf1c5ac8fd06e3b342)
+
+### BREAKING CHANGES
+* feat: update readme, add jsdoc annotations, fix interfaces, formatting [efe7977](https://github.com/qiwi/nestjs-enterprise/commit/efe79772b9c26aea055f2bcf1c5ac8fd06e3b342)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-connection-provider updated to 4.0.0
+
 ## [@qiwi/nestjs-enterprise-consul@3.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.6.8-qiwi.nestjs-enterprise-consul.2.0.5-f0...2023.8.11-qiwi.nestjs-enterprise-consul.3.0.0-f0) (2023-08-11)
 
 ### Fixes & improvements
