@@ -56,7 +56,7 @@ export class ThriftClientProvider
 
   private async getConnectionParams(
     serviceProfile: IThriftServiceProfile | string,
-  ): Promise<IConnectionParams & { thriftServiceName: string } > {
+  ): Promise<IConnectionParams & { thriftServiceName: string }> {
     const profile = this.getServiceProfile(serviceProfile)
     const connectionParams = await this.connectionProvider.getConnectionParams(
       profile,

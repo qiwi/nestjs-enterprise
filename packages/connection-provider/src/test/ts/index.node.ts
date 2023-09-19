@@ -10,7 +10,6 @@ const toMatchObject = (actual: any, expected: any) => {
 
 describe('connection-provider', () => {
   describe('simple provider', () => {
-    // @ts-ignore
     const service = new ConnectionProviderService({
       getConnectionParams: async () => ({ host: 'host', port: 1000 }),
     })

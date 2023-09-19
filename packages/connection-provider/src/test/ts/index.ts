@@ -3,7 +3,6 @@ import { DiscoveryType, TServiceType } from '../../main/ts/interfaces'
 
 describe('connection-provider', () => {
   describe('simple provider', () => {
-    // @ts-ignore
     const service = new ConnectionProviderService({
       getConnectionParams: async () => ({ host: 'host', port: 1000 }),
     })
