@@ -1,3 +1,6 @@
 {
-  "extends": "eslint-config-qiwi"
+  "extends": "eslint-config-qiwi",
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off"
+  }
 }

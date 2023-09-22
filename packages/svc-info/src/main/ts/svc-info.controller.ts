@@ -1,13 +1,16 @@
-import { Controller, Get, Inject, Optional } from '@nestjs/common'
-import { ApiExcludeEndpoint } from '@nestjs/swagger'
-import type { ILogger } from '@qiwi/substrate'
 import { promises } from 'node:fs'
 import { createRequire } from 'node:module'
+
+import type { ILogger } from '@qiwi/substrate'
+
+import { Controller, Get, Inject, Optional } from '@nestjs/common'
+import { ApiExcludeEndpoint } from '@nestjs/swagger'
 import resolveCwd from 'resolve-cwd'
 
 import type { ISvcInfoModuleOpts } from './interfaces'
 
-const readJson = (path: string) => promises.readFile(path, 'utf-8').then(d => JSON.parse(d.toString()))
+const readJson = (path: string) =>
+  promises.readFile(path, 'utf-8').then((d) => JSON.parse(d.toString()))
 
 @Controller('/svc-info')
 export class SvcInfoController {
@@ -40,7 +43,9 @@ export class SvcInfoController {
   @Get('version')
   @ApiExcludeEndpoint()
   async version() {
-    const { version, name } = this.opts.package || await readJson(resolveCwd(this.opts.packagePath || './package.json'))
+    const { version, name } =
+      this.opts.package ||
+      (await readJson(resolveCwd(this.opts.packagePath || './package.json')))
     return { version, name }
   }
 

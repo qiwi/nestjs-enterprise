@@ -1,8 +1,10 @@
+import { equal } from 'node:assert'
+import { after, before, describe, it } from 'node:test'
+
 import { Controller, Get, INestApplication } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
+import lodash from 'lodash'
 import request from 'supertest'
-import { describe, it, before, after } from 'node:test'
-import { equal } from 'node:assert'
 
 import {
   ErrorDecorator,
@@ -11,7 +13,6 @@ import {
   MetricService,
   RequestRateDecorator,
 } from '../../main/ts'
-import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)

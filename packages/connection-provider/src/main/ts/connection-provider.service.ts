@@ -6,7 +6,6 @@ import type {
   IDiscoverable,
   IServiceDeclaration,
 } from './interfaces'
-
 import { DiscoveryType } from './interfaces'
 
 export interface IConnectionProvider {

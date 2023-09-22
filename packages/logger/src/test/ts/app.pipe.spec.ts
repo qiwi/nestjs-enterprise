@@ -1,6 +1,7 @@
-import type { ILogEntry } from '@qiwi/logwrap'
+import { deepEqual, equal, notEqual } from 'node:assert'
 import { describe, it } from 'node:test'
-import { equal, notEqual, deepEqual } from 'node:assert'
+
+import type { ILogEntry } from '@qiwi/logwrap'
 
 import { createAppPipe } from '../../main/ts/app.pipe'
 

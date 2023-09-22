@@ -98,49 +98,34 @@ export class MetricService implements OnModuleDestroy {
   }
 
   private formatTimers() {
-    return Object.entries(this.collectionTimer).reduce(
-      (acc, [name, value]) => {
-        const { meter, histogram } = value.toJSON()
+    return Object.entries(this.collectionTimer).reduce((acc, [name, value]) => {
+      const { meter, histogram } = value.toJSON()
 
-        return {
-          ...acc,
-          ...Object.entries(meter).reduce(
-            (acc, [key, value]) => {
-              acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
-              return acc
-            },
-            {} as Record<string, unknown>,
-          ),
+      return {
+        ...acc,
+        ...Object.entries(meter).reduce((acc, [key, value]) => {
+          acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
+          return acc
+        }, {} as Record<string, unknown>),
 
-          ...Object.entries(histogram).reduce(
-            (acc, [key, value]) => {
-              acc[`${this.metricPrefix}.${name}.histogram.${key}`] = value
-              return acc
-            },
-            {} as Record<string, unknown>,
-          ),
-        }
-      },
-      {} as Record<string, unknown>,
-    )
+        ...Object.entries(histogram).reduce((acc, [key, value]) => {
+          acc[`${this.metricPrefix}.${name}.histogram.${key}`] = value
+          return acc
+        }, {} as Record<string, unknown>),
+      }
+    }, {} as Record<string, unknown>)
   }
 
   private formatMeter() {
-    return Object.entries(this.collectionMeter).reduce(
-      (acc, [name, value]) => {
-        return {
-          ...acc,
-          ...Object.entries(value.toJSON()).reduce(
-            (acc, [key, value]) => {
-              acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
-              return acc
-            },
-            {} as Record<string, unknown>,
-          ),
-        }
-      },
-      {} as Record<string, unknown>,
-    )
+    return Object.entries(this.collectionMeter).reduce((acc, [name, value]) => {
+      return {
+        ...acc,
+        ...Object.entries(value.toJSON()).reduce((acc, [key, value]) => {
+          acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
+          return acc
+        }, {} as Record<string, unknown>),
+      }
+    }, {} as Record<string, unknown>)
   }
 
   private formatHistogram() {
@@ -148,13 +133,10 @@ export class MetricService implements OnModuleDestroy {
       (acc, [name, value]) => {
         return {
           ...acc,
-          ...Object.entries(value.toJSON()).reduce(
-            (acc, [key, value]) => {
-              acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
-              return acc
-            },
-            {} as Record<string, unknown>,
-          ),
+          ...Object.entries(value.toJSON()).reduce((acc, [key, value]) => {
+            acc[`${this.metricPrefix}.${name}.meter.${key}`] = value
+            return acc
+          }, {} as Record<string, unknown>),
         }
       },
       {} as Record<string, unknown>,

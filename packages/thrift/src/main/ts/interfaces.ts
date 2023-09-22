@@ -1,7 +1,8 @@
-import { Pool } from 'generic-pool'
-import * as thrift from 'thrift'
-import { TProtocol, TTransport } from 'thrift'
 import type { IThriftServiceProfile } from '@qiwi/nestjs-enterprise-connection-provider'
+
+import * as thrift from 'thrift'
+import { Pool } from 'generic-pool'
+import { TProtocol, TTransport } from 'thrift'
 
 export type {
   IServiceDeclaration,
@@ -31,6 +32,7 @@ export interface IThriftClientProvider {
   ): TClient
 }
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export interface ClassType<InstanceType> extends Function {
   new (...args: any[]): InstanceType
   prototype: InstanceType

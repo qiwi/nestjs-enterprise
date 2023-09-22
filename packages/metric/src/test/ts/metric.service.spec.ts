@@ -1,8 +1,9 @@
-import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
+import { describe, it } from 'node:test'
+
+import lodash from 'lodash'
 
 import { getNodeMetrics, MetricService } from '../../main/ts'
-import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)

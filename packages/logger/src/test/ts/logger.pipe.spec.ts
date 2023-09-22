@@ -1,8 +1,8 @@
+import { deepEqual, equal, notEqual } from 'node:assert'
+import { describe, it, mock } from 'node:test'
+
 import type { ILogEntry } from '@qiwi/logwrap'
 import type { ILogger } from '@qiwi/substrate'
-
-import { describe, it, mock } from 'node:test'
-import { equal, notEqual, deepEqual } from 'node:assert'
 
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import createWinstonLogger from '../../main/ts/winston'

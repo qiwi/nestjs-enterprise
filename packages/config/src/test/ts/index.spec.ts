@@ -1,9 +1,10 @@
+import { equal, notEqual } from 'node:assert'
+import { dirname, join } from 'node:path'
+import { describe, it } from 'node:test'
+import { fileURLToPath } from 'node:url'
+
 import { Inject, Injectable } from '@nestjs/common'
 import { Test } from '@nestjs/testing'
-import { dirname, join } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { describe, it } from 'node:test'
-import { notEqual, equal } from 'node:assert'
 
 import {
   ConfigModule,

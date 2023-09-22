@@ -25,10 +25,7 @@
   },
   "sources": {
     "logDir": {
-      "data": [
-        "src/test/ts",
-        "log"
-      ],
+      "data": ["src/test/ts", "log"],
       "pipeline": "path"
     },
     "env": {
@@ -42,4 +39,3 @@
     }
   }
 }
-
