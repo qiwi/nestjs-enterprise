@@ -7,9 +7,12 @@
   ],
   "private": true,
   "scripts": {
+    "prepare": "npx packasso install",
     "clean": "npx packasso clean",
     "build": "npx packasso build",
+    "build-ci": "npx packasso build",
     "test": "npx packasso test",
+    "test:report": "npx packasso test",
     "lint": "npx packasso lint",
     "lint:fix": "npx packasso lint --fix"
   },
