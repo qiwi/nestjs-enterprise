@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-connection-provider@4.0.2](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.19-qiwi.nestjs-enterprise-connection-provider.4.0.1-f0...2023.9.22-qiwi.nestjs-enterprise-connection-provider.4.0.2-f0) (2023-09-22)
+
+### Fixes & improvements
+* fix: fix thrift client [50c1a19](https://github.com/qiwi/nestjs-enterprise/commit/50c1a1986e90f2165851e3c1ca2d88866cec1b6f)
+
 ## [@qiwi/nestjs-enterprise-connection-provider@4.0.1](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.19-qiwi.nestjs-enterprise-connection-provider.4.0.0-f0...2023.9.19-qiwi.nestjs-enterprise-connection-provider.4.0.1-f0) (2023-09-19)
 
 ### Fixes & improvements
