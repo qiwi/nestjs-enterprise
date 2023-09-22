@@ -59,8 +59,7 @@ jobs:
 
       - name: Install deps
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
-        run: yarn |
-          yarn prepare
+        run: yarn prepare
 
       - name: Build
         if: ${{ steps.check-artifact.outputs.exists == 'false' }}
@@ -130,8 +129,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       - name: Install deps
-        run: yarn |
-          yarn prepare
+        run: yarn prepare
 
       - name: Linter
         run: yarn lint
@@ -199,8 +197,7 @@ jobs:
         run: tar -xvf artifact.tar
 
       - name: Install deps
-        run: yarn |
-          yarn prepare
+        run: yarn prepare
 
       - name: Unit test only
         if: matrix.node-version != '20.5.0' || matrix.os != 'ubuntu-22.04'
