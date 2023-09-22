@@ -8,6 +8,8 @@ import type {
 } from './interfaces'
 import { DiscoveryType } from './interfaces'
 
+import { DiscoveryType } from './interfaces'
+
 export interface IConnectionProvider {
   /**
    * Get connection params from serviceProfile
