@@ -66,17 +66,15 @@ export class AppModule {}
 export class ThriftClientProvider implements IThriftClientProvider, OnModuleDestroy {
     constructor(
     @Inject('IConnectionProvider') private connectionProvider: IConnectionProvider,
-    @Inject('IConfigService') private config: IConfig,
     ) {}
-  
-    async createConnection(
-      serviceProfile: IThriftServiceProfile | string,
-      connectionOpts?: { transport: any; protocol: any },
-    ): Promise<thrift.Connection> {
-      const profile = typeof serviceProfile === 'string' ? this.config.get(serviceProfile) : serviceProfile
-      const { host, port } = await this.getConnectionParams(profile)
-      return  connection = thrift.createConnection(host, port, connectionOpts)
-    }
+
+  private async createConnection(
+    serviceProfile: IThriftServiceProfile | string,
+  ): Promise<IConnectionParams> {
+    const profile = this.getServiceProfile(serviceProfile)
+    const connectionParams = await this.connectionProvider.getConnectionParams(profile)
+    //...etc
+  }
 }
 ```
 

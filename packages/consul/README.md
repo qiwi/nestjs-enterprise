@@ -56,6 +56,7 @@ export class AppModule {}
 
 ## Usage
 ```typescript
+// main.ts
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 
@@ -63,8 +64,7 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule)
   //...
-
-const config = app.get('IConfigService')
+  
 const consul = app.get('IConsul')
 const local = config.get('local')
 //...
@@ -74,6 +74,21 @@ const local = config.get('local')
   }
 }
  //...
+
+```
+```typescript
+// service.ts
+@Injectable()
+export class ConnectionProviderService implements IConnectionProvider {
+  constructor(
+    @Inject('IConsul')
+    private consul: IConsul,
+  ) {}
+
+  async getConnectionParams(serviceName: string) {
+    return this.consul.getConnectionParams(serviceName)
+  }
+}
 
 ```
 
