@@ -25,7 +25,6 @@
   "scripts": {
     "test": "yarn lint && yarn test:node",
     "test:node": "node --loader tsx --test **/*.spec.ts",
-    "jest": "yarn infra:jest -w=1 --config=jest.config.json",
     "lint": "yarn infra:eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
     "clean": "yarn infra:rimraf target typings buildcache flow-typed docs buildstamp.json",

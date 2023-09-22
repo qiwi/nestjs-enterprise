@@ -23,10 +23,7 @@
   ],
   "scripts": {
     "test": "yarn lint && yarn test:node",
-    "test:gen": "yarn jest --updateSnapshot",
-    "test:spec": "yarn jest",
     "test:node": "node --loader tsx --test **/*.spec.ts",
-    "jest": "yarn infra:jest -w=1 --config=jest.config.json",
     "format": "yarn infra:prettier --write \"src/**/*.ts\"",
     "lint": "yarn infra:eslint src/**/*.ts",
     "lint:fix": "yarn lint --fix",
