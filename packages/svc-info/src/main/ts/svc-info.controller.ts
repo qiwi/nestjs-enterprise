@@ -1,11 +1,13 @@
 import { Controller, Get, Inject, Optional } from '@nestjs/common'
 import { ApiExcludeEndpoint } from '@nestjs/swagger'
-import { ILogger } from '@qiwi/substrate'
+import type { ILogger } from '@qiwi/substrate'
 import { promises } from 'node:fs'
 import { createRequire } from 'node:module'
 import resolveCwd from 'resolve-cwd'
 
-import { ISvcInfoModuleOpts } from './interfaces'
+import type { ISvcInfoModuleOpts } from './interfaces'
+
+const readJson = (path: string) => promises.readFile(path, 'utf-8').then(d => JSON.parse(d.toString()))
 
 @Controller('/svc-info')
 export class SvcInfoController {
@@ -38,14 +40,7 @@ export class SvcInfoController {
   @Get('version')
   @ApiExcludeEndpoint()
   async version() {
-    const { version, name } =
-      this.opts.package ||
-      JSON.parse(
-        await promises.readFile(
-          resolveCwd(this.opts.packagePath || './package.json'),
-          'utf-8',
-        ),
-      )
+    const { version, name } = this.opts.package || await readJson(resolveCwd(this.opts.packagePath || './package.json'))
     return { version, name }
   }
 
@@ -54,7 +49,7 @@ export class SvcInfoController {
   buildInfo() {
     const path = this.opts.path || './buildstamp.json'
     try {
-      return createRequire(import.meta.url)(resolveCwd(path))
+      return readJson(resolveCwd(path))
     } catch (e) {
       const message = `required buildstamp on path ${path} is malformed or unreachable`
       this.logger.warn(message, e)

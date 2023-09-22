@@ -1,9 +1,9 @@
 import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
-import { IConfig, ILogger } from '@qiwi/substrate'
+import type { IConfig, ILogger } from '@qiwi/substrate'
 import genericPool from 'generic-pool'
 import * as thrift from 'thrift'
 
-import {
+import type {
   IConnectionParams,
   IConnectionProvider,
   IThriftClientProvider,

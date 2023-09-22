@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "rootDir": "./"
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/common/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/connection-provider/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/config/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/consul/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/facade/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/logger/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/mdc/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/metric/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/svc-info/tsconfig.cjs.json"
+    },
+    {
+      "path": "./packages/thrift/tsconfig.cjs.json"
+    }
+  ]
+}

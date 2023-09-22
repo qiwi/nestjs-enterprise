@@ -1,12 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common'
 import lo from 'lodash'
 
-import {
+import type {
   IConnectionParams,
   IDiscoverable,
-  DiscoveryType,
   IServiceDeclaration,
 } from './interfaces'
+
+import { DiscoveryType } from './interfaces'
 
 export interface IConnectionProvider {
   /**

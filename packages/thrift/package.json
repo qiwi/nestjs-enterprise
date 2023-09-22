@@ -3,38 +3,31 @@
   "version": "1.3.1",
   "description": "thrift module for nestjs enterprise",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "type": "module",
+    "main": "./target/cjs/index.cjs",
+    "module": "./target/esm/index.mjs",
+    "types": "./target/esm/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./target/cjs/index.cjs",
+        "import": "./target/esm/index.mjs",
+        "types": "./target/esm/index.d.ts"
+      }
+    },
+    "files": [
+      "target/cjs/**/*",
+      "target/esm/**/*",
+      "target/buildstamp.json"
+    ]
   },
-  "main": "./target/es6/index.js",
-  "exports": "./target/es6/index.js",
-  "source": "target/ts/index.ts",
-  "types": "target/es6/index.d.ts",
-  "typescript": {
-    "definition": "target/es6/index.d.ts"
-  },
-  "type": "module",
-  "files": [
-    "README.md",
-    "CHANGELOG.md",
-    "target",
-    "typings",
-    "flow-typed",
-    "buildstamp.json"
-  ],
+  "exports": "./src/main/ts/index.ts",
   "scripts": {
-    "test": "yarn lint && yarn test:node",
-    "test:node": "node --loader tsx --test **/*.spec.ts",
-    "format": "yarn infra:prettier --write \"src/**/*.ts\"",
-    "lint": "yarn infra:eslint src/**/*.ts",
-    "lint:fix": "yarn lint --fix",
-    "clean": "yarn infra:rimraf target typings buildcache flow-typed docs buildstamp.json",
-    "build": "yarn buildstamp && yarn build:es6 && yarn build:ts && yarn docs && yarn uglify",
-    "build:es6": "mkdir -p target/es6 && yarn infra:tsc -p tsconfig.es6.json && yarn infra:tsc-esm-fix --target='target/es6'",
-    "build:ts": "cp -r src/main/ts/ target/ts/",
-    "buildstamp": "cp ../../buildstamp.json ./",
-    "docs": "yarn infra:typedoc",
-    "uglify": "yarn infra:uglify",
-    "postupdate": "yarn && yarn build && yarn test"
+    "clean": "npx packasso clean",
+    "build": "npx packasso build",
+    "test": "npx packasso test",
+    "lint": "npx packasso lint",
+    "lint:fix": "npx packasso lint --fix"
   },
   "dependencies": {
     "@nestjs/common": "^10.1.3",
@@ -50,10 +43,10 @@
     "tslib": "^2.6.1"
   },
   "devDependencies": {
+    "@nestjs/testing": "^10.2.6",
     "@qiwi/nestjs-enterprise-config": "workspace:*",
     "@qiwi/nestjs-enterprise-connection-provider": "workspace:*",
     "@qiwi/nestjs-enterprise-consul": "workspace:*",
-    "@qiwi/nestjs-enterprise-infra": "workspace:*",
     "@qiwi/nestjs-enterprise-logger": "workspace:*",
     "@types/generic-pool": "^3.8.1"
   },
@@ -68,5 +61,6 @@
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
   },
-  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme"
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
+  "license": "MIT"
 }

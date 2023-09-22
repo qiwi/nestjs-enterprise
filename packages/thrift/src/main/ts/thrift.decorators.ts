@@ -1,7 +1,7 @@
 import { Inject } from '@nestjs/common'
 import * as thrift from 'thrift'
 
-import {
+import type {
   IThriftClientProvider,
   IThriftConnectionOpts,
   IThriftServiceProfile,
