@@ -79,12 +79,11 @@ export class ThriftClientProvider
       serviceProfile,
     )
     const listenEvent = (event: string, connection: thrift.Connection) => {
-      connection.on(event, (err) => {
+      connection.on(event, async (err) => {
         // @ts-ignore
         connection._invalid = true
-        ;(err ? this.log.error : this.log.info)(
-          `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err} stack=${err?.stack}`,
-        )
+        const cout = err ? this.log.error : this.log.info
+        cout( `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err} stack=${err?.stack}`)
       })
     }
 
@@ -157,7 +156,7 @@ export class ThriftClientProvider
           info(
             `ThriftClientProvider destroyed connection service: ${profile.thriftServiceName}`,
           )
-          connection.end()
+          await connection.end()
         },
         async validate({ connection }): Promise<boolean> {
           // @ts-ignore
