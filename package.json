@@ -7,7 +7,7 @@
   ],
   "private": true,
   "scripts": {
-    "prepare": "yarn install && npx packasso install",
+    "prepare": "npx packasso install",
     "clean": "npx packasso clean",
     "build": "npx packasso build",
     "build-ci": "npx packasso build",
