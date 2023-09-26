@@ -76,6 +76,10 @@ export class MetricService implements OnModuleDestroy {
     return this.graphiteService.sendMetric(metric)
   }
 
+  /**
+   * Attach metric
+   * @param callback
+   */
   attach(callback: (args?: Array<any>) => any) {
     this.metricsCallbacks.push(callback)
   }

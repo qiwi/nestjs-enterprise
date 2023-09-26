@@ -10,7 +10,7 @@ import {
 
 export interface IConnectionProvider {
   /**
-   * Get connection params from config or consul
+   * Get connection params from serviceProfile
    *
    * @param serviceProfile
    */

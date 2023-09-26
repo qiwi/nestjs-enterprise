@@ -10,9 +10,6 @@ yarn add @qiwi/nestjs-enterprise-mdc
 ```typescript
 import { MdcModule } from '@qiwi/nestjs-enterprise-mdc'
 
-// ...
-// NOTE ConfigModule and LoggerModule are global.
-
 @Module({
   imports: [
     MdcModule,
@@ -26,6 +23,7 @@ export class AppModule {}
 
 ## Usage
 ```typescript
+// main.ts
 import { mdc, logger as log, clscxt } from '@qiwi/nestjs-enterprise-mdc'
 
 async function bootstrap() {
@@ -39,9 +37,7 @@ async function bootstrap() {
 ```
 
 ## Api
-#### mdc, validator, logger
+#### mdc, validator, logger, context as clscxt
 see [@qiwi/mware](https://github.com/qiwi/mware)
-#### clscxt
-see [@qiwi/mware-context](https://github.com/qiwi/mware/tree/master/packages/mware-context)
 
 ### [Docs](https://qiwi.github.io/nestjs-enterprise/mdc/)

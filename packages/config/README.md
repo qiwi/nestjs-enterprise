@@ -21,14 +21,16 @@ import { ConfigModule } from "@qiwi/nestjs-enterprise-config"
 
 export class AppModule {}
 ```
-Import as dynamic module
+Import as dynamic module.
+
+see [uniconfig-plugin-path](https://github.com/qiwi/uniconfig/tree/master/packages/uniconfig-plugin-path)
 ```typescript
 @Module({
   imports: [
     ConfigModule.register({
       // Absolute or relative path to the config file
       path: '/custom/config/path.json'
-      // use <root> tag to form the path. see https://github.com/qiwi/uniconfig/tree/master/packages/uniconfig-plugin-path
+      // use <root> or <cwd> tag to form the path.
       // path: '<root>/custom/config/path.json'
     }),
   ]
