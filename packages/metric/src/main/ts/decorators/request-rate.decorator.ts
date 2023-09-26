@@ -4,7 +4,7 @@ import { constructDecorator } from '@qiwi/decorator-utils'
 import { isPromise } from '../utills'
 
 /**
- *  The decorator collects statistically significant request values biased toward the last 5 minutes to examine their distribution.
+ *  The decorator collects statistically significant query processing times skewed toward the last 5 minutes to examine their distribution.
  *
  *      - **count** - The total of all values added to the meter.
  *      - **1MinuteRate** - The rate of the meter biased towards the last 1 minute.

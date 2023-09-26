@@ -13,6 +13,8 @@ export const masker = (input: string | number): string => {
   )
 }
 /**
+ * Creates pipe for pan masking
+ * @see {@link masker}
  * @return {ILogEntry} logEntry with masked input
  */
 export const maskerLoggerPipeFactory =

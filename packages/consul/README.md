@@ -101,7 +101,7 @@ Exports `ConsulService` with token `IConsul`
 | field | type  | description |
 | --- | --- | --- |
 |IConnectionParams.host | string | host
-|IConnectionParams.port | string | port
+|IConnectionParams.port | number | port
 
 #### getKv(opts: any): Promise \<INormalizedConsulKvValue>
 | field | type  | description |

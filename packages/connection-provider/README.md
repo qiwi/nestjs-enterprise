@@ -1,5 +1,5 @@
 # @qiwi/nestjs-enterprise-connection-provider
-Nestjs module for getting endpoints from consul or config
+Nestjs module for getting endpoints from serviceProfile
 
 ## Installation
 Requires following packages to be installed
@@ -30,48 +30,19 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config-nestjs'
 export class AppModule {}
 ```
 
-### Config
-```json
-{
-  "data": {
-    "services": {
-      "service-1": {
-        "type": "thrift",
-        "thriftServiceName": "test service 1",
-        "discovery": {
-          "type": "endpoint",
-          "endpoints": [{ "host": "service-1.test.com", "port": "8080" }]
-        }
-      },
-      "service-2": {
-        "type": "thrift",
-        "thriftServiceName": "test service 2",
-        "discovery": {
-          "type": "consul",
-          "serviceName": "consul name"
-        },
-        "creds": {
-          "type": "username-and-password",
-          "username": "username",
-          "password": "password"
-        }
-      }
-    }
-  }
-}
-```
 ## Usage
 ```typescript
 @Injectable()
-export class ThriftClientProvider implements IThriftClientProvider, OnModuleDestroy {
+export class ThriftClientProvider implements IThriftClientProvider {
     constructor(
     @Inject('IConnectionProvider') private connectionProvider: IConnectionProvider,
+    @Inject('IConfig') private config: IConfig
     ) {}
 
   private async createConnection(
     serviceProfile: IThriftServiceProfile | string,
   ): Promise<IConnectionParams> {
-    const profile = this.getServiceProfile(serviceProfile)
+    const profile = serviceProfile ? this.config.get(serviceProfile) : serviceProfile
     const connectionParams = await this.connectionProvider.getConnectionParams(profile)
     //...etc
   }

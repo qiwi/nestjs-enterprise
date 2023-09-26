@@ -1,6 +1,10 @@
 import { ILogEntry } from '@qiwi/logwrap'
 import lo from 'lodash'
 
+/**
+ * Creates pipe for metadata injection, used with @qiwi-private/js-platform-mdc-nestjs
+ * @see {@link https://github.qiwi.com/common/js-platform/tree/master/packages/mdc-nestjs}
+ */
 export const createMetaPipe =
   () =>
   ({ meta, input, level }: ILogEntry): ILogEntry => {
