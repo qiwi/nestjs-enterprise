@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise-mdc",
   "version": "1.4.1",
   "description": "MDC module for nestjs enterprise",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "type": "module",

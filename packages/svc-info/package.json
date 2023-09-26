@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise-svc-info",
   "version": "1.4.1",
   "description": "Service-info controller for nestjs enterprise",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "type": "module",

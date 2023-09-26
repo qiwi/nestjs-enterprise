@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise-monorepo",
   "version": "0.0.0",
   "description": "QIWI Nestjs Enterprise",
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],

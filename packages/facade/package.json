@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise",
   "description": "QIWI Nestjs enterprise facade",
   "version": "1.4.1",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "type": "module",

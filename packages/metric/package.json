@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise-metric",
   "version": "1.6.1",
   "description": "Metric module for nestjs enterprise",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "type": "module",

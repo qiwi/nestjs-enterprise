@@ -2,6 +2,7 @@
   "name": "@qiwi/nestjs-enterprise-connection-provider",
   "version": "1.1.1",
   "description": "Nestjs connection-provider module",
+  "type": "module",
   "publishConfig": {
     "access": "public",
     "type": "module",
