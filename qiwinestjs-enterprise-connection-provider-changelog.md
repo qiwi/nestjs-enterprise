@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-connection-provider@4.0.3](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.22-qiwi.nestjs-enterprise-connection-provider.4.0.2-f0...2023.9.26-qiwi.nestjs-enterprise-connection-provider.4.0.3-f0) (2023-09-26)
+
+### Fixes & improvements
+* docs: fix docs [42ed10e](https://github.com/qiwi/nestjs-enterprise/commit/42ed10e89ce521b73d65d63bb924b6893a93271b)
+
 ## [@qiwi/nestjs-enterprise-connection-provider@4.0.2](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.19-qiwi.nestjs-enterprise-connection-provider.4.0.1-f0...2023.9.22-qiwi.nestjs-enterprise-connection-provider.4.0.2-f0) (2023-09-22)
 
 ### Fixes & improvements
