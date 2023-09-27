@@ -39,19 +39,19 @@ export class TestClassController {
     @Get('ErrorDecorator')
     @ErrorDecorator('Controller')
     async error() {
-    return 'foo'
+      return 'foo'
     }
 
     @Get('MeteredDecorator')
     @MeteredDecorator('Controller')
     async meter() {
-    return 'foo'
+      return 'foo'
     }
     
     @Get('RequestRateDecorator')
     @RequestRateDecorator('Controller')
     async rate() {
-    return 'foo'
+      return 'foo'
     }
 }
 
