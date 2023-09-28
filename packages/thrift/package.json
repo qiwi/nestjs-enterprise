@@ -26,7 +26,7 @@
   "scripts": {
     "clean": "npx packasso clean",
     "build": "npx packasso build",
-    "test": "npx packasso test",
+    "test": "PACKASSO=node_test npx packasso test",
     "lint": "npx packasso lint",
     "lint:fix": "npx packasso lint --fix"
   },
