@@ -140,7 +140,7 @@ describe('logger', () => {
         .compile()
       const watchPromise = watchForFileChange(path)
       await module.get(TestService).testlog()
-      console.log('******', await watchPromise)
+      await watchPromise
 
       const res = fs.readFileSync(path)
       match(res.toString(), /testinfo-foo-static/)
@@ -180,7 +180,7 @@ describe('logger', () => {
 
       const watchPromise = watchForFileChange(path)
       module.get(TestService).testlog()
-      console.log('******', await watchPromise)
+      await watchPromise
       const res = fs.readFileSync(path)
       match(res.toString(), /testinfo-foo-dynamic/)
       await module.close()
@@ -298,7 +298,7 @@ describe('logger', () => {
 
       const watchPromise = watchForFileChange(path)
       module.get(TestService).testlog()
-      console.log('******', await watchPromise)
+      await watchPromise
       const res = fs.readFileSync(path)
       match(res.toString(), /"message":"eventMessage"/)
       match(res.toString(), /"level":"ERROR",/)
