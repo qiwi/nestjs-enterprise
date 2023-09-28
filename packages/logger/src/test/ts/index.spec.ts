@@ -1,12 +1,15 @@
-import { Inject, Injectable } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
-import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
-import { ILogger, LogLevel } from '@qiwi/substrate'
+import { deepEqual, equal, match, notEqual } from 'node:assert'
 import fs from 'node:fs'
 import path from 'node:path'
+import { after, describe, it, mock } from 'node:test'
 import { fileURLToPath } from 'node:url'
-import { describe, it, before, mock } from 'node:test'
-import { equal, notEqual, deepEqual, match } from 'node:assert'
+
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+import { ILogger, LogLevel } from '@qiwi/substrate'
+
+import { Inject, Injectable } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
+import { temporaryFile } from 'tempy'
 
 import {
   createMetaPipe,
@@ -18,11 +21,6 @@ import {
 import { createLoggerPipe } from '../../main/ts/logger.pipe'
 import { createTransports } from '../../main/ts/winston'
 
-const testLogPath = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  'log',
-  'application-json.log',
-)
 const testConfigPath = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
   'config',
@@ -49,36 +47,50 @@ const toMatchObject = (actual: any, expected: any) => {
   }
 }
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+const getLogDirAndPath = () => {
+  const file = temporaryFile()
+  fs.writeFileSync(file, '')
+
+  return {
+    dir: path.dirname(file),
+    path: file,
+  }
+}
+
+const fakeConfigFactory = (
+  data: Record<'name' | 'logger' | 'version' | 'local', any>,
+) => ({
+  get: (field: keyof typeof data) => {
+    return data[field]
+  },
+})
+
+const configData = {
+  // eslint-disable-next-line sonarjs/no-duplicate-string
+  name: 'test-name-app2',
+  local: '',
+  version: '1',
+  logger: {
+    level: 'debug',
+    maxsize: 157_286_400,
+    datePattern: 'YYYY-MM-DD',
+    appFilename: 'testlog.log',
+    maxFiles: 10,
+    tailable: true,
+    zippedArchive: true,
+  },
+}
 
 describe('logger', () => {
-  const fakeConfig = {
-    get: (field: 'name' | 'logger' | 'version' | 'local') => {
-      const configData = {
-        // eslint-disable-next-line sonarjs/no-duplicate-string
-        name: 'test-name-app2',
-        local: '',
-        version: '1',
-        logger: {
-          dir: path.join(
-            path.dirname(fileURLToPath(import.meta.url)),
-            '..',
-            'ts',
-            'log',
-          ),
-          level: 'debug',
-          maxsize: 157_286_400,
-          datePattern: 'YYYY-MM-DD',
-          appJsonFilename: 'application-json.log',
-          appFilename: 'testlog.log',
-          maxFiles: 10,
-          tailable: true,
-          zippedArchive: true,
-        },
-      }
-
-      return configData[field]
-    },
+  const watcherAbortController = new AbortController()
+  const watchForFileChange = (path: string) => {
+    return new Promise<void>((resolve) => {
+      fs.watch(path, { signal: watcherAbortController.signal }, (event) => {
+        if (event === 'change') {
+          resolve()
+        }
+      })
+    })
   }
 
   describe('index', () => {
@@ -91,14 +103,13 @@ describe('logger', () => {
     })
   })
 
-  describe('logger module', () => {
-    before(() => {
-      if (fs.existsSync(testLogPath)) {
-        fs.writeFileSync(testLogPath, '')
-      }
-    })
+  after(() => {
+    watcherAbortController.abort()
+  })
 
+  describe('logger module', () => {
     it('work as static module', async () => {
+      const { dir, path } = getLogDirAndPath()
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
@@ -116,15 +127,28 @@ describe('logger', () => {
         providers: [TestService],
       })
         .overrideProvider('IConfigService')
-        .useValue(fakeConfig)
+        .useValue(
+          fakeConfigFactory({
+            ...configData,
+            logger: {
+              ...configData.logger,
+              appJsonFilename: path,
+              dir,
+            },
+          }),
+        )
         .compile()
+      const watchPromise = watchForFileChange(path)
       await module.get(TestService).testlog()
-      await delay(100)
-      const res = fs.readFileSync(path.resolve(testLogPath))
+      await watchPromise
+
+      const res = fs.readFileSync(path)
       match(res.toString(), /testinfo-foo-static/)
     })
 
     it('work as dynamic module', async () => {
+      const { dir, path } = getLogDirAndPath()
+
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
@@ -142,12 +166,22 @@ describe('logger', () => {
         providers: [TestService],
       })
         .overrideProvider('IConfigService')
-        .useValue(fakeConfig)
+        .useValue(
+          fakeConfigFactory({
+            ...configData,
+            logger: {
+              ...configData.logger,
+              appJsonFilename: path,
+              dir,
+            },
+          }),
+        )
         .compile()
 
+      const watchPromise = watchForFileChange(path)
       module.get(TestService).testlog()
-      await delay(100)
-      const res = fs.readFileSync(path.resolve(testLogPath))
+      await watchPromise
+      const res = fs.readFileSync(path)
       match(res.toString(), /testinfo-foo-dynamic/)
       await module.close()
     })
@@ -192,7 +226,7 @@ describe('logger', () => {
         providers: [TestService],
       })
         .overrideProvider('IConfigService')
-        .useValue(fakeConfig)
+        .useValue(fakeConfigFactory(configData))
         .compile()
 
       module.get(TestService).testlog()
@@ -228,6 +262,7 @@ describe('logger', () => {
     })
 
     it('push works correctly', async () => {
+      const { dir, path } = getLogDirAndPath()
       @Injectable()
       class TestService {
         constructor(@Inject('ILogger') private logger: ILogger) {}
@@ -249,12 +284,22 @@ describe('logger', () => {
         providers: [TestService],
       })
         .overrideProvider('IConfigService')
-        .useValue(fakeConfig)
+        .useValue(
+          fakeConfigFactory({
+            ...configData,
+            logger: {
+              ...configData.logger,
+              appJsonFilename: path,
+              dir,
+            },
+          }),
+        )
         .compile()
 
+      const watchPromise = watchForFileChange(path)
       module.get(TestService).testlog()
-      await delay(100)
-      const res = fs.readFileSync(path.resolve(testLogPath))
+      await watchPromise
+      const res = fs.readFileSync(path)
       match(res.toString(), /"message":"eventMessage"/)
       match(res.toString(), /"level":"ERROR",/)
       match(res.toString(), /"event":"metaevent"/)
