@@ -1,0 +1,17 @@
+{
+  "data": {
+    "name": "test-name-app",
+    "local": "$env:LOCAL"
+  },
+  "sources": {
+    "env": {
+      "pipeline": "env"
+    },
+    "host": {
+      "pipeline": "ip"
+    },
+    "pkg": {
+      "pipeline": "pkg"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import { equal, notEqual } from 'node:assert'
 import { dirname, join } from 'node:path'
-import { describe, it } from 'node:test'
+import { after, before, describe, it } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
 import { Inject, Injectable } from '@nestjs/common'
@@ -16,6 +16,7 @@ import {
 const testFileDir = dirname(fileURLToPath(import.meta.url))
 
 const testCfgPath = join(testFileDir, 'config', 'test.json')
+const schemaPath = join(testFileDir, 'config', 'app-config.schema.json')
 
 describe('configModule', () => {
   describe('index', () => {
@@ -36,7 +37,7 @@ describe('configModule', () => {
       }
 
       const module = await Test.createTestingModule({
-        imports: [ConfigModule.register({ path: testCfgPath })],
+        imports: [ConfigModule.register({ path: testCfgPath, schemaPath })],
         providers: [TestService],
       }).compile()
 
