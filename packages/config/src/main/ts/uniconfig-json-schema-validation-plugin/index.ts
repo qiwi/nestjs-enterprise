@@ -19,17 +19,21 @@ const optionalValidationPluginDefaultDeps = {
   readFileSync: nodeReadFileSync,
 }
 
+const readJsonFactory = (deps: TOptionalValidationPluginInput['deps']) => ({
+  readJson: (path: string) =>
+    deps
+      .readFile(path)
+      .then((d: Buffer) => d.toString())
+      .then(JSON.parse),
+  readJsonSync: (path: string) =>
+    JSON.parse(deps.readFileSync(path).toString()),
+})
+
 export const uniconfigJsonSchemaValidationPluginFactory = (
   opts: TOptionalValidationPluginOpts,
 ) => {
   const { deps = optionalValidationPluginDefaultDeps, schemaPath } = opts
-  const readJson = (path: string) =>
-    deps
-      .readFile(path)
-      .then((d) => d.toString())
-      .then(JSON.parse)
-  const readJsonSync = (path: string) =>
-    JSON.parse(deps.readFileSync(path).toString())
+  const { readJson, readJsonSync } = readJsonFactory(deps)
 
   return {
     name: 'json-schema-validation',
@@ -41,10 +45,9 @@ export const uniconfigJsonSchemaValidationPluginFactory = (
         return data
       }
 
-      const runtimeConfigSchema = await readJson(resolve(schemaPath))
       return ajvPipe.handle(context, {
         data: data,
-        schema: runtimeConfigSchema,
+        schema: await readJson(resolve(schemaPath)),
       })
     },
     handleSync(context: IContext, data: TOptionalValidationPluginInput): IAny {
@@ -52,10 +55,9 @@ export const uniconfigJsonSchemaValidationPluginFactory = (
         return data
       }
 
-      const runtimeConfigSchema = readJsonSync(resolve(schemaPath))
       return ajvPipe.handleSync(context, {
         data: data,
-        schema: runtimeConfigSchema,
+        schema: readJsonSync(resolve(schemaPath)),
       })
     },
   }
