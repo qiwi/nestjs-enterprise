@@ -152,7 +152,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            coverage
+            target/coverage
             package.json
           key: coverage-${{ needs.init.outputs.checksum }}
 
@@ -256,7 +256,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            coverage
+            target/coverage
             package.json
           key: coverage-${{ needs.init.outputs.checksum }}
 
