@@ -291,4 +291,4 @@ jobs:
           GIT_AUTHOR_NAME: '@qiwibot'
           GIT_COMMITTER_NAME: '@qiwibot'
           YARN_ENABLE_IMMUTABLE_INSTALLS: false
-        run: npm_config_yes=true npx zx-bulk-release
+        run: npx packasso release
