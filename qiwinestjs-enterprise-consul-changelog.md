@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-consul@4.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.26-qiwi.nestjs-enterprise-consul.4.0.3-f0...2023.10.9-qiwi.nestjs-enterprise-consul.4.1.0-f0) (2023-10-09)
+
+### Features
+* feat: add cjs support, migrate to packasso (#99) [f849ec1](https://github.com/qiwi/nestjs-enterprise/commit/f849ec1014712b0605256e4dbf65959b5212fde0)
+
+### Dependencies
+* perf: devDependencies @qiwi/nestjs-enterprise-connection-provider updated to 4.1.0
+
 ## [@qiwi/nestjs-enterprise-consul@4.0.3](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.22-qiwi.nestjs-enterprise-consul.4.0.2-f0...2023.9.26-qiwi.nestjs-enterprise-consul.4.0.3-f0) (2023-09-26)
 
 ### Fixes & improvements
