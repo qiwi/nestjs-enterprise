@@ -30,13 +30,6 @@
     "typings",
     "buildstamp.json"
   ],
-  "scripts": {
-    "clean": "npx packasso clean",
-    "build": "npx packasso build",
-    "test": "PACKASSO=node_test npx packasso test",
-    "lint": "npx packasso lint",
-    "lint:fix": "npx packasso lint --fix"
-  },
   "dependencies": {
     "@nestjs/common": "^10.1.3",
     "@nestjs/core": "^10.1.3",

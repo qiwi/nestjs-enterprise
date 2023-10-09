@@ -24,13 +24,6 @@
   },
   "keywords": [],
   "exports": "./src/main/ts/index.ts",
-  "scripts": {
-    "clean": "npx packasso clean",
-    "build": "npx packasso build",
-    "test": "PACKASSO=node_test npx packasso test",
-    "lint": "npx packasso lint",
-    "lint:fix": "npx packasso lint --fix"
-  },
   "dependencies": {
     "@qiwi/nestjs-enterprise-common": "workspace:*",
     "@qiwi/substrate": "^2.0.4",
