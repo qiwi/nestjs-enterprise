@@ -1,2 +1,33 @@
 /node_modules
 /target
+
+# misc
+
+.DS_Store
+/.idea
+
+# local
+
+*.local
+
+# yarn
+
+/.pnp.*
+/.yarn/cache
+/.yarn/unplugged
+/.yarn/install-state.gz
+/yarn-error.log
+
+# open-ssl
+
+*.ca
+*.crt
+*.csr
+*.der
+*.kdb
+*.org
+*.p12
+*.pem
+*.rnd
+*.ssleay
+*.smime

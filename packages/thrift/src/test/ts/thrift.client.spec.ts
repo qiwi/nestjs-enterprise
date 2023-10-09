@@ -73,7 +73,6 @@ class TestService {
 }
 
 describe('thrift', () => {
-
   describe('index', () => {
     it('properly exposes its inners', () => {
       notEqual(ThriftModule, undefined)

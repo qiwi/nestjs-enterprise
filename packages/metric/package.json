@@ -23,7 +23,7 @@
     ]
   },
   "main": "./target/es6/index.js",
-  "exports": "./target/es6/index.js",
+  "exports": "./src/main/ts/index.ts",
   "types": "target/es6/index.d.ts",
   "typescript": {
     "definition": "target/es6/index.d.ts"
