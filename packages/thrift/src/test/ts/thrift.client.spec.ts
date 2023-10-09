@@ -1,15 +1,17 @@
-import { Global, Inject, Injectable, Module } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
+import { equal, notEqual } from 'node:assert'
+import path from 'node:path'
+import { after, before, describe, it } from 'node:test'
+import { fileURLToPath } from 'node:url'
+
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
-import path from 'node:path'
+
 // @ts-ignore
 import * as thrift from 'thrift'
-import { fileURLToPath } from 'node:url'
-import { describe, it, before, after } from 'node:test'
-import { equal, notEqual } from 'node:assert'
+import { Global, Inject, Injectable, Module } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
 
 import {
   IThriftClientProvider,
@@ -30,85 +32,87 @@ const testConfigPath = path.join(
   'test.json',
 )
 
-describe('thrift', () => {
-  before(() => {
-    server.listen(9090)
-  })
+@Global()
+@Module({
+  providers: [
+    {
+      provide: 'IConsul',
+      useValue: {
+        getConnectionParams: () =>
+          new FakeConsulDiscovery9090().getConnectionParams(''),
+      },
+    },
+  ],
+  exports: ['IConsul'],
+})
+class GlobalModule {}
 
-  after(() => {
-    server.close()
-  })
+@Injectable()
+class TestService {
+  client?: Client
+
+  constructor(
+    @Inject('IConfigService') private config: IConfig,
+    @Inject('IThriftClientService')
+    private thrift: IThriftClientProvider,
+  ) {}
+
+  getClient() {
+    const serviceProfile: IThriftServiceProfile = this.config.get(
+      'services.common-auth',
+    )
+    this.client = this.thrift.getClient(serviceProfile, Client, {
+      multiplexer: false,
+      connectionOpts: {
+        transport: thrift.TBufferedTransport,
+        protocol: thrift.TBinaryProtocol,
+      },
+    })
+    return this.client
+  }
+}
+
+describe('thrift', () => {
   describe('index', () => {
     it('properly exposes its inners', () => {
       notEqual(ThriftModule, undefined)
       notEqual(ThriftClientProvider, undefined)
     })
   })
+})
 
-  describe('thrift module', () => {
-    @Global()
-    @Module({
-      providers: [
-        {
-          provide: 'IConsul',
-          useValue: {
-            getConnectionParams: () =>
-              new FakeConsulDiscovery9090().getConnectionParams(''),
-          },
-        },
+describe('thrift module', () => {
+  let module: any
+  let thriftService: any
+
+  before(async () => {
+    module = await Test.createTestingModule({
+      imports: [
+        ConfigModule.register({ path: testConfigPath }),
+        ConnectionProviderModule,
+        ThriftModule,
+        LoggerModule,
+        GlobalModule,
       ],
-      exports: ['IConsul'],
+      providers: [TestService],
     })
-    class GlobalModule {}
+      .overrideProvider('IDiscoveryService')
+      .useFactory({ factory: () => new FakeConsulDiscovery9090() })
+      .overrideProvider('ILogger')
+      .useValue(console)
+      .compile()
 
-    @Injectable()
-    class TestService {
-      client?: Client
+    thriftService = module.get(TestService)
+    await server.listen(9090)
+  })
+  after(async () => {
+    await module.close()
+    await server.close()
+  })
 
-      constructor(
-        @Inject('IConfigService') private config: IConfig,
-        @Inject('IThriftClientService')
-        private thrift: IThriftClientProvider,
-      ) {}
-
-      getClient() {
-        const serviceProfile: IThriftServiceProfile = this.config.get(
-          'services.common-auth',
-        )
-        this.client = this.thrift.getClient(serviceProfile, Client, {
-          multiplexer: false,
-          connectionOpts: {
-            transport: thrift.TBufferedTransport,
-            protocol: thrift.TBinaryProtocol,
-          },
-        })
-        return this.client
-      }
-    }
-
-    it('exposes thrift api', async () => {
-      const module = await Test.createTestingModule({
-        imports: [
-          ConfigModule.register({ path: testConfigPath }),
-          ConnectionProviderModule,
-          ThriftModule,
-          LoggerModule,
-          GlobalModule,
-        ],
-        providers: [TestService],
-      })
-        .overrideProvider('IDiscoveryService')
-        .useFactory({ factory: () => new FakeConsulDiscovery9090() })
-        .overrideProvider('ILogger')
-        .useValue(console)
-        .compile()
-
-      const thriftClient = module.get(TestService).getClient()
-
-      equal(await thriftClient.add(1, 2), 3)
-      equal(await thriftClient.add(10, -10), 0)
-      // await module.get('IThriftClientService').pools.get(Client).clear()
-      await module.close()
-    })
+  it('exposes thrift api', async () => {
+    const thriftClient = thriftService.getClient()
+    equal(await thriftClient.add(1, 2), 3)
+    equal(await thriftClient.add(10, -10), 0)
   })
 })

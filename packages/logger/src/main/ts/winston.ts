@@ -1,7 +1,8 @@
-import safeJsonStrinify from 'fast-safe-stringify'
 import { existsSync, mkdirSync } from 'node:fs'
 import { resolve } from 'node:path'
+
 import * as winston from 'winston'
+import safeJsonStrinify from 'fast-safe-stringify'
 
 export type TWinstonEntry = {
   level: string

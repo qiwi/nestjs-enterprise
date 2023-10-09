@@ -1,4 +1,5 @@
-import { ILogEntry } from '@qiwi/logwrap'
+import type { ILogEntry } from '@qiwi/logwrap'
+
 import luhn from 'fast-luhn'
 
 /**

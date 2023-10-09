@@ -1,3 +1,3 @@
-import { IPipe } from '@qiwi/logwrap'
+import type { IPipe } from '@qiwi/logwrap'
 
 export type TLoggerPipe = IPipe

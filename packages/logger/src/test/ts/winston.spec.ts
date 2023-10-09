@@ -1,5 +1,5 @@
-import { describe, it } from 'node:test'
 import { deepEqual } from 'node:assert'
+import { describe, it } from 'node:test'
 
 import { formatKibanaEntry, TWinstonEntry } from '../../main/ts/winston'
 

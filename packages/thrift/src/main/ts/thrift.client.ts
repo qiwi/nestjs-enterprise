@@ -1,9 +1,10 @@
-import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
-import { IConfig, ILogger } from '@qiwi/substrate'
-import genericPool from 'generic-pool'
-import * as thrift from 'thrift'
+import type { IConfig, ILogger } from '@qiwi/substrate'
 
-import {
+import * as thrift from 'thrift'
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
+import genericPool from 'generic-pool'
+
+import type {
   IConnectionParams,
   IConnectionProvider,
   IThriftClientProvider,
@@ -83,7 +84,9 @@ export class ThriftClientProvider
         // @ts-ignore
         connection._invalid = true
         const cout = err ? this.log.error : this.log.info
-        cout( `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err} stack=${err?.stack}`)
+        cout(
+          `ThriftClientProvider connection ${event} host=${host} port=${port} error=${err} stack=${err?.stack}`,
+        )
       })
     }
 

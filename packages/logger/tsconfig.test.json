@@ -1,6 +1,0 @@
-{
-  "extends": "../../packages/infra/tsconfig.compiler.json",
-  "include": [
-    "./src/**/*"
-  ]
-}

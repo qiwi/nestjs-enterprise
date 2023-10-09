@@ -1,0 +1,7 @@
+{
+  "extends": "eslint-config-qiwi",
+  "rules": {
+    "@typescript-eslint/ban-ts-comment": "off",
+    "unicorn/consistent-function-scoping": "off"
+  }
+}

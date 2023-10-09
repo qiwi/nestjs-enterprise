@@ -1,5 +1,6 @@
-import { Inject } from '@nestjs/common'
 import { constructDecorator } from '@qiwi/decorator-utils'
+
+import { Inject } from '@nestjs/common'
 
 import { isPromise } from '../utills'
 

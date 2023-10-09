@@ -1,11 +1,12 @@
-import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
-import {
-  ConsulDiscoveryService,
+import { ConsulDiscoveryService } from '@qiwi/consul-service-discovery'
+import type {
   IConsulKvSetOptions,
   INormalizedConsulKvValue,
 } from '@qiwi/consul-service-discovery'
-import { IConfig, ILogger, IPromise } from '@qiwi/substrate'
-import { IDiscoverable } from '@qiwi/nestjs-enterprise-connection-provider'
+import type { IDiscoverable } from '@qiwi/nestjs-enterprise-connection-provider'
+import type { IConfig, ILogger, IPromise } from '@qiwi/substrate'
+
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 
 const CONSUL_CHECK_REG_INTERVAL = 60_000
 

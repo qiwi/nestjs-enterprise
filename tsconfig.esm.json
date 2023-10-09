@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "rootDir": "./"
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./packages/common/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/connection-provider/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/config/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/consul/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/facade/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/logger/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/mdc/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/metric/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/svc-info/tsconfig.esm.json"
+    },
+    {
+      "path": "./packages/thrift/tsconfig.esm.json"
+    }
+  ]
+}

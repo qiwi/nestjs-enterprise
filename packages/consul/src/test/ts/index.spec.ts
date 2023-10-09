@@ -1,11 +1,13 @@
-import { Inject, Injectable } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
+import { equal, notEqual } from 'node:assert'
+import path from 'node:path'
+import { describe, it } from 'node:test'
+import { fileURLToPath } from 'node:url'
+
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { describe, it } from 'node:test'
-import { equal, notEqual } from 'node:assert'
+
+import { Inject, Injectable } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
 import lodash from 'lodash'
 
 import { ConsulModule, IConsulService } from '../../main/ts'

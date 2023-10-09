@@ -1,8 +1,10 @@
+import { equal } from 'node:assert'
+import { describe, it } from 'node:test'
+
+import lodash from 'lodash'
+
 import { ConnectionProviderService } from '../../main/ts'
 import { DiscoveryType, TServiceType } from '../../main/ts/interfaces'
-import { describe, it } from 'node:test'
-import { equal } from 'node:assert'
-import lodash from 'lodash'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)

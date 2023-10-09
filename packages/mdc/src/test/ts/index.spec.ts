@@ -1,11 +1,12 @@
-import { Test } from '@nestjs/testing'
+import { equal } from 'node:assert'
+import { describe, it } from 'node:test'
+
 // @ts-ignore
 import { getContext, setContextValue } from '@qiwi/mware-context'
 // @ts-ignore
 import { TRACE_KEY } from '@qiwi/mware-mdc'
 
-import { describe, it } from 'node:test'
-import { equal } from 'node:assert'
+import { Test } from '@nestjs/testing'
 import lodash from 'lodash'
 
 import { MdcModule } from '../../main/ts'

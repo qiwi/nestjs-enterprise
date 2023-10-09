@@ -1,9 +1,9 @@
-import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
+import { describe, it } from 'node:test'
 
-import {foo} from '../../main/ts'
+import { foo } from '../../main/ts'
 
-describe('',() => {
+describe('', () => {
   it('', () => {
     equal(foo, 'bar')
   })

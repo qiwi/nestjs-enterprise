@@ -1,5 +1,5 @@
 {
-  "ghPages": "gh-pages docs thrift",
-  "cmd": "yarn",
-  "changelog": "changelog"
+  "ghPages": "gh-pages target/docs packages/thrift",
+  "changelog": "changelog",
+  "npmFetch": true
 }

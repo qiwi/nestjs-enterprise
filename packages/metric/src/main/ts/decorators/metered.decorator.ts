@@ -1,5 +1,6 @@
-import { Inject } from '@nestjs/common'
 import { constructDecorator } from '@qiwi/decorator-utils'
+
+import { Inject } from '@nestjs/common'
 
 /**
  * The decorator measures the number of function calls and also tracks 1-, 5-, and 15-minute moving averages.
