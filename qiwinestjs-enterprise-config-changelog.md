@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-config@5.2.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.9-qiwi.nestjs-enterprise-config.5.1.0-f0...2023.10.10-qiwi.nestjs-enterprise-config.5.2.0-f0) (2023-10-10)
+
+### Features
+* feat(config): add validation (#108) [a41c8d0](https://github.com/qiwi/nestjs-enterprise/commit/a41c8d09f78bd29b27c09632f58ca010ebe053ec)
+
 ## [@qiwi/nestjs-enterprise-config@5.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.26-qiwi.nestjs-enterprise-config.5.0.2-f0...2023.10.9-qiwi.nestjs-enterprise-config.5.1.0-f0) (2023-10-09)
 
 ### Features
