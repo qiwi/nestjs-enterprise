@@ -41,24 +41,20 @@ export const uniconfigJsonSchemaValidationPluginFactory = (
       context: IContext,
       data: TOptionalValidationPluginInput,
     ): Promise<IAny> {
-      if (!schemaPath) {
-        return data
-      }
-
-      return ajvPipe.handle(context, {
-        data: data,
-        schema: await readJson(resolve(schemaPath)),
-      })
+      return schemaPath ?
+        ajvPipe.handle(context, {
+          data: data,
+          schema: await readJson(resolve(schemaPath)),
+        })
+        : data
     },
     handleSync(context: IContext, data: TOptionalValidationPluginInput): IAny {
-      if (!schemaPath) {
-        return data
-      }
-
-      return ajvPipe.handleSync(context, {
-        data: data,
-        schema: readJsonSync(resolve(schemaPath)),
-      })
+      return schemaPath
+        ? ajvPipe.handleSync(context, {
+          data: data,
+          schema: readJsonSync(resolve(schemaPath)),
+        })
+        : data
     },
   }
 }
