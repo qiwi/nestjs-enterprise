@@ -7,7 +7,9 @@ yarn add @qiwi/nestjs-enterprise-config
 ```
 
 ## Configuration
-Static import
+
+### Static import
+
 ```typescript
 import { Module } from '@nestjs/common'
 import { ConfigModule } from "@qiwi/nestjs-enterprise-config"
@@ -21,7 +23,8 @@ import { ConfigModule } from "@qiwi/nestjs-enterprise-config"
 
 export class AppModule {}
 ```
-Import as dynamic module.
+
+### Import as dynamic module.
 
 see [uniconfig-plugin-path](https://github.com/qiwi/uniconfig/tree/master/packages/uniconfig-plugin-path)
 ```typescript
@@ -38,6 +41,114 @@ see [uniconfig-plugin-path](https://github.com/qiwi/uniconfig/tree/master/packag
 
 export class AppModule {}
 ```
+
+### Validation
+
+Module looks for app config json schema in `${process.cwd()}/config/app.config.schema.json` and validates output of uniconfig pipeline.
+
+If file is absent, then no validation is performed.
+
+You can specify path to app config schema via `opts.schemaPath` in `ConfigModule.register`
+
+`app.config.schema.json` example:
+
+```json
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "local": {
+      "type": "string"
+    },
+    "server": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "number"
+        },
+        "host": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "port",
+        "host"
+      ]
+    },
+    "logger": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "level"
+      ]
+    }
+  },
+  "required": [
+    "name",
+    "server",
+    "logger"
+  ]
+}
+```
+
+You can also write schema for config file, for example in `config.schema.json`:
+
+```json
+{
+  "properties": {
+    "data": {
+      "$ref": "./app.config.schema.json"
+    },
+    "$schema": {
+      "type": "string"
+    }
+  },
+  "required": ["data"],
+  "additionalProperties": {
+    "sources": {
+      "type": "object"
+    }
+  }
+}
+```
+
+And reference it in your config file to enable IDE suggestions and error highlighting:
+
+```json
+{
+  "$schema": "./config.schema.json",
+  "data": {
+    "name": "jslab-gen-api",
+    "local": "$env:LOCAL",
+
+    "server": {
+      "port": 8080,
+      "host": "$host:"
+    },
+
+    "logger": {
+      "level": "debug"
+    }
+  },
+
+  "sources": {
+    "env": {
+      "pipeline": "env"
+    },
+    "host": {
+      "pipeline": "ip"
+    }
+  }
+}
+
+```
+
 ## Usage
 ```typescript
 @Injectable()
@@ -209,7 +320,11 @@ If `process.env.LOCAL` is truthy, then service will read from `<cwd>/config/loca
 ## API
 ### Class ConfigModule
 Exports `ConfigService` with token `IConfigService`
-##### static register (opts: { path: string }): DynamicModule
+##### static register (opts?: { path?: string, schemaPath?: string }): DynamicModule
+
+`opts.path` path to config file
+
+`opts.schemaPath` path to app config schema (config.data)
 
 ### Function resolveConfigPath
 
