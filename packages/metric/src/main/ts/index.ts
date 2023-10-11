@@ -5,6 +5,7 @@ import { MeteredDecorator } from './decorators/metered.decorator'
 import { RequestRateDecorator } from './decorators/request-rate.decorator'
 export { GraphiteService } from './graphite.service'
 export { MetricService } from './metric.service'
+export { MetricModule } from './metric.module'
 export { getNodeMetrics } from './get-node-metrics'
 
 /**

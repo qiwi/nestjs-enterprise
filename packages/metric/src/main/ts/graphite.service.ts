@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import GraphiteClient from 'graphite'
+import { IGraphiteService } from './graphite.servise.interface'
 
 @Injectable()
-export class GraphiteService {
+export class GraphiteService implements IGraphiteService {
   private client: GraphiteClient
 
   constructor(graphiteApiEndpoint: string) {
