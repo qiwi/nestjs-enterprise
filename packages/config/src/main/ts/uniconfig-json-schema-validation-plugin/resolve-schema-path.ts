@@ -9,7 +9,7 @@ const defaultDeps = {
 
 export const resolveSchemaPath = (
   options: {
-    path?: string
+    path?: any
     schemaPath?: string
   } = {},
   deps = defaultDeps,
@@ -18,9 +18,10 @@ export const resolveSchemaPath = (
     return options.schemaPath
   }
 
-  const defaultSchemaPath = options.path
-    ? resolve(dirname(options.path), defaultAppSchemaFilename)
-    : resolve(process.cwd(), 'config', defaultAppSchemaFilename)
+  const defaultSchemaPath =
+    options.path && typeof options.path === 'string'
+      ? resolve(dirname(options.path), defaultAppSchemaFilename)
+      : resolve(process.cwd(), 'config', defaultAppSchemaFilename)
 
   if (deps.existsSync(defaultSchemaPath)) {
     return defaultSchemaPath
