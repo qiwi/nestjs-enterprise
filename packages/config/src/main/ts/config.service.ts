@@ -44,7 +44,16 @@ const normalizeOpts = (opts?: string | Record<any, any>) => {
 }
 
 export class ConfigService extends Config implements IConfigService {
-  constructor(opts?: string | Record<any, any>) {
+  constructor(opts?: string | Record<any, any>, schemaPath?: string) {
+    rollupPlugin(
+      uniconfigJsonSchemaValidationPluginFactory({
+        schemaPath: resolveSchemaPath({
+          path: opts,
+          schemaPath,
+        }),
+      }),
+    )
+
     super(normalizeOpts(opts))
   }
 }
@@ -54,13 +63,10 @@ export type { IConfig as IConfigService } from '@qiwi/uniconfig'
 export const configServiceFactory = async (
   options: { schemaPath?: string } & Record<any, any> = {},
 ) => {
-  rollupPlugin(
-    uniconfigJsonSchemaValidationPluginFactory({
-      schemaPath: resolveSchemaPath(options),
-    }),
+  const service = new ConfigService(
+    options.path || options.config,
+    options.schemaPath,
   )
-
-  const service = new ConfigService(options.path || options.config)
   await service.ready
 
   return service
