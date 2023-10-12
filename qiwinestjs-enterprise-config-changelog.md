@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-config@5.2.1](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.10-qiwi.nestjs-enterprise-config.5.2.0-f0...2023.10.12-qiwi.nestjs-enterprise-config.5.2.1-f0) (2023-10-12)
+
+### Fixes & improvements
+* fix(config): rollup validation plugin in constructor (#110) [408771c](https://github.com/qiwi/nestjs-enterprise/commit/408771c27f9667cf1f486791225060086d46b98f)
+
 ## [@qiwi/nestjs-enterprise-config@5.2.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.9-qiwi.nestjs-enterprise-config.5.1.0-f0...2023.10.10-qiwi.nestjs-enterprise-config.5.2.0-f0) (2023-10-10)
 
 ### Features
