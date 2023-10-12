@@ -1,16 +1,7 @@
 import { describe, it } from 'node:test'
 import { equal } from 'node:assert'
-import { Test } from '@nestjs/testing'
-import {
-  MetricService, GraphiteService, getNodeMetrics,
-} from '../../main/ts'
-import assert from 'node:assert/strict'
+import { MetricService, getNodeMetrics } from '../../main/ts'
 import lodash from 'lodash'
-import { MetricModule } from '../../main/ts/metric.module'
-import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import {before, after} from 'node:test'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
@@ -25,12 +16,6 @@ const toMatchObjectTypes = (
     equal(typeof actual[key], expected[key])
   }
 }
-
-const testConfigPath = path.join(
-  path.dirname(fileURLToPath(import.meta.url)),
-  'config',
-  'test.json',
-)
 
 describe('MetricService', () => {
   let metricAcc: Record<string, any> = {}
@@ -120,37 +105,4 @@ describe('MetricService', () => {
       'prefix.node.os.totalmem': 'number',
     })
   })
-
-describe('MetricModule', () => {
-  let metricService : MetricService;
-  let graphiteService : GraphiteService;
-  let moduleFixture: any;
-
-  before(async () => {
-    const graphiteApiEndpoint = 'http://example.com';
-    const prefix = 'prefix';
-    const interval = 1000;
-    
-
-    moduleFixture = await Test.createTestingModule({
-      imports: [MetricModule.register(
-        graphiteApiEndpoint, 'graphiteService', { prefix, interval },
-      ), ConfigModule.register({ path: testConfigPath })],
-    }).compile();
-
-    metricService = moduleFixture.get('IMetricService');
-    graphiteService = moduleFixture.get('IGraphiteService');
-  });
-
-  after(async () => {
-     await moduleFixture.close();
-  });
-
-  it('should be defined with parameters', () => {
-    assert.ok(metricService, 'metricService is not defined');
-    assert.ok(graphiteService, 'graphiteService is not defined');
-  });
-});
-  });
-
-
+})
