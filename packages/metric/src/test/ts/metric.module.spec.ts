@@ -13,7 +13,7 @@ const testConfigPath = path.join(
   'test.json',
 )
 
-describe('MetricModule', () => {
+describe('MetricModuleDynamic', () => {
   let moduleFixtureWithParams: any
 
   before(async () => {
@@ -40,16 +40,18 @@ describe('MetricModule', () => {
     assert.ok(graphiteService, 'graphiteService is not defined')
   })
 })
-describe('MetricModule', () => {
+describe('MetricModuleStatic', () => {
   let moduleFixture: any
   before(async () => {
     moduleFixture = await Test.createTestingModule({
       imports: [MetricModule, ConfigModule.register({ path: testConfigPath })],
     }).compile()
   })
+
   after(async () => {
     await moduleFixture?.close()
   })
+  
   it('should be defined without parameters', () => {
     const metricService = moduleFixture.get('IMetricService')
     const graphiteService = moduleFixture.get('IGraphiteService')

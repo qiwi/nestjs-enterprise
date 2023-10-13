@@ -60,9 +60,8 @@ export class TestClassController {
     providers: [{
         provide: 'IMetricService',
         useFactory: (graphiteService)=>{
-            return new MetricService(graphiteService, {prefix: '$some$your$metric', interval: 1000})
-        },
-        inject: ['IGraphiteService']
+            return new MetricService(graphiteService).register({prefix: '$some$your$metric', interval: 1000})
+        }
     }, {
         provide: 'IGraphiteService',
         useFactory: ()=>{
@@ -73,6 +72,62 @@ export class TestClassController {
 
 export class AppModule {}
 ```
+### MetricModule
+The MetricModule provides functionality for working with metrics in your application. 
+It adds the MetricService to the application using the IMetricService token.
+
+```typescript
+MetricModule.register({
+  graphiteApiEndpoint: string,
+  metricsConfig: { prefix: string, interval: number },
+})
+```
+- graphiteApiEndpoint: The URL for connecting to the Graphite API.
+- metricsConfig: Metrics configuration, including the metric prefix and interval.``
+
+### ConfigModule
+The ConfigModule is used for loading configuration files into your application.
+```typescript
+ConfigModule.register({ path: testConfigPath })
+```
+
+- path: The path to the configuration file.
+
+### Imports MetricModule and ConfigModule
+```typescript
+import { Module } from '@nestjs/common';
+import { MetricModule, ConfigModule} from '@qiwi/nestjs-enterprise-metric';
+
+@Module({
+  imports: [
+    MetricModule, 
+    ConfigMoudle,
+    ],
+})
+export class AppModule {}
+```
+### Imports MetricModule and ConfigModule with parametrs 
+
+```typescript
+import { Module } from '@nestjs/common';
+import { MetricModule } from '@qiwi/nestjs-enterprise-metric';
+
+@Module({
+  imports: [
+    MetricModule.register({
+      pgraphiteApiEndpoint: string,
+      metricsConfig: { prefix: string; interval: number },
+    }),
+    ConfigMoudle.register({ path: configPath })
+  ],
+})
+export class AppModule {}
+```
+You can pass parameters to a `.register()` method
+
+If it does not exist, then module will read from `<cwd>/config/kube.json` (`DEFAULT_KUBE_CONFIG_PATH`).
+
+If `process.env.LOCAL` is truthy, then service will read from `<cwd>/config/local.json` (`DEFAULT_LOCAL_CONFIG_PATH`).
 
 ## API
 ### Class MetricModule
