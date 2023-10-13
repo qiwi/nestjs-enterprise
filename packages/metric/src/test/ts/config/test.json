@@ -5,7 +5,7 @@
       "version": "$pkg:version",
   
       "graphite": {
-        "url": "http://graphite.qiwi.com"
+        "url": "http://graphite-url.com"
       },
 
       "metric":{
