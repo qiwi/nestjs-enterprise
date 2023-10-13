@@ -15,10 +15,10 @@ import { IGraphiteService } from './graphite.servise.interface'
     },
     {
       provide: 'IMetricService',
-      useFactory: (graphiteService: IGraphiteService, metricsConfig: IConfig) => {
+      useFactory: (graphiteService: IGraphiteService, config: IConfig) => {
         const options = {
-          prefix: metricsConfig.get('metric.prefix'),
-          interval: metricsConfig.get('metric.interval'),
+          prefix: config.get('metric.prefix'),
+          interval: config.get('metric.interval'),
         }
         return new MetricService(graphiteService, options)
       },
@@ -29,25 +29,29 @@ import { IGraphiteService } from './graphite.servise.interface'
 })
 export class MetricModule {
   static register(
-    config: string,
+    graphiteUrl: string,
     metricsConfig: { prefix: string; interval: number },
+    customGraphiteService?: IGraphiteService
   ): DynamicModule {
     return {
       module: MetricModule,
       providers: [
         {
-          provide: 'GraphiteService',
+          provide: 'IGraphiteService',
           useFactory: () => {
-            return new GraphiteService(config)
+            if (customGraphiteService) {
+              return customGraphiteService
+            }
+            return new GraphiteService(graphiteUrl)
           },
           inject: ['IConfigService'],
         },
         {
-          provide: 'MetricService',
+          provide: 'IMetricService',
           useFactory: (graphiteService) => {
             return new MetricService(graphiteService, metricsConfig)
           },
-          inject: ['IGraphiteService', 'IConfigService'],
+          inject: ['IGraphiteService'],
         },
       ],
       exports: ['IGraphiteService', 'IMetricService'],

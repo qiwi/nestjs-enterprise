@@ -131,6 +131,7 @@ You can pass parameters to a `MetricModule.register()` method
 - graphiteApiEndpoint - The URL for connecting to the Graphite API
 - metricsConfig.prefix - prefix for metric entry name
 - metricsConfig.interval - period of metric sending in ms
+- customGraphiteService - your own implementation of IGraphiteService (optional)
 
 ## API
 ### Class MetricModule
