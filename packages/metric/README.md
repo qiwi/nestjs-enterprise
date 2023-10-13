@@ -129,8 +129,8 @@ export class AppModule {}
 ```
 You can pass parameters to a `MetricModule.register()` method
 - graphiteApiEndpoint - The URL for connecting to the Graphite API
-  - metricsConfig.prefix - prefix for metric entry name
-  - metricsConfig.interval - period of metric sending in ms
+- metricsConfig.prefix - prefix for metric entry name
+- metricsConfig.interval - period of metric sending in ms
 
 ## API
 ### Class MetricModule
