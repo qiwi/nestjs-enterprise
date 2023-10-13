@@ -88,7 +88,8 @@ ConfigModule.register({ path: testConfigPath })
 ### Imports MetricModule and ConfigModule
 ```typescript
 import { Module } from '@nestjs/common';
-import { MetricModule, ConfigModule} from '@qiwi/nestjs-enterprise-metric';
+import { MetricModule} from '@qiwi/nestjs-enterprise-metric';
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 
 @Module({
   imports: [
@@ -98,24 +99,27 @@ import { MetricModule, ConfigModule} from '@qiwi/nestjs-enterprise-metric';
 })
 export class AppModule {}
 ```
-### Imports MetricModule and ConfigModule with parametrs 
+### Imports MetricModule and ConfigModule with parameters 
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { MetricModule, ConfigModule} from '@qiwi/nestjs-enterprise-metric';
+import { MetricModule} from '@qiwi/nestjs-enterprise-metric';
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+
+
 
 @Module({
   imports: [
     MetricModule.register({
-      pgraphiteApiEndpoint: string,
-      metricsConfig: { prefix: string; interval: number },
+      graphiteApiEndpoint: 'URL',
+      metricsConfig: { prefix: 'some-prefix'; interval: 5000 },
     }),
-    ConfigMoudle.register({ path: configPath })
+    ConfigModule.register({ path: 'some/path' })
   ],
 })
 export class AppModule {}
 ```
-You can pass parameters to a `.register()` method
+You can pass parameters to a `MetricModule.register()` method
 
 - graphiteApiEndpoint - The URL for connecting to the Graphite API.
 - metricsConfig - Metrics configuration, including the metric prefix and interval.

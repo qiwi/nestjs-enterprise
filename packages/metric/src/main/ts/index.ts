@@ -7,7 +7,7 @@ export { GraphiteService } from './graphite.service'
 export { MetricService } from './metric.service'
 export { MetricModule } from './metric.module'
 export { getNodeMetrics } from './get-node-metrics'
-export type {IMetricService } from './metric.service.interface'
+export type { IMetricService } from './metric.service.interface'
 export type { IGraphiteService } from './graphite.servise.interface'
 
 /**
