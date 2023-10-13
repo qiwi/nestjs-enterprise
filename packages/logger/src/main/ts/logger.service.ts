@@ -1,16 +1,19 @@
+import * as os from 'node:os'
+
+import { Logwrap, mdc } from '@qiwi/logwrap'
+// @ts-ignore
+import { DEFAULT_NS } from '@qiwi/mware-context'
+import type { IConfig, ILogger } from '@qiwi/substrate'
+import { LogLevel } from '@qiwi/substrate'
+
 import {
   Inject,
   Injectable,
   LoggerService as LoggerServiceNest,
 } from '@nestjs/common'
-import { Logwrap, mdc } from '@qiwi/logwrap'
-// @ts-ignore
-import { DEFAULT_NS } from '@qiwi/mware-context'
-import { IConfig, ILogger, LogLevel } from '@qiwi/substrate'
-import * as os from 'node:os'
 
 import { createAppPipe } from './app.pipe'
-import { TLoggerPipe } from './interfaces'
+import type { TLoggerPipe } from './interfaces'
 import { createLoggerPipe } from './logger.pipe'
 import createWinstonLogger from './winston'
 

@@ -1,6 +1,7 @@
-import { Global, Module } from '@nestjs/common'
 import { ConsulDiscoveryService } from '@qiwi/consul-service-discovery'
-import { IConfig, ILogger } from '@qiwi/substrate'
+import type { IConfig, ILogger } from '@qiwi/substrate'
+
+import { Global, Module } from '@nestjs/common'
 
 import { ConsulService } from './consul.service'
 

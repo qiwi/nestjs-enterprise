@@ -1,8 +1,9 @@
-import { Injectable } from '@nestjs/common'
 // @ts-ignore
 import { getContextValue } from '@qiwi/mware-context'
 // @ts-ignore
 import { TRACE_KEY } from '@qiwi/mware-mdc'
+
+import { Injectable } from '@nestjs/common'
 
 export interface IMdcService {
   getTrace(): any

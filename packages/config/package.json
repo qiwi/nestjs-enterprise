@@ -2,52 +2,40 @@
   "name": "@qiwi/nestjs-enterprise-config",
   "version": "1.4.1",
   "description": "Config module for nestjs enterprise",
-  "publishConfig": {
-    "access": "public"
-  },
-  "main": "./target/es6/index.js",
-  "exports": "./target/es6/index.js",
-  "source": "target/ts/index.ts",
-  "types": "target/es6/index.d.ts",
-  "typescript": {
-    "definition": "target/es6/index.d.ts"
-  },
   "type": "module",
-  "files": [
-    "README.md",
-    "CHANGELOG.md",
-    "target",
-    "typings",
-    "flow-typed",
-    "buildstamp.json"
-  ],
-  "scripts": {
-    "test": "yarn lint && yarn test:node",
-    "test:node": "node --loader tsx --test **/*.spec.ts",
-    "format": "yarn infra:prettier --write \"src/**/*.ts\"",
-    "lint": "yarn infra:eslint src/**/*.ts",
-    "lint:fix": "yarn lint --fix",
-    "clean": "yarn infra:rimraf target typings buildcache flow-typed docs buildstamp.json",
-    "prebuild": "cp ../../buildstamp.json ./",
-    "build": "yarn prebuild && yarn build:es6 && yarn build:ts && yarn docs && yarn uglify",
-    "build:es6": "mkdir -p target/es6 && yarn infra:tsc -p tsconfig.es6.json && yarn infra:tsc-esm-fix --target='target/es6'",
-    "build:ts": "cp -r src/main/ts/ target/ts/",
-    "docs": "yarn infra:typedoc",
-    "uglify": "yarn infra:uglify",
-    "postupdate": "yarn && yarn build && yarn test"
+  "publishConfig": {
+    "access": "public",
+    "type": "module",
+    "main": "./target/cjs/index.cjs",
+    "module": "./target/esm/index.mjs",
+    "types": "./target/esm/index.d.ts",
+    "exports": {
+      ".": {
+        "require": "./target/cjs/index.cjs",
+        "import": "./target/esm/index.mjs",
+        "types": "./target/esm/index.d.ts"
+      }
+    },
+    "files": [
+      "target/cjs/**/*",
+      "target/esm/**/*",
+      "target/buildstamp.json"
+    ]
   },
+  "exports": "./src/main/ts/index.ts",
   "dependencies": {
     "@nestjs/common": "^10.1.3",
     "@nestjs/core": "^10.1.3",
     "@qiwi/uniconfig": "^3.5.14",
+    "@qiwi/uniconfig-core": "^3.5.4",
+    "@qiwi/uniconfig-plugin-ajv": "^3.5.5",
     "rxjs": "^7.8.1",
     "tslib": "^2.6.1"
   },
   "devDependencies": {
-    "@qiwi/nestjs-enterprise-infra": "workspace:*",
+    "@nestjs/testing": "^10.2.6",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13"
   },
   "repository": {
@@ -61,5 +49,6 @@
   "bugs": {
     "url": "https://github.com/qiwi/nestjs-enterprise/issues"
   },
-  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme"
+  "homepage": "https://github.com/qiwi/nestjs-enterprise#readme",
+  "license": "MIT"
 }

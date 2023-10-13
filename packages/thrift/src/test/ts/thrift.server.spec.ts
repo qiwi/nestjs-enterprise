@@ -1,14 +1,16 @@
-import { Global, Inject, Injectable, Module } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
+import { equal } from 'node:assert'
+import path from 'node:path'
+import { describe, it } from 'node:test'
+import { fileURLToPath } from 'node:url'
+
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { ConnectionProviderModule } from '@qiwi/nestjs-enterprise-connection-provider'
 import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 import { IConfig } from '@qiwi/substrate'
-import path from 'node:path'
+
 import * as thrift from 'thrift'
-import { fileURLToPath } from 'node:url'
-import { describe, it } from 'node:test'
-import { equal } from 'node:assert'
+import { Global, Inject, Injectable, Module } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
 
 import {
   IThriftClientProvider,

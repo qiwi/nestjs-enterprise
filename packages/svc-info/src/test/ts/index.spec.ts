@@ -1,18 +1,20 @@
-import { HttpStatus, ValidationPipe } from '@nestjs/common'
-import { Test } from '@nestjs/testing'
+import { deepEqual, equal, match } from 'node:assert'
+import fs from 'node:fs'
+import path from 'node:path'
+import { after, before, describe, it } from 'node:test'
+import { fileURLToPath } from 'node:url'
+
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import {
   createMetaPipe,
   LoggerModule,
   maskerLoggerPipeFactory,
 } from '@qiwi/nestjs-enterprise-logger'
-import fs from 'node:fs'
-import path from 'node:path'
+
+import { HttpStatus, ValidationPipe } from '@nestjs/common'
+import { Test } from '@nestjs/testing'
 import { sync } from 'rimraf'
 import request from 'supertest'
-import { fileURLToPath } from 'node:url'
-import { describe, it, before, after } from 'node:test'
-import { equal, deepEqual, match } from 'node:assert'
 
 import { ISvcInfoModuleOpts, SvcInfoModule } from '../../main/ts'
 

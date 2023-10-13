@@ -1,14 +1,15 @@
+import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
+
 import {
   CanActivate,
   createParamDecorator,
   ExecutionContext,
+  Inject,
   Injectable,
   SetMetadata,
   UseGuards,
-  Inject,
 } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
-import { constructDecorator, METHOD, PARAM } from '@qiwi/decorator-utils'
 
 const getRequestSize = (ctx: ExecutionContext) =>
   ctx.switchToHttp().getRequest().socket.bytesRead

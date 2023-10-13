@@ -1,5 +1,5 @@
 {
-  "ghPages": "gh-pages docs logger",
-  "cmd": "yarn",
-  "changelog": "changelog"
+  "ghPages": "gh-pages target/docs packages/logger",
+  "changelog": "changelog",
+  "npmFetch": true
 }

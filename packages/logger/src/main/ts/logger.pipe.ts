@@ -1,5 +1,5 @@
-import { ILogEntry } from '@qiwi/logwrap'
-import { ILogger } from '@qiwi/substrate'
+import type { ILogEntry } from '@qiwi/logwrap'
+import type { ILogger } from '@qiwi/substrate'
 
 export const createLoggerPipe =
   (logger: ILogger) =>

@@ -1,12 +1,13 @@
+import { equal } from 'node:assert'
+import http from 'node:http'
+import { after, before, describe, it } from 'node:test'
+
 import { Controller, Get, Module, ValidationPipe } from '@nestjs/common'
 import { NestFactory } from '@nestjs/core'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import axios from 'axios'
 import express from 'express'
-import http from 'node:http'
 import { factory as iop } from 'inside-out-promise'
-import { describe, it, before, after } from 'node:test'
-import { equal } from 'node:assert'
 import lodash from 'lodash'
 
 import { Port } from '../../main/ts'
@@ -87,8 +88,8 @@ describe('port decorators', () => {
 
   const host = '127.0.0.1'
   before(async () => {
+    // eslint-disable-next-line unicorn/consistent-function-scoping
     async function bootstrap() {
-      // eslint-disable-line unicorn/consistent-function-scoping
       const server = express()
       const app = await NestFactory.create(
         AppModule,

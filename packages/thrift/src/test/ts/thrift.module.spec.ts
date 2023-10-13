@@ -1,3 +1,6 @@
+import { notEqual } from 'node:assert'
+import { describe, it } from 'node:test'
+
 import {
   INJECT_THRIFT_SERVICE,
   InjectThriftService,
@@ -6,8 +9,6 @@ import {
   ThriftServer,
   thriftServiceFactory,
 } from '../../main/ts'
-import { describe, it } from 'node:test'
-import { notEqual } from 'node:assert'
 
 describe('thrift.module', () => {
   it('exports', () => {

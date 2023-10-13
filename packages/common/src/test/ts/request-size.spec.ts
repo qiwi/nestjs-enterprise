@@ -1,9 +1,10 @@
+import { equal } from 'node:assert'
+import { after, before, describe, it } from 'node:test'
+
 import { Controller, HttpCode, Patch, Post } from '@nestjs/common'
 import { NestApplication } from '@nestjs/core'
 import { Test, TestingModule } from '@nestjs/testing'
 import request from 'supertest'
-import { describe, it, before, after } from 'node:test'
-import { equal } from 'node:assert'
 
 import { RequestSize } from '../../main/ts/request-size'
 
