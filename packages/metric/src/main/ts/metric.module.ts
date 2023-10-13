@@ -7,8 +7,8 @@ import { IGraphiteService } from './graphite.servise.interface'
   providers: [
     {
       provide: 'IGraphiteService',
-      useFactory: (graphiteApiEndpoint: IConfig) => {
-        const url = graphiteApiEndpoint.get('graphite.url')
+      useFactory: (config: IConfig) => {
+        const url = config.get('graphite.url')
         return new GraphiteService(url)
       },
       inject: ['IConfigService'],
@@ -29,7 +29,7 @@ import { IGraphiteService } from './graphite.servise.interface'
 })
 export class MetricModule {
   static register(
-    graphiteApiEndpoint: string,
+    config: string,
     metricsConfig: { prefix: string; interval: number },
   ): DynamicModule {
     return {
@@ -38,7 +38,7 @@ export class MetricModule {
         {
           provide: 'GraphiteService',
           useFactory: () => {
-            return new GraphiteService(graphiteApiEndpoint)
+            return new GraphiteService(config)
           },
           inject: ['IConfigService'],
         },

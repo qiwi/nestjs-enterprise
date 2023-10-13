@@ -60,7 +60,7 @@ export class TestClassController {
     providers: [{
         provide: 'IMetricService',
         useFactory: (graphiteService)=>{
-            return new MetricService(graphiteService).register({prefix: '$some$your$metric', interval: 1000})
+            return new MetricService(graphiteService).register({prefix: '$some$your$metric-prefix', interval: 1000})
         }
     }, {
         provide: 'IGraphiteService',
@@ -74,24 +74,16 @@ export class AppModule {}
 ```
 ### MetricModule
 The MetricModule provides functionality for working with metrics in your application. 
-It adds the MetricService to the application using the IMetricService token.
-
-```typescript
-MetricModule.register({
-  graphiteApiEndpoint: string,
-  metricsConfig: { prefix: string, interval: number },
-})
-```
-- graphiteApiEndpoint: The URL for connecting to the Graphite API.
-- metricsConfig: Metrics configuration, including the metric prefix and interval.``
+It adds the MetricService to the application using the IMetricService token and GraphiteService using the IGraphiteService token.
 
 ### ConfigModule
 The ConfigModule is used for loading configuration files into your application.
+ConfigModule is imported from @qiwi/nestjs-enterprise-config
 ```typescript
 ConfigModule.register({ path: testConfigPath })
 ```
 
-- path: The path to the configuration file.
+- path - The path to the configuration file.
 
 ### Imports MetricModule and ConfigModule
 ```typescript
@@ -110,7 +102,7 @@ export class AppModule {}
 
 ```typescript
 import { Module } from '@nestjs/common';
-import { MetricModule } from '@qiwi/nestjs-enterprise-metric';
+import { MetricModule, ConfigModule} from '@qiwi/nestjs-enterprise-metric';
 
 @Module({
   imports: [
@@ -125,9 +117,10 @@ export class AppModule {}
 ```
 You can pass parameters to a `.register()` method
 
-If it does not exist, then module will read from `<cwd>/config/kube.json` (`DEFAULT_KUBE_CONFIG_PATH`).
-
-If `process.env.LOCAL` is truthy, then service will read from `<cwd>/config/local.json` (`DEFAULT_LOCAL_CONFIG_PATH`).
+- graphiteApiEndpoint - The URL for connecting to the Graphite API.
+- metricsConfig - Metrics configuration, including the metric prefix and interval.
+  - metricsConfig.prefix - prefix for metric entry name
+  - metricsConfig.interval - period of metric sending in ms
 
 ## API
 ### Class MetricModule
