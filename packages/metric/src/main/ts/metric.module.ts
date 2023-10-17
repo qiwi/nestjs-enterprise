@@ -40,11 +40,9 @@ export class MetricModule {
           useFactory: () => {
             if (typeof graphiteUrlOrService == 'string') {
               return new GraphiteService(graphiteUrlOrService)
-
             }
             return graphiteUrlOrService
           },
-          inject: ['IConfigService'],
         },
         {
           provide: 'IMetricService',

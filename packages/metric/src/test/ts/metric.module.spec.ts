@@ -40,6 +40,7 @@ describe('MetricModuleDynamic', () => {
     assert.ok(graphiteService, 'graphiteService is not defined')
   })
 })
+
 describe('MetricModuleStatic', () => {
   let moduleFixture: any
   before(async () => {
