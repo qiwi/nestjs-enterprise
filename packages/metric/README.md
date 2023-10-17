@@ -77,7 +77,7 @@ The MetricModule provides functionality for working with metrics in your applica
 It adds the MetricService to the application using the IMetricService token and GraphiteService using the IGraphiteService token.
 ConfigModule is required for MetricModule to work
 
-### Imports MetricModule and ConfigModule
+### Static import
 ```typescript
 import { Module } from '@nestjs/common'
 import { MetricModule} from '@qiwi/nestjs-enterprise-metric'
@@ -109,7 +109,7 @@ In this case you should specify parameters in config file
 }
 ```
 
-### Imports MetricModule and ConfigModule with parameters 
+### Dynamic import
 
 ```typescript
 import { Module } from '@nestjs/common'
@@ -128,10 +128,9 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 export class AppModule {}
 ```
 You can pass parameters to a `MetricModule.register()` method
-- graphiteApiEndpoint - The URL for connecting to the Graphite API
+- graphiteUrlOrService - URL for connecting to the Graphite API or your own implementation of IGraphiteService
 - metricsConfig.prefix - prefix for metric entry name
 - metricsConfig.interval - period of metric sending in ms
-- customGraphiteService - your own implementation of IGraphiteService (optional)
 
 ## API
 ### Class MetricModule
