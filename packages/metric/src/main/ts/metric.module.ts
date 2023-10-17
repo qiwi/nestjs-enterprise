@@ -11,7 +11,7 @@ import { IGraphiteService } from './graphite.servise.interface'
         const url = config.get('graphite.url')
         return new GraphiteService(url)
       },
-      inject: ['IConfigService'],
+      inject: ['IConfigService'], 
     },
     {
       provide: 'IMetricService',
@@ -29,9 +29,8 @@ import { IGraphiteService } from './graphite.servise.interface'
 })
 export class MetricModule {
   static register(
-    graphiteUrl: string,
+    graphiteUrlOrService: string | IGraphiteService,
     metricsConfig: { prefix: string; interval: number },
-    customGraphiteService?: IGraphiteService
   ): DynamicModule {
     return {
       module: MetricModule,
@@ -39,10 +38,11 @@ export class MetricModule {
         {
           provide: 'IGraphiteService',
           useFactory: () => {
-            if (customGraphiteService) {
-              return customGraphiteService
+            if (typeof graphiteUrlOrService == 'string') {
+              return new GraphiteService(graphiteUrlOrService)
+
             }
-            return new GraphiteService(graphiteUrl)
+            return graphiteUrlOrService
           },
           inject: ['IConfigService'],
         },

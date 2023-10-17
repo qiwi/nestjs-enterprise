@@ -51,7 +51,7 @@ describe('MetricModuleStatic', () => {
   after(async () => {
     await moduleFixture?.close()
   })
-  
+
   it('should be defined without parameters', () => {
     const metricService = moduleFixture.get('IMetricService')
     const graphiteService = moduleFixture.get('IGraphiteService')
