@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-metric@3.2.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.9-qiwi.nestjs-enterprise-metric.3.1.0-f0...2023.10.17-qiwi.nestjs-enterprise-metric.3.2.0-f0) (2023-10-17)
+
+### Features
+* feat(metric): add metric module (#109) [3aa7a08](https://github.com/qiwi/nestjs-enterprise/commit/3aa7a0850bf42372ffae1ead267be17b9b3d5b39)
+
 ## [@qiwi/nestjs-enterprise-metric@3.1.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.9.26-qiwi.nestjs-enterprise-metric.3.0.2-f0...2023.10.9-qiwi.nestjs-enterprise-metric.3.1.0-f0) (2023-10-09)
 
 ### Features
