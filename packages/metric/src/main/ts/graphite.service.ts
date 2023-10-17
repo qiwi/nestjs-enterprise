@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import GraphiteClient from 'graphite'
+
 import { IGraphiteService } from './graphite.servise.interface'
 
 @Injectable()

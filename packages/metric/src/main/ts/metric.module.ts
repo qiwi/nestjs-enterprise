@@ -1,7 +1,10 @@
-import { GraphiteService, MetricService } from './'
-import { DynamicModule, Global, Module } from '@nestjs/common'
 import { IConfig } from '@qiwi/substrate'
+
+import { DynamicModule, Global, Module } from '@nestjs/common'
+
+import { GraphiteService, MetricService } from './'
 import { IGraphiteService } from './graphite.servise.interface'
+
 @Global()
 @Module({
   providers: [
@@ -11,7 +14,7 @@ import { IGraphiteService } from './graphite.servise.interface'
         const url = config.get('graphite.url')
         return new GraphiteService(url)
       },
-      inject: ['IConfigService'], 
+      inject: ['IConfigService'],
     },
     {
       provide: 'IMetricService',

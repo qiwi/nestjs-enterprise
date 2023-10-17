@@ -1,6 +1,7 @@
 import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 // @ts-ignore
 import { Histogram, Meter, Timer } from 'measured-core'
+
 import { IMetricService } from './metric.service.interface'
 
 @Injectable()
