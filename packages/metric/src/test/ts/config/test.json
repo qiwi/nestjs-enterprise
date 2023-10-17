@@ -1,0 +1,43 @@
+{
+  "data": {
+    "name": "test-name-app",
+    "local": "$env:LOCAL",
+    "version": "$pkg:version",
+
+    "graphite": {
+      "url": "http://graphite-url.com"
+    },
+
+    "metric": {
+      "prefix": "metric",
+      "interval": 30
+    },
+
+    "logger": {
+      "level": "debug",
+      "dir": "$logDir:",
+      "maxsize": 157286400,
+      "datePattern": "YYYY-MM-DD",
+      "appJsonFilename": "application-json.log",
+      "appFilename": "testlog.log",
+      "maxFiles": 10,
+      "tailable": true,
+      "zippedArchive": true
+    }
+  },
+  "sources": {
+    "logDir": {
+      "data": ["src/test/ts", "log"],
+      "pipeline": "path"
+    },
+    "env": {
+      "pipeline": "env"
+    },
+    "host": {
+      "pipeline": "ip"
+    },
+    "pkg": {
+      "pipeline": "pkg"
+    }
+  }
+}

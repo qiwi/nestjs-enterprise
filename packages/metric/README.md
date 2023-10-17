@@ -60,9 +60,8 @@ export class TestClassController {
     providers: [{
         provide: 'IMetricService',
         useFactory: (graphiteService)=>{
-            return new MetricService(graphiteService, {prefix: '$some$your$metric', interval: 1000})
-        },
-        inject: ['IGraphiteService']
+            return new MetricService(graphiteService).register({prefix: '$some$your$metric-prefix', interval: 1000})
+        }
     }, {
         provide: 'IGraphiteService',
         useFactory: ()=>{
@@ -73,6 +72,65 @@ export class TestClassController {
 
 export class AppModule {}
 ```
+### MetricModule
+The MetricModule provides functionality for working with metrics in your application. 
+It adds the MetricService to the application using the IMetricService token and GraphiteService using the IGraphiteService token.
+ConfigModule is required for MetricModule to work
+
+### Static import
+```typescript
+import { Module } from '@nestjs/common'
+import { MetricModule} from '@qiwi/nestjs-enterprise-metric'
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+
+@Module({
+  imports: [
+    MetricModule, 
+    ConfigMoudle,
+  ],
+})
+export class AppModule {}
+```
+In this case you should specify parameters in config file
+```json
+{
+    "data": {
+      "name": "test-name-app",
+
+      "graphite": {
+        "url": "http://graphite-url.com"
+      },
+
+      "metric":{
+        "prefix": "metric",
+        "interval": 30
+      },
+  }
+}
+```
+
+### Dynamic import
+
+```typescript
+import { Module } from '@nestjs/common'
+import { MetricModule} from '@qiwi/nestjs-enterprise-metric'
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+
+@Module({
+  imports: [
+    MetricModule.register({
+      graphiteApiEndpoint: 'https://localhost:8080',
+      metricsConfig: { prefix: 'some-prefix'; interval: 5000 },
+    }),
+    ConfigModule.register({ path: 'some/path' })
+  ],
+})
+export class AppModule {}
+```
+You can pass parameters to a `MetricModule.register()` method
+- graphiteUrlOrService - URL for connecting to the Graphite API or your own implementation of IGraphiteService
+- metricsConfig.prefix - prefix for metric entry name
+- metricsConfig.interval - period of metric sending in ms
 
 ## API
 ### Class MetricModule
