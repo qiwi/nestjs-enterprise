@@ -1,4 +1,5 @@
 import { IConfig } from '@qiwi/substrate'
+import { ILogger } from '@qiwi/substrate'
 
 import { DynamicModule, Global, Module } from '@nestjs/common'
 
@@ -18,12 +19,16 @@ import { IGraphiteService } from './graphite.servise.interface'
     },
     {
       provide: 'IMetricService',
-      useFactory: (graphiteService: IGraphiteService, config: IConfig) => {
+      useFactory: (
+        graphiteService: IGraphiteService,
+        config: IConfig,
+        logger: ILogger,
+      ) => {
         const options = {
           prefix: config.get('metric.prefix'),
           interval: config.get('metric.interval'),
         }
-        return new MetricService(graphiteService, options)
+        return new MetricService(graphiteService, options, logger)
       },
       inject: ['IGraphiteService', 'IConfigService'],
     },
@@ -49,8 +54,8 @@ export class MetricModule {
         },
         {
           provide: 'IMetricService',
-          useFactory: (graphiteService) => {
-            return new MetricService(graphiteService, metricsConfig)
+          useFactory: (graphiteService, logger) => {
+            return new MetricService(graphiteService, metricsConfig, logger)
           },
           inject: ['IGraphiteService'],
         },
