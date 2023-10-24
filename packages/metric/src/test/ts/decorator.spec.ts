@@ -64,7 +64,7 @@ describe('Decorators', () => {
             return new MetricService(graphiteService, {
               interval: 0,
               prefix: 'decorator-test-prefix',
-            })
+            }, console)
           },
           inject: ['IGraphiteService'],
         },

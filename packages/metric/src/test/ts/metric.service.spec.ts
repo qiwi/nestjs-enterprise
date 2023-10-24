@@ -2,8 +2,6 @@ import { equal } from 'node:assert'
 import assert from 'node:assert/strict'
 import { before, describe, it } from 'node:test'
 
-import { ILogger } from '@qiwi/substrate'
-
 import lodash from 'lodash'
 
 import { getNodeMetrics, MetricService } from '../../main/ts'
@@ -23,8 +21,6 @@ const toMatchObjectTypes = (
   }
 }
 
-let testLogger: ILogger
-
 describe('MetricService', () => {
   let metricAcc: Record<string, any> = {}
   const graphiteMock = {
@@ -38,7 +34,7 @@ describe('MetricService', () => {
       prefix: 'prefix',
       interval: 0,
     },
-    testLogger,
+    console,
   )
 
   it('timer', async () => {
@@ -136,7 +132,7 @@ describe('MetricService', () => {
         interval: 0,
         prefix: 'decorator-test-prefix',
       },
-      testLogger,
+      console,
     )
   })
 
