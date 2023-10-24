@@ -1,6 +1,6 @@
 import type { ILogger } from '@qiwi/substrate'
 
-import { Inject, Injectable, Logger, OnModuleDestroy } from '@nestjs/common'
+import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 // @ts-ignore
 import { Histogram, Meter, Timer } from 'measured-core'
 

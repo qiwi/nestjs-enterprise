@@ -1,5 +1,4 @@
-import { IConfig } from '@qiwi/substrate'
-import { ILogger } from '@qiwi/substrate'
+import type { IConfig, ILogger } from '@qiwi/substrate'
 
 import { DynamicModule, Global, Module } from '@nestjs/common'
 
