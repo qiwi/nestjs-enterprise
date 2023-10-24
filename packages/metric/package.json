@@ -3,6 +3,7 @@
   "version": "1.6.1",
   "description": "Metric module for nestjs enterprise",
   "type": "module",
+  "types": "./target/esm/index.d.ts",
   "publishConfig": {
     "access": "public",
     "type": "module",
@@ -23,6 +24,11 @@
     ]
   },
   "exports": "./src/main/ts/index.ts",
+  "files": [
+    "target/cjs/**/*",
+    "target/esm/**/*",
+    "target/buildstamp.json"
+  ],
   "dependencies": {
     "@nestjs/common": "^10.1.3",
     "@nestjs/core": "^10.1.3",
