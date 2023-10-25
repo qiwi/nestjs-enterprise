@@ -29,7 +29,7 @@ import { IGraphiteService } from './graphite.servise.interface'
         }
         return new MetricService(graphiteService, options, logger)
       },
-      inject: ['IGraphiteService', 'IConfigService'],
+      inject: ['IGraphiteService', 'IConfigService', 'ILogger'],
     },
   ],
   exports: ['IGraphiteService', 'IMetricService'],
@@ -56,7 +56,7 @@ export class MetricModule {
           useFactory: (graphiteService, logger) => {
             return new MetricService(graphiteService, metricsConfig, logger)
           },
-          inject: ['IGraphiteService'],
+          inject: ['IGraphiteService', 'ILogger'],
         },
       ],
       exports: ['IGraphiteService', 'IMetricService'],
