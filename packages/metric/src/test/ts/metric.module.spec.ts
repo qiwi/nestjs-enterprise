@@ -4,9 +4,10 @@ import { after, before } from 'node:test'
 import { describe, it } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+
 import { Test } from '@nestjs/testing'
 
-import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { MetricModule } from '../../main/ts/metric.module'
 
 const testConfigPath = path.join(

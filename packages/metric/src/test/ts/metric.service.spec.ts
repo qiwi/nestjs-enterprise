@@ -118,7 +118,7 @@ describe('MetricService', () => {
 describe('MetricService', () => {
   let metricService: MetricService
   let graphiteService: IGraphiteService
-  
+
   before(() => {
     graphiteService = {
       sendMetric: async () => {
@@ -132,14 +132,14 @@ describe('MetricService', () => {
         interval: 0,
         prefix: 'decorator-test-prefix',
       },
-      console, 
+      console,
     )
   })
 
   it('should not throw an error when pushing metrics', async (t) => {
-    t.mock.method(console, 'error');
-    assert.strictEqual((console.error as any).mock.calls.length, 0);
+    t.mock.method(console, 'error')
+    assert.strictEqual((console.error as any).mock.calls.length, 0)
     await assert.doesNotReject(metricService.push())
-    assert.strictEqual((console.error as any).mock.calls.length, 1);
+    assert.strictEqual((console.error as any).mock.calls.length, 1)
   })
-  })
+})
