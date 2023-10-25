@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { Test } from '@nestjs/testing'
 
-import { ConfigModule } from '../../../../config/src/main/ts/config.module'
+import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
 import { MetricModule } from '../../main/ts/metric.module'
 
 const testConfigPath = path.join(

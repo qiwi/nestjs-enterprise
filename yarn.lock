@@ -511,6 +511,7 @@ __metadata:
     "@qiwi/decorator-utils": "npm:^4.5.4"
     "@types/graphite": "npm:^0.1.0"
     "@types/lodash": "npm:^4.14.198"
+    "@types/node": "npm:^20.8.8"
     graphite: "npm:^0.1.5"
     lodash: "npm:^4.17.21"
     measured-reporting: "npm:^2.0.0"
@@ -986,6 +987,15 @@ __metadata:
   version: 10.17.60
   resolution: "@types/node@npm:10.17.60"
   checksum: 40a5535f8a2d839799b41557a170a334415bab485ee73dd30534eefad9a63254d12d2faf61ce7cbce2521d736ed0570e18f75d780daad2129d6ca21e8d1811ef
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.8.8":
+  version: 20.8.8
+  resolution: "@types/node@npm:20.8.8"
+  dependencies:
+    undici-types: "npm:~5.25.1"
+  checksum: 7697e8631f0559e6118382d80dc0c5daafe9709f540341f7cd5f0ad360c9a36a8a1c5732a42a29030d1b290bb8dd0798dad4db624f1843014d51589c819f8f5a
   languageName: node
   linkType: hard
 
@@ -3439,6 +3449,13 @@ __metadata:
   dependencies:
     "@lukeed/csprng": "npm:^1.0.0"
   checksum: ff7fd6551b61a43f0c197a3b69c3ba610e0ff02e74f0e07b702a41854fa2e29268a24c992345e8d31dfe0f74576f9861c17571377108bb88dd69e4057259bbd5
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.25.1":
+  version: 5.25.3
+  resolution: "undici-types@npm:5.25.3"
+  checksum: 676aa4fd4c1ebcdcac27f5de1aa219f8d876b449e4b7cd2528d239de849cddad7c73d509cbccd71f70f981ec53c5233bf16108c5e20a0e5bf82c17ccb218d7c4
   languageName: node
   linkType: hard
 
