@@ -61,10 +61,14 @@ describe('Decorators', () => {
         {
           provide: 'IMetricService',
           useFactory(graphiteService) {
-            return new MetricService(graphiteService, {
-              interval: 0,
-              prefix: 'decorator-test-prefix',
-            })
+            return new MetricService(
+              graphiteService,
+              {
+                interval: 0,
+                prefix: 'decorator-test-prefix',
+              },
+              console,
+            )
           },
           inject: ['IGraphiteService'],
         },

@@ -5,6 +5,7 @@ import { describe, it } from 'node:test'
 import { fileURLToPath } from 'node:url'
 
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 
 import { Test } from '@nestjs/testing'
 
@@ -28,6 +29,7 @@ describe('MetricModuleDynamic', () => {
       imports: [
         MetricModule.register(graphiteApiEndpoint, { prefix, interval }),
         ConfigModule.register({ path: testConfigPath }),
+        LoggerModule,
       ],
     }).compile()
   })
@@ -48,7 +50,11 @@ describe('MetricModuleStatic', () => {
   let moduleFixture: any
   before(async () => {
     moduleFixture = await Test.createTestingModule({
-      imports: [MetricModule, ConfigModule.register({ path: testConfigPath })],
+      imports: [
+        MetricModule,
+        ConfigModule.register({ path: testConfigPath }),
+        LoggerModule,
+      ],
     }).compile()
   })
 

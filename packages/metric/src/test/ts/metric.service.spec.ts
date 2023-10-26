@@ -1,9 +1,11 @@
 import { equal } from 'node:assert'
-import { describe, it } from 'node:test'
+import assert from 'node:assert/strict'
+import { before, describe, it } from 'node:test'
 
 import lodash from 'lodash'
 
 import { getNodeMetrics, MetricService } from '../../main/ts'
+import { IGraphiteService } from '../../main/ts/graphite.servise.interface'
 
 const toMatchObject = (actual: any, expected: any) => {
   equal(lodash.isMatch(actual, expected), true)
@@ -26,10 +28,14 @@ describe('MetricService', () => {
       metricAcc = { ...metricAcc, ...metric }
     },
   }
-  const metricService = new MetricService(graphiteMock, {
-    prefix: 'prefix',
-    interval: 0,
-  })
+  const metricService = new MetricService(
+    graphiteMock,
+    {
+      prefix: 'prefix',
+      interval: 0,
+    },
+    console,
+  )
 
   it('timer', async () => {
     await metricService.timer('timer').update(100)
@@ -106,5 +112,34 @@ describe('MetricService', () => {
       'prefix.node.os.freemem': 'number',
       'prefix.node.os.totalmem': 'number',
     })
+  })
+})
+
+describe('MetricService', () => {
+  let metricService: MetricService
+  let graphiteService: IGraphiteService
+
+  before(() => {
+    graphiteService = {
+      sendMetric: async () => {
+        throw new Error('Error sending metric')
+      },
+    }
+
+    metricService = new MetricService(
+      graphiteService,
+      {
+        interval: 0,
+        prefix: 'decorator-test-prefix',
+      },
+      console,
+    )
+  })
+
+  it('should not throw an error when pushing metrics', async (t) => {
+    t.mock.method(console, 'error')
+    assert.strictEqual((console.error as any).mock.calls.length, 0)
+    await assert.doesNotReject(metricService.push())
+    assert.strictEqual((console.error as any).mock.calls.length, 1)
   })
 })

@@ -1,3 +1,5 @@
+import type { ILogger } from '@qiwi/substrate'
+
 import { Inject, Injectable, OnModuleDestroy } from '@nestjs/common'
 // @ts-ignore
 import { Histogram, Meter, Timer } from 'measured-core'
@@ -21,6 +23,7 @@ export class MetricService implements OnModuleDestroy, IMetricService {
   constructor(
     @Inject('IGraphiteService') private graphiteService: any,
     opts: { prefix: string; interval: number },
+    @Inject('ILogger') private logger: ILogger,
   ) {
     this.metricPrefix = opts.prefix
     if (opts.interval) {
@@ -68,14 +71,18 @@ export class MetricService implements OnModuleDestroy, IMetricService {
   }
 
   async push() {
-    const metric = {
-      ...this.formatTimers(),
-      ...this.formatMeter(),
-      ...this.formatHistogram(),
-      ...(await this.getMetricsFromCallbacks()),
-    }
+    try {
+      const metric = {
+        ...this.formatTimers(),
+        ...this.formatMeter(),
+        ...this.formatHistogram(),
+        ...(await this.getMetricsFromCallbacks()),
+      }
 
-    return this.graphiteService.sendMetric(metric)
+      return await this.graphiteService.sendMetric(metric)
+    } catch (error) {
+      this.logger.error('Error sending metric', error)
+    }
   }
 
   /**
