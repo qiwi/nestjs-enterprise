@@ -1,3 +1,11 @@
+## [@qiwi/nestjs-enterprise-metric@4.0.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.17-qiwi.nestjs-enterprise-metric.3.2.0-f0...2023.10.26-qiwi.nestjs-enterprise-metric.4.0.0-f0) (2023-10-26)
+
+### Fixes & improvements
+* fix(metric): service.push does not throw error (#111) [65f7f55](https://github.com/qiwi/nestjs-enterprise/commit/65f7f55ee981dbb87225ab276e12738a147b0c35)
+
+### BREAKING CHANGES
+* fix(metric): service.push does not throw error (#111) [65f7f55](https://github.com/qiwi/nestjs-enterprise/commit/65f7f55ee981dbb87225ab276e12738a147b0c35)
+
 ## [@qiwi/nestjs-enterprise-metric@3.2.0](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.9-qiwi.nestjs-enterprise-metric.3.1.0-f0...2023.10.17-qiwi.nestjs-enterprise-metric.3.2.0-f0) (2023-10-17)
 
 ### Features
