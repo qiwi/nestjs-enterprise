@@ -25,7 +25,7 @@
 <li><span class="tsd-signature-type ">OnModuleDestroy</span></li>
 <li><a href="../interfaces/IMetricService.html" class="tsd-signature-type tsd-kind-interface">IMetricService</a></li></ul></section><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L8">packages/metric/src/main/ts/metric.service.ts:8</a></li></ul></aside>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L10">packages/metric/src/main/ts/metric.service.ts:10</a></li></ul></aside>
 <section class="tsd-panel-group tsd-index-group">
 <section class="tsd-panel tsd-index-panel">
 <details class="tsd-index-content tsd-index-accordion" open><summary class="tsd-accordion-summary tsd-index-summary">
@@ -42,6 +42,7 @@
 <a href="MetricService.html#collectionTimer" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>collection<wbr/>Timer</span></a>
 <a href="MetricService.html#graphiteService" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>graphite<wbr/>Service</span></a>
 <a href="MetricService.html#interval" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>interval</span></a>
+<a href="MetricService.html#logger" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>logger</span></a>
 <a href="MetricService.html#metricPrefix" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>metric<wbr/>Prefix</span></a>
 <a href="MetricService.html#metricsCallbacks" class="tsd-index-link tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>metrics<wbr/>Callbacks</span></a>
 </div></section>
@@ -64,7 +65,7 @@
 <section class="tsd-panel tsd-member"><a id="constructor" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>constructor</span><a href="#constructor" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
-<li class="tsd-signature tsd-anchor-link" id="constructor.new_MetricService"><span class="tsd-kind-constructor-signature">new <wbr/>Metric<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">graphiteService</span>, <span class="tsd-kind-parameter">opts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="MetricService.html" class="tsd-signature-type tsd-kind-class">MetricService</a><a href="#constructor.new_MetricService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="constructor.new_MetricService"><span class="tsd-kind-constructor-signature">new <wbr/>Metric<wbr/>Service</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">graphiteService</span>, <span class="tsd-kind-parameter">opts</span>, <span class="tsd-kind-parameter">logger</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="MetricService.html" class="tsd-signature-type tsd-kind-class">MetricService</a><a href="#constructor.new_MetricService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></li>
 <li class="tsd-description">
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
@@ -77,42 +78,49 @@
 <li class="tsd-parameter">
 <h5><span class="tsd-kind-property">interval</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5></li>
 <li class="tsd-parameter">
-<h5><span class="tsd-kind-property">prefix</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></li></ul></div>
+<h5><span class="tsd-kind-property">prefix</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5></li></ul></li>
+<li>
+<h5><span class="tsd-kind-parameter">logger</span>: <span class="tsd-signature-type ">ILogger</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <a href="MetricService.html" class="tsd-signature-type tsd-kind-class">MetricService</a></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L21">packages/metric/src/main/ts/metric.service.ts:21</a></li></ul></aside></li></ul></section></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L23">packages/metric/src/main/ts/metric.service.ts:23</a></li></ul></aside></li></ul></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Properties</h2>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="collectionHistogram" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>collection<wbr/>Histogram</span><a href="#collectionHistogram" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">collection<wbr/>Histogram</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">Histogram</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L10">packages/metric/src/main/ts/metric.service.ts:10</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L12">packages/metric/src/main/ts/metric.service.ts:12</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="collectionMeter" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>collection<wbr/>Meter</span><a href="#collectionMeter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">collection<wbr/>Meter</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">Meter</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L11">packages/metric/src/main/ts/metric.service.ts:11</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L13">packages/metric/src/main/ts/metric.service.ts:13</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="collectionTimer" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>collection<wbr/>Timer</span><a href="#collectionTimer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">collection<wbr/>Timer</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type ">Timer</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = {}</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L9">packages/metric/src/main/ts/metric.service.ts:9</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L11">packages/metric/src/main/ts/metric.service.ts:11</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="graphiteService" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>graphite<wbr/>Service</span><a href="#graphiteService" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">graphite<wbr/>Service</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L22">packages/metric/src/main/ts/metric.service.ts:22</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L24">packages/metric/src/main/ts/metric.service.ts:24</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="interval" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>interval</span><a href="#interval" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">interval</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L15">packages/metric/src/main/ts/metric.service.ts:15</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L17">packages/metric/src/main/ts/metric.service.ts:17</a></li></ul></aside></section>
+<section class="tsd-panel tsd-member tsd-is-private"><a id="logger" class="tsd-anchor"></a>
+<h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>logger</span><a href="#logger" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
+<div class="tsd-signature"><span class="tsd-kind-property">logger</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type ">ILogger</span></div><aside class="tsd-sources">
+<ul>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L26">packages/metric/src/main/ts/metric.service.ts:26</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="metricPrefix" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <code class="tsd-tag ts-flagReadonly">Readonly</code> <span>metric<wbr/>Prefix</span><a href="#metricPrefix" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">metric<wbr/>Prefix</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L14">packages/metric/src/main/ts/metric.service.ts:14</a></li></ul></aside></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L16">packages/metric/src/main/ts/metric.service.ts:16</a></li></ul></aside></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="metricsCallbacks" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>metrics<wbr/>Callbacks</span><a href="#metricsCallbacks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <div class="tsd-signature"><span class="tsd-kind-property">metrics<wbr/>Callbacks</span><span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span><span class="tsd-kind-parameter">args</span><span class="tsd-signature-symbol">?</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = []</span></div>
@@ -130,7 +138,7 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">args</span>: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4></li></ul></li></ul></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L12">packages/metric/src/main/ts/metric.service.ts:12</a></li></ul></aside></section></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L14">packages/metric/src/main/ts/metric.service.ts:14</a></li></ul></aside></section></section>
 <section class="tsd-panel-group tsd-member-group">
 <h2>Methods</h2>
 <section class="tsd-panel tsd-member"><a id="attach" class="tsd-anchor"></a>
@@ -160,7 +168,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 <div class="tsd-comment tsd-typography"></div><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L85">packages/metric/src/main/ts/metric.service.ts:85</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L92">packages/metric/src/main/ts/metric.service.ts:92</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="clearInterval" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>clear<wbr/>Interval</span><a href="#clearInterval" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -168,7 +176,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L89">packages/metric/src/main/ts/metric.service.ts:89</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L96">packages/metric/src/main/ts/metric.service.ts:96</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="formatHistogram" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>format<wbr/>Histogram</span><a href="#formatHistogram" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-private">
@@ -176,7 +184,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L133">packages/metric/src/main/ts/metric.service.ts:133</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L140">packages/metric/src/main/ts/metric.service.ts:140</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="formatMeter" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>format<wbr/>Meter</span><a href="#formatMeter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-private">
@@ -184,7 +192,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L121">packages/metric/src/main/ts/metric.service.ts:121</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L128">packages/metric/src/main/ts/metric.service.ts:128</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="formatTimers" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>format<wbr/>Timers</span><a href="#formatTimers" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-private">
@@ -192,7 +200,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Record</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L102">packages/metric/src/main/ts/metric.service.ts:102</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L109">packages/metric/src/main/ts/metric.service.ts:109</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member tsd-is-private"><a id="getMetricsFromCallbacks" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><code class="tsd-tag ts-flagPrivate">Private</code> <span>get<wbr/>Metrics<wbr/>From<wbr/>Callbacks</span><a href="#getMetricsFromCallbacks" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures tsd-is-private">
@@ -200,7 +208,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L93">packages/metric/src/main/ts/metric.service.ts:93</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L100">packages/metric/src/main/ts/metric.service.ts:100</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="histogram" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>histogram</span><a href="#histogram" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -225,10 +233,10 @@
 <h5><span class="tsd-kind-parameter">value</span>: <span class="tsd-signature-type">number</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L38">packages/metric/src/main/ts/metric.service.ts:38</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L41">packages/metric/src/main/ts/metric.service.ts:41</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/IMetricService.html">IMetricService</a>.<a href="../interfaces/IMetricService.html#histogram">histogram</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L31">packages/metric/src/main/ts/metric.service.ts:31</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L34">packages/metric/src/main/ts/metric.service.ts:34</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="meter" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>meter</span><a href="#meter" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -253,10 +261,10 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">value</span>: <span class="tsd-signature-type">number</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L51">packages/metric/src/main/ts/metric.service.ts:51</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L54">packages/metric/src/main/ts/metric.service.ts:54</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/IMetricService.html">IMetricService</a>.<a href="../interfaces/IMetricService.html#meter">meter</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L44">packages/metric/src/main/ts/metric.service.ts:44</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L47">packages/metric/src/main/ts/metric.service.ts:47</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="onModuleDestroy" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>on<wbr/>Module<wbr/>Destroy</span><a href="#onModuleDestroy" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -265,7 +273,7 @@
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <p>Implementation of OnModuleDestroy.onModuleDestroy</p>
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L17">packages/metric/src/main/ts/metric.service.ts:17</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L19">packages/metric/src/main/ts/metric.service.ts:19</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="push" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>push</span><a href="#push" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -273,7 +281,7 @@
 <li class="tsd-description">
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type ">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L70">packages/metric/src/main/ts/metric.service.ts:70</a></li></ul></aside></li></ul></section>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L73">packages/metric/src/main/ts/metric.service.ts:73</a></li></ul></aside></li></ul></section>
 <section class="tsd-panel tsd-member"><a id="timer" class="tsd-anchor"></a>
 <h3 class="tsd-anchor-link"><span>timer</span><a href="#timer" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="#icon-anchor"></use></svg></a></h3>
 <ul class="tsd-signatures">
@@ -298,10 +306,10 @@
 <h5><code class="tsd-tag ts-flagOptional">Optional</code> <span class="tsd-kind-parameter">value</span>: <span class="tsd-signature-type">number</span></h5></li></ul></div>
 <h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L64">packages/metric/src/main/ts/metric.service.ts:64</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L67">packages/metric/src/main/ts/metric.service.ts:67</a></li></ul></aside></li></ul></li></ul><aside class="tsd-sources">
 <p>Implementation of <a href="../interfaces/IMetricService.html">IMetricService</a>.<a href="../interfaces/IMetricService.html#timer">timer</a></p>
 <ul>
-<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/267660c/packages/metric/src/main/ts/metric.service.ts#L57">packages/metric/src/main/ts/metric.service.ts:57</a></li></ul></aside></li></ul></section></section></div>
+<li>Defined in <a href="https://github.com/qiwi/nestjs-enterprise/blob/93daff8/packages/metric/src/main/ts/metric.service.ts#L60">packages/metric/src/main/ts/metric.service.ts:60</a></li></ul></aside></li></ul></section></section></div>
 <div class="col-sidebar">
 <div class="page-menu">
 <div class="tsd-navigation settings">
@@ -327,6 +335,7 @@
 <li><a href="#collectionTimer" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>collection<wbr/>Timer</span></a></li>
 <li><a href="#graphiteService" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>graphite<wbr/>Service</span></a></li>
 <li><a href="#interval" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>interval</span></a></li>
+<li><a href="#logger" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>logger</span></a></li>
 <li><a href="#metricPrefix" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>metric<wbr/>Prefix</span></a></li>
 <li><a href="#metricsCallbacks" class="tsd-is-private"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-1024"></use></svg><span>metrics<wbr/>Callbacks</span></a></li>
 <li><a href="#attach" class=""><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="#icon-2048"></use></svg><span>attach</span></a></li>
