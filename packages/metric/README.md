@@ -75,18 +75,20 @@ export class AppModule {}
 ### MetricModule
 The MetricModule provides functionality for working with metrics in your application. 
 It adds the MetricService to the application using the IMetricService token and GraphiteService using the IGraphiteService token.
-ConfigModule is required for MetricModule to work
+ConfigModule and LoggerModule are required for MetricModule to work
 
 ### Static import
 ```typescript
 import { Module } from '@nestjs/common'
 import { MetricModule} from '@qiwi/nestjs-enterprise-metric'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 
 @Module({
   imports: [
     MetricModule, 
-    ConfigMoudle,
+    ConfigModule,
+    LoggerModule
   ],
 })
 export class AppModule {}
@@ -115,6 +117,7 @@ In this case you should specify parameters in config file
 import { Module } from '@nestjs/common'
 import { MetricModule} from '@qiwi/nestjs-enterprise-metric'
 import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
+import { LoggerModule } from '@qiwi/nestjs-enterprise-logger'
 
 @Module({
   imports: [
@@ -122,7 +125,8 @@ import { ConfigModule } from '@qiwi/nestjs-enterprise-config'
       graphiteApiEndpoint: 'https://localhost:8080',
       metricsConfig: { prefix: 'some-prefix'; interval: 5000 },
     }),
-    ConfigModule.register({ path: 'some/path' })
+    ConfigModule.register({ path: 'some/path' }),
+    LoggerModule
   ],
 })
 export class AppModule {}
