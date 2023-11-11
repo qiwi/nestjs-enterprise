@@ -390,7 +390,7 @@ __metadata:
     "@types/graphite": "npm:^0.1.0"
     "@types/lodash": "npm:^4.14.198"
     "@types/supertest": "npm:^2.0.12"
-    axios: "npm:^1.4.0"
+    axios: "npm:^1.6.0"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.0"
     express: "npm:^4.18.2"
@@ -1251,14 +1251,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "axios@npm:1.4.0"
+"axios@npm:^1.6.0":
+  version: 1.6.1
+  resolution: "axios@npm:1.6.1"
   dependencies:
     follow-redirects: "npm:^1.15.0"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 391f7fdb89b0c09d72b825eccf396b3b501c569e8dab759155c4f84b47bb4004432b99d8686758493a3b1d1673c5efd0e4b948108bb0d3de74ca1a8d30877aa6
+  checksum: a306bd74ddac770dc2529108059a4294d594e952056ac330d27c1755b7d3f6cbdde1c58fb748b979e2b2a13f47024e0d6bfd219fc6901558775c7148e520b96c
   languageName: node
   linkType: hard
 
