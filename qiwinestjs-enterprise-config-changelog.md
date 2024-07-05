@@ -1,3 +1,8 @@
+## [@qiwi/nestjs-enterprise-config@5.2.2](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.12-qiwi.nestjs-enterprise-config.5.2.1-f0...2024.7.5-qiwi.nestjs-enterprise-config.5.2.2-f0) (2024-07-05)
+
+### Fixes & improvements
+* perf: remove uniconfig-core from config (#117) [1a00233](https://github.com/qiwi/nestjs-enterprise/commit/1a002336c7847ac3d981769ff6fcc367b55d4532)
+
 ## [@qiwi/nestjs-enterprise-config@5.2.1](https://github.com/qiwi/nestjs-enterprise/compare/2023.10.10-qiwi.nestjs-enterprise-config.5.2.0-f0...2023.10.12-qiwi.nestjs-enterprise-config.5.2.1-f0) (2023-10-12)
 
 ### Fixes & improvements
