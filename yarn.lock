@@ -412,7 +412,6 @@ __metadata:
     "@nestjs/core": "npm:^10.1.3"
     "@nestjs/testing": "npm:^10.2.6"
     "@qiwi/uniconfig": "npm:^3.5.14"
-    "@qiwi/uniconfig-core": "npm:^3.5.4"
     "@qiwi/uniconfig-plugin-ajv": "npm:^3.5.5"
     class-transformer: "npm:^0.5.1"
     class-validator: "npm:^0.14.0"
@@ -657,7 +656,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@qiwi/uniconfig-core@npm:3.5.4, @qiwi/uniconfig-core@npm:^3.5.4":
+"@qiwi/uniconfig-core@npm:3.5.4":
   version: 3.5.4
   resolution: "@qiwi/uniconfig-core@npm:3.5.4"
   dependencies:
